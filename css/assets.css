@@ -209,6 +209,7 @@
 	width: 100%;
 	padding: 0 0 0.84rem;
 	display: flex;
+	-webkit-display: flex;;
 	z-index: 2;
 }
 .assetsxqbottom li{
@@ -254,3 +255,126 @@
 	color: #949494;
 }
 /* 转入 */
+.c_intotopbox{
+	margin: 0 0.32rem;
+	padding: 0.52rem 0 0.48rem;
+}
+.c_intotopinputbox{
+	height: 1.2rem;
+	padding: 0 0.4rem 0 0.52rem;
+	background: #f7f7f7;
+	border-radius: 0.08rem;
+	line-height: 1.2rem;
+	position: relative;
+}
+.c_intotopinputbox .left{
+	position: absolute;
+	left: 0.52rem;
+	top: 0;
+	height: 100%;
+	width: 100%;
+	font-weight: bold;
+	font-size: 18px;
+	color: #303030;
+}
+.c_intotopinputbox .right{
+	float: right;
+	font-size: 12px;
+	color: #999;
+	text-align: right;
+}
+.c_intow{
+	padding: 0 0.32rem;
+}
+.c_intotypetit{
+	font-size: 14px;
+	color: #474747;
+	line-height: 0.52rem;
+	padding-bottom: 0.28rem;
+}
+.c_intonav{
+	padding-bottom: 0.52rem;
+}
+.c_intonav li{
+	float: left;
+	width: 1.92rem;
+	height: 0.84rem;
+	line-height: 0.84rem;
+	background: #f7f7f7;
+	border-radius: 0.08rem;
+	margin-right: 0.32rem;
+	text-align: center;
+	color: #474747;
+	border:1px solid #fff;
+	cursor: pointer;
+}
+.c_intonav li.active{
+	background: #fff;
+	border:1px solid #ffac00;
+	color: #ffac00;
+}
+.c_intoconbox{
+	background: #f7f7f7;
+	border-radius: 0.08rem;
+	padding: 0.76rem 0.32rem 0.44rem;
+}
+.c_intoconewmbox{
+	height: 4.72rem;
+	width: 4.72rem;
+	border:2px solid #f0f0f0;
+	border-radius: 0.24rem;
+	overflow: hidden;
+	margin: 0 auto;
+}
+.c_intoconewmbox img{
+	width: 100%;
+	height: 100%;
+}
+.c_intoewmtip{
+	margin: 0.48rem auto 0;
+	color: #ffac00;
+	font-size: 14px;
+	background: #faf4e6;
+	border:1px solid #fedb93;
+	height: 1.04rem;
+	line-height: 1.04rem;
+	text-align: center;
+	width: 4.2rem;
+}
+.c_intoconbox .text1{
+	text-align: center;
+	color: #999;
+	font-size: 12px;
+	padding: 0.6rem 0 0.36rem;
+	line-height: 0.44rem;
+	
+}
+.c_intoconbox .copytext{
+	text-align: center;
+	color: #303030;
+	font-size: 15px;
+	padding: 0 0 0.4rem;
+	line-height: 0.44rem;
+}
+.c_intoconbox .copybtn{
+	display: block;
+	margin: 0 auto;
+	width: 1.72rem;
+	height: 0.88rem;
+	line-height: 0.88rem;
+	text-align: center;
+	background: #e6e6e6;
+	color: #999;
+	font-size: 12px;
+	border-radius: 0.08rem;
+}
+.c_intotextbox{
+	line-height: 0.64rem;
+	color: #999;
+	font-size: 12px;
+	padding: 0.4rem 0 0.6rem;
+	
+}
+.c_intobottombox{
+	padding-bottom: 0.84rem;
+}

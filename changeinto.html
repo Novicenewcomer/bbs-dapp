@@ -4,22 +4,187 @@
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0">
         <meta name="format-detection" content="telephone=no">
-        <title>目录</title>
+        <title>转入</title>
         <link rel="stylesheet" type="text/css" href="css/public.css"/>
 		<link rel="stylesheet" type="text/css" href="css/assets.css"/>
+		<link rel="stylesheet" type="text/css" href="css/mpicker.css"/>
     </head>
 	<body>
 		<div class="mbdivbg">
 			<div class="mbdivcon">
 				<div class="scrollw_box">
-					
+					<div class="c_intotopbox">
+						<div class="c_intotopinputbox clear">
+							<input class="left selectvalue" type="text" value=""/>
+							<p class="right">选择资产</p>
+						</div>
+					</div>
+					<div class="c_intow">
+						<p class="c_intotypetit">链类型</p>
+						<ul class="c_intonav clear"></ul>
+						<div class="c_intoconbox">
+							<div class="c_intoconewmbox">
+								<img src="" />
+							</div>
+							<p class="c_intoewmtip">保存二维码图片</p>
+							<p class="text1">转入地址</p>
+							<p class="copytext" id="copybtntext"></p>
+							<button class="copybtn" id="copybtn" data-clipboard-action="copy" data-clipboard-target="#copybtntext">复制</button>
+						</div>
+						<div class="c_intotextbox">
+							<p>请勿向上述地址转入任何非FF资产，否则资产将不可找回。</p>
+							<p>转入上述地址后，需要整个网络节点确认，1次网络确认后到账，1次网络确认后可转出。</p>
+							<p>最小转入金额：1000FF。</p>
+						</div>
+						<div class="c_intobottombox">
+							<a class="yellowreturnpagebtn" href="javascript:history.back(-1)">返回</a>
+						</div>
+					</div>
 				</div>
 			</div>
 		</div>
-	</body>
-	<script src="js/jquery.js"></script>
-	<script src="js/public.js"></script>
-	<script>
 		
+	</body>
+	<script src="js/jquery.js" type="text/javascript" charset="utf-8"></script>
+	<script src="js/public.js" type="text/javascript" charset="utf-8"></script>
+	<script src="js/clipboard.min.js" type="text/javascript" charset="utf-8"></script>
+	<script src="js/mPicker.min.js" type="text/javascript" charset="utf-8"></script>
+	<script>
+		var scdata = {//初始数据
+			"zctype":"1"//ids
+		}
+		var navselectdata = [
+			{	
+				"name":'FF',
+				"value":'1',
+				"ids":"0" ,
+				"chain":[
+					{
+						"ids":"00",
+						"name":"ERC20"
+					},
+					{
+						"ids":"01",
+						"name":"ERC21"
+					}
+				]
+			},
+			{	
+				"name":'YL', 
+				"value":'1',
+				"ids":"1" ,
+				"chain":[
+					{
+						"ids":"00",
+						"name":"ERC22"
+					},
+					{
+						"ids":"01",
+						"name":"ERC23"
+					}
+				]
+			},
+			{	
+				"name":'GHHH', 
+				"value":'1',
+				"ids":"2" ,
+				"chain":[
+					{
+						"ids":"00",
+						"name":"ERC24"
+					},
+					{
+						"ids":"01",
+						"name":"ERC25"
+					}
+				]
+			},
+			{	
+				"name":'SDFDSF', 
+				"value":'1',
+				"ids":"3" ,
+				"chain":[
+					{
+						"ids":"00",
+						"name":"ERC26"
+					},
+					{
+						"ids":"01",
+						"name":"ERC27"
+					}
+				]
+			}
+		]
+		$(function(){
+			changeinto.readcon = function(){//改变二维码 
+				console.log(scdata)//数据ids
+				$(".c_intoconewmbox img").attr("src",["lsimg/erweima.png","lsimg/ewm.jpg"][Math.floor(Math.random()*["lsimg/erweima.png","lsimg/ewm.jpg"].length)]);
+				$("#copybtntext").html(Math.floor(Math.random()*(100 - 1) + 1))
+			}
+			
+			var targetText=$("#copybtntext").text();
+	        var clipboard = new Clipboard('#copybtn');
+	        clipboard.on('success', function(e) {
+	            console.log(targetText)
+	            console.info
+	            ('Action:', e.action);
+	            console.info
+	
+	            ('Text:', e.text);
+	            console.info
+	
+	            ('Trigger:', e.trigger);
+	            operationSucedobj.init("复制成功</span>");
+	            e.clearSelection();
+	        });
+			changeinto.init();
+		})
+		var changeinto = {
+			init:function(){
+				var _this = this;
+				this.readsc();
+				$('.c_intonav').on("click","li",function(){
+					$(this).addClass("active").siblings().removeClass("active");
+					scdata.chain = _this.chaindata[$(this).index()].ids;
+					_this.readcon();
+				})
+			},
+			readsc:function(){
+				for(var i=0;i<navselectdata.length;i++){
+					if(navselectdata[i].ids == scdata.zctype){
+						$(".selectvalue").val(navselectdata[i].name)
+						this.chaindata = navselectdata[i].chain;
+						this.readchain();
+						this.readcon();
+					}
+				}
+			},
+			readchain:function(){
+				var ihtml=""
+				for(var i=0;i<this.chaindata.length;i++){
+					ihtml+='<li>'+this.chaindata[i].name+'</li>'
+				}
+				$(".c_intonav").html(ihtml)
+				scdata.chain = this.chaindata[0].ids
+				$(".c_intonav li").eq(0).addClass("active");
+			}
+		}
+		var selectfn=$('.selectvalue').mPicker({
+            level:1,
+            dataJson:navselectdata,
+            Linkage:false,
+            rows:6,
+            idDefault:true,
+            header:'<div class="mPicker-header">选择资产</div>',
+            confirm:function(json){
+				scdata.zctype = json.ids;
+				changeinto.readsc();
+                // console.info('当前选中json：', json);
+            },
+            cancel:function(json){
+                // console.info('当前选中json：', json);
+            }
+        })
+
 	</script>
 </html>

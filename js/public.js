@@ -138,3 +138,50 @@ var linkOpenpage = {
 };
 //
 document.body.addEventListener('touchstart', function () { });
+
+//操作失败提示
+var operationFailedobj = {
+	init:function(text){
+		var _this = this;
+		if(!this.thisdom){
+			this.readthisdomhtml(text);
+		}
+		this.thisdom.find(".y_operationfailtipcon p").html(text);
+		this.thisdom.fadeIn().css({"margin-left":-this.thisdom.outerWidth()/2});
+		clearTimeout(this.timeout);
+		this.timeout = setTimeout(function(){
+			_this.thisdom.fadeOut();
+		},2000);
+	},
+	readthisdomhtml:function(){
+		var _this = this;
+		var thishtml = $(['<div class="y_operationfailtipbox"><div class="y_operationfailtipcon"><p></p></div></div>'].join(""));
+		this.thisdom = thishtml;
+		$("body").append(thishtml);
+	}
+}
+//操作成功提示
+var operationSucedobj = {
+	init:function(text,fn){
+		var _this = this;
+		if(!this.thisdom){
+			this.readthisdomhtml(text);
+		}
+		this.thisdom.find(".y_operationsuctipcon p").html(text);
+		this.thisdom.fadeIn().css({"margin-left":-this.thisdom.outerWidth()/2});
+		clearTimeout(this.timeout);
+		this.timeout = setTimeout(function(){
+			_this.thisdom.fadeOut(function(){
+				if(fn){
+					fn()
+				}
+			});
+		},2000);
+	},
+	readthisdomhtml:function(){
+		var _this = this;
+		var thishtml = $(['<div class="y_operationsuctipbox"><div class="y_operationsuctipcon"><p></p></div></div>'].join(""));
+		this.thisdom = thishtml;
+		$("body").append(thishtml);
+	}
+};
