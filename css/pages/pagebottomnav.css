@@ -1,0 +1,34 @@
+/* 底部导航 */
+.pub_bottomnav{
+	position: absolute;
+	left: 0;
+	bottom: 0;
+	width: 100%;
+	background: #fff;
+	z-index: 100;
+	border-top: 1px solid #efefef;
+}
+.pub_bottomul{
+	display: flex;
+	display: -webkit-flex;
+}
+.pub_bottomul li{
+	flex: 1;
+	-webkit-flex: 1;
+	text-align: center;
+}
+.pub_bottomul a{
+	display: block;
+	color: #acabab;
+	font-size: 12px;
+	line-height: 0.52rem;
+	
+}
+.pub_bottomul li p{
+	font-size: 24px;
+	padding-top: 0.2rem;
+	line-height:26px;
+}
+.pub_bottomul li.active a{
+	color: #303030;
+}

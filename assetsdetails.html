@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html>
+	<head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0">
+        <meta name="format-detection" content="telephone=no">
+        <title>资产</title>
+        <link rel="stylesheet" type="text/css" href="css/public.css"/>
+		<link rel="stylesheet" type="text/css" href="css/assets.css"/>
+    </head>
+	<body>
+		<div class="mbdivbg">
+			<div class="mbdivcon">
+				<div class="scrollw_box">
+					<div class="assetsxq_topbox">
+						<div class="assetsxq_topboxcon clear">
+							<p class="name">FF</p>
+							<a href="javascript:history.back(-1)" class="returnpagebtn">
+								<svg class="icon" aria-hidden="true">
+									<use xlink:href="#iconfanhui-h"></use>
+								</svg>
+							</a>
+						</div>
+						<div class="assetsxqtopcon">
+							<div class="con">
+								<p class="p1">可用</p>
+								<p class="p2">0.00000001</p>
+							</div>
+							<div class="con">
+								<p class="p1">冻结</p>
+								<p class="p2">0.00000001</p>
+							</div>
+							<div class="con">
+								<p class="p1">折合 (CNY)</p>
+								<p class="p2">0.00000001</p>
+							</div>
+						</div>
+					</div>
+					<div class="assetsxqlistbox">
+						<p class="tit">财务记录</p>
+						<ul></ul>
+						<div class="assetsxqno">
+							<p>
+								<svg class="icon" aria-hidden="true">
+									<use xlink:href="#iconxiaohaopinjilu-bian"></use>
+								</svg>
+							</p>
+							<p>还没有留下任何记录哦~</p>
+						</div>
+					</div>
+				</div>
+				<ul class="assetsxqbottom">
+					<li><a href="#">
+					<p>
+						<svg class="icon" aria-hidden="true">
+							<use xlink:href="#icondaoru"></use>
+						</svg>
+					</p>
+					转入</a></li>
+					<li><a href="#">
+					<p>
+						<svg class="icon" aria-hidden="true">
+							<use xlink:href="#icondaochu"></use>
+						</svg>
+					</p>
+					转出</a></li>
+					<li><a href="#">
+					<p>
+						<svg class="icon" aria-hidden="true">
+							<use xlink:href="#iconzhuanhuan"></use>
+						</svg>
+					</p>
+					划转</a></li>
+					<li><a href="#">
+					<p>
+						<svg class="icon" aria-hidden="true">
+							<use xlink:href="#iconjiaoyi1"></use>
+						</svg>
+					</p>
+					交易</a></li>
+				</ul>
+			</div>
+		</div>
+		
+	</body>
+	<script src="js/jquery.js"></script>
+	<script src="js/public.js"></script>
+	<script>
+		$(function(){
+			assetsdetailsObj.readlist = function(){
+				var _this = this;
+				console.log(_this.pagenum);
+				$.ajax({
+					url:"assetsdetails.json",
+					async:false,
+					success:function(data){
+						//临时
+						var lsurl = window.document.location.href.toString().split("?")[1];
+						if(lsurl=="no"){
+							data = []
+						}
+						// 临时end
+						var html = '';
+						if(data.length<1){
+							$(".assetsxqno").show();
+							$(".assetsxqlistbox ul").hide();
+							return false;
+						}
+						for (var i in data) {
+							html = $(['<li><div class="assetslitop assetsxqlitop clear"><p class="name">',
+								data[i].typetext
+							,'</p></div><div class="assetslicon"><div class="con"><p class="p1">数量</p><p class="p2">',
+								data[i].num
+							,'</p></div><div class="con"><p class="p1">状态</p><p class="p2">',
+								data[i].dtext
+							,'</p></div><div class="con"><p class="p1">时间</p><p class="p2">',
+								data[i].time
+							,' ',
+								data[i].date
+							,'</p></div></div></li>'].join(''));
+							$(".assetsxqlistbox ul").append(html);
+							_this.listmove=true;		
+						}
+					}
+				})
+			}
+			assetsdetailsObj.init();
+		})
+		var assetsdetailsObj = {
+			listmove:true,
+			pagenum:1,
+			init:function(opt){
+				var _this = this;
+				_this.readlist();
+				$('.scrollw_box').scroll(function(){
+		            if($(this)[0].scrollHeight-$(this).height()-5<=$(this).scrollTop()){
+		                if(_this.listmove==true){
+		                	_this.pagenum++;
+		                    _this.listmove=false;
+		                    _this.readlist();
+		                };
+		            }
+		        });
+			}
+		}
+	</script>
+</html>
