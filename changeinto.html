@@ -117,6 +117,7 @@
 		]
 		$(function(){
 			changeinto.readcon = function(){//改变二维码 
+				$(".c_intoconewmbox img").attr("src","")
 				console.log(scdata)//数据ids
 				$(".c_intoconewmbox img").attr("src",["lsimg/erweima.png","lsimg/ewm.jpg"][Math.floor(Math.random()*["lsimg/erweima.png","lsimg/ewm.jpg"].length)]);
 				$("#copybtntext").html(Math.floor(Math.random()*(100 - 1) + 1))
