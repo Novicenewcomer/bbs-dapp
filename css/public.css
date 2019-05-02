@@ -106,7 +106,22 @@ h1, h2, h3, h4, h5, h6{font-size: 16px;font-weight:400}
 	background-size: 41px auto;
 	color: #fff;font-size: 15px;
 }
-
+/* 提示 */
+.errorpromptbox {
+    display: none;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    height: 24px;
+    padding: 8px;
+    margin-left: -50%;
+    line-height: 24px;
+    font-size: 14px;
+    color: #fff;
+    background: rgba(0,0,0,.8);
+    border-radius: 15px;
+    z-index: 101;
+}
 /*load*/
 .yy_loadouterbox{
 	position: absolute;width:100%;height:100%;background: #fff;left:0;top:0;z-index: 999;
@@ -115,7 +130,7 @@ h1, h2, h3, h4, h5, h6{font-size: 16px;font-weight:400}
 	position: absolute;width:100%;height:100%;background: #B2D3F9;left:0;top:0;z-index: 999;
 }
 /* 橘色返回按钮 */
-.yellowreturnpagebtn{
+.yellowbtn{
 	border-radius: 2rem;
 	display: block;
 	width: 100%;
@@ -129,4 +144,16 @@ h1, h2, h3, h4, h5, h6{font-size: 16px;font-weight:400}
 	background: -o-linear-gradient(right, #ffd801, #ffaa00); /* Opera 11.1 - 12.0 */
 	background: -moz-linear-gradient(right, #ffd801, #ffaa00); /* Firefox 3.6 - 15 */
 	background: linear-gradient(to right, #ffd801 , #ffaa00); /* 标准的语法 */
+}
+.graybtn{
+	border-radius: 2rem;
+	display: block;
+	width: 100%;
+	height: 1.2rem;
+	line-height: 1.2rem;
+	color: #fff;
+	font-weight: bold;
+	font-size: 15px;
+	text-align: center;
+	background: #e6e5e3;
 }

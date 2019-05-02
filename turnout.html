@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html>
+	<head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0">
+        <meta name="format-detection" content="telephone=no">
+        <title>转出</title>
+        <link rel="stylesheet" type="text/css" href="css/public.css"/>
+		<link rel="stylesheet" type="text/css" href="css/assets.css"/>
+		<link rel="stylesheet" type="text/css" href="css/mpicker.css"/>
+    </head>
+	<body>
+		<div class="mbdivbg">
+			<div class="mbdivcon">
+				<div class="scrollw_box">
+					<div class="c_transfertopbox">
+						<div class="c_ttopinputbox clear">
+							<input class="left selectvalue" type="text" value=""/>
+							<p class="right">选择资产</p>
+						</div>
+					</div>
+					<div class="c_transferw">
+						<p class="c_transfertypetit">链类型</p>
+						<ul class="c_transfernav clear"></ul>
+						<ul class="c_turnoutconbox">
+							<li>
+								<p class="tit">转出地址</p>
+								<div class="con">
+									<input type="text" value="" placeholder="输入或长按粘贴地址" id="taddress"/>
+								</div>
+							</li>
+							<li>
+								<p class="tit">数量</p>
+								<div class="con">
+									<input type="text" value="" id="tnum"/>
+									<div class="tnumrightbox"><span><em class="unittype">FF</em></span><span class="allnum">全部</span></div>
+								</div>
+								<p class="tip">可用 <span></span> <em class="unittype"></em></p>
+							</li>
+							<li>
+								<p class="tit">手续费</p>
+								<div class="con">
+									<p class="feenum">0.00000000</p>
+									<p class="tnumunit"><em class="sxfunittype"></em></p>
+								</div>
+							</li>
+						</ul>
+						<div class="c_turnoutallbox">
+							<p class="tit">到账数量</p>
+							<p class="right"><span class="turnoutdznum">0.00000000</span> <em class="unittype"></em></p>
+						</div>
+						<div class="c_turnoutbottombox">
+							<a class="turnoutbtn" href="javascript:;">转出</a><!-- yellowbtn -->
+							<a href="javascript:history.back(-1)">返回</a>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		
+	</body>
+	<script src="js/jquery.js" type="text/javascript" charset="utf-8"></script>
+	<script src="js/public.js" type="text/javascript" charset="utf-8"></script>
+	<script src="js/mPicker.min.js" type="text/javascript" charset="utf-8"></script>
+	<script>
+		var scdata = {//初始数据
+			"zctype":"0"//ids
+		}
+		var navselectdata = [
+			{	
+				"name":'FF',//资产类型
+				"ids":"0" ,
+				"min":"1000",//最小转账数
+				"has":"28018.28100008",//用户拥有
+				"feeb":"0.002",//手续费比
+				"unittype":"FF",//手续费单位
+				"chain":[
+					{
+						"ids":"00",
+						"name":"ERC20"
+					},
+					{
+						"ids":"01",
+						"name":"ERC21"
+					}
+				]
+			},
+			{	
+				"name":'YL', 
+				"ids":"1" ,
+				"min":"1001",
+				"has":"20000.1",
+				"feeb":"0.003",
+				"unittype":"FF",
+				"chain":[
+					{
+						"ids":"00",
+						"name":"ERC22"
+					},
+					{
+						"ids":"01",
+						"name":"ERC23"
+					}
+				]
+			},
+			{	
+				"name":'GHHH', 
+				"ids":"2" ,
+				"min":"1002",
+				"has":"20000.2",
+				"feeb":"0.004",
+				"unittype":"GHHH",
+				"chain":[
+					{
+						"ids":"00",
+						"name":"ERC24"
+					},
+					{
+						"ids":"01",
+						"name":"ERC25"
+					}
+				]
+			},
+			{	
+				"name":'SDFDSF',
+				"ids":"3" ,
+				"min":"1003",
+				"has":"20000.3",
+				"feeb":"0.005",
+				"unittype":"SDFDSF",
+				"chain":[
+					{
+						"ids":"00",
+						"name":"ERC26"
+					},
+					{
+						"ids":"01",
+						"name":"ERC27"
+					}
+				]
+			}
+		]
+		$(function(){
+			$(".turnoutbtn").on("click",function(){//转账
+				if(turnoutfn.btnd){
+					console.log("资产类型ids:"+scdata.zctype+",资产链类型ids:"+scdata.chain+",地址:"+$("#taddress").val()+",数量:"+$("#tnum").val()+",手续费:"+$(".feenum").html())//数据ids
+				}
+			})
+			turnoutfn.init();
+		})
+		var turnoutfn = {
+			btnd :false,
+			thistypedata:[],
+			chaindata:[],
+			init:function(){
+				var _this = this;
+				this.readsc();
+				$('.c_transfernav').on("click","li",function(){
+					$(this).addClass("active").siblings().removeClass("active");
+					scdata.chain = _this.chaindata[$(this).index()].ids;
+					// _this.resetformcon();
+				})
+				var tokv;
+				$("#tnum").on("input propertychange",function(){
+					var iinput = $(this).val().replace(/\s/g,"");
+					if(!iinput){
+						tokv = "";
+					}else if(!isNumber(iinput*1)){
+						tokv = tokv;
+					}else if(isNumber(iinput*1)&&!decimalNumber(iinput,8)){
+						tokv = tokv;
+					}else{
+						tokv = iinput;
+					}
+					$(this).val(tokv)
+					if(!tokv){
+						$(".feenum").html("0.00000000");
+						$(".turnoutdznum").html("0.00000000")
+					}else{
+						$(".feenum").html(calculationObj.mul(tokv,_this.thistypedata.feeb).toFixed(8))
+						$(".turnoutdznum").html(tokv)
+					}
+					_this.readbtn();
+				})
+				$("#taddress").on("input propertychange",function(){
+					_this.readbtn();
+				})
+				$(".allnum").on("click",function(){
+					$("#tnum").val(_this.thistypedata.has)
+					$(".feenum").html(calculationObj.mul(_this.thistypedata.has,_this.thistypedata.feeb).toFixed(8))
+					$(".turnoutdznum").html(_this.thistypedata.has)
+				})
+			},
+			readsc:function(){
+				for(var i=0;i<navselectdata.length;i++){
+					if(navselectdata[i].ids == scdata.zctype){
+						this.thistypedata = navselectdata[i];
+						$(".selectvalue").val(this.thistypedata.name)
+						this.chaindata = this.thistypedata.chain;
+						this.readchain();
+						this.resetformcon();
+					}
+				}
+			},
+			readchain:function(){
+				var ihtml=""
+				for(var i=0;i<this.chaindata.length;i++){
+					ihtml+='<li>'+this.chaindata[i].name+'</li>'
+				}
+				$(".c_transfernav").html(ihtml)
+				scdata.chain = this.chaindata[0].ids
+				$(".c_transfernav li").eq(0).addClass("active");
+			},
+			resetformcon:function(){
+				$("#taddress").val("");
+				$("#tnum").val("").attr("placeholder","最小转出数量"+this.thistypedata.min);
+				$(".feenum").val("0.0000");
+				$(".turnoutdznum").val("0.0000");
+				$(".feenum").html("0.00000000");
+				$(".turnoutdznum").html("0.00000000");
+				$(".c_turnoutconbox .tip span").html(this.thistypedata.has)
+				$(".unittype").html(this.thistypedata.name);
+				$(".sxfunittype").html(this.thistypedata.unittype);
+				this.readbtn();
+			},
+			readbtn:function(){
+				var taddress = $("#taddress").val().replace(/(^\s*)|(\s*$)/g, '');
+				this.btnd = false;
+				if (taddress == '' || taddress == undefined || taddress == null) {
+					$(".turnoutbtn").addClass("graybtn").removeClass("yellowbtn");
+					return false;
+				}else if ($('#tnum').val()*1<this.thistypedata.min*1) {
+					$(".turnoutbtn").addClass("graybtn").removeClass("yellowbtn");
+					return false;
+				}else if ($('#tnum').val()*1>this.thistypedata.has*1) {
+					$(".turnoutbtn").addClass("graybtn").removeClass("yellowbtn");
+					return false;
+				}
+				this.btnd = true;
+				$(".turnoutbtn").addClass("yellowbtn").removeClass("graybtn");
+			}
+		}
+		var selectfn=$('.selectvalue').mPicker({
+            level:1,
+            dataJson:navselectdata,
+            Linkage:false,
+            rows:6,
+            idDefault:true,
+            header:'<div class="mPicker-header">选择资产</div>',
+            confirm:function(json){
+				scdata.zctype = json.ids;
+				turnoutfn.readsc();
+            },
+            cancel:function(json){
+            }
+        })
+
+	</script>
+</html>

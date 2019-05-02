@@ -138,7 +138,23 @@ var linkOpenpage = {
 };
 //
 document.body.addEventListener('touchstart', function () { });
-
+//提示
+var errorprompt = {
+	timeout:null,
+	thisdom:null,
+	show : function (html) {
+		var _this = this;
+		if(!this.thisdom){
+			this.thisdom = $('<div class="errorpromptbox"></div>');
+			$("body").append(this.thisdom)
+		}
+		clearTimeout(this.timeout);
+		this.thisdom.html(html)
+		.fadeIn()
+		.css({'margin-left':-this.thisdom.outerWidth()/2});
+		this.timeout = setTimeout("$('.errorpromptbox').fadeOut();",2000);	
+	}
+};
 //操作失败提示
 var operationFailedobj = {
 	init:function(text){
@@ -185,3 +201,73 @@ var operationSucedobj = {
 		$("body").append(thishtml);
 	}
 };
+function isNumber(val){
+	var regPos = /^\d+(\.\d+)?$/; //非负浮点数
+	var regNeg = /^((([0-9]+\.[0-9]*[1-9][0-9]*)|([0-9]*[1-9][0-9]*\.[0-9]+)|([0-9]*[1-9][0-9]*)))$/; //浮点数
+	if(regPos.test(val) || regNeg.test(val)){
+		return true;
+	}else{
+		return false;
+	}
+}
+function decimalNumber(e, num) {
+	if (e.indexOf('.') > -1&&e.split('.')[1].length > num) {
+		return false;
+	} else{
+		return true;
+	}
+}
+
+var calculationObj ={
+	add:function(a, b) {
+	    var c, d, e;
+	    try {
+	        c = a.toString().split(".")[1].length;
+	    } catch (f) {
+	        c = 0;
+	    }
+	    try {
+	        d = b.toString().split(".")[1].length;
+	    } catch (f) {
+	        d = 0;
+	    }
+	    return e = Math.pow(10, Math.max(c, d)), (this.mul(a, e) + this.mul(b, e)) / e;
+	},
+	sub:function(a, b) {
+	    var c, d, e;
+	    try {
+	        c = a.toString().split(".")[1].length;
+	    } catch (f) {
+	        c = 0;
+	    }
+	    try {
+	        d = b.toString().split(".")[1].length;
+	    } catch (f) {
+	        d = 0;
+	    }
+	    return e = Math.pow(10, Math.max(c, d)), (this.mul(a, e) - this.mul(b, e)) / e;
+	},
+	mul:function(a, b) {
+	    var c = 0,
+	        d = a.toString(),
+	        e = b.toString();
+	    try {
+	        c += d.split(".")[1].length;
+	    } catch (f) {}
+	    try {
+	        c += e.split(".")[1].length;
+	    } catch (f) {}
+	    return Number(d.replace(".", "")) * Number(e.replace(".", "")) / Math.pow(10, c);
+	},
+	div:function (a, b) {
+	    var c, d, e = 0,
+	        f = 0;
+	    try {
+	        e = a.toString().split(".")[1].length;
+	    } catch (g) {}
+	    try {
+	        f = b.toString().split(".")[1].length;
+	    } catch (g) {}
+	    return c = Number(a.toString().replace(".", "")), d = Number(b.toString().replace(".", "")), this.mul(c / d, Math.pow(10, f - e));
+	}
+}

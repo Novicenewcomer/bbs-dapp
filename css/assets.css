@@ -209,7 +209,7 @@
 	width: 100%;
 	padding: 0 0 0.84rem;
 	display: flex;
-	-webkit-display: flex;;
+	-webkit-display: flex;
 	z-index: 2;
 }
 .assetsxqbottom li{
@@ -254,12 +254,12 @@
 	font-size: 14px;
 	color: #949494;
 }
-/* 转入 */
-.c_intotopbox{
+/* 转入转出头部 */
+.c_transfertopbox{
 	margin: 0 0.32rem;
 	padding: 0.52rem 0 0.48rem;
 }
-.c_intotopinputbox{
+.c_ttopinputbox{
 	height: 1.2rem;
 	padding: 0 0.4rem 0 0.52rem;
 	background: #f7f7f7;
@@ -267,7 +267,7 @@
 	line-height: 1.2rem;
 	position: relative;
 }
-.c_intotopinputbox .left{
+.c_ttopinputbox .left{
 	position: absolute;
 	left: 0.52rem;
 	top: 0;
@@ -277,25 +277,25 @@
 	font-size: 18px;
 	color: #303030;
 }
-.c_intotopinputbox .right{
+.c_ttopinputbox .right{
 	float: right;
 	font-size: 12px;
 	color: #999;
 	text-align: right;
 }
-.c_intow{
+.c_transferw{
 	padding: 0 0.32rem;
 }
-.c_intotypetit{
+.c_transfertypetit{
 	font-size: 14px;
 	color: #474747;
 	line-height: 0.52rem;
 	padding-bottom: 0.28rem;
 }
-.c_intonav{
+.c_transfernav{
 	padding-bottom: 0.52rem;
 }
-.c_intonav li{
+.c_transfernav li{
 	float: left;
 	width: 1.92rem;
 	height: 0.84rem;
@@ -308,11 +308,12 @@
 	border:1px solid #fff;
 	cursor: pointer;
 }
-.c_intonav li.active{
+.c_transfernav li.active{
 	background: #fff;
 	border:1px solid #ffac00;
 	color: #ffac00;
 }
+/* 转入 */
 .c_intoconbox{
 	background: #f7f7f7;
 	border-radius: 0.08rem;
@@ -373,8 +374,118 @@
 	color: #999;
 	font-size: 12px;
 	padding: 0.4rem 0 0.6rem;
-	
 }
 .c_intobottombox{
 	padding-bottom: 0.84rem;
+}
+/* 转出 */
+.c_turnoutconbox{
+	padding: 0.4rem 0 0;
+}
+.c_turnoutconbox li{
+	padding-bottom: 0.96rem;
+}
+.c_turnoutconbox .tit{
+	color: #474747;
+	line-height: 0.48rem;
+	font-size: 12px;
+	padding-bottom: 0.08rem;
+}
+.c_turnoutconbox li .con{
+	height: 1.12rem;
+	line-height: 1.12rem;
+	border-bottom: 1px solid #e7e7e7;
+	display: flex;
+	-webkit-display: flex;
+}
+.c_turnoutconbox li .con input,.c_turnoutconbox li .con .feenum{
+	display: block;
+	width: 100%;
+	height: 100%;
+	color: #303030;
+	font-size: 15px;
+	flex: 1;
+	-webkit-flex: 1;
+}
+.c_turnoutconbox li .con input::-webkit-input-placeholder {
+    color: #ccc;
+}
+.c_turnoutconbox li .con input:-moz-placeholder {
+    color: #ccc;
+}
+.c_turnoutconbox li .con input:-ms-input-placeholder {
+    color: #ccc;
+}
+.c_turnoutconbox li .tip{
+	color: #ccc;
+	line-height: 0.68rem;
+	font-size: 12px;
+}
+.c_turnoutconbox li:nth-child(2){
+	padding-bottom: 0.72rem;
+}
+.c_turnoutbottombox a:nth-child(2){
+	display: block;
+	margin-top: 0.28rem;
+	border-radius: 2rem;
+	width: 100%;
+	height: 1.2rem;
+	line-height: 1.2rem;
+	color: #303030;
+	font-size: 15px;
+	text-align: center;
+}
+.c_turnoutallbox{
+	line-height: 0.72rem;
+	height: 0.72rem;
+	font-weight: bold;
+	padding-bottom: 0.44rem;
+	font-size: 15px;
+}
+.c_turnoutallbox .tit{
+	float: left;
+	color: #949494;
+}
+.c_turnoutallbox .right{
+	float: right;
+	color: #303030;
+}
+.c_transferw .unittype,
+.c_transferw .sxfunittype{
+	font-style: normal;
+}
+.c_turnoutconbox .tnumunit{
+	color: #949494;
+	font-size: 15px;
+	font-weight: bold;
+}
+.tnumrightbox{
+	display: flex;
+	-webkit-display: flex;
+}
+.tnumrightbox span{
+	flex: 1;
+	-webkit-flex: 1;
+	position: relative;
+	padding-right:0.48rem;
+	color: #949494;
+	font-size: 15px;
+	white-space:nowrap;
+}
+.tnumrightbox span:nth-child(2){
+	padding-right:0;
+	padding-left: 0.48rem;
+	color: #303030;
+	font-size: 14px;
+	font-weight: bold;
+}
+.tnumrightbox span:nth-child(2):after{
+	content: "";
+	position: absolute;
+	left: 0;
+	top: 50%;
+	width: 1px;
+	height: 0.44rem;
+	background: #e7e7e7;
+	margin-top:-0.22rem;
 }
