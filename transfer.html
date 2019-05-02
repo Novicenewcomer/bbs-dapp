@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html>
+	<head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0">
+        <meta name="format-detection" content="telephone=no">
+        <title>划转</title>
+        <link rel="stylesheet" type="text/css" href="css/public.css"/>
+		<link rel="stylesheet" type="text/css" href="css/assets.css"/>
+		<link rel="stylesheet" type="text/css" href="css/mpicker.css"/>
+    </head>
+	<body>
+		<div class="mbdivbg">
+			<div class="mbdivcon">
+				<div class="scrollw_box">
+					<div class="hz_wbox">
+						<div class="hz_topbpx">
+							<div class="hz_topli">
+								<div class="tit">从</div><input class="fromvalue" type="text" value="" readonly="readonly">
+							</div>
+							<div class="hz_topli">
+								<div class="tit">到</div><input class="reachvalue" type="text" value="FDB钱包账户" readonly="readonly">
+							</div>
+							<div class="floleft"><span></span><span></span><span></span><span></span><span></span></div>
+							<div class="hz_commutatorbtn">
+								<svg class="icon" aria-hidden="true">
+									<use xlink:href="#iconqiehuan"></use>
+								</svg>
+							</div>
+						</div>
+						<ul class="hz_conbpx">
+							 <li>
+								<p class="tit">币种</p>
+								<div class="con">
+									<input class="currencyvalue" type="text" value="" readonly="readonly">
+								</div>
+							</li>
+							<li>
+								<p class="tit">划转数量</p>
+								<div class="con">
+									<input type="text" value="" id="tnum" placeholder="请输入划转数量"/>
+									<div class="tnumrightbox"><span><em class="unittype">FF</em></span><span class="allnum">全部</span></div>
+								</div>
+								<p class="tip">可用 <span></span> <em class="unittype"></em></p>
+							</li>
+						</ul>
+						<div class="hz_bottomtipbox">
+							<p>FF和FDB划转将按照10:1比例自动结算。</p>
+						</div>
+						<div class="c_turnoutbottombox">
+							<a class="turnoutbtn" href="javascript:;">划转</a><!-- yellowbtn -->
+							<a href="javascript:history.back(-1)">返回</a>
+						</div>
+					</div>
+					
+						<!--<div class="c_turnoutallbox">
+							<p class="tit">到账数量</p>
+							<p class="right"><span class="turnoutdznum">0.00000000</span> <em class="unittype"></em></p>
+						</div> -->
+						
+				</div>
+			</div>
+		</div>
+		
+	</body>
+	<script src="js/jquery.js" type="text/javascript" charset="utf-8"></script>
+	<script src="js/public.js" type="text/javascript" charset="utf-8"></script>
+	<script src="js/mPicker.min.js" type="text/javascript" charset="utf-8"></script>
+	<script>
+		var scdata = {//初始数据
+			"ifrom":"八宝树游戏钱包账户",//name
+			"ireach":"FDB钱包账户",//name
+			"currency":"FF"//name
+		}
+		var navselectdata = [
+			{	
+				"name":'八宝树游戏钱包账户'
+			},
+			{	
+				"name":'FDB钱包账户'
+			}
+		]
+		var mmselectdata = [
+			{
+				"name":"FF",
+				"has":"28018.11111111",//用户拥有
+			},
+			{
+				"name":"YL",
+				"has":"28018.22222222",//用户拥有
+			},
+			{
+				"name":"BTC",
+				"has":"28018.33333333",//用户拥有
+				
+			},
+			{
+				"name":"ETH",
+				"has":"28018.44444444",//用户拥有
+			}
+		]
+		$(function(){
+			$(".turnoutbtn").on("click",function(){//转账
+				if(hztransferfn.btnd){
+					console.log("从:"+scdata.ifrom+",到:"+scdata.ireach+",币种:"+scdata.currency+",数量:"+$("#tnum").val())
+				}
+			})
+			hztransferfn.init();
+		})
+		var hztransferfn = {
+			btnd :false,
+			hbdata:[],
+			tokv:"",
+			init:function(){
+				var _this = this;
+				this.readsc();
+				this.readcurrency();
+				$(".hz_commutatorbtn").on("click",function(){
+					var oldf = JSON.parse( JSON.stringify(scdata.ifrom) );
+					var oldr = JSON.parse( JSON.stringify(scdata.ireach) )
+					scdata.ireach = oldf;
+					scdata.ifrom = oldr;
+					_this.readsc();
+				})
+				$("#tnum").on("input propertychange",function(){
+					var iinput = $(this).val().replace(/\s/g,"");
+					if(!iinput){
+						_this.tokv = "";
+					}else if(!isNumber(iinput*1)){
+						_this.tokv = _this.tokv;
+					}else if(isNumber(iinput*1)&&!decimalNumber(iinput,8)){
+						_this.tokv = _this.tokv;
+					}else{
+						_this.tokv = iinput;
+					}
+					$(this).val(_this.tokv)
+					if(!_this.tokv){
+						$(".turnoutdznum").html("0.00000000")
+					}else{
+						$(".turnoutdznum").html(_this.tokv)
+					}
+					_this.readbtn();
+				})
+				$(".allnum").on("click",function(){
+					$("#tnum").val(_this.hbdata.has)
+					_this.tokv = _this.hbdata.has
+				})
+			},
+			readsc:function(){
+				for(var i=0;i<navselectdata.length;i++){
+					if(navselectdata[i].name == scdata.ifrom){
+						$(".fromvalue").val(navselectdata[i].name)
+					}
+					if(navselectdata[i].name == scdata.ireach){
+						$(".reachvalue").val(navselectdata[i].name)
+					}
+				}
+			},
+			readcurrency:function(){
+				for(var i=0;i<mmselectdata.length;i++){
+					if(mmselectdata[i].name == scdata.currency){
+						this.hbdata = mmselectdata[i];
+						$(".currencyvalue").val(mmselectdata[i].name);
+						this.resetformcon();
+					}
+				}
+			},
+			resetformcon:function(){
+				$(".hz_conbpx .tip span").html(this.hbdata.has)
+				$(".unittype").html(this.hbdata.name);
+				$("#tnum").val("")
+				this.tokv = "";
+				this.readbtn();
+			},
+			readbtn:function(){
+				this.btnd = false;
+				if ($('#tnum').val()*1<0.000000001) {
+					$(".turnoutbtn").addClass("graybtn").removeClass("yellowbtn");
+					return false;
+				}else if ($('#tnum').val()*1>this.hbdata.has*1) {
+					$(".turnoutbtn").addClass("graybtn").removeClass("yellowbtn");
+					return false;
+				}
+				this.btnd = true;
+				$(".turnoutbtn").addClass("yellowbtn").removeClass("graybtn");
+			}
+		}
+		var currencyvaluefn=$('.currencyvalue').mPicker({
+            level:1,
+            dataJson:mmselectdata,
+            Linkage:false,
+            rows:6,
+            idDefault:true,
+            header:'<div class="mPicker-header">选择币种</div>',
+            confirm:function(json){
+				scdata.currency = json.name;
+				hztransferfn.readcurrency();
+            },
+            cancel:function(json){
+            }
+        })
+
+	</script>
+</html>

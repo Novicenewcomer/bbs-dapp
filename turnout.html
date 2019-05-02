@@ -33,7 +33,7 @@
 								<p class="tit">数量</p>
 								<div class="con">
 									<input type="text" value="" id="tnum"/>
-									<div class="tnumrightbox"><span><em class="unittype">FF</em></span><span class="allnum">全部</span></div>
+									<div class="tnumrightbox"><span><em class="unittype"></em></span><span class="allnum">全部</span></div>
 								</div>
 								<p class="tip">可用 <span></span> <em class="unittype"></em></p>
 							</li>
@@ -50,7 +50,7 @@
 							<p class="right"><span class="turnoutdznum">0.00000000</span> <em class="unittype"></em></p>
 						</div>
 						<div class="c_turnoutbottombox">
-							<a class="turnoutbtn" href="javascript:;">转出</a><!-- yellowbtn -->
+							<a class="turnoutbtn" href="javascript:;">转出</a>
 							<a href="javascript:history.back(-1)">返回</a>
 						</div>
 					</div>
@@ -64,77 +64,65 @@
 	<script src="js/mPicker.min.js" type="text/javascript" charset="utf-8"></script>
 	<script>
 		var scdata = {//初始数据
-			"zctype":"0"//ids
+			"zctype":"FF"//name
 		}
 		var navselectdata = [
 			{	
 				"name":'FF',//资产类型
-				"ids":"0" ,
 				"min":"1000",//最小转账数
 				"has":"28018.28100008",//用户拥有
 				"feeb":"0.002",//手续费比
 				"unittype":"FF",//手续费单位
 				"chain":[
 					{
-						"ids":"00",
 						"name":"ERC20"
 					},
 					{
-						"ids":"01",
 						"name":"ERC21"
 					}
 				]
 			},
 			{	
 				"name":'YL', 
-				"ids":"1" ,
 				"min":"1001",
 				"has":"20000.1",
 				"feeb":"0.003",
 				"unittype":"FF",
 				"chain":[
 					{
-						"ids":"00",
 						"name":"ERC22"
 					},
 					{
-						"ids":"01",
 						"name":"ERC23"
 					}
 				]
 			},
 			{	
 				"name":'GHHH', 
-				"ids":"2" ,
 				"min":"1002",
 				"has":"20000.2",
 				"feeb":"0.004",
 				"unittype":"GHHH",
 				"chain":[
 					{
-						"ids":"00",
 						"name":"ERC24"
 					},
 					{
-						"ids":"01",
 						"name":"ERC25"
 					}
 				]
 			},
 			{	
 				"name":'SDFDSF',
-				"ids":"3" ,
 				"min":"1003",
 				"has":"20000.3",
 				"feeb":"0.005",
 				"unittype":"SDFDSF",
 				"chain":[
 					{
-						"ids":"00",
 						"name":"ERC26"
 					},
 					{
-						"ids":"01",
 						"name":"ERC27"
 					}
 				]
@@ -143,7 +131,7 @@
 		$(function(){
 			$(".turnoutbtn").on("click",function(){//转账
 				if(turnoutfn.btnd){
-					console.log("资产类型ids:"+scdata.zctype+",资产链类型ids:"+scdata.chain+",地址:"+$("#taddress").val()+",数量:"+$("#tnum").val()+",手续费:"+$(".feenum").html())//数据ids
+					console.log("资产类型:"+scdata.zctype+",资产链类型:"+scdata.chain+",地址:"+$("#taddress").val()+",数量:"+$("#tnum").val()+",手续费:"+$(".feenum").html())//数据
 				}
 			})
 			turnoutfn.init();
@@ -152,33 +140,32 @@
 			btnd :false,
 			thistypedata:[],
 			chaindata:[],
+			tokv:"",
 			init:function(){
 				var _this = this;
 				this.readsc();
 				$('.c_transfernav').on("click","li",function(){
 					$(this).addClass("active").siblings().removeClass("active");
-					scdata.chain = _this.chaindata[$(this).index()].ids;
-					// _this.resetformcon();
+					scdata.chain = _this.chaindata[$(this).index()].name;
 				})
-				var tokv;
 				$("#tnum").on("input propertychange",function(){
 					var iinput = $(this).val().replace(/\s/g,"");
 					if(!iinput){
-						tokv = "";
+						_this.tokv = "";
 					}else if(!isNumber(iinput*1)){
-						tokv = tokv;
+						_this.tokv = _this.tokv;
 					}else if(isNumber(iinput*1)&&!decimalNumber(iinput,8)){
-						tokv = tokv;
+						_this.tokv = _this.tokv;
 					}else{
-						tokv = iinput;
+						_this.tokv = iinput;
 					}
-					$(this).val(tokv)
-					if(!tokv){
+					$(this).val(_this.tokv)
+					if(!_this.tokv){
 						$(".feenum").html("0.00000000");
 						$(".turnoutdznum").html("0.00000000")
 					}else{
-						$(".feenum").html(calculationObj.mul(tokv,_this.thistypedata.feeb).toFixed(8))
-						$(".turnoutdznum").html(tokv)
+						$(".feenum").html(calculationObj.mul(_this.tokv,_this.thistypedata.feeb).toFixed(8))
+						$(".turnoutdznum").html(_this.tokv)
 					}
 					_this.readbtn();
 				})
@@ -188,12 +175,13 @@
 				$(".allnum").on("click",function(){
 					$("#tnum").val(_this.thistypedata.has)
 					$(".feenum").html(calculationObj.mul(_this.thistypedata.has,_this.thistypedata.feeb).toFixed(8))
-					$(".turnoutdznum").html(_this.thistypedata.has)
+					$(".turnoutdznum").html(_this.thistypedata.has);
+					_this.tokv = _this.thistypedata.has;
 				})
 			},
 			readsc:function(){
 				for(var i=0;i<navselectdata.length;i++){
-					if(navselectdata[i].ids == scdata.zctype){
+					if(navselectdata[i].name == scdata.zctype){
 						this.thistypedata = navselectdata[i];
 						$(".selectvalue").val(this.thistypedata.name)
 						this.chaindata = this.thistypedata.chain;
@@ -208,12 +196,13 @@
 					ihtml+='<li>'+this.chaindata[i].name+'</li>'
 				}
 				$(".c_transfernav").html(ihtml)
-				scdata.chain = this.chaindata[0].ids
+				scdata.chain = this.chaindata[0].name
 				$(".c_transfernav li").eq(0).addClass("active");
 			},
 			resetformcon:function(){
 				$("#taddress").val("");
 				$("#tnum").val("").attr("placeholder","最小转出数量"+this.thistypedata.min);
+				this.tokv = "";
 				$(".feenum").val("0.0000");
 				$(".turnoutdznum").val("0.0000");
 				$(".feenum").html("0.00000000");
@@ -248,7 +237,7 @@
             idDefault:true,
             header:'<div class="mPicker-header">选择资产</div>',
             confirm:function(json){
-				scdata.zctype = json.ids;
+				scdata.zctype = json.name;
 				turnoutfn.readsc();
             },
             cancel:function(json){
