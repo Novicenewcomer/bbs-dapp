@@ -1,0 +1,92 @@
+.mine_bgbox{
+	background: #f4f4f4;
+}
+.minetopbox{
+	height: 3.64rem;
+	background: url(../img/minetopbg.jpg) no-repeat;
+	background-size: 100% 100%;
+	padding: 0 0.32rem;
+	position: relative;
+}
+.gobackupkeypage{
+	position: absolute;
+	right: 0;
+	top: 0.36rem;
+	padding: 0 0.52rem 0 0.4rem;
+	height: 0.76rem;
+	line-height: 0.76rem;
+	color: #fff;
+	background: #5033d0;
+	box-shadow: rgba(85,54,213,0.25) 0 0.08rem 0.12rem;
+	border-radius:5rem 0 0 5rem ;
+	font-size: 12px;
+}
+.minetopbox .tit{
+	font-weight: bold;
+	font-size: 18px;
+	color: #fff;
+	line-height: 0.8rem;
+	padding: 1.08rem 0.2rem 0;
+}
+.minetopbox .addresscode{
+	font-size: 14px;
+	color: #fff;
+	line-height: 0.76rem;
+	padding: 0 0.2rem;
+}
+.minetopbox .addresscode span{
+	display: inline-block;
+	vertical-align: top;
+}
+.minetopbox .addresscode button{
+	display: inline-block;
+	vertical-align: top;
+	line-height: 0.76rem;
+	padding: 0 0.4rem;
+	font-size: 20px;
+	color: #fff;
+}
+.mine_conbox{
+	margin: 0 0.32rem;
+	background: #fff;
+	border-radius: 0.16rem;
+	padding: 0.2rem 0.48rem;
+	margin-top: -0.72rem;
+	position: relative;
+	z-index: 1;
+}
+.mine_conbox li{
+	height: 1.24rem;
+	line-height: 1.24rem;
+	border-bottom: 1px solid #f4f4f4;
+}
+.mine_conbox li:last-child{
+	border-bottom: none;
+}
+.mine_conbox li a{
+	display: block;
+	color: #303030;
+	font-size: 14px;
+	display: flex;
+	display: -webkit-flex;
+}
+.mine_conbox li p:nth-child(1){
+	padding-right: 0.3733rem;
+	color: #474747;
+}
+.mine_dropoutbtn{
+	position: absolute;
+	width: 9.36rem;
+	left: 50%;
+	bottom: 2.2rem;
+	margin-left: -4.68rem;
+	color: #4fa6ff;
+	font-size: 14px;
+	height: 1.2rem;
+	line-height: 1.2rem;
+	text-align: center;
+	background: #fff;
+	border-radius: 10rem;
+	box-shadow: #eee 0 0.24rem 0.24rem;
+	z-index: 2;
+}

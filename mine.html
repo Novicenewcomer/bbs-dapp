@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html>
+	<head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0">
+        <meta name="format-detection" content="telephone=no">
+        <title>我的</title>
+        <link rel="stylesheet" type="text/css" href="css/public.css"/>
+		<link rel="stylesheet" type="text/css" href="css/mine.css"/>
+    </head>
+	<body>
+		<div class="mbdivbg">
+			<div class="mbdivcon mine_bgbox">
+				<div class="scrollw_box">
+					<div class="minetopbox">
+						<a href="#" class="gobackupkeypage">备份私钥</a>
+						<p class="tit">游戏钱包地址</p>
+						<div class="addresscode">
+							<span id="copybtntext">0xa9d0s8agdhsh97s07dd07s0aa87</span><button class="copybtn" id="copybtn" data-clipboard-action="copy" data-clipboard-target="#copybtntext"><svg class="icon" aria-hidden="true"><use xlink:href="#iconfuzhi"></use></svg></button>
+						</div>
+					</div>
+					<div class="mine_conbox">
+						<ul>
+							<li>
+								<a href="#">
+									<p><svg class="icon" aria-hidden="true"><use xlink:href="#iconshimingrenzheng"></use></svg></p><p>实名认证</p>
+								</a>
+							</li>
+							<li>
+								<a href="#">
+									<p><svg class="icon" aria-hidden="true"><use xlink:href="#iconanquan"></use></svg></p><p>安全中心</p>
+								</a>
+							</li>
+							<li>
+								<a href="#">
+									<p><svg class="icon" aria-hidden="true"><use xlink:href="#iconyaoqing"></use></svg></p><p>邀请好友</p>
+								</a>
+							</li>
+						</ul>
+					</div>
+				</div>
+				<a class="mine_dropoutbtn" href="#">退出当前账号</a>
+			</div>
+		</div>
+	</body>
+	<script src="js/jquery.js"></script>
+	<script src="js/public.js"></script>
+	<script src="js/clipboard.min.js" type="text/javascript" charset="utf-8"></script>
+
+	<script>
+		//底部导航
+		linkOpenpage.pagebottomnav=function(othis){
+			othis.loadHtmlobj({
+				csslink:["css/pages/pagebottomnav.css"],
+				jssrc:["js/pages/pagebottomnav.js"],
+				callbackfn:function(thisobj){
+					pagebottomnav.init({container:othis,type:"mine"});
+					pagebottomnav.thisdom.load("pagebottomnav.html",function(){
+						pagebottomnav.showbox();
+						$(".assetslistbox").css("padding-bottom",parseFloat(pagebottomnav.thisdom.css("height")))
+						thisobj.endfn();
+						linkOpenpage.readpage();
+					})
+				}
+			})
+		};
+		
+		linkOpenpage.readpage({
+			pagearr:["pagebottomnav"],
+			othis:$(".mbdivcon")
+		});
+		
+		$(function(){
+			var targetText=$("#copybtntext").text();
+			var clipboard = new Clipboard('#copybtn');
+	        clipboard.on('success', function(e) {
+	            console.log(targetText)
+	            console.info
+	            ('Action:', e.action);
+	            console.info
+	
+	            ('Text:', e.text);
+	            console.info
+	
+	            ('Trigger:', e.trigger);
+	            operationSucedobj.init("复制成功</span>");
+	            e.clearSelection();
+	        });
+
+		})
+	</script>
+</html>
