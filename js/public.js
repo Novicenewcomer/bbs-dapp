@@ -1,4 +1,4 @@
-document.write('<script src="//at.alicdn.com/t/font_1170216_24do378wyfz.js" type="text/javascript" charset="utf-8"></script>');
+document.write('<script src="//at.alicdn.com/t/font_1170216_czq2vn0g7ov.js" type="text/javascript" charset="utf-8"></script>');
 function resizefn(){
 	var iWidth=$(".mbdivcon").outerWidth();iWidth=iWidth>1000?1000:iWidth;//document.documentElement.getBoundingClientRect().width
 	document.getElementsByTagName("html")[0].style.fontSize=iWidth/10+"px";
@@ -270,4 +270,46 @@ var calculationObj ={
 	    } catch (g) {}
 	    return c = Number(a.toString().replace(".", "")), d = Number(b.toString().replace(".", "")), this.mul(c / d, Math.pow(10, f - e));
 	}
+}
+
+function yzmTime(obj,con,opt){
+	this.obj;
+	this.con;
+	this.wait = 60;
+	this.timer;
+	this.obj = obj;
+	this.con = con;
+	this.settings = {
+		inittext : "发送验证码",
+		ctext : "重新获取"
+	}
+	$.extend(this.settings,opt);
+}
+yzmTime.prototype.init = function(){
+	var _this = this;
+	clearTimeout(this.timer);
+	this.wait = 60;
+	this.starttime();
+}
+yzmTime.prototype.starttime = function(){
+	var _this = this;
+	if (this.wait == 0) { 
+		this.clearthis() 
+	} else { 
+		this.obj.attr("disabled", true);//倒计时过程中禁止点击按钮 
+		this.obj.addClass("yzmac");
+		this.con.html(this.settings.ctext+"("+this.wait+'s)');//改变按钮中value的值 
+		this.wait--; 
+		clearTimeout(this.timer);
+		this.timer = setTimeout(function() { 
+			_this.starttime();//循环调用 
+		}, 1000) 
+	} 
+}
+yzmTime.prototype.clearthis = function(){
+	var _this = this;
+	clearTimeout(this.timer);
+	this.obj.removeAttr("disabled").removeClass("yzmac");
+	this.con.html(this.settings.inittext);
+	this.wait = 60; 
 }

@@ -90,3 +90,144 @@
 	box-shadow: #eee 0 0.24rem 0.24rem;
 	z-index: 2;
 }
+/* 注册 */
+.registerednavbox{
+	padding: 0.32rem 0.08rem 0;
+}
+.registerednavbox li{
+	padding: 0 0.64rem;
+	float: left;
+}
+.registerednavbox li a{
+	line-height: 0.96rem;
+	height: 0.96rem;
+	display: block;
+	color: #474747;
+	font-size: 18px;
+	position: relative;
+	padding: 0 0.08rem;
+}
+.registerednavbox li a:after{
+	content: "";
+	position: absolute;
+	width: 100%;
+	height: 4px;
+	border-radius: 5rem;
+	background: -webkit-linear-gradient(left, #ffd801 , #ffaa00); /* Safari 5.1 - 6.0 */
+	background: -o-linear-gradient(right, #ffd801, #ffaa00); /* Opera 11.1 - 12.0 */
+	background: -moz-linear-gradient(right, #ffd801, #ffaa00); /* Firefox 3.6 - 15 */
+	background: linear-gradient(to right, #ffd801 , #ffaa00); /* 标准的语法 */
+	left: 0;
+	bottom: -4px;
+	display: none;
+}
+.registerednavbox li.active a{
+	color: #303030;
+	font-weight: bold;
+}
+.registerednavbox li.active a:after{
+	display: block;
+}
+.registeredwbox{
+	padding: 0.84rem 0.72rem 0;
+}
+.registeredwbox .conw{
+	display: none;
+}
+.registeredwbox li{
+	border-bottom: 1px solid #f4f4f4;
+	height: 0.96rem;
+	line-height: 0.96rem;
+	padding-top: 0.28rem;
+	display: flex;
+	display: -webkit-flex;
+	font-size: 14px;
+	color: #303030;
+}
+.teladlabel span{
+	padding: 0 0.08rem;
+	color: #303030;
+	font-weight: bold;
+	font-size: 15px;
+}
+.teladlabel{
+	padding-right: 0.4rem;
+	position: relative;
+}
+.teladlabel:after{
+	content: "";
+	position: absolute;
+	right: 0;
+	top: 50%;
+	margin-top: -3px;
+	height: 0;
+	width: 0;
+	border:6px solid #e2e2e2;
+	border-left:4px solid rgba(0,0,0,0);
+	border-right:4px solid rgba(0,0,0,0);
+	border-bottom-color: rgba(0,0,0,0);
+}
+.telvalue{
+	flex: 1;
+	-webkit-flex: 1;
+	color: #303030;
+	margin-left: 0.52rem;
+	font-size: 15px;
+	height: 100%;
+}
+.yzmvalue,.mmvalue,.qrmmvalue,.invcodevalue,.mailvalue{
+	flex: 1;
+	-webkit-flex: 1;
+}
+.yzmbtn{
+	padding-left: 0.32rem;
+	color: #4fa6ff;
+}
+.yzmac{
+	color: #ccc;
+}
+.mmeyesbtn,.qrmmeyesbtn{
+	padding-left: 0.32rem;
+	font-size: 15px;
+}
+
+
+
+
+
+
+.registeredwbox .phonecon li:nth-child(1){
+	height: 1rem;
+	line-height: 1rem;
+	border-bottom-color: #f4d188;
+}
+
+.registered_gotoyhxy{
+	height: 1.16rem;
+	line-height: 1.16rem;
+	color: #474747;
+	font-size: 14px;
+	padding: 0 0.72rem 0.8rem;
+}
+.registered_gotoyhxy a{
+	color: #4fa6ff;
+}
+.registered_gotoyhxy span{
+	padding-right: 0.24rem;
+	color: #4fa6ff;
+	display: none;
+}
+.registeredbottombox{
+	padding: 0 0.72rem 0;
+}
+.golandingopagetext{
+	color: #474747;
+	font-size: 14px;
+	padding-top: 0.44rem;
+	line-height: 1.28rem;
+	text-align: center;
+}
+.golandingopagetext a{
+	color: #4fa6ff;
+	font-weight: bold;
+}

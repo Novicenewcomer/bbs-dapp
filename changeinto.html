@@ -51,65 +51,49 @@
 	<script src="js/mPicker.min.js" type="text/javascript" charset="utf-8"></script>
 	<script>
 		var scdata = {//初始数据
-			"zctype":"0"//ids
+			"zctype":"FF"
 		}
 		var navselectdata = [
 			{	
 				"name":'FF',
-				"value":'1',
-				"ids":"0" ,
 				"chain":[
 					{
-						"ids":"00",
 						"name":"ERC20"
 					},
 					{
-						"ids":"01",
 						"name":"ERC21"
 					}
 				]
 			},
 			{	
 				"name":'YL', 
-				"value":'1',
-				"ids":"1" ,
 				"chain":[
 					{
-						"ids":"00",
 						"name":"ERC22"
 					},
 					{
-						"ids":"01",
 						"name":"ERC23"
 					}
 				]
 			},
 			{	
 				"name":'GHHH', 
-				"value":'1',
-				"ids":"2" ,
 				"chain":[
 					{
-						"ids":"00",
 						"name":"ERC24"
 					},
 					{
-						"ids":"01",
 						"name":"ERC25"
 					}
 				]
 			},
 			{	
 				"name":'SDFDSF', 
-				"value":'1',
-				"ids":"3" ,
 				"chain":[
 					{
-						"ids":"00",
 						"name":"ERC26"
 					},
 					{
-						"ids":"01",
 						"name":"ERC27"
 					}
 				]
@@ -118,7 +102,7 @@
 		$(function(){
 			changeinto.readcon = function(){//改变二维码 
 				$(".c_intoconewmbox img").attr("src","")
-				console.log(scdata)//数据ids
+				console.log(scdata)//数据
 				$(".c_intoconewmbox img").attr("src",["lsimg/erweima.png","lsimg/ewm.jpg"][Math.floor(Math.random()*["lsimg/erweima.png","lsimg/ewm.jpg"].length)]);
 				$("#copybtntext").html(Math.floor(Math.random()*(100 - 1) + 1))
 			}
@@ -146,13 +130,13 @@
 				this.readsc();
 				$('.c_transfernav').on("click","li",function(){
 					$(this).addClass("active").siblings().removeClass("active");
-					scdata.chain = _this.chaindata[$(this).index()].ids;
+					scdata.chain = _this.chaindata[$(this).index()].name;
 					_this.readcon();
 				})
 			},
 			readsc:function(){
 				for(var i=0;i<navselectdata.length;i++){
-					if(navselectdata[i].ids == scdata.zctype){
+					if(navselectdata[i].name == scdata.zctype){
 						$(".selectvalue").val(navselectdata[i].name)
 						this.chaindata = navselectdata[i].chain;
 						this.readchain();
@@ -166,7 +150,7 @@
 					ihtml+='<li>'+this.chaindata[i].name+'</li>'
 				}
 				$(".c_transfernav").html(ihtml)
-				scdata.chain = this.chaindata[0].ids
+				scdata.chain = this.chaindata[0].name
 				$(".c_transfernav li").eq(0).addClass("active");
 			}
 		}
@@ -178,7 +162,7 @@
             idDefault:true,
             header:'<div class="mPicker-header">选择资产</div>',
             confirm:function(json){
-				scdata.zctype = json.ids;
+				scdata.zctype = json.name;
 				changeinto.readsc();
                 // console.info('当前选中json：', json);
             },
