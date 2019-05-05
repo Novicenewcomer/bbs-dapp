@@ -90,15 +90,21 @@
 	box-shadow: #eee 0 0.24rem 0.24rem;
 	z-index: 2;
 }
-/* 注册 */
-.registerednavbox{
+/* 注册 登陆 忘记密码*/
+.registerednavbox,
+.landingnavbox,
+.fpwordnavbox{
 	padding: 0.32rem 0.08rem 0;
 }
-.registerednavbox li{
+.registerednavbox li,
+.landingnavbox li,
+.fpwordnavbox li{
 	padding: 0 0.64rem;
 	float: left;
 }
-.registerednavbox li a{
+.registerednavbox li a,
+.landingnavbox li a,
+.fpwordnavbox li a{
 	line-height: 0.96rem;
 	height: 0.96rem;
 	display: block;
@@ -107,7 +113,9 @@
 	position: relative;
 	padding: 0 0.08rem;
 }
-.registerednavbox li a:after{
+.registerednavbox li a:after,
+.landingnavbox li a:after,
+.fpwordnavbox li a:after{
 	content: "";
 	position: absolute;
 	width: 100%;
@@ -121,20 +129,30 @@
 	bottom: -4px;
 	display: none;
 }
-.registerednavbox li.active a{
+.registerednavbox li.active a,
+.landingnavbox li.active a,
+.fpwordnavbox li.active a{
 	color: #303030;
 	font-weight: bold;
 }
-.registerednavbox li.active a:after{
+.registerednavbox li.active a:after,
+.landingnavbox li.active a:after,
+.fpwordnavbox li.active a:after{
 	display: block;
 }
-.registeredwbox{
+.registeredwbox,
+.landingwbox,
+.fpwordwbox{
 	padding: 0.84rem 0.72rem 0;
 }
-.registeredwbox .conw{
+.registeredwbox .conw,
+.landingwbox .conw,
+.fpwordwbox .conw{
 	display: none;
 }
-.registeredwbox li{
+.registeredwbox li,
+.landingwbox li,
+.fpwordwbox li{
 	border-bottom: 1px solid #f4f4f4;
 	height: 0.96rem;
 	line-height: 0.96rem;
@@ -175,33 +193,28 @@
 	font-size: 15px;
 	height: 100%;
 }
-.yzmvalue,.mmvalue,.qrmmvalue,.invcodevalue,.mailvalue{
+.yzmvalue,.mmvalue,.qrmmvalue,.invcodevalue,.mailvalue,.privatekeyvalue{
 	flex: 1;
 	-webkit-flex: 1;
 }
 .yzmbtn{
 	padding-left: 0.32rem;
 	color: #4fa6ff;
+	cursor: pointer;
 }
 .yzmac{
 	color: #ccc;
+	cursor: inherit
 }
 .mmeyesbtn,.qrmmeyesbtn{
 	padding-left: 0.32rem;
 	font-size: 15px;
 }
-
-
-
-
-
-
 .registeredwbox .phonecon li:nth-child(1){
 	height: 1rem;
 	line-height: 1rem;
 	border-bottom-color: #f4d188;
 }
-
 .registered_gotoyhxy{
 	height: 1.16rem;
 	line-height: 1.16rem;
@@ -217,7 +230,8 @@
 	color: #4fa6ff;
 	display: none;
 }
-.registeredbottombox{
+.registeredbottombox,
+.landingbottombox{
 	padding: 0 0.72rem 0;
 }
 .golandingopagetext{
@@ -230,4 +244,35 @@
 .golandingopagetext a{
 	color: #4fa6ff;
 	font-weight: bold;
+}
+.landingwbox,
+.fpwordwbox{
+	padding-bottom: 1.24rem;
+}
+.landingbottomcon{
+	font-size: 12px;
+	padding-top: 0.44rem;
+	line-height: 1.28rem;
+}
+.goregisteredpagetext{
+	float: left;
+	color: #474747;
+}
+.goregisteredpagetext a{
+	color: #4fa6ff;
+}
+.gof_passwordpagetext{
+	color: #4fa6ff;
+	font-weight: bold;
+	float: right;
+}
+.retlandingopagetext{
+	font-size: 14px;
+	padding-top: 0.44rem;
+	line-height: 1.28rem;
+	text-align: center;
+	font-weight: bold;
+}
+.retlandingopagetext a{
+	color: #4fa6ff;
 }

@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html>
+	<head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0">
+        <meta name="format-detection" content="telephone=no">
+        <title>登陆</title>
+        <link rel="stylesheet" type="text/css" href="css/public.css"/>
+		<link rel="stylesheet" type="text/css" href="css/mpicker.css"/>
+		<link rel="stylesheet" type="text/css" href="css/mine.css"/>
+    </head>
+	<body>
+		<div class="mbdivbg">
+			<div class="mbdivcon">
+				<div class="scrollw_box">
+					<div class="landingnavbox">
+						<ul class="clear">
+							<li itype="phone">
+								<a href="JavaScript:;">
+									手机
+								</a>
+							</li>
+							<li itype="mailbox">
+								<a href="JavaScript:;">
+									邮箱
+								</a>
+							</li>
+						</ul>
+					</div>
+					<div class="landingwbox">
+						<div class="conw phonecon" itype="phone">
+							<ul>
+								<li>
+									<label class="teladlabel" for="phone_teladvalue"><span></span><input id="phone_teladvalue" class="phone_teladvalue" type="text" value="" hidden="" readonly="readonly"/></label>
+									<input class="telvalue" type="text" placeholder="请输入手机号码"/>
+								</li>
+								<li>
+									<input class="mmvalue" type="password" placeholder="请输入密码"/>
+									<input class="mmvalue" type="text" placeholder="请输入密码"/>
+									<div class="mmeyesbtn closeeyes"><svg class="icon" aria-hidden="true"><use xlink:href="#iconyanjing-bi"></use></svg></div>
+									<div class="mmeyesbtn openeyes"><svg class="icon" aria-hidden="true"><use xlink:href="#iconyanjing"></use></svg></div>
+								</li>
+							</ul>
+						</div>
+						<div class="conw mailboxcon" itype="mailbox">
+							<li>
+								<input class="mailvalue" type="text" placeholder="请输入Email邮箱地址"/>
+							</li>
+							<li>
+								<input class="mmvalue" type="password" placeholder="请输入密码"/>
+								<input class="mmvalue" type="text" placeholder="请输入密码"/>
+								<div class="mmeyesbtn closeeyes"><svg class="icon" aria-hidden="true"><use xlink:href="#iconyanjing-bi"></use></svg></div>
+								<div class="mmeyesbtn openeyes"><svg class="icon" aria-hidden="true"><use xlink:href="#iconyanjing"></use></svg></div>
+							</li>
+						</div>
+					</div>
+					<div class="landingbottombox">
+						<a class="landingbtn graybtn" href="javascript:;">登陆</a>
+						<div class="landingbottomcon clear">
+							<p class="goregisteredpagetext">还没有八宝树账号？<a href="registered.html">立即注册</a></p>
+							<a class="gof_passwordpagetext" href="forgetpassword.html">忘记密码？</a>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</body>
+	<script src="js/jquery.js"></script>
+	<script src="js/public.js"></script>
+	<script src="js/mPicker.min.js"></script>
+	<script src="js/landing.js"></script>
+	<script>
+	$(".landingbtn").on("click",function(){//登陆
+		if(!landingfn.btnd){
+			return false;
+		}
+		console.log(landingfn.thisnavac)//登陆类型
+		console.log(landingfn.thisdata)//登陆用户信息
+		
+	})
+	//底部导航
+	linkOpenpage.pagebottomnav=function(othis){
+		othis.loadHtmlobj({
+			csslink:["css/pages/pagebottomnav.css"],
+			jssrc:["js/pages/pagebottomnav.js"],
+			callbackfn:function(thisobj){
+				pagebottomnav.init({container:othis,type:"mine"});
+				pagebottomnav.thisdom.load("pagebottomnav.html",function(){
+					pagebottomnav.showbox();
+					$(".landingbottombox").css("padding-bottom",parseFloat(pagebottomnav.thisdom.css("height")))
+					thisobj.endfn();
+					linkOpenpage.readpage();
+				})
+			}
+		})
+	};
+	$(function(){
+		landingfn.thisnavac = "phone";
+		landingfn.init();
+	})
+	linkOpenpage.readpage({
+		pagearr:["pagebottomnav"],
+		othis:$(".mbdivcon")
+	});
+	
+	
+</script>
+</html>

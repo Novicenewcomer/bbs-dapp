@@ -1,56 +1,33 @@
-var registeredfn = {
+var landingfn = {
 	thisnavac:"",
 	thisdata:{},
-	u_agreement:true,
 	btnd:false,
 	typeobj:{},
 	init:function(){
 		var _this = this;
 		_this.typeobj["phone"] = readphoneobj;
 		_this.typeobj["mailbox"] = readmailboxobj;
-		_this.typeobj["privatekey"] = readprivatekeyobj;
 		for(var i in _this.typeobj){
 			_this.typeobj[i].init(_this);
 		}
-		$(".registerednavbox li").on("click",function(){
+		$(".landingnavbox li").on("click",function(){
 			_this.thisnavac = $(this).attr("itype");
 			$(this).addClass("active").siblings().removeClass("active");
 			_this.thisdata = jQuery.extend(true, {}, _this.typeobj[_this.thisnavac].initdata); 
-			phone_yzm.clearthis();
-			mail_yzm.clearthis();
-			privatekey_yzm.clearthis();
 			_this.showconw();
 		})
-		$(".registerednavbox li[itype='"+_this.thisnavac+"']").click();
-		this.readuagreement();
-		$(".registered_gotoyhxy").on("click",function(){
-			if(!_this.u_agreement){
-				_this.u_agreement = true
-			}else{
-				_this.u_agreement = false
-			}
-			_this.readregisteredbtn();
-			_this.readuagreement();
-		})
+		$(".landingnavbox li[itype='"+_this.thisnavac+"']").click();
 	},
 	showconw:function(){
-		$(".registeredwbox .conw[itype='"+this.thisnavac+"']").show().siblings().hide();
+		$(".landingwbox .conw[itype='"+this.thisnavac+"']").show().siblings().hide();
 		for(var i in this.typeobj[this.thisnavac]){
 			if(i.substring(0,5)=='read_'&&(this.typeobj[this.thisnavac][i] instanceof Function) ){
 				this.typeobj[this.thisnavac][i](this);
 			};
 		}
-		this.readregisteredbtn();
+		this.readlandingbtn();
 	},
-	readuagreement:function(){
-		$(".registered_gotoyhxy span").hide()
-		if(this.u_agreement){
-			$(".registered_gotoyhxy span").eq(1).show()
-		}else{
-			$(".registered_gotoyhxy span").eq(0).show()
-		}
-	},
-	readregisteredbtn:function(){
+	readlandingbtn:function(){
 		var kg = true;
 		this.btnd = false;
 		for(var i in this.thisdata){
@@ -58,60 +35,30 @@ var registeredfn = {
 				kg = false;
 			}
 		}
-		if(!this.u_agreement){
-			$(".registeredbtn").addClass("graybtn").removeClass("yellowbtn");
-			return false;
-		}else if (!kg) {
-			$(".registeredbtn").addClass("graybtn").removeClass("yellowbtn");
-			return false;
-		}else if (this.thisdata.mm!=this.thisdata.qrmm) {
-			$(".registeredbtn").addClass("graybtn").removeClass("yellowbtn");
+		if (!kg) {
+			$(".landingbtn").addClass("graybtn").removeClass("yellowbtn");
 			return false;
 		}
 		this.btnd = true;
-		$(".registeredbtn").addClass("yellowbtn").removeClass("graybtn");
+		$(".landingbtn").addClass("yellowbtn").removeClass("graybtn");
 
 	}
 	
 }
 var readphoneobj = {
 	thisdom:$(".phonecon"),
-	initdata:{"telad":"+86","telnum":"","yzm":"","mm":"","qrmm":"","invcode":""},
-	eyes:[false,false],
+	initdata:{"telad":"+86","telnum":"","mm":""},
+	eyes:[false],
 	init:function(wthis){
 		var _this = this;
 		_this.wthis = wthis;
 		this.thisdom.find(".telvalue").on("input propertychange",function(){
 			_this.wthis.thisdata.telnum =$(this).val()
-			_this.wthis.readregisteredbtn();
-		})
-		this.thisdom.find(".yzmvalue").on("input propertychange",function(){
-			_this.wthis.thisdata.yzm = $(this).val()
-			_this.wthis.readregisteredbtn();
+			_this.wthis.readlandingbtn();
 		})
 		this.thisdom.find(".mmvalue").on("input propertychange",function(){
 			_this.wthis.thisdata.mm = $(this).val()
-			_this.wthis.readregisteredbtn();
-			if(_this.wthis.thisdata.qrmm.length>0&&_this.wthis.thisdata.mm!=_this.wthis.thisdata.qrmm){
-				$(".qrmmvalue").css("color","red")
-			}else{
-				$(".qrmmvalue").css("color","#303030")
-			}
-		})
-		this.thisdom.find(".qrmmvalue").on("input propertychange",function(){
-			_this.wthis.thisdata.qrmm = $(this).val();
-			_this.wthis.readregisteredbtn();
-			var thisno=false;
-			for(var i=0;i<_this.wthis.thisdata.qrmm.length;i++){
-				if(_this.wthis.thisdata.qrmm[i]!=_this.wthis.thisdata.mm[i]){
-					thisno = true;
-				}
-			}
-			if(thisno){
-				$(".qrmmvalue").css("color","red")
-			}else{
-				$(".qrmmvalue").css("color","#303030")
-			}
+			_this.wthis.readlandingbtn();
 		})
 		this.thisdom.find(".mmeyesbtn").on("click",function(){
 			_this.thisdom.find(".mmvalue").val(_this.wthis.thisdata.mm)
@@ -121,18 +68,6 @@ var readphoneobj = {
 				_this.eyes[0] = false;
 			}
 			_this.read_eyes()
-		})
-		this.thisdom.find(".qrmmeyesbtn").on("click",function(){
-			_this.thisdom.find(".qrmmvalue").val(_this.wthis.thisdata.qrmm)
-			if($(this).hasClass("closeeyes")){
-				_this.eyes[1] = true;
-			}else{
-				_this.eyes[1] = false;
-			}
-			_this.read_eyes()
-		})
-		this.thisdom.find(".invcodevalue").on("input propertychange",function(){
-			_this.wthis.thisdata.invcode = $(this).val()
 		})
 	},
 	read_telad:function(){
@@ -142,15 +77,8 @@ var readphoneobj = {
 	read_telnum:function(){
 		this.thisdom.find(".telvalue").val(this.wthis.thisdata.telnum)
 	},
-	read_yzmnum:function(){
-		this.thisdom.find(".yzmvalue").val(this.wthis.thisdata.yzm)
-		
-	},
 	read_mm:function(){
 		this.thisdom.find(".mmvalue").val(this.wthis.thisdata.mm)
-	},
-	read_qrmm:function(){
-		this.thisdom.find(".qrmmvalue").val(this.wthis.thisdata.qrmm)
 	},
 	read_eyes:function(){
 		this.thisdom.find(".mmvalue").hide()
@@ -164,60 +92,26 @@ var readphoneobj = {
 			this.thisdom.find(".mmvalue").eq(0).show()
 			this.thisdom.find(".mmeyesbtn").eq(0).show()
 		}
-		if(this.eyes[1]){
-			this.thisdom.find(".qrmmvalue").eq(1).show()
-			this.thisdom.find(".qrmmeyesbtn").eq(1).show()
-		}else{
-			this.thisdom.find(".qrmmvalue").eq(0).show()
-			this.thisdom.find(".qrmmeyesbtn").eq(0).show()
-		}
-	},
-	read_invcode:function(){
-		this.thisdom.find(".invcodevalue").val(this.wthis.thisdata.invcode)
 	}
 }
 var readmailboxobj = {
 	thisdom:$(".mailboxcon"),
-	initdata:{"mail":"","yzm":"","mm":"","qrmm":"","invcode":""},
+	initdata:{"mail":"","mm":""},
 	init:function(wthis){
 		var _this = this;
 		_this.wthis = wthis;
 	},
-	eyes:[false,false],
+	eyes:[false],
 	init:function(wthis){
 		var _this = this;
 		_this.wthis = wthis;
 		this.thisdom.find(".mailvalue").on("input propertychange",function(){
 			_this.wthis.thisdata.mail =$(this).val()
-			_this.wthis.readregisteredbtn();
-		})
-		this.thisdom.find(".yzmvalue").on("input propertychange",function(){
-			_this.wthis.thisdata.yzm = $(this).val()
-			_this.wthis.readregisteredbtn();
+			_this.wthis.readlandingbtn();
 		})
 		this.thisdom.find(".mmvalue").on("input propertychange",function(){
 			_this.wthis.thisdata.mm = $(this).val()
-			_this.wthis.readregisteredbtn();
-			if(_this.wthis.thisdata.qrmm.length>0&&_this.wthis.thisdata.mm!=_this.wthis.thisdata.qrmm){
-				$(".qrmmvalue").css("color","red")
-			}else{
-				$(".qrmmvalue").css("color","#303030")
-			}
-		})
-		this.thisdom.find(".qrmmvalue").on("input propertychange",function(){
-			_this.wthis.thisdata.qrmm = $(this).val();
-			_this.wthis.readregisteredbtn();
-			var thisno=false;
-			for(var i=0;i<_this.wthis.thisdata.qrmm.length;i++){
-				if(_this.wthis.thisdata.qrmm[i]!=_this.wthis.thisdata.mm[i]){
-					thisno = true;
-				}
-			}
-			if(thisno){
-				$(".qrmmvalue").css("color","red")
-			}else{
-				$(".qrmmvalue").css("color","#303030")
-			}
+			_this.wthis.readlandingbtn();
 		})
 		this.thisdom.find(".mmeyesbtn").on("click",function(){
 			_this.thisdom.find(".mmvalue").val(_this.wthis.thisdata.mm)
@@ -227,31 +121,13 @@ var readmailboxobj = {
 				_this.eyes[0] = false;
 			}
 			_this.read_eyes()
-		})
-		this.thisdom.find(".qrmmeyesbtn").on("click",function(){
-			_this.thisdom.find(".qrmmvalue").val(_this.wthis.thisdata.qrmm)
-			if($(this).hasClass("closeeyes")){
-				_this.eyes[1] = true;
-			}else{
-				_this.eyes[1] = false;
-			}
-			_this.read_eyes()
-		})
-		this.thisdom.find(".invcodevalue").on("input propertychange",function(){
-			_this.wthis.thisdata.invcode = $(this).val()
 		})
 	},
 	read_mailvalue:function(){
 		this.thisdom.find(".mailvalue").val(this.wthis.thisdata.mail)
 	},
-	read_yzmnum:function(){
-		this.thisdom.find(".yzmvalue").val(this.wthis.thisdata.yzm)
-	},
 	read_mm:function(){
 		this.thisdom.find(".mmvalue").val(this.wthis.thisdata.mm)
-	},
-	read_qrmm:function(){
-		this.thisdom.find(".qrmmvalue").val(this.wthis.thisdata.qrmm)
 	},
 	read_eyes:function(){
 		this.thisdom.find(".mmvalue").hide()
@@ -265,117 +141,6 @@ var readmailboxobj = {
 			this.thisdom.find(".mmvalue").eq(0).show()
 			this.thisdom.find(".mmeyesbtn").eq(0).show()
 		}
-		if(this.eyes[1]){
-			this.thisdom.find(".qrmmvalue").eq(1).show()
-			this.thisdom.find(".qrmmeyesbtn").eq(1).show()
-		}else{
-			this.thisdom.find(".qrmmvalue").eq(0).show()
-			this.thisdom.find(".qrmmeyesbtn").eq(0).show()
-		}
-	},
-	read_invcode:function(){
-		this.thisdom.find(".invcodevalue").val(this.wthis.thisdata.invcode)
-	}
-}
-var readprivatekeyobj = {
-	thisdom:$(".privatekeycon"),
-	initdata:{"telad":"+86","telnum":"","yzm":"","mm":"","qrmm":"","privatekey":""},
-	eyes:[false,false],
-	init:function(wthis){
-		var _this = this;
-		_this.wthis = wthis;
-		this.thisdom.find(".telvalue").on("input propertychange",function(){
-			_this.wthis.thisdata.telnum =$(this).val()
-			_this.wthis.readregisteredbtn();
-		})
-		this.thisdom.find(".yzmvalue").on("input propertychange",function(){
-			_this.wthis.thisdata.yzm = $(this).val()
-			_this.wthis.readregisteredbtn();
-		})
-		this.thisdom.find(".mmvalue").on("input propertychange",function(){
-			_this.wthis.thisdata.mm = $(this).val()
-			_this.wthis.readregisteredbtn();
-			if(_this.wthis.thisdata.qrmm.length>0&&_this.wthis.thisdata.mm!=_this.wthis.thisdata.qrmm){
-				$(".qrmmvalue").css("color","red")
-			}else{
-				$(".qrmmvalue").css("color","#303030")
-			}
-		})
-		this.thisdom.find(".qrmmvalue").on("input propertychange",function(){
-			_this.wthis.thisdata.qrmm = $(this).val();
-			_this.wthis.readregisteredbtn();
-			var thisno=false;
-			for(var i=0;i<_this.wthis.thisdata.qrmm.length;i++){
-				if(_this.wthis.thisdata.qrmm[i]!=_this.wthis.thisdata.mm[i]){
-					thisno = true;
-				}
-			}
-			if(thisno){
-				$(".qrmmvalue").css("color","red")
-			}else{
-				$(".qrmmvalue").css("color","#303030")
-			}
-		})
-		this.thisdom.find(".mmeyesbtn").on("click",function(){
-			_this.thisdom.find(".mmvalue").val(_this.wthis.thisdata.mm)
-			if($(this).hasClass("closeeyes")){
-				_this.eyes[0] = true;
-			}else{
-				_this.eyes[0] = false;
-			}
-			_this.read_eyes()
-		})
-		this.thisdom.find(".qrmmeyesbtn").on("click",function(){
-			_this.thisdom.find(".qrmmvalue").val(_this.wthis.thisdata.qrmm)
-			if($(this).hasClass("closeeyes")){
-				_this.eyes[1] = true;
-			}else{
-				_this.eyes[1] = false;
-			}
-			_this.read_eyes()
-		})
-		this.thisdom.find(".privatekeyvalue").on("input propertychange",function(){
-			_this.wthis.thisdata.privatekey = $(this).val()
-		})
-	},
-	read_telad:function(){
-		$("#mkey_teladvalue").val(this.wthis.thisdata.telad)
-		this.thisdom.find(".teladlabel span").html(this.wthis.thisdata.telad)
-	},
-	read_telnum:function(){
-		this.thisdom.find(".telvalue").val(this.wthis.thisdata.telnum)
-	},
-	read_yzmnum:function(){
-		this.thisdom.find(".yzmvalue").val(this.wthis.thisdata.yzm)
-	},
-	read_mm:function(){
-		this.thisdom.find(".mmvalue").val(this.wthis.thisdata.mm)
-	},
-	read_qrmm:function(){
-		this.thisdom.find(".qrmmvalue").val(this.wthis.thisdata.qrmm)
-	},
-	read_eyes:function(){
-		this.thisdom.find(".mmvalue").hide()
-		this.thisdom.find(".qrmmvalue").hide()
-		this.thisdom.find(".mmeyesbtn").hide()
-		this.thisdom.find(".qrmmeyesbtn").hide()
-		if(this.eyes[0]){
-			this.thisdom.find(".mmvalue").eq(1).show()
-			this.thisdom.find(".mmeyesbtn").eq(1).show()
-		}else{
-			this.thisdom.find(".mmvalue").eq(0).show()
-			this.thisdom.find(".mmeyesbtn").eq(0).show()
-		}
-		if(this.eyes[1]){
-			this.thisdom.find(".qrmmvalue").eq(1).show()
-			this.thisdom.find(".qrmmeyesbtn").eq(1).show()
-		}else{
-			this.thisdom.find(".qrmmvalue").eq(0).show()
-			this.thisdom.find(".qrmmeyesbtn").eq(0).show()
-		}
-	},
-	read_privatekey:function(){
-		this.thisdom.find(".privatekeyvalue").val(this.wthis.thisdata.privatekey)
 	}
 }
 var adnumdata = [
@@ -626,22 +391,8 @@ var phonead=$('.phone_teladvalue').mPicker({
 	idDefault:true,
 	header:'<div class="mPicker-header">请选择地区</div>',
 	confirm:function(json){
-		registeredfn.thisdata.telad = json.name;
-		readphoneobj.read_telad(registeredfn);
-	},
-	cancel:function(json){
-	}
-})
-var mkeyad=$('.mkey_teladvalue').mPicker({
-	level:1,
-	dataJson:adnumdata,
-	Linkage:false,
-	rows:6,
-	idDefault:true,
-	header:'<div class="mPicker-header">请选择地区</div>',
-	confirm:function(json){
-		registeredfn.thisdata.telad = json.name;
-		readprivatekeyobj.read_telad();
+		landingfn.thisdata.telad = json.name;
+		readphoneobj.read_telad(landingfn);
 	},
 	cancel:function(json){
 	}
