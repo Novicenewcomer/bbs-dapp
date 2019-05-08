@@ -166,3 +166,51 @@ input:-moz-placeholder {
 input:-ms-input-placeholder {
     color: #ccc;
 }
+.y_starbgmove1{
+	 -webkit-animation:2s y_starbgmove1  infinite alternate;
+	 animation:2s y_starbgmove1  infinite alternate;
+}
+@-webkit-keyframes y_starbgmove1{
+	0%{-webkit-transform: translate(0,0)}
+	100%{-webkit-transform:translate(4px,4px)}
+}
+@keyframes y_starbgmove1{
+	0%{-webkit-transform: translate(0,0)}
+	100%{-webkit-transform:translate(4px,4px)}
+}
+.y_starbgmove2{
+	 -webkit-animation:3s y_starbgmove2  infinite alternate;
+	 animation:3s y_starbgmove2  infinite alternate;
+}
+@-webkit-keyframes y_starbgmove2{
+	0%{-webkit-transform: translate(6px,0)}
+	100%{-webkit-transform:translate(0px,-4px)}
+}
+@keyframes y_starbgmove2{
+	0%{-webkit-transform: translate(6px,0)}
+	100%{-webkit-transform:translate(0px,-4px)}
+}
+.y_starbgmove3{
+	 -webkit-animation:2s y_starbgmove3  infinite alternate;
+	 animation:2s y_starbgmove3  infinite alternate;
+}
+@-webkit-keyframes y_starbgmove3{
+	0%{-webkit-transform: translate(0,0)}
+	100%{-webkit-transform:translate(0,-4px)}
+}
+@keyframes y_starbgmove3{
+	0%{-webkit-transform: translate(0,0)}
+	100%{-webkit-transform:translate(0,-4px)}
+}
+.y_starbgmove4{
+	 -webkit-animation:3s y_starbgmove4  infinite alternate;
+	 animation:3s y_starbgmove4  infinite alternate;
+}
+@-webkit-keyframes y_starbgmove4{
+	0%{-webkit-transform: translate(0,0)}
+	100%{-webkit-transform:translate(4px,0)}
+}
+@keyframes y_starbgmove4{
+	0%{-webkit-transform: translate(0,0)}
+	100%{-webkit-transform:translate(4px,0)}
+}

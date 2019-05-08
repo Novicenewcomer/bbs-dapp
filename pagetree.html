@@ -1,0 +1,108 @@
+<style>
+	.mn_page{
+	width: 100%;
+	height: 100%;
+	position: relative;
+	overflow: hidden;
+}
+.treepage{
+	transform-origin: left center;
+	width: 750px;
+	height: 1334px;
+	background-size:100% auto;
+	position: absolute;
+	left: 0;
+	top: 50%;
+	margin-top: -667px;
+}
+.canvasbox{
+	position: absolute;
+	top: 350px;
+	left: 45px;
+	margin: ;
+}
+.treeqjbox{
+	position: absolute;
+	left: 0;
+	top: 0;
+	width: 100%;
+	height: 100%;
+	background-size:100% auto;
+}
+.canvastreebg{
+	position: relative;
+	width: 660px;
+	height: 660px;
+}
+
+#trunk,#crown{
+	position: absolute;
+	left: 0;
+	top: 0;
+}
+.ulbox input,.ulbox p{
+	float: left;width: 80px;height: 40px;margin: 0 10px;line-height: 40px;text-align: center;font-size: 13px;
+}
+.ulbox p{padding: 5px 2px;line-height: 20px;}
+.ulbox p span{
+	font-size: 12px;
+}
+.ulbox{width: 300px;position: absolute;right: 0;height: 100%;top: 0;}
+
+.clear:after{ content:""; display:block; clear:both}
+.clear{zoom:1}
+#submitbtn,#stylesubmission{
+	display: block;width: 100px;height: 40px;margin: 10px auto;
+}
+
+.treeshadow{
+	position: absolute;
+	width: 464px;
+	height: 70px;
+	border-radius: 50%;
+	bottom: 10px;
+	left: 50%;
+	margin-left: -232px;
+}
+
+</style>
+<div class="mn_page">
+	<div class="treepage">
+		<div class="canvasbox" >
+			<div class="canvastreebg">
+				<span class="treeshadow"></span>
+				<canvas id="trunk" width="375" height="567"></canvas>
+				<canvas id="crown" width="375" height="467"></canvas>
+			</div>
+		</div>
+		<div class="treeqjbox"></div>
+	</div>
+</div>
+<script>
+	treeObja.init_treebg = function(){
+		$(".canvastreebg .treeshadow").css({"background":allcode.bgc_d[this.alldata.bc]["s"]});
+		$(".mn_page").css({
+			"background-color":allcode.bgc_d[this.alldata.bc]["b"]
+		})
+	}
+	var thistreedata = {
+		bc:allcode.bgc[(Math.round(Math.random()*(allcode.bgc.length-1)+0))],//背景颜色
+		bgzs:allcode.bgzs[(Math.round(Math.random()*(allcode.bgzs.length-1)+0))],//背景装饰
+		tks:allcode.tks[(Math.round(Math.random()*(allcode.tks.length-1)+0))],//树干外形
+		tkc:allcode.tkc[(Math.round(Math.random()*(allcode.tkc.length-1)+0))],//树干颜色
+		kskin:allcode.kskin[(Math.round(Math.random()*(allcode.kskin.length-1)+0))],//树干皮肤
+		tcs:allcode.tcs[(Math.round(Math.random()*(allcode.tcs.length-1)+0))],//树冠外形
+		tcc:allcode.tcc[(Math.round(Math.random()*(allcode.tcc.length-1)+0))],//树冠颜色	
+		cskin:allcode.cskin[(Math.round(Math.random()*(allcode.cskin.length-1)+0))],//树冠皮肤	
+		qjzs:allcode.qjzs[(Math.round(Math.random()*(allcode.qjzs.length-1)+0))],//前景装饰
+	}
+	treeObja.initsava=function (){//第一次随机保存
+		// console.log(treehattopshape[thistreedata.zs])
+		console.log(JSON.stringify(this.alldata))
+//		console.log(this.alldata.t.ln)
+		// $(".leafnum span").html(this.alldata.t.ln)
+	}
+	treeObja.init(thistreedata)
+	
+	
+</script>

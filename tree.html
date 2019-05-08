@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html>
+	<head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0">
+        <meta name="format-detection" content="telephone=no">
+        <title>BB#28390</title>
+        <link rel="stylesheet" type="text/css" href="css/public.css"/>
+		<link rel="stylesheet" type="text/css" href="css/tree.css"/>
+    </head>
+	<body>
+		<div class="mbdivbg">
+			<div class="mbdivcon">
+				<div class="treebox">
+					<div class="treecon"></div>
+					<div class="treetopbox clear">
+						<a class="tree_returnpagebtn" href="javascript:history.back(-1)">
+							<svg class="icon" aria-hidden="true">
+								<use xlink:href="#iconfanhui-h"></use>
+							</svg>
+						</a>
+						<div class="topnav_box">
+							<div class="left">
+								<em><svg class="icon" aria-hidden="true">
+									<use xlink:href="#iconjinbi"></use>
+								</svg></em><span>56789</span>
+							</div>
+							<a href="#" class="right">
+								<svg class="icon" aria-hidden="true">
+									<use xlink:href="#iconjia1"></use>
+								</svg>
+							</a>
+						</div>
+						<div class="topnav_box">
+							<div class="left">
+								<em><svg class="icon" aria-hidden="true">
+									<use xlink:href="#iconjinbi"></use>
+								</svg></em><span>56789</span>
+							</div>
+							<a href="#" class="right">
+								<svg class="icon" aria-hidden="true">
+									<use xlink:href="#iconjia1"></use>
+								</svg>
+							</a>
+						</div>
+					</div>
+					<ul class="tree_rightnavbox">
+						<li>
+							<a href="#"><svg class="icon" aria-hidden="true">
+									<use xlink:href="#iconjinbi"></use>
+								</svg></a>
+						</li>
+						<li>
+							<a href="#"><svg class="icon" aria-hidden="true">
+									<use xlink:href="#iconjinbi"></use>
+								</svg></a>
+						</li>
+					</ul>
+					<ul class="tree_bottomnavbox">
+						<li>
+							<a href="#"><svg class="icon" aria-hidden="true">
+									<use xlink:href="#iconjinbi"></use>
+								</svg></a>
+						</li>
+						<li>
+							<a href="#"><svg class="icon" aria-hidden="true">
+									<use xlink:href="#iconjinbi"></use>
+								</svg></a>
+						</li>
+						<li>
+							<a href="#"><svg class="icon" aria-hidden="true">
+									<use xlink:href="#iconjinbi"></use>
+								</svg></a>
+						</li>
+					</ul>
+					<ul class="tree_leftnavbox">
+						<li class="hjaccelerate">
+							<a href="#">
+								<div class="right">
+									<p><span>x </span>2.7倍</p>
+								</div>
+							</a>
+						</li>
+						<li class="treem_power">
+							<a href="#">
+								<span><svg class="icon" aria-hidden="true">
+									<use xlink:href="#iconjinbi"></use>
+								</svg></span><p>208.0280注</p>
+							</a>
+						</li>
+					</ul>
+					<div class="treefdfruitbox"><ul></ul></div>
+
+				</div>
+			</div>
+		</div>
+	</body>
+	<script src="js/jquery.js"></script>
+	<script src="js/public.js"></script>
+	<script>
+		var Usermsg = {
+			treeb:{
+				tree_ff:[{id:"005",type:"fufen",money:"123"},{id:"008",type:"fufen",money:"0.2456"},{id:"001",type:"fufen",money:"0.3"},{id:"002",type:"fufen",money:"0.4"},{id:"003",type:"fufen",money:"0.5"}]
+			}
+		}
+
+		linkOpenpage.pagetree = function(othis){
+			othis.loadHtmlobj({
+				jssrc:["js/pages/pagetree.js","js/treedata.js"],
+				callbackfn:function(thisobj){
+					treeObj.thisdom = $(".treebox");
+					treeObj.thisdom.find(".treecon").load("pagetree.html",function(){
+						var sczize = $(".mn_page").outerWidth()/750;
+						$(".treepage").css({
+							"transform":"scale("+sczize+")",
+							"-webkit-transform":"scale("+sczize+")"
+						})
+						var h = parseFloat($(".canvasbox").outerHeight()*sczize/3*2);
+						$(".treefdfruitbox").css({
+							"height":h,
+							"margin-top":-h/2-h/6
+						})
+//						$(".scrollw_box").css("height",$(".mbdivcon").outerHeight()-$(".fdstopnavbox").outerHeight()-$(".fdsgamemidnav").outerHeight())
+						// var thisdom = null;
+						var newtreeb = []
+						for(var i in Usermsg.treeb){
+							newtreeb = newtreeb.concat(Usermsg.treeb[i])
+						}
+						for(var i in newtreeb){
+							thisdom = $(['<li iid="',
+								newtreeb[i]["id"]
+							,'" class="',
+								newtreeb[i].type
+							,'" itype="',
+								newtreeb[i].type
+							,'"><div class="conbox"><svg class="icon" aria-hidden="true"><use xlink:href="#iconjinbi"></use></svg></div></li>'].join(''))
+							$(".treefdfruitbox ul").append(thisdom)
+							thisdom.find(".conbox").addClass("y_starbgmove"+Math.round(Math.random()*3+1));
+							thisdom.css({
+								"left":Math.round(Math.random()*($('.treebox').outerWidth()-thisdom.outerWidth()-$(".tree_rightnavbox").outerWidth())+0),
+								"top":Math.round(Math.random()*($('.treefdfruitbox').outerHeight()-thisdom.outerHeight())+0)
+							})
+						}
+						// 
+						// if(newtreeb.length<1){
+						// 	thisdom = $(['<li class="produceing"><div class="conbox"></div><p>正在生长中</p></li>'].join(''))
+						// 	$(".treefdfruitbox ul").append(thisdom)
+						// 	thisdom.find(".conbox").addClass("y_starbgmove"+Math.round(Math.random()*3+1));
+						// 	//1016
+						// 	thisdom.css({
+						// 		"left":Math.round(Math.random()*($('treebox').outerWidth()-thisdom.outerWidth()-$(".yy_rightopenicobox").outerWidth())+0),
+						// 		"top":Math.round(Math.random()*($('.treefdfruitbox').outerHeight()-thisdom.outerHeight())+0)
+						// 	})
+						// }
+						// geneObj.init();
+						thisobj.endfn();
+						linkOpenpage.readpage();
+					})
+				}
+			})
+		};
+		linkOpenpage.readpage({
+			pagearr:["pagetree"],
+			othis:$("body")
+		});
+
+	</script>
+</html>
