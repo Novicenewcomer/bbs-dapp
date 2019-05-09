@@ -1,13 +1,13 @@
-.miningpowerbg{
-	background: #f2f2f2;
+/* public */
+.cppub_bg{
+	background: #f4f4f4;
 }
-.miningpowertopbox{
+.cppub_bgtopbox{
 	position: relative;
-	height: 4rem;
-	background: url(../img/miningpowertopbg.png) no-repeat;
-	background-size: 100% 100%;
+	background-repeat:no-repeat;
+	background-size: 100% auto;
 }
-.slreturnpagebtn{
+.cppub_turnpagebtn{
 	position: absolute;
 	width: 0.96rem;
 	height: 0.76rem;
@@ -20,6 +20,11 @@
 	font-size: 0.48rem;
 	right: 0.52rem;
 	top: 0.44rem;
+}
+/* 算力 */
+.miningpowertopbox{
+	background-image: url(../img/miningpowertopbg.png);
+	height: 4rem;
 }
 .miningpowertopbox .text1{
 	text-align: center;
@@ -207,4 +212,240 @@
     line-height: 0.56rem;
     height: 0.56rem;
     cursor: pointer;
+}
+/* tspub */
+.tspcp_titbox {
+	margin: -1.08rem 0.48rem 0.2666rem;
+	position: relative;
+	background: #fff;
+    border-radius: 0.12rem;
+    box-shadow: rgba(230,230,230,.54) 0 0.1733rem 0.2133rem;
+	padding: 0.56rem 0 0.48rem;
+	display: flex;
+	display: -webkit-flex;
+}
+.tspcp_titbox .leftbox,
+.tspcp_titbox .rightbox{
+	flex: 1;
+	-webkit-flex: 1;
+}
+.tspcp_titbox .midbox{
+	width: 1.12rem;
+	height: 0.4533rem;
+	margin-top: 0.48rem;
+	background: #f7f7f7;
+	border-radius: 5rem;
+}
+.tspcp_titbox .p1{
+	font-size: 12px;
+	color: #949494;
+	line-height: 0.4266rem;
+	padding-bottom: 0.1333rem;
+	text-align: center;
+}
+.tspcp_titbox .p2{
+	font-size: 18px;
+	font-weight: bold;
+	color: #474747;
+	line-height: 0.6266rem;
+	text-align: center;
+}
+.tspcp_titbox .rightbox .p2{
+	color: #23cea6;
+}
+.tspub_bottombox{
+	padding: 0.64rem 0.48rem 0;
+}
+.tspub_bottombox a{
+	margin-bottom: 0.48rem;
+	font-size: 18px;
+}
+/* dx提升临时算力 */
+.dxcp_topbox{
+	background-image: url(../img/dxcp_topbg.png);
+	height: 3.5866rem;
+}
+.dxcp_topbox .text1{
+	font-size: 18px;
+	color: #fff;
+	font-weight: bold;
+	line-height: 0.5733rem;
+	padding: 0.6933rem 0 0 2.2533rem;
+	font-style: italic;
+}
+.dxcp_topbox .text2{
+	font-size: 30px;
+	color: #55f6f9;
+	font-weight: bold;
+	line-height: 0.88rem;
+	padding: 0 0 0 3.08rem;
+	font-style: italic;
+}
+
+.dxcp_conbox{
+	margin: 0 0.48rem;
+	position: relative;
+	background: #fff;
+	padding: 0.4rem 0.4rem 0.32rem;
+	border-radius: 0.12rem;
+	box-shadow: rgba(230,230,230,.54) 0 0.1733rem 0.2133rem;
+}
+.dxcp_conbox .tit{
+	color: #949494;
+	font-size: 15px;
+	line-height: 0.56rem;
+	padding-bottom: 0.5466rem;
+	font-weight: bold;
+}
+.dxcp_hasul {
+	padding-bottom: 0.1333rem;
+}
+.dxcp_hasul li {
+    float: left;
+    padding:0 0.45rem 0.44rem 0;
+}
+.dxcp_hasul li:nth-child(4n){
+	padding-right: 0;
+}
+.dxcp_hasul .con {
+    width: 1.72rem;
+    height: 1.72rem;
+    position: relative;
+}
+.dxcp_hasul .star_num {
+    padding: 0 6px;
+    height: 15px;
+    background: #f05e42;
+    border-radius: 8px;
+    border: 1px solid #fff;
+    position: absolute;
+    right: -7px;
+    top: -6px;
+    line-height: 15px;
+    color: #fff;
+    text-align: center;
+    font-size: 12px;
+}
+.dxcp_hasul .fdxname{
+	font-size:1.72rem;
+	line-height: 1.72rem;
+}
+.dxcp_tsbox{
+	background: #f7f7f7;
+	border-radius: 0.2rem;
+	padding: 0.44rem 0.2rem 0;
+}
+.dxcp_tsul{
+	height: 3.92rem;
+}
+.dxcp_tsul li{
+	float: left;
+	padding:0 0.2rem 0.4rem;
+}
+.dxcp_tsul .con {
+    width: 1.56rem;
+    height: 1.56rem;
+    position: relative;
+}
+.dxcp_tsul .fdxname{
+	font-size:1.56rem;
+	line-height: 1.56rem;
+}
+.dxcp_tstext{
+	text-align: center;
+	color: #949494;
+	font-size: 12px;
+	line-height: 0.52rem;
+	padding-bottom: 0.2rem;
+}
+.dxcp_tstext span{
+	color: #474747;
+	font-weight: bold;
+}
+.dxcp_alltextbox{
+	text-align: center;
+	padding-top: 0.4rem;
+	line-height: 0.52rem;
+	color: #949494;
+	font-size: 12px;
+}
+.dxcp_alltextbox strong{
+	color: #23cea6;
+}
+.dxcp_alltextbox strong:nth-child(1){
+	padding-right: 0.44rem;
+}
+/* gg */
+.ggbcp_topbox{
+	background-image: url(../img/dxcp_topbg.png);
+	background-position: left bottom;
+	height: 3.2666rem;
+	background-size:  auto 3.2666rem;
+}
+.ggbcp_topbox .text1{
+	font-size: 30px;
+	font-weight: bold;
+	color: #55f6f9;
+	line-height: 0.9066rem;
+	text-align: center;
+	padding-top: 1.04rem;
+	font-style: italic;
+}
+.ggcp_titbox {
+	margin-top: -0.72rem ;
+}
+.ggcp_conbox{
+	margin: 0 0.48rem;
+    position: relative;
+    background: #fff;
+    padding:0.52rem 0.44rem 0.44rem;
+    border-radius: 0.12rem;
+    box-shadow: rgba(230,230,230,.54) 0 0.1733rem 0.2133rem;
+}
+.ggcp_conbox .tit{
+	font-size: 15px;
+	color: #949494;
+	line-height: 0.56rem;
+	font-weight: bold;
+	padding-bottom: 0.6rem;
+}
+.ggcp_conul{
+	padding-bottom: 0.52rem;
+}
+.ggcp_conul li{
+	float: left;
+	padding:0 0.28rem 0.2666rem 0;
+	line-height: 1.4rem;
+	text-align: center;
+}
+.ggcp_conul li:nth-child(5n){
+	padding-right:0
+}
+.ggcp_conul .con{
+	width: 1.4rem;
+	height: 1.4rem;
+	background: #f7f7f7;
+	border-radius: 0.2rem;
+	color: #ccc;
+	font-size: 0.5rem;
+}
+.ggcp_conul .conac{
+	width: 1.4rem;
+	height: 1.4rem;
+	font-size: 1.4rem;
+	display: none;
+}
+.ggcp_conul li.active .con{
+	display: none;
+}
+.ggcp_conul li.active .conac{
+	display: block;
+}
+.ggcp_conbox .bottomtext{
+	font-size: 12px;
+	color: #949494;
+	line-height: 0.52rem;
+}
+.ggcp_conbox .bottomtext strong{
+	color: #23cea6;
 }

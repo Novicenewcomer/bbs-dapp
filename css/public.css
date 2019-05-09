@@ -78,6 +78,9 @@ h1, h2, h3, h4, h5, h6{font-size: 16px;font-weight:400}
     top: 0;
 	z-index: 1;
 }
+.scrollw_con{
+	width: 10rem;
+}
 .icon {
    width: 1em; height: 1em;
    vertical-align: -0.15em;
@@ -129,7 +132,7 @@ h1, h2, h3, h4, h5, h6{font-size: 16px;font-weight:400}
 .yy_loadinsidebox{
 	position: absolute;width:100%;height:100%;background: #B2D3F9;left:0;top:0;z-index: 999;
 }
-/* 橘色返回按钮 */
+/* 橘色按钮 */
 .yellowbtn{
 	border-radius: 2rem;
 	display: block;
@@ -145,6 +148,7 @@ h1, h2, h3, h4, h5, h6{font-size: 16px;font-weight:400}
 	background: -moz-linear-gradient(right, #ffd801, #ffaa00); /* Firefox 3.6 - 15 */
 	background: linear-gradient(to right, #ffd801 , #ffaa00); /* 标准的语法 */
 }
+/* 灰色 */
 .graybtn{
 	border-radius: 2rem;
 	display: block;
@@ -156,6 +160,22 @@ h1, h2, h3, h4, h5, h6{font-size: 16px;font-weight:400}
 	font-size: 15px;
 	text-align: center;
 	background: #e6e5e3;
+}
+/* 绿色按钮 */
+.greenbtn{
+	border-radius: 2rem;
+	display: block;
+	width: 100%;
+	height: 1.2rem;
+	line-height: 1.2rem;
+	color: #fff;
+	font-weight: bold;
+	font-size: 15px;
+	text-align: center;
+	background: -webkit-linear-gradient(left, #5be495 , #27d3b0); /* Safari 5.1 - 6.0 */
+	background: -o-linear-gradient(right, #5be495, #27d3b0); /* Opera 11.1 - 12.0 */
+	background: -moz-linear-gradient(right, #5be495, #27d3b0); /* Firefox 3.6 - 15 */
+	background: linear-gradient(to right, #5be495 , #27d3b0); /* 标准的语法 */
 }
 input::-webkit-input-placeholder {
     color: #ccc;
@@ -213,4 +233,8 @@ input:-ms-input-placeholder {
 @keyframes y_starbgmove4{
 	0%{-webkit-transform: translate(0,0)}
 	100%{-webkit-transform:translate(4px,0)}
+}
+.fdx170bg{
+	background: url(../img/fdx170bg.png) no-repeat;
+	background-size: 100% 100%;
 }

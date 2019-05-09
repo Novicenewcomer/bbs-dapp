@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html>
+	<head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0">
+        <meta name="format-detection" content="telephone=no">
+        <title>提升算力</title>
+        <link rel="stylesheet" type="text/css" href="css/public.css"/>
+        <link rel="stylesheet" type="text/css" href="css/miningpower.css"/>
+    </head>
+	<body>
+		<div class="mbdivbg">
+			<div class="mbdivcon cppub_bg">
+				<div class="scrollw_box">
+					<div class="scrollw_con">
+						<div class="cppub_bgtopbox dxcp_topbox">
+							<p class="text1">使用德星</p>
+							<p class="text2">提升临时算力</p>
+							<a class="cppub_turnpagebtn" href="javascript:history.back(-1)">
+								<svg class="icon" aria-hidden="true">
+									<use xlink:href="#iconfanhui-h"></use>
+								</svg>
+							</a>
+						</div>
+						<div class="tspcp_titbox dxcp_titbox">
+							<div class="leftbox">
+								<p class="p1">当前临时算力</p>
+								<p class="p2"></p>
+							</div>
+							<div class="midbox">
+								<p></p>
+							</div>
+							<div class="rightbox">
+								<p class="p1">提升后临时算力</p>
+								<p class="p2"></p>
+							</div>
+						</div>
+						<div class="dxcp_conbox">
+							<p class="tit">选择任意8颗德星</p>
+							<ul class="dxcp_hasul clear"></ul>
+							<div class="dxcp_tsbox clear">
+								<ul class="dxcp_tsul"></ul>
+								<p class="dxcp_tstext"><span>6</span> / 8</p>
+							</div>
+							<p class="dxcp_alltextbox">本次将提升：<strong class="dxcp_alltextnum">0注</strong>有效期：<strong>50天</strong></p>
+						</div>
+						<div class="tspub_bottombox">
+							<a class="dxcp_tsbtn graybtn" href="javascript:;">确认并提交</a>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</body>
+	<script src="js/jquery.js"></script>
+	<script src="js/public.js"></script>
+	<script>
+		
+		function increaseproductionsend(fn){//提升产量
+			console.log(dxtemporarycpfn.num);//提升产量使用8颗星的类型
+			// $(".fakeloaderbox").fadeIn();
+			//失败
+	//		$(".fakeloaderbox").fadeOut(function(){
+	//			operationFailedobj.init("操作失败原因");
+	//		});
+		}
+
+		$(function(){
+			dxtemporarycpfn.mzhu = "30.2810";
+			dxtemporarycpfn.init({
+				hasstars:{
+					"0":8,//类型：个数
+					"1":8,
+					"2":8,
+					"3":10,
+					"4":8,
+					"5":8,
+					"6":8,
+					"7":8,
+				}
+			});
+
+
+		})
+		var dxtemporarycpfn = {
+			mzhu:"0",
+			hasstars:{},
+			max:8,
+			num:[],
+			btnd:false,
+			init:function(data){
+				var _this = this;
+				$.extend(true,this, data);
+				
+				$(".dxcp_titbox .leftbox .p2").html(_this.mzhu+"注")
+				this.readmystar();
+				this.readbz();
+				$(".dxcp_hasul").on("click","li",function(){
+					if(_this.hasstars[$(this).attr("itype")]<=0||_this.num.length>=_this.max){
+						return false;
+					}
+					_this.pushcl($(this));
+				})
+				$(".dxcp_tsbox").on("click","li",function(){
+					_this.lesscl($(this));
+				})
+				$(".dxcp_tsbtn").on("click",function(fn){
+					if(!_this.btnd){
+						return false
+					}
+					increaseproductionsend();
+				})
+
+			},
+			pushcl:function(obj){
+				var _thisdom = $(['<li itype="',
+						obj.attr("itype")
+					,'"><div class="con fdx170bg"><div class="fdxname"><svg class="icon" aria-hidden="true"><use xlink:href="#iconfanhui-h"></use></svg></div></div></li>'].join(""));
+				$(".dxcp_tsul").append(_thisdom);
+				this.num.push(obj.attr("itype"));
+				
+				this.hasstars[obj.attr("itype")]--;
+				this.readmystar();
+				this.readbtn();
+				this.readbz();
+			},
+			readmystar:function(){
+				$(".dxcp_hasul").html("");
+				for(var i in this.hasstars){
+					var _thisdom = $(['<li itype="',
+						i
+					,'"><div class="con fdx170bg"><div class="fdxname"><svg class="icon" aria-hidden="true"><use xlink:href="#iconfanhui-h"></use></svg></div><span class="star_num">',
+						this.hasstars[i]
+					,'</span></div></li>'].join(""));
+					$(".dxcp_hasul").append(_thisdom);
+				}
+			},
+			readbtn:function(){
+				this.btnd = false;
+				if(this.num.length<this.max){
+					$(".dxcp_tsbtn").addClass("graybtn").removeClass("yellowbtn");
+					return false
+				}
+				this.btnd = true;
+				$(".dxcp_tsbtn").addClass("yellowbtn").removeClass("graybtn");
+
+			},
+			readbz:function(){
+				var bz = calculationObj.mul(4.215,this.searchtypenum("0"))
+						+calculationObj.mul(3.315,this.searchtypenum("1"))
+						+calculationObj.mul(0.4075,this.searchtypenum("2"))
+						+calculationObj.mul(0.265,this.searchtypenum("3"))
+						+calculationObj.mul(0.1925,this.searchtypenum("4"))
+						+calculationObj.mul(0.1025,this.searchtypenum("5"))
+						+calculationObj.mul(0.0125,this.searchtypenum("6"))
+						+calculationObj.mul(0.0125,this.searchtypenum("7"))
+				var n = bz.toFixed(4);
+				$(".dxcp_alltextnum").html(n+"注")
+				$(".dxcp_titbox .rightbox .p2").html(calculationObj.add(this.mzhu,n).toFixed(4)+"注");
+				$(".dxcp_tstext span").html(this.num.length);
+			},
+			searchtypenum:function(s){
+				var u = 0;
+				for(var i=0;i<this.num.length;i++){//
+					if(this.num[i]==s){
+						u++
+					}
+				}
+				return u
+			},
+			lesscl:function(obj){
+				this.hasstars[obj.attr("itype")]++;
+				obj.remove();
+				this.removeattr(this.num,obj.attr("itype"));
+				this.readmystar();
+				this.readbtn();
+				this.readbz();
+			},
+			removeattr:function(attr,val) {
+				var index = attr.indexOf(val);
+				if (index > -1) {
+					attr.splice(index, 1);
+				}
+			},
+
+		}
+
+	</script>
+</html>
