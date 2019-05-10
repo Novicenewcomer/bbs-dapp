@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html>
+	<head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0">
+        <meta name="format-detection" content="telephone=no">
+        <title>提升算力</title>
+        <link rel="stylesheet" type="text/css" href="css/public.css"/>
+        <link rel="stylesheet" type="text/css" href="css/miningpower.css"/>
+    </head>
+	<body>
+		<div class="mbdivbg">
+			<div class="mbdivcon cppub_bg">
+				<div class="scrollw_box">
+					<div class="scrollw_con">
+						<div class="cppub_bgtopbox ffcp_topbox">
+							<p class="text1">使用FF</p>
+							<p class="text2">提升临时算力</p>
+							<a class="cppub_turnpagebtn" href="javascript:history.back(-1)">
+								<svg class="icon" aria-hidden="true">
+									<use xlink:href="#iconfanhui-h"></use>
+								</svg>
+							</a>
+						</div>
+						<div class="tspcp_titbox ffcp_titbox">
+							<div class="leftbox">
+								<p class="p1">当前临时算力</p>
+								<p class="p2"></p>
+							</div>
+							<div class="midbox">
+								<p></p>
+							</div>
+							<div class="rightbox">
+								<p class="p1">提升后临时算力</p>
+								<p class="p2"></p>
+							</div>
+						</div>
+						<div class="ffcp_conbox">
+							<p class="tit">拖动滑块选择区间</p>
+							<div class="ffcp_con">
+								<div class="leftbox">
+									<p class="stit">提升至</p>
+									<p class="tsnum"></p>
+								</div>
+								<div class="midbox">
+									<p>有效期：<span>30天</span></p>
+								</div>
+								<div class="rightbox">
+									<p class="stit">支付</p>
+									<p class="successratenum">1500FF</p>
+								</div>
+							</div>
+							<div class="ffcp_choicecon">
+								<div class="rolltiaobg">
+									<span></span>
+								</div>
+								<span class="rolltiaomovebtn"></span>
+							</div>
+							<p class="ffcp_choiceqj clear"><span></span><span></span></p>
+						</div>
+					</div>
+				</div>
+				<div class="ffcp_bottombox">
+					<a class="ffcp_tsbtn yellowbtn" href="javascript:;">确认支付</a>
+				</div>
+			</div>
+		</div>
+	</body>
+	<script src="js/jquery.js"></script>
+	<script src="js/public.js"></script>
+	<script>
+		
+		$(".ffcp_tsbtn").on("click",function(fn){//提升产量
+			console.log(fftemporarycpfn.mr0_m);//提升产量使用8颗星的类型
+		})
+
+		$(function(){
+			fftemporarycpfn.mr0_s="1";//默认最小提升
+			fftemporarycpfn.mr0_b="10";//默认最大提升
+			fftemporarycpfn.mr0_m = "5"//默认提升注数
+			fftemporarycpfn.cff = function(){
+				$(".successratenum").html(calculationObj.mul(this.mr0_m,300)+"注")
+			}
+			fftemporarycpfn.init();
+		})
+		var fftemporarycpfn = {
+			mzhu:"0",
+			hasstars:{},
+			max:8,
+			num:[],
+			btnd:false,
+			thisdom:$(".ffcp_conbox"),
+			init:function(data){
+				var _this = this;
+				this.thisdom.find(".ffcp_choiceqj span").eq(0).html(this.mr0_s+"注");
+				this.thisdom.find(".ffcp_choiceqj span").eq(1).html(this.mr0_b+"注");
+				this.thisdom.find(".tsnum").html(this.mr0_m+"注");
+				this.cff();
+				if(IsPC()){
+					setrollIN_pc.cs(this.thisdom.find('.ffcp_choicecon'),this.mr0_m,this.mr0_s,this.mr0_b)
+					setrollIN_pc.fn(this.thisdom.find('.ffcp_choicecon'),function(obj){
+						_this.setrollch()
+					});
+				}else{
+					setrollIN_yd.cs(this.thisdom.find('.ffcp_choicecon'),this.mr0_m,this.mr0_s,this.mr0_b)
+					setrollIN_yd.fn(this.thisdom.find('.ffcp_choicecon'),function(obj){
+						_this.setrollch()
+					});
+				}
+
+			},
+			setrollch:function(){
+				var ww = parseFloat(this.thisdom.find(".ffcp_choicecon .rolltiaobg").css("width"));
+				var sw = this.thisdom.find(".ffcp_choicecon .rolltiaobg span").outerWidth();
+				var thisdn = 0;
+				if(this.mr0_b.toString().indexOf(".")>=0){
+					thisdn = this.mr0_b.toString().split(".")[1].length
+				}
+				this.mr0_m =(calculationObj.add(calculationObj.mul(calculationObj.div(calculationObj.sub(ww,sw),ww),calculationObj.sub(this.mr0_b,this.mr0_s)),this.mr0_s)).toFixed(thisdn);
+				this.thisdom.find(".tsnum").html(this.mr0_m+"注")
+				this.cff();
+			}
+		}
+
+	</script>
+</html>

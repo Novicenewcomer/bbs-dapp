@@ -1,0 +1,283 @@
+.buyadp_topbox{
+	padding: 1.92rem 0.48rem 0.6rem;
+    display: flex;
+    display: -webkit-flex;
+}
+.buyadp_topbox li{
+	flex: 1;
+	-webkit-flex:1;
+	text-align: center;
+	position: relative;
+}
+.buyadp_topbox li p.p1{
+	color: #ccc;
+	font-size: 12px;
+	line-height: 0.6rem;
+}
+.buyadp_topbox li p.p2{
+	color: #303030;
+	font-size: 18px;
+	line-height: 0.6533rem;
+	font-weight: bold;
+}
+.buyadp_topbox li:after{
+	content: "";
+	position: absolute;
+	width: 1px ;
+	height: 0.96rem;
+	background: #f4f4f4;
+	top: 50%;
+	right: 0;
+	margin-top: -0.48rem;
+}
+.buyadp_topbox li:last-child:after{
+	display: none;
+}
+.buyadp_adshowbox{
+	height: 2.32rem;
+	overflow: hidden;
+	border-radius: 0.12rem;
+	margin: 0 0.48rem 0.36rem;
+}
+.buyadp_adshowbox img{
+	width: 100%;
+}
+.buyadp_admsgconbox{
+	padding: 0 0.48rem 0.36rem;
+}
+.buyadp_adtit{
+	font-weight: bold;
+	line-height: 1.4rem;
+	height: 1.4rem;
+	position: relative;
+	color: #474747;
+	font-size: 18px;
+}
+.goauctionrules{
+	position: absolute;
+	right: 0;
+	top: 0;
+	font-size: 12px;
+	color: #4fa6ff;
+	font-weight: normal;
+}
+.buyadp_admsgcon{
+	background: #fff;
+	border-radius: 0.24rem;
+	box-shadow: rgba(230,230,230,.54) 0 0.04rem 0.28rem;
+	position: relative;
+	padding: 0.28rem 0.4rem 0;
+	overflow: hidden;
+}
+.buyadp_admsgcon ul{
+	padding-bottom:  0.28rem;
+}
+.buyadp_admsgcon li p{
+	float: left;
+	font-size: 15px;
+	line-height: 0.8rem;
+}
+.buyadp_admsgcon p.tit{
+	padding-right: 0.72rem;
+	color: #949494;
+}
+.buyadp_admsgcon p.c{
+	color: #303030;
+}
+.buyadp_admsgcon p .y{
+	color: #ff8c62;
+}
+.buyadp_admsgtip{
+	position: absolute;
+	padding-top: 0.68rem;
+	height: 1.04rem;
+	line-height: 1.04rem;
+	width: 2.36rem;
+	text-align: center;
+	padding-left: 0.28rem;
+	color: #fff;
+	top: -0.7466rem;
+	right: 0;
+	font-size: 18px;
+	border-radius: 5rem 0 0 5rem;
+	background: -webkit-linear-gradient(left, #d4d9e0 , #bdc7cf); /* Safari 5.1 - 6.0 */
+	background: -o-linear-gradient(right, #d4d9e0, #bdc7cf); /* Opera 11.1 - 12.0 */
+	background: -moz-linear-gradient(right, #d4d9e0, #bdc7cf); /* Firefox 3.6 - 15 */
+	background: linear-gradient(to right, #d4d9e0 , #bdc7cf); /* 标准的语法 */
+}
+.buyadp_admsgconboxing .buyadp_admsgtip{
+	background: -webkit-linear-gradient(left, #65e69b , #2ed5ac); /* Safari 5.1 - 6.0 */
+	background: -o-linear-gradient(right, #65e69b, #2ed5ac); /* Opera 11.1 - 12.0 */
+	background: -moz-linear-gradient(right, #65e69b, #2ed5ac); /* Firefox 3.6 - 15 */
+	background: linear-gradient(to right, #65e69b , #2ed5ac); /* 标准的语法 */
+}
+.buyadp_adlcconbox{
+	padding: 0 0.48rem 0.36rem;
+}
+.buyadp_adlccon{
+	display: flex;
+	display: -webkit-flex;
+}
+.buyadp_adlccon li{
+	flex: 1;
+	-webkit-flex: 1;
+	padding-right: 0.44rem;
+	position: relative;
+}
+.buyadp_adlccon li .rightjt{
+	position: absolute;
+	right: 0;
+	top:50%;
+	width: 0.44rem;
+	text-align: center;
+	height: 0.22rem;
+	line-height: 0.22rem;
+	margin-top: -0.11rem;
+	font-size: 0.16rem;
+	color: #d0d0d0;
+}
+.buyadp_adlccon li:last-child{
+	padding-right: 0;
+}
+.buyadp_adlccon .c{
+	border: 1px solid #ffcc02;
+	border-radius: 0.2rem;
+	height: 1.16rem;
+	text-align: center;
+	color: #ccc;
+	font-size: 12px;
+	line-height: 0.4rem;
+}
+.buyadp_adlccon .p1{
+	padding-top: 0.2rem;
+}
+.buyadp_adlccon .p2{
+	color: #303030;
+}
+.buyadp_adlccon li:nth-child(2) .c{
+	border-color: #ff8d62;
+}
+.buyadp_adlccon li:nth-child(3) .c{
+	border-color: #f18df3;
+}
+.buyadp_adlccon li:nth-child(4) .c{
+	border-color: #32d2fe;
+}
+.buyadp_adtimebox{
+	line-height: 0.56rem;
+	text-align: center;
+	color: #949494;
+	font-size: 14px;
+}
+.buyadp_adtimebox strong{
+	color: #fb713e;
+	font-size: 24px;
+}
+.buyadp_adtimebox_rd{
+	padding: 0.72rem 0 0.48rem;
+}
+.buyadp_adtimebox_ing{
+	padding: 0.64rem 0 0.32rem;
+	border-top: 1px solid #f4f4f4;
+}
+.buyadp_bottombox{
+	padding: 0 0.48rem 0.36rem;
+}
+.buyadp_bottombox a{
+	font-size: 18px;
+}
+.buyadp_myconbox{
+	padding: 0 0.48rem 0.36rem;
+}
+.buyadp_myconbox li{
+	margin-bottom: 0.2rem;
+	line-height: 0.76rem;
+	color: #949494;
+	font-size: 14px;
+	display: flex;
+	display: -webkit-flex;
+	padding: 0.2rem;
+	border: 1px solid #ebedf1;
+}
+.buyadp_myconbox .tit{
+	width: 143px;
+}
+.buyadp_myconbox .m{
+	flex: 1;
+	-webkit-flex: 1;
+	text-align: center;
+	color: #303030;
+}
+.buyadp_myconbox .xgbtn{
+	color: #ffac00;
+	height: 0.76rem;
+	border:1px solid #f0f0f0;
+	border-radius: 5rem;
+	width:1.72rem;
+	text-align: center;
+	font-weight: bold;
+}
+.buyadp_historyjlconbox{
+	padding: 0 0.48rem 0.36rem;
+}
+.buyadp_historyjlconbox ul{
+}
+.buyadp_historyjlconbox li{
+	border-bottom: 1px solid #f4f4f4;
+	padding-bottom: 0.24rem;
+}
+.buyadp_historyjlconbox li .time{
+	line-height: 0.52rem;
+	color: #ccc;
+	font-size: 12px;
+}
+.buyadp_historyjlconbox li .con{
+	display: flex;
+	display: -webkit-flex;
+	color: #303030;
+	font-size: 14px;
+	line-height: 0.64rem;
+}
+.buyadp_historyjlconbox li .c{
+	flex: 1;
+	-webkit-flex: 1;
+}
+.buyadp_bottombox_ing{
+	padding-top: 0.4rem;
+}
+.buyadp_admsgconboxend .buyadp_admsgtip{
+	background: -webkit-linear-gradient(left, #d6dae1 , #bdc7cf); /* Safari 5.1 - 6.0 */
+	background: -o-linear-gradient(right, #d6dae1, #bdc7cf); /* Opera 11.1 - 12.0 */
+	background: -moz-linear-gradient(right, #d6dae1, #bdc7cf); /* Firefox 3.6 - 15 */
+	background: linear-gradient(to right, #d6dae1 , #bdc7cf); /* 标准的语法 */
+}
+.buyadp_adtimebox_end{
+	padding: 0.64rem 0 0;
+	border-top: 1px solid #f4f4f4;
+}
+.buyadp_admsgcon .nexttimetext{
+	color: #949494;
+	font-size: 12px;
+	line-height: 0.7rem;
+	padding-bottom: 0.24rem;
+	text-align: center;
+}
+.buyadp_admsgcon .nexttimetext span{
+	color: #303030;
+}
+.buyadp_myconbox .zttext{
+	color: #ff8c62;
+	height: 0.76rem;
+	width:1.5866rem;
+	text-align: center;
+	font-weight: bold;
+}
+.buyadp_myconbox .zttextok{
+	color: #23cea6;
+}
+.buyadp_bottombox_end{
+	padding-top: 0.16rem;
+}
+.buyadp_adtimebox_paytime{
+	
+}

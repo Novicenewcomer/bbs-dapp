@@ -44,7 +44,7 @@
 								</div>
 								<div class="conac">
 									<svg class="icon" aria-hidden="true">
-										<use xlink:href="#iconjinbi"></use>
+										<use xlink:href="#iconbaozi"></use>
 									</svg>
 								</div>
 							</li>
@@ -56,7 +56,7 @@
 								</div>
 								<div class="conac">
 									<svg class="icon" aria-hidden="true">
-										<use xlink:href="#iconjinbi"></use>
+										<use xlink:href="#iconbaozi"></use>
 									</svg>
 								</div>
 							</li>
@@ -68,7 +68,7 @@
 								</div>
 								<div class="conac">
 									<svg class="icon" aria-hidden="true">
-										<use xlink:href="#iconjinbi"></use>
+										<use xlink:href="#iconbaozi"></use>
 									</svg>
 								</div>
 							</li>
@@ -80,7 +80,7 @@
 								</div>
 								<div class="conac">
 									<svg class="icon" aria-hidden="true">
-										<use xlink:href="#iconjinbi"></use>
+										<use xlink:href="#iconbaozi"></use>
 									</svg>
 								</div>
 							</li>
@@ -92,7 +92,7 @@
 								</div>
 								<div class="conac">
 									<svg class="icon" aria-hidden="true">
-										<use xlink:href="#iconjinbi"></use>
+										<use xlink:href="#iconbaozi"></use>
 									</svg>
 								</div>
 							</li>
@@ -104,7 +104,7 @@
 								</div>
 								<div class="conac">
 									<svg class="icon" aria-hidden="true">
-										<use xlink:href="#iconjinbi"></use>
+										<use xlink:href="#iconbaozi"></use>
 									</svg>
 								</div>
 							</li>
@@ -116,7 +116,7 @@
 								</div>
 								<div class="conac">
 									<svg class="icon" aria-hidden="true">
-										<use xlink:href="#iconjinbi"></use>
+										<use xlink:href="#iconbaozi"></use>
 									</svg>
 								</div>
 							</li>
@@ -128,7 +128,7 @@
 								</div>
 								<div class="conac">
 									<svg class="icon" aria-hidden="true">
-										<use xlink:href="#iconjinbi"></use>
+										<use xlink:href="#iconbaozi"></use>
 									</svg>
 								</div>
 							</li>
@@ -140,7 +140,7 @@
 								</div>
 								<div class="conac">
 									<svg class="icon" aria-hidden="true">
-										<use xlink:href="#iconjinbi"></use>
+										<use xlink:href="#iconbaozi"></use>
 									</svg>
 								</div>
 							</li>
@@ -152,7 +152,7 @@
 								</div>
 								<div class="conac">
 									<svg class="icon" aria-hidden="true">
-										<use xlink:href="#iconjinbi"></use>
+										<use xlink:href="#iconbaozi"></use>
 									</svg>
 								</div>
 							</li>
@@ -193,7 +193,7 @@
 		var ggpermanentcpfn = {
 			mzhu:"0",
 			hasstars:{},
-			max:8,
+			max:15,
 			num:0,
 			btnd:false,
 			init:function(data){
@@ -204,9 +204,9 @@
 				
 				this.readbz();
 				$(".ggcp_conul").on("click","li",function(){
-					// if(_this.hasstars[$(this).attr("itype")]<=0||_this.num.length>=_this.max){
-					// 	return false;
-					// }
+					if(_this.num>=_this.max){
+						return false;
+					}
 					if($(this).hasClass("active")){
 						_this.lesscl($(this));
 					}else{
