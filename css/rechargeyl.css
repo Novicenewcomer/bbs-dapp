@@ -1,0 +1,107 @@
+.rechargeyl_box{
+	padding: 0 0.48rem;
+}
+.rechargeyl_p1{
+	padding-top:0.44rem;
+	color: #474747;
+	font-size: 12px;
+	line-height: 0.64rem;
+}
+.rechargeyl_numbox{
+	display: flex;
+	display: -webkit-flex;
+	border-bottom: 1px solid #e7e7e7;
+	color: #949494;
+	font-size: 14px;
+	line-height: 1.12rem;
+	height: 1.12rem;
+}
+.rechargeyl_numbox .inputbox{
+	flex: 1;
+	-webkit-flex: 1;
+}
+.rechargeyl_numbox input{
+	color: #303030;
+	font-size: 15px;
+}
+.rechargeyl_has{
+	font-size: 12px;
+	color: #ccc;
+	line-height: 0.68rem;
+}
+.rechargeyl_jye{
+	font-size: 15px;
+	font-weight: bold;
+	line-height: 1.12rem;
+}
+.rechargeyl_jye p:nth-of-type(1){
+	color: #949494;
+	float: left;
+}
+.rechargeyl_jye p:nth-of-type(2){
+	color: #303030;
+	float: right;
+}
+.rechargeyl_paytext{
+	color: #474747;
+	font-size: 12px;
+	padding: 0.28rem 0 0;
+	line-height: 0.68rem;
+}
+.rechargeyl_bottombox{
+	position: absolute;
+	bottom: 0.16rem;
+	width: 9.04rem;
+	left:0.48rem;
+	z-index: 10;
+}
+.rechargeyl_tsbtn{
+	font-size: 18px;
+	margin-bottom: 0.16rem;
+}
+.rechargeyl_repage{
+    display: block;
+    width: 100%;
+    height: 1.2rem;
+    line-height: 1.2rem;
+    color: #303030;
+    font-size: 15px;
+    text-align: center;
+}
+.rechargeyl_payul li{
+	height: 1.36rem;
+	line-height: 1.36rem;;
+	border-bottom: 1px solid #e7e7e7;
+	color: #303030;
+	font-size: 14px;
+}
+.rechargeyl_payul li p{
+	float: left;
+}
+.rechargeyl_payul .alipaypay,
+.rechargeyl_payul .weixinpay{
+	float: left;
+	margin-right: 0.2rem;
+	color: #01aaef;
+	font-size: 0.6rem;
+}
+.rechargeyl_payul .weixinpay{
+	color: #71c058;
+}
+.rechargeyl_payul .selection{
+	float: right;
+	color: #ccc;
+	font-size: 0.48rem;
+}
+.rechargeyl_payul .selectionac{
+	display: none;
+	float: right;
+	color: #ffaa00;
+	font-size: 0.48rem;
+}
+.rechargeyl_payul .active .selectionac{
+	display: block;
+}
+.rechargeyl_payul .active .selection{
+	display: none;
+}

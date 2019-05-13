@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html>
+	<head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0">
+        <meta name="format-detection" content="telephone=no">
+        <title>充值原粒</title>
+        <link rel="stylesheet" type="text/css" href="css/public.css"/>
+		<link rel="stylesheet" type="text/css" href="css/rechargeyl.css"/>
+    </head>
+	<body>
+		<div class="mbdivbg">
+			<div class="mbdivcon">
+				<div class="scrollw_box">
+					<div class="scrollw_con">
+						<div class="rechargeyl_box">
+							<p class="rechargeyl_p1">买入数量</p>
+							<div class="rechargeyl_numbox">
+								<p class="inputbox"><input type="text" id="rechargeylnum" value="" /></p>
+								<p>YL</p>
+							</div>
+							<p class="rechargeyl_has">可用 28018.28100008 YL</p>
+							<div class="rechargeyl_jye clear">
+								<p>交易额</p>
+								<p><span class="cnynum">0.0000</span> CNY</p>
+							</div>
+							<p class="rechargeyl_paytext">支付方式</p>
+							<ul class="rechargeyl_payul">
+								<li itype="alipay" class="clear">
+									<span class="alipaypay"><svg class="icon" aria-hidden="true"><use xlink:href="#iconzhifubao"></use></svg></span>
+									<p>支付宝</p>
+									<span class="selection"><svg class="icon" aria-hidden="true"><use xlink:href="#iconweigouxuan1"></use></svg></span>
+									<span class="selectionac"><svg class="icon" aria-hidden="true"><use xlink:href="#icongouxuan"></use></svg></span>
+								</li>
+								<li itype="weixin" class="clear">
+									<span class="weixinpay"><svg class="icon" aria-hidden="true"><use xlink:href="#iconweixinzhifu"></use></svg></span>
+									<p>微信支付</p>
+									<span class="selection"><svg class="icon" aria-hidden="true"><use xlink:href="#iconweigouxuan1"></use></svg></span>
+									<span class="selectionac"><svg class="icon" aria-hidden="true"><use xlink:href="#icongouxuan"></use></svg></span>
+								</li>
+							</ul>
+						</div>
+					</div>
+				</div>
+				<div class="rechargeyl_bottombox">
+					<a class="rechargeyl_tsbtn graybtn" href="javascript:;">支付</a>
+					<a class="rechargeyl_repage" href="javascript:history.back(-1)">返回</a>
+				</div>
+			</div>
+		</div>
+	</body>
+	<script src="js/jquery.js"></script>
+	<script src="js/public.js"></script>
+	<script>
+		$(".rechargeyl_tsbtn").on("click",function(){//支付
+			if(rechargeylfn.btnd){
+				console.log($("#rechargeylnum").val()+"支付方式"+rechargeylfn.paytype)
+			}
+		})
+		$(function(){
+			rechargeylfn.init();
+		})
+		var rechargeylfn = {
+			min:100,
+			btnd :false,
+			paytype:"alipay",
+			tokv:"",
+			init:function(){
+				var _this = this;
+				$("#rechargeylnum").attr("placeholder","最小买入数量"+this.min);
+				$("#rechargeylnum").on("input propertychange",function(){
+					var iinput = $(this).val().replace(/\s/g,"");
+					if(!iinput){
+						_this.tokv = "";
+					}else if(!isNumber(iinput*1)){
+						_this.tokv = _this.tokv;
+					}else if(isNumber(iinput*1)&&!decimalNumber(iinput,8)){
+						_this.tokv = _this.tokv;
+					}else{
+						_this.tokv = iinput;
+					}
+					$(this).val(_this.tokv)
+					$(".cnynum").html(calculationObj.mul(_this.tokv,0.1).toFixed(4))
+					_this.readbtn();
+				})
+				$(".rechargeyl_payul li").on("click",function(){
+					$(this).addClass("active").siblings().removeClass("active");
+					_this.paytype = $(this).attr("itype")
+				})
+				$(".rechargeyl_payul li[itype='"+this.paytype+"']").click()
+			},
+			readbtn:function(){
+				this.btnd = false;
+				if ($('#rechargeylnum').val()*1<this.min) {
+					$(".rechargeyl_tsbtn").addClass("graybtn").removeClass("yellowbtn");
+					return false;
+				}
+				this.btnd = true;
+				$(".rechargeyl_tsbtn").addClass("yellowbtn").removeClass("graybtn");
+			}
+		}
+	</script>
+</html>

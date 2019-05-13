@@ -463,7 +463,7 @@
 	left: 0;
 	bottom: 0.48rem;
 	width: 100%;
-	    
+	z-index: 10;
 }
 .ffcp_bottombox a{
 	margin:0 0.48rem;

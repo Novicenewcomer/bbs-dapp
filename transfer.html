@@ -52,12 +52,6 @@
 							<a href="javascript:history.back(-1)">返回</a>
 						</div>
 					</div>
-					
-						<!--<div class="c_turnoutallbox">
-							<p class="tit">到账数量</p>
-							<p class="right"><span class="turnoutdznum">0.00000000</span> <em class="unittype"></em></p>
-						</div> -->
-						
 				</div>
 			</div>
 		</div>
@@ -134,11 +128,6 @@
 						_this.tokv = iinput;
 					}
 					$(this).val(_this.tokv)
-					if(!_this.tokv){
-						$(".turnoutdznum").html("0.00000000")
-					}else{
-						$(".turnoutdznum").html(_this.tokv)
-					}
 					_this.readbtn();
 				})
 				$(".allnum").on("click",function(){
