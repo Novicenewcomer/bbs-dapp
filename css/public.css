@@ -278,3 +278,56 @@ input:-ms-input-placeholder {
 	background: -moz-linear-gradient(right, #ffd801, #ffaa00); /* Firefox 3.6 - 15 */
 	background: linear-gradient(to right, #ffd801 , #ffaa00); /* 标准的语法 */
 }
+.pub_jycon{
+	border:2px solid #474747;
+	border-radius: 0.08rem;
+	background: #fff;
+	overflow: hidden;
+	text-align: center;
+	color: #181d21;
+	line-height: 0.8rem;
+	height: 0.88rem;
+	font-size: 14px;
+	position: relative;
+}
+.pub_jycon:before{
+	content: "";
+	position: absolute;
+	border:  #80d9bb 10rem solid;
+	width: 3.16rem;
+	left: 50%;
+	margin-left: -11.58rem;
+	height: 1.48rem;
+	background: #fff;
+	top: -10rem;
+	margin-top: -0.8rem;
+	border-radius: 50%;
+}
+.pub_jycon p{
+	position: relative;
+	z-index: 1;
+}
+.pub_jycon0_0:before{
+	background: #fff;
+	border-color: #80d9bb;
+}
+.pub_jycon1_0:before{
+	background: #fff;
+	border-color: #fd7878;
+}
+.pub_jycon2_0:before{
+	background: #fff;
+	border-color: #8da1d3;
+}
+.pub_jycon3_0:before{
+	background: #fff;
+	border-color: #ffac00;
+}
+.pub_jycon4_0:before{
+	background: #fff;
+	border-color: #7cd6f3;
+}
+.pub_jycon5_0:before{
+	background: #fff;
+	border-color: #ffd200;
+}
