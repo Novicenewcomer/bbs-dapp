@@ -201,6 +201,45 @@ var operationSucedobj = {
 		$("body").append(thishtml);
 	}
 };
+//弹出确认取消提示框
+var Popupboxfn = {
+	thisdom:null,
+	otext:"确定要删除？",
+	init:function(okfn,cancelfn,otext,ontext){
+		var _this = this;
+		_this.okfn = okfn;
+		if(!_this.thisdom){
+			this.readhtml();
+		}
+		if(ontext){
+			_this.thisdom.find(".del_okbtn").html(ontext);
+		}else{
+			_this.thisdom.find(".del_okbtn").html("确定");
+		}
+		
+		if(cancelfn){
+			_this.cancelfn = cancelfn;
+		};
+		if(otext){
+			_this.thisdom.find(".text").html(otext);
+		}else{
+			_this.thisdom.find(".text").html(_this.otext);
+		};
+		_this.thisdom.fadeIn();
+		_this.thisdom.find(".del_cancelbtn").unbind("touchend").on("touchend",function(){
+			_this.cancelfn();
+		});
+		_this.thisdom.find(".del_okbtn").unbind("touchend").on("touchend",function(){
+			_this.okfn();
+		});
+	},
+	okfn:function(){},
+	cancelfn:function(){},
+	readhtml:function(){
+		this.thisdom = $('<div class="del_msgbox"><div class="del_msgdiv"><p class="text"></p><div class="del_msgbtndiv"><span class="del_cancelbtn">取消</span><span class="del_okbtn">确定</span></div></div></div>')
+		$("body").append(this.thisdom)
+	}
+};
 function isNumber(val){
 	var regPos = /^\d+(\.\d+)?$/; //非负浮点数
 	var regNeg = /^((([0-9]+\.[0-9]*[1-9][0-9]*)|([0-9]*[1-9][0-9]*\.[0-9]+)|([0-9]*[1-9][0-9]*)))$/; //浮点数
@@ -216,6 +255,10 @@ function decimalNumber(e, num) {
 	} else{
 		return true;
 	}
+}
+function flooldecimal(num,n){
+	var w = Math.pow(10,n)
+	return calculationObj.div(Math.floor(calculationObj.mul(num,w)),w);
 }
 
 var calculationObj ={
@@ -498,4 +541,21 @@ var resetImg = {
 			obj.css({"margin-left":-(obj.outerWidth()-w_width)/2,"margin-top":"auto"});
 		};
 	}
+};
+$.fn.longPress = function(fn) {
+    var timeout = undefined;
+    var timestop = undefined;
+    var $this = this;
+    for(var i = 0;i<$this.length;i++){
+        $this[i].addEventListener('touchstart', function(event) {
+            timeout = setTimeout(function(){
+            	clearInterval(timestop)
+            	timestop = setInterval(fn,60);
+            },100);  //长按时间超过800ms，则执行传入的方法
+        }, false);
+    }
+    $("body").on('touchend', function(event) {
+    	clearInterval(timestop);
+        clearTimeout(timeout);  //长按时间少于800ms，不会执行传入的方法
+    });
 };

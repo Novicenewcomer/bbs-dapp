@@ -1,0 +1,306 @@
+<!DOCTYPE html>
+<html>
+	<head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0">
+        <meta name="format-detection" content="telephone=no">
+        <title>交易</title>
+        <link rel="stylesheet" type="text/css" href="css/public.css"/>
+		<link rel="stylesheet" type="text/css" href="css/assettransaction.css"/>
+    </head>
+	<body>
+		<div class="mbdivbg">
+			<div class="mbdivcon assettransactionbg">
+				<div class="pubjy_navbox zcjy_navbox">
+					<ul>
+						<li class="active"><a href="assettransaction.html">资产交易</a></li>
+						<li><a href="#">德星广告</a></li>
+						<li><a href="buyadpacks.html">广告包</a></li>
+						<li><a href="#">广告位</a></li>
+					</ul>
+					<div class="zcjy_topnavbox">
+						<div class="zcjy_topnavs"><span></span><strong></strong></div>
+						<div class="zcjy_topnavconbox">
+							<ul class="zcjy_topnavlist clear"></ul>
+						</div>
+					</div>
+				</div>
+				<div class="scrollw_box">
+					<div class="scrollw_con">
+						<div class="leftsellrightbuybox">
+							<ul class="titbox clear">
+								
+							    <li class="buytit">
+									<span class="smtit">买</span>
+									<span>数量</span>
+									<span class="jg">价格</span>
+							    </li>
+							    <li class="selltit">
+									<span class="jg">价格</span>
+									<span>数量</span>
+									<span class="smtit">卖</span>
+							    </li>
+							</ul>
+							<ul class="yy_marketconrightul conbox clear"></ul>
+						</div>
+						<div class="zcjy_setconbox">
+							<ul class="zcjy_setconnav clear">
+								<li itype="buy">
+									<p>买入</p>
+								</li>
+								<li itype="sell">
+									<p>卖出</p>
+								</li>
+								<li itype="entrust">
+									<p>委托</p>
+								</li>
+							</ul>
+							<ul class="zcjy_setconul">
+								<li class="lic buybox" itype="buy">
+									<ul class="inputwbox">
+										<li>
+											<div class="inpborder">
+												<div class="inputw">
+													<input type="text" class="" id="buy_paynum" value="" />
+												</div>
+												<span class="numtype target2"></span>
+												<div class="btn lessbtn"><span>-</span><span>-</span></div>
+												<div class="btn plusbtn"><span>+</span><span>+</span></div>
+											</div>
+										</li>
+										<li>
+											<div class="inpborder">
+												<div class="inputw">
+													<input type="text" id="buy_targetnum" value="" />
+												</div>
+												<span class="numtype target1"></span>
+												<span class="onefourthbtn">1/4</span>
+												<span class="ahalfbtn">1/2</span>
+												<span class="allbtn"><strong>全部</strong></span>
+											</div>
+										</li>
+									</ul>
+									<div class="myzcjy_hastext clear">
+										<p>可用：<span class="myhas"></span> <span class="target2"></span></p>
+										<p>手续费：<span class="sxfnum"></span> <span>FF</span></p>
+									</div>
+									<div class="turnovertext clear">
+										<p class="turnover">交易额</p>
+										<p><span class="totalmsgnum"></span> <span class="target2"></span></p>
+									</div>
+									<a href="javascript:;" class="purchasebtn">买入 <span class="target1"></span></a>
+								</li>
+								<li class="lic sellbox" itype="sell">
+									<ul class="inputwbox">
+										<li>
+											<div class="inpborder">
+												<div class="inputw">
+													<input type="text" id="sell_getnum" value="" />
+												</div>
+												<span class="numtype target2"></span>
+												<div class="btn lessbtn"><span>-</span><span>-</span></div>
+												<div class="btn plusbtn"><span>+</span><span>+</span></div>
+											</div>
+										</li>
+										<li>
+											<div class="inpborder">
+												<div class="inputw">
+													<input type="text" id="sell_targetnum" value="" />
+												</div>
+												<span class="numtype target1"></span>
+												<span class="onefourthbtn">1/4</span>
+												<span class="ahalfbtn">1/2</span>
+												<span class="allbtn"><strong>全部</strong></span>
+											</div>
+										</li>
+									</ul>
+									<div class="myzcjy_hastext clear">
+										<p>可用：<span class="myhas"></span> <span class="target1"></span></p>
+										<p>手续费：<span class="sxfnum"></span> <span>FF</span></p>
+									</div>
+									<div class="turnovertext clear">
+										<p class="turnover">交易额</p>
+										<p><span class="totalmsgnum"></span> <span class="target2"></span></p>
+									</div>
+									<a href="javascript:;" class="selloutbtn">卖出 <span class="target1"></span></a>
+								</li>
+								<li class="lic entrustbox" itype="entrust">
+									<ul>
+										<!-- <li class="delegateli" iid="00">
+											<div class="clear con1">
+												<strong class="p1">卖</strong>
+												<p class="p2">YL/FF</p>
+												<p class="p3">2019/12/12 18:21:21</p>
+												<span class="undobtn">撤销交易</span>
+											</div>
+											<div class="clear con2">
+												<p class="p1"><strong >10.28</strong></p>
+												<p class="p2"><strong>2300</strong>/2841.2315</p>
+												<p class="p3"><strong>2841.2315</strong></p>
+											</div>
+											<div class="clear con3">
+												<p class="p1"><strong>价格</strong></p>
+												<p class="p2">数量</p>
+												<p class="p3">交易额</p>
+											</div>
+										</li>
+										<li class="delegateli" iid="01">
+											<div class="clear con1">
+												<strong class="p1 p1buy">买</strong>
+												<p class="p2">YL/FF</p>
+												<p class="p3">2019/12/12 18:21:21</p>
+												<span class="undobtn">撤销交易</span>
+											</div>
+											<div class="clear con2">
+												<p class="p1"><strong >10.28</strong></p>
+												<p class="p2"><strong>2300</strong>/2841.2315</p>
+												<p class="p3"><strong>2841.2315</strong></p>
+											</div>
+											<div class="clear con3">
+												<p class="p1"><strong>价格</strong></p>
+												<p class="p2">数量</p>
+												<p class="p3">交易额</p>
+											</div>
+										</li> -->
+									</ul>
+								</li>
+							</ul>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</body>
+	<script src="js/jquery.js"></script>
+	<script src="js/public.js"></script>
+	<script src="js/assettransaction.js"></script>
+	<script>
+		buyObj.completefn = function(){//买入 
+			var _this = this;
+			console.log("type："+assettransactionfn.thistype+"数字1："+_this.atarget+"数字2："+_this.btarget)
+			assettransactionfn.sett()
+		}
+		sellObj.completefn = function(){//卖出 
+			var _this = this;
+			console.log("type："+assettransactionfn.thistype+"数字1："+_this.atarget+"数字2："+_this.btarget)
+			assettransactionfn.sett()
+		}
+		entrustobj.delegatesend = function(iid,fn){//撤销交易
+			console.log(iid)
+//			operationErroredobj.init("操作失败")
+			operationSucedobj.init("操作成功")
+			fn();
+		}
+		
+		entrustobj.readHtml = function(data,fn){
+			var _this = this;
+			console.log("type："+assettransactionfn.thistype)
+			console.log(_this.page)
+			$.ajax({
+				url:"entrust.json",
+				async:false,
+				success:function(data){
+					for(var i=0;i<data.length;i++){
+						$(".entrustbox ul").append(['<li class="delegateli" iid="',
+							data[i].id
+						,'"><div class="clear con1">',
+							function(){
+								if(data[i].state=="1"){
+									return '<strong class="p1 p1buy">买</strong>'
+								}else{
+									return '<strong class="p1">卖</strong>'
+								}
+							}()
+						,'<p class="p2">',
+							data[i].type
+						,'</p><p class="p3">',
+							data[i].time
+						,'</p><span class="undobtn">撤销交易</span></div><div class="clear con2"><p class="p1"><strong>',
+							data[i].jg
+						,'</strong></p><p class="p2"><strong>',
+							data[i].numend
+						,'</strong>/',
+							data[i].allnum
+						,'</p><p class="p3"><strong>',
+							data[i].jy
+						,'</strong></p></div><div class="clear con3"><p class="p1"><strong>价格</strong></p><p class="p2">数量</p><p class="p3">交易额</p></div></li>'].join(""));
+					}
+					_this.movekg=true;
+				}
+			})
+			
+		}
+		//底部导航
+		linkOpenpage.pagebottomnav=function(othis){
+			othis.loadHtmlobj({
+				csslink:["css/pages/pagebottomnav.css"],
+				jssrc:["js/pages/pagebottomnav.js"],
+				callbackfn:function(thisobj){
+					pagebottomnav.init({container:othis,type:"jy"});
+					pagebottomnav.thisdom.load("pagebottomnav.html",function(){
+						pagebottomnav.showbox();
+						$(".zcjy_setconbox").css("maring-bottom",parseFloat(pagebottomnav.thisdom.css("height")))
+						thisobj.endfn();
+						linkOpenpage.readpage();
+					})
+				}
+			})
+		};
+		$(function(){
+			assettransactionfn.getdata = function(fn){
+				var _this = this;
+				console.log(_this.thistype)
+				//测试临时
+				var url = "assettransaction.json";
+				if(_this.thistype!="YL/FF"&&_this.thistype!="ADD/FF"&&_this.thistype!="ADB/FF"){
+					url = "assettransactiondx.json";
+				}
+				//测试临时end
+				$.ajax({
+					url:url,
+					async:false,
+					success:function(data){
+						if(_this.thistype=="DXA/FF"||_this.thistype=="DTI/FF"||_this.thistype=="DZG/FF"||_this.thistype=="DXN/FF"||_this.thistype=="DLI/FF"||_this.thistype=="DYI/FF"||_this.thistype=="DLN/FF"||_this.thistype=="DCI/FF"){
+							data.b_minnum = 1;
+							data.btarget = 1;
+							data.bdecimal = 0;
+						}else{
+							data.b_minnum = 0.0001;
+							data.btarget = 0.0001;
+							data.bdecimal = 4;
+						}
+						_this.readpage(data);
+						if(fn){
+							fn()
+						}
+					}
+				})
+			}
+			assettransactionfn.init({
+				thistype:"YL/FF",
+				navd:[
+					"YL/FF",
+					"ADD/FF",
+					"ADB/FF",
+					"DXA/FF",
+					"DTI/FF",
+					"DZG/FF",
+					"DXN/FF",
+					"DLI/FF",
+					"DYI/FF",
+					"DLN/FF",
+					"DCI/FF"
+				],
+			});
+			buyObj.init();
+			sellObj.init();
+			entrustobj.init();
+		})
+		
+
+		linkOpenpage.readpage({
+			pagearr:["pagebottomnav"],
+			othis:$(".mbdivcon")
+		});
+	</script>
+</html>
