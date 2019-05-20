@@ -349,27 +349,6 @@ yzmTime.prototype.starttime = function(){
 		}, 1000) 
 	} 
 }
-// timecfn:function (){ 
-// 		this.data[0] = Math.floor(this.s / 60 / 60 );
-// 		this.data[1] = Math.floor(this.s / 60 % 60);
-// 		this.data[2] = Math.floor(this.s % 60);
-// 		for(var i in this.data){
-// 			if(this.data[i]<10){
-// 				this.data[i] = "0"+~~this.data[i]
-// 			}
-// 		}
-// 		if(this.s<60){
-// //			pagegenepdobj.thisdom.find(".genepdflo_pairtimet span").html('<1分钟')
-// 		}
-// 		pagegenepdobj.thisdom.find(".genepdflo_pairtimet span").html(this.data[0]+':'+this.data[1]+':'+this.data[2])
-// 		if(this.s==0){
-// 			clearInterval(this.timer);
-// 			pagegenepdobj.thisdom.find(".genepdflo_pairtimet").fadeOut();
-// 			$(".genepdflo_pairbtn").removeClass("genepdflo_pairtimebtn").html('立即配对')
-// 			$(".genepdflo_matchingcost").css("visibility","visible");
-// 		}
-// 		this.s--;
-// 	},
 function Countdown(){
 	var _this = this;
 	this.data = {};

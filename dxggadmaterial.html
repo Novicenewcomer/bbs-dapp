@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html>
+	<head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0">
+        <meta name="format-detection" content="telephone=no">
+        <title>德星广告管理</title>
+        <link rel="stylesheet" type="text/css" href="css/public.css"/>
+		<link rel="stylesheet" type="text/css" href="css/dxggtransaction.css"/>
+    </head>
+	<body>
+		<div class="mbdivbg">
+			<div class="mbdivcon">
+				<div class="dxggad_navbox clear">
+					<ul>
+						<li>
+							<a href="dxggadministration.html">德星广告</a>
+						</li>
+						<li class="active">
+							<a href="dxggadmaterial.html">广告素材</a>
+						</li>
+						<li>
+							<a href="dxggadstatisticaldata.html">统计数据</a>
+						</li>
+					</ul>
+					<a class="dxgg_turnpagebtn" href="dxggtransaction.html">
+						<svg class="icon" aria-hidden="true">
+							<use xlink:href="#iconfanhui-h"></use>
+						</svg>
+					</a>
+				</div>
+				<div class="scrollw_box">
+					<div class="scrollw_con">
+						<div class="dxggsc_lisbox">
+							<ul>
+								<!-- 未审核状态 -->
+								<li iid="00">
+									<div class="leftb">
+										<img src="lsimg/img1.jpg" >
+									</div>
+									<div class="rightb">
+										<p>科颜氏高保湿霜睡眠晚霜滋润</p>
+										<div class="btnbox clear">
+											<a class="deletebtn" href="javascript:;">删除</a>
+											<a class="publishadbtn publishadokbtn" href="dxggpublish.html">发布广告</a>
+										</div>
+									</div>
+								</li>
+								<!-- 审核状态 -->
+								<li iid="01">
+									<div class="leftb">
+										<img src="lsimg/img1.jpg" >
+										<span>审核中</span>
+									</div>
+									<div class="rightb">
+										<p>科颜氏高保湿霜睡眠晚霜滋润</p>
+										<div class="btnbox clear">
+											<a class="deletebtn" href="javascript:;">删除</a>
+											<a class="publishadbtn" href="javascript:;">发布广告</a>
+										</div>
+									</div>
+								</li>
+								<!-- 审核状态 -->
+								<li iid="02">
+									<div class="leftb">
+										<img src="lsimg/img1.jpg" >
+										<span>审核中</span>
+									</div>
+									<div class="rightb">
+										<p>科颜氏高保湿霜睡眠晚霜滋润</p>
+										<div class="btnbox clear">
+											<a class="deletebtn" href="javascript:;">删除</a>
+											<a class="publishadbtn" href="javascript:;">发布广告</a>
+										</div>
+									</div>
+								</li>
+								<!-- 审核状态 -->
+								<li iid="03">
+									<div class="leftb">
+										<img src="lsimg/img1.jpg" >
+										<span>审核中</span>
+									</div>
+									<div class="rightb">
+										<p>科颜氏高保湿霜睡眠晚霜滋润</p>
+										<div class="btnbox clear">
+											<a class="deletebtn" href="javascript:;">删除</a>
+											<a class="publishadbtn" href="javascript:;">发布广告</a>
+										</div>
+									</div>
+								</li>
+								
+							</ul>
+						</div>
+					</div>
+				</div>
+				<a href="#" class="gotoaddggmaterial">添加广告素材</a>
+			</div>
+		</div>
+	</body>
+	<script src="js/jquery.js"></script>
+	<script src="js/public.js"></script>
+	<script>
+		$(function(){
+			$(".dxggsc_lisbox").on("click",".deletebtn",function(){
+				console.log($(this).parents("li").attr("iid"))
+				$(this).parents("li").remove();
+				dxggscObj.readscroll();
+			})
+			dxggscObj.readlist = function (){
+				var _this = this;
+				console.log(_this.pagenum);
+				$(".dxggsc_lisbox ul").append('<li iid="00"><div class="leftb"><img src="lsimg/img1.jpg"></div><div class="rightb"><p>科颜氏高保湿霜睡眠晚霜滋润</p><div class="btnbox clear"><a class="deletebtn"href="javascript:;">删除</a><a class="publishadbtn publishadokbtn"href="#">发布广告</a></div></div></li><li iid="01"><div class="leftb"><img src="lsimg/img1.jpg"><span>审核中</span></div><div class="rightb"><p>科颜氏高保湿霜睡眠晚霜滋润</p><div class="btnbox clear"><a class="deletebtn"href="javascript:;">删除</a><a class="publishadbtn"href="javascript:;">发布广告</a></div></div></li>');
+				_this.readimg()
+				_this.listmove=true;
+			}
+			dxggscObj.init();
+		})
+		var dxggscObj = {
+			pagenum:1,
+			listmove:true,
+			init:function(){
+				var _this = this;
+				this.readimg()
+				$('.scrollw_box').scroll(function(){
+					_this.readscroll();
+				});
+			},
+			readimg:function(){
+				$(".dxggsc_lisbox img").each(function(){
+					if($(this).attr("oimg")!="true"){
+						$(this).attr("oimg","true")
+						resetImg.imgload($(this))
+					}
+					
+				})
+			},
+			readscroll:function(){
+				if($('.scrollw_con').outerHeight()>$('.scrollw_box').height()&&$('.scrollw_con').outerHeight()-$('.scrollw_box').height()-5<=$('.scrollw_box').scrollTop()){
+					if(this.listmove==true){
+						this.pagenum++;
+						this.listmove=false;
+						this.readlist();
+					};
+				}
+			}
+		}
+	</script>
+</html>

@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html>
+	<head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0">
+        <meta name="format-detection" content="telephone=no">
+        <title>购买德星广告</title>
+        <link rel="stylesheet" type="text/css" href="css/public.css"/>
+		<link rel="stylesheet" type="text/css" href="css/dxggtransaction.css"/>
+    </head>
+	<body>
+		<div class="mbdivbg">
+			<div class="mbdivcon">
+				<div class="pubjy_navbox">
+					<ul>
+						<li><a href="assettransaction.html">资产交易</a></li>
+						<li class="active"><a href="dxggtransaction.html">德星广告</a></li>
+						<li><a href="buyadpacks.html">广告包</a></li>
+						<li><a href="#">广告位</a></li>
+					</ul>
+				</div>
+				<div class="dxggjy_wbox">
+					<div class="dxggjy_box">
+						<div class="dxggjy_titbox">
+							<p>我的德星广告：<strong>23</strong></p>
+							<a href="#">购买记录</a>
+							<a href="dxggadministration.html">德星广告管理</a>
+						</div>
+						<div class="scrollw_box">
+							<div class="dxggjy_listbox">
+								<ul>
+									<li iid="00">
+										<div class="left">
+											
+										</div>
+										<div class="mid">
+											<p>价格：<span>201799 YL</span></p>
+											<p>数量：<span>20</span></p>
+										</div>
+										<div class="right">
+											<a href="javascript:;" class="okbtn">购买</a>
+										</div>
+									</li>
+									<li iid="01">
+										<div class="left">
+											
+										</div>
+										<div class="mid">
+											<p>价格：<span>201799 YL</span></p>
+											<p>数量：<span>20</span></p>
+										</div>
+										<div class="right">
+											<a href="javascript:;">购买</a>
+										</div>
+									</li>
+									<li iid="02">
+										<div class="left">
+											
+										</div>
+										<div class="mid">
+											<p>价格：<span>201799 YL</span></p>
+											<p>数量：<span>20</span></p>
+										</div>
+										<div class="right">
+											<a href="javascript:;" class="okbtn">购买</a>
+										</div>
+									</li>
+									<li iid="03">
+										<div class="left">
+											
+										</div>
+										<div class="mid">
+											<p>价格：<span>201799 YL</span></p>
+											<p>数量：<span>20</span></p>
+										</div>
+										<div class="right">
+											<a href="javascript:;" class="okbtn">购买</a>
+										</div>
+									</li>
+									<li iid="04">
+										<div class="left">
+											
+										</div>
+										<div class="mid">
+											<p>价格：<span>201799 YL</span></p>
+											<p>数量：<span>20</span></p>
+										</div>
+										<div class="right">
+											<a href="javascript:;" class="okbtn">购买</a>
+										</div>
+									</li>
+									<li iid="05">
+										<div class="left">
+											
+										</div>
+										<div class="mid">
+											<p>价格：<span>201799 YL</span></p>
+											<p>数量：<span>20</span></p>
+										</div>
+										<div class="right">
+											<a href="javascript:;" class="okbtn">购买</a>
+										</div>
+									</li>
+								</ul>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</body>
+	<script src="js/jquery.js"></script>
+	<script src="js/public.js"></script>
+	<script>
+		
+		//底部导航
+		linkOpenpage.pagebottomnav=function(othis){
+			othis.loadHtmlobj({
+				csslink:["css/pages/pagebottomnav.css"],
+				jssrc:["js/pages/pagebottomnav.js"],
+				callbackfn:function(thisobj){
+					pagebottomnav.init({container:othis,type:"jy"});
+					pagebottomnav.thisdom.load("pagebottomnav.html",function(){
+						pagebottomnav.showbox();
+						var b = parseFloat(pagebottomnav.thisdom.css("height"))+parseFloat($(".dxggjy_wbox").css("padding-bottom"));
+						$(".dxggjy_wbox").css("padding-bottom",b)
+						$(".dxggjy_wbox").css("height",parseFloat($(".mbdivcon").css("height"))-b-parseFloat($(".dxggjy_wbox").css("padding-top")))
+						thisobj.endfn();
+						linkOpenpage.readpage();
+					})
+				}
+			})
+		};
+		$(function(){
+			dxggtransactionObj.readlist = function (){
+				var _this = this;
+				console.log(_this.pagenum);
+				$(".dxggjy_listbox ul").append('<li iid="00"><div class="left"></div><div class="mid"><p>价格：<span>201799 YL</span></p><p>数量：<span>20</span></p></div><div class="right"><a href="javascript:;">购买</a></div></li><li iid="01"><div class="left"></div><div class="mid"><p>价格：<span>201799 YL</span></p><p>数量：<span>20</span></p></div><div class="right"><a href="javascript:;"class="okbtn">购买</a></div></li><li iid="02"><div class="left"></div><div class="mid"><p>价格：<span>201799 YL</span></p><p>数量：<span>20</span></p></div><div class="right"><a href="javascript:;">购买</a></div></li><li iid="03"><div class="left"></div><div class="mid"><p>价格：<span>201799 YL</span></p><p>数量：<span>20</span></p></div><div class="right"><a href="javascript:;">购买</a></div></li><li iid="04"><div class="left"></div><div class="mid"><p>价格：<span>201799 YL</span></p><p>数量：<span>20</span></p></div><div class="right"><a href="javascript:;">购买</a></div></li><li iid="05"><div class="left"></div><div class="mid"><p>价格：<span>201799 YL</span></p><p>数量：<span>20</span></p></div><div class="right"><a href="javascript:;">购买</a></div></li>');
+				_this.listmove=true;
+			}
+			dxggtransactionObj.init();
+		})
+		linkOpenpage.readpage({
+			pagearr:["pagebottomnav"],
+			othis:$(".mbdivcon")
+		});
+		var dxggtransactionObj = {
+			pagenum:1,
+			listmove:true,
+			init:function(){
+				var _this = this;
+				$('.scrollw_box').scroll(function(){
+					if($(this)[0].scrollHeight-$(this).height()-5<=$(this).scrollTop()){
+						if(_this.listmove==true){
+							_this.pagenum++;
+							_this.listmove=false;
+							_this.readlist();
+						};
+					}
+				});
+			}
+		}
+	</script>
+</html>

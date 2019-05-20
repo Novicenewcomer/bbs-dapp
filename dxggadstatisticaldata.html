@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html>
+	<head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0">
+        <meta name="format-detection" content="telephone=no">
+        <title>德星广告管理</title>
+        <link rel="stylesheet" type="text/css" href="css/public.css"/>
+		<link rel="stylesheet" type="text/css" href="css/dxggtransaction.css"/>
+    </head>
+	<body>
+		<div class="mbdivbg">
+			<div class="mbdivcon">
+				<div class="dxggad_navbox clear">
+					<ul>
+						<li>
+							<a href="dxggadministration.html">德星广告</a>
+						</li>
+						<li>
+							<a href="dxggadmaterial.html">广告素材</a>
+						</li>
+						<li class="active">
+							<a href="dxggadstatisticaldata.html">统计数据</a>
+						</li>
+					</ul>
+					<a class="dxgg_turnpagebtn" href="dxggtransaction.html">
+						<svg class="icon" aria-hidden="true">
+							<use xlink:href="#iconfanhui-h"></use>
+						</svg>
+					</a>
+				</div>
+				<div class="scrollw_box">
+					<div class="scrollw_con">
+						<div class="dxggtj_lisbox">
+							<ul>
+								<li>
+									<div class="topbox">
+										<div class="leftb">
+											<img src="lsimg/img1.jpg" >
+										</div>
+										<div class="rightb">
+											<p class="tit">科颜氏高保湿霜晚霜滋润高效</p>
+											<div class="textbox clear">
+												<p>http：//www.XXXXX.com</p>
+												<p>发布时间：2019/08/28 22:28:28</p>
+											</div>
+										</div>
+									</div>
+									<div class="msgbox">
+										<div class="conli">
+											<p class="num"><strong>10</strong><span>/24</span></p>
+											<p class="text"><span>投放完成度</span></p>
+										</div>
+										<div class="conli">
+											<p class="num">24分20秒</p>
+											<p class="text">曝光时长</p>
+										</div>
+										<div class="conli">
+											<p class="num">208</p>
+											<p class="text">总点击次数</p>
+										</div>
+										<div class="conli">
+											<p class="num">208.81元</p>
+											<p class="text">投放成本</p>
+										</div>
+									</div>
+								</li>
+								<li>
+									<div class="topbox">
+										<div class="leftb">
+											<img src="lsimg/img1.jpg" >
+										</div>
+										<div class="rightb">
+											<p class="tit">科颜氏高保湿霜晚霜滋润高效</p>
+											<div class="textbox clear">
+												<p>http：//www.XXXXX.com</p>
+												<p>发布时间：2019/08/28 22:28:28</p>
+											</div>
+										</div>
+									</div>
+									<div class="msgbox">
+										<div class="conli">
+											<p class="num"><strong>10</strong><span>/24</span></p>
+											<p class="text"><span>投放完成度</span></p>
+										</div>
+										<div class="conli">
+											<p class="num">24分20秒</p>
+											<p class="text">曝光时长</p>
+										</div>
+										<div class="conli">
+											<p class="num">208</p>
+											<p class="text">总点击次数</p>
+										</div>
+										<div class="conli">
+											<p class="num">208.81元</p>
+											<p class="text">投放成本</p>
+										</div>
+									</div>
+								</li>
+							</ul>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</body>
+	<script src="js/jquery.js"></script>
+	<script src="js/public.js"></script>
+	<script>
+		$(function(){
+			dxggtjObj.readlist = function (){
+				var _this = this;
+				console.log(_this.pagenum);
+				$(".dxggtj_lisbox ul").append('<li><div class="topbox"><div class="leftb"><img src="lsimg/img1.jpg"></div><div class="rightb"><p class="tit">科颜氏高保湿霜晚霜滋润高效</p><div class="textbox clear"><p>http：<p>发布时间：2019/08/28 22:28:28</p></div></div></div><div class="msgbox"><div class="conli"><p class="num"><strong>10</strong><span>/24</span></p><p class="text"><span>投放完成度</span></p></div><div class="conli"><p class="num">24分20秒</p><p class="text">曝光时长</p></div><div class="conli"><p class="num">208</p><p class="text">总点击次数</p></div><div class="conli"><p class="num">208.81元</p><p class="text">投放成本</p></div></div></li>');
+				_this.readimg()
+				_this.listmove=true;
+			}
+			dxggtjObj.init();
+		})
+		var dxggtjObj = {
+			pagenum:1,
+			listmove:true,
+			init:function(){
+				var _this = this;
+				this.readimg()
+				$('.scrollw_box').scroll(function(){
+					_this.readscroll();
+				});
+			},
+			readimg:function(){
+				$(".dxggtj_lisbox img").each(function(){
+					if($(this).attr("oimg")!="true"){
+						$(this).attr("oimg","true")
+						resetImg.imgload($(this))
+					}
+					
+				})
+			},
+			readscroll:function(){
+				if($('.scrollw_con').outerHeight()>$('.scrollw_box').height()&&$('.scrollw_con').outerHeight()-$('.scrollw_box').height()-5<=$('.scrollw_box').scrollTop()){
+					if(this.listmove==true){
+						this.pagenum++;
+						this.listmove=false;
+						this.readlist();
+					};
+				}
+			}
+		}
+	</script>
+</html>
