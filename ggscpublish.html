@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html>
+	<head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0">
+        <meta name="format-detection" content="telephone=no">
+        <title>发布广告素材</title>
+        <link rel="stylesheet" type="text/css" href="css/public.css"/>
+		<link rel="stylesheet" type="text/css" href="css/dxggtransaction.css"/>
+    </head>
+	<body>
+		<div class="mbdivbg">
+			<div class="mbdivcon">
+				<div class="scrollw_box">
+					<div class="scrollw_con">
+						<div class="ggscfb_wbox">
+							<div class="ggscfb_topbox">
+								<a class="ggscfb_turnpagebtn" href="javascript:history.back(-1)">
+									<svg class="icon" aria-hidden="true">
+										<use xlink:href="#iconfanhui-h"></use>
+									</svg>
+								</a>
+								<p><input type="text" id="eadname" value="" placeholder="添加广告名称更吸引阅读量哦"/></p>
+							</div>
+							<p class="tit">上传广告图片</p>
+							<div class="uppicturesbox">
+								<div class="uppicturescon">
+									<span>+</span>
+								</div>
+								<form id="pushcjimgform" action="/image/image/upfile" method="post" enctype="multipart/form-data"><input id="pushcjimgfile" type="file" name="file"></form>
+							</div>
+							<p class="tit">广告链接地址</p>
+							<div class="ggscfb_linkbox">
+								<p class="ggscfb_linkp"><input type="text" id="eadlinks" value="" placeholder="请输入广告链接地址"/></p>
+								<p class="ggscfb_linktip">广告素材发布并通过审核后，将无法进行修改。</p>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="ggscfb_bottombox ">
+					<a class="graybtn" href="javascript:;">确定发布</a>
+				</div>
+			</div>
+		</div>
+	</body>
+	<script src="js/jquery.js"></script>
+	<script src="js/public.js"></script>
+	<script>
+		function uppimgfn(fn) {//上传图片
+			$("#pushcjimgfile").unbind("change").change(function(){
+				var src = 'lsimg/img1.jpg';
+				if(!src){
+					return;
+				};
+				fn(src);
+			})
+		}
+
+		$(function(){
+			ggscfbObj.init()
+		})
+		var ggscfbObj = {
+			colorbtn:false,
+			init:function(){
+				var _this = this;
+				$("#eadname").on("input propertychange", function() {
+					var otext = $(this).val();
+					if(jmz.GetLength(otext) > 128) {
+						errorprompt.show("最大输入64字");
+						$(this).css("color","#cc0000")
+					}else{
+						$(this).attr("style","")
+					}
+					_this.readbtn()
+				});
+				$("#eadlinks").on("input propertychange", function() {
+					_this.readbtn()
+				});
+				$(".uppicturescon").on("click",function() {
+					// var othis = $(this);
+					// var oindex = othis.parents(".newlicon").index();
+					// uppimgfn(function(src, index) {
+					// 	$("#pushcjimgform").remove();
+					// 	Site.pushimgs(src, oindex);
+					// 	oindex++;
+					// 	Site.commit(true)
+					// })
+					alert(1)
+				});
+			},
+			readbtn:function(){
+				var oname = $("#eadname").val()
+				var olink = $("#eadlinks").val()
+				this.colorbtn = false;
+				if(!$.trim(oname)){
+					$(".ggscfb_bottombox a").addClass("graybtn").removeClass("yellowbtn");
+					return false
+				}
+				if(jmz.GetLength(oname) > 128) {
+					$(".ggscfb_bottombox a").addClass("graybtn").removeClass("yellowbtn");
+					errorprompt.show("最大输入64字");
+					return false
+				}
+				if(!$.trim(olink)){
+					$(".ggscfb_bottombox a").addClass("graybtn").removeClass("yellowbtn");
+					return false
+				}
+				this.colorbtn = true;
+				$(".ggscfb_bottombox a").addClass("yellowbtn").removeClass("graybtn");
+			}
+		}
+	</script>
+</html>

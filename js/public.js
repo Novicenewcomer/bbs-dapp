@@ -529,7 +529,10 @@ $.fn.longPress = function(fn) {
         $this[i].addEventListener('touchstart', function(event) {
             timeout = setTimeout(function(){
             	clearInterval(timestop)
-            	timestop = setInterval(fn,60);
+				console.log()
+            	timestop = setInterval(function(){
+					fn($this)
+				},60);
             },100);  //长按时间超过800ms，则执行传入的方法
         }, false);
     }
@@ -537,4 +540,14 @@ $.fn.longPress = function(fn) {
     	clearInterval(timestop);
         clearTimeout(timeout);  //长按时间少于800ms，不会执行传入的方法
     });
+};
+var jmz = {};
+jmz.GetLength = function(str) {
+  var realLength = 0, len = str.length, charCode = -1;
+  for (var i = 0; i < len; i++) {
+    charCode = str.charCodeAt(i);
+    if (charCode >= 0 && charCode <= 128) realLength += 1;
+    else realLength += 2;
+  }
+  return realLength;
 };

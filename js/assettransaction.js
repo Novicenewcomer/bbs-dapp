@@ -136,7 +136,10 @@ var buyObj = {
 	b_input:$("#buy_targetnum"),
 	init:function(){
 		var _this = this;
-		
+		$(".zcjy_setconbox").bind('contextmenu', function(e) {
+			e.preventDefault();
+		});
+
 		this.a_jiabtn.on("click",function(){
 			_this.changenum(_this.a_jiabtn,_this.a_jianbtn,_this.a_maxnum,_this.a_minnum,calculationObj.add(_this.a_input.val()*1,0.0001));
 			_this.hs();

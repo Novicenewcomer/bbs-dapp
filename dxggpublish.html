@@ -37,7 +37,7 @@
 						<div class="dxggfb_conbox">
 							<div class="dxggfb_contit clear">
 								<p class="leftp">选择投放德星及数量</p>
-								<p class="rightp">已选择 <strong>10</strong> 个德星广告</p>
+								<p class="rightp">已选择 <strong class="havechosennum">0</strong> 个德星广告</p>
 							</div>
 							<ul class="dxggfb_list">
 								<li>
@@ -46,19 +46,147 @@
 											
 										</div>
 										<div class="midbox">
-											<p class="num">100000</p>
+											<p class="num"></p>
 											<p class="numtext">数量</p>
 										</div>
 										<div class="rightbox">
 											<div class="btn lessbtn"><span>-</span><span>-</span></div>
 											<div class="numinputb">
-												<input type="text" id="" value="" placeholder="0"/>
+												<input type="text" class="numinput" value="" placeholder="0"/>
+											</div>
+											<div class="btn plusbtn"><span>+</span><span>+</span></div>
+										</div>
+									</div>
+								</li>
+								<li>
+									<div class="con clear">
+										<div class="leftbox">
+											
+										</div>
+										<div class="midbox">
+											<p class="num"></p>
+											<p class="numtext">数量</p>
+										</div>
+										<div class="rightbox">
+											<div class="btn lessbtn"><span>-</span><span>-</span></div>
+											<div class="numinputb">
+												<input type="text" class="numinput" value="" placeholder="0"/>
+											</div>
+											<div class="btn plusbtn"><span>+</span><span>+</span></div>
+										</div>
+									</div>
+								</li>
+								<li>
+									<div class="con clear">
+										<div class="leftbox">
+											
+										</div>
+										<div class="midbox">
+											<p class="num"></p>
+											<p class="numtext">数量</p>
+										</div>
+										<div class="rightbox">
+											<div class="btn lessbtn"><span>-</span><span>-</span></div>
+											<div class="numinputb">
+												<input type="text" class="numinput" value="" placeholder="0"/>
+											</div>
+											<div class="btn plusbtn"><span>+</span><span>+</span></div>
+										</div>
+									</div>
+								</li>
+								<li>
+									<div class="con clear">
+										<div class="leftbox">
+											
+										</div>
+										<div class="midbox">
+											<p class="num"></p>
+											<p class="numtext">数量</p>
+										</div>
+										<div class="rightbox">
+											<div class="btn lessbtn"><span>-</span><span>-</span></div>
+											<div class="numinputb">
+												<input type="text" class="numinput" value="" placeholder="0"/>
+											</div>
+											<div class="btn plusbtn"><span>+</span><span>+</span></div>
+										</div>
+									</div>
+								</li>
+								<li>
+									<div class="con clear">
+										<div class="leftbox">
+											
+										</div>
+										<div class="midbox">
+											<p class="num"></p>
+											<p class="numtext">数量</p>
+										</div>
+										<div class="rightbox">
+											<div class="btn lessbtn"><span>-</span><span>-</span></div>
+											<div class="numinputb">
+												<input type="text" class="numinput" value="" placeholder="0"/>
+											</div>
+											<div class="btn plusbtn"><span>+</span><span>+</span></div>
+										</div>
+									</div>
+								</li>
+								<li>
+									<div class="con clear">
+										<div class="leftbox">
+											
+										</div>
+										<div class="midbox">
+											<p class="num"></p>
+											<p class="numtext">数量</p>
+										</div>
+										<div class="rightbox">
+											<div class="btn lessbtn"><span>-</span><span>-</span></div>
+											<div class="numinputb">
+												<input type="text" class="numinput" value="" placeholder="0"/>
+											</div>
+											<div class="btn plusbtn"><span>+</span><span>+</span></div>
+										</div>
+									</div>
+								</li>
+								<li>
+									<div class="con clear">
+										<div class="leftbox">
+											
+										</div>
+										<div class="midbox">
+											<p class="num"></p>
+											<p class="numtext">数量</p>
+										</div>
+										<div class="rightbox">
+											<div class="btn lessbtn"><span>-</span><span>-</span></div>
+											<div class="numinputb">
+												<input type="text" class="numinput" value="" placeholder="0"/>
+											</div>
+											<div class="btn plusbtn"><span>+</span><span>+</span></div>
+										</div>
+									</div>
+								</li>
+								<li>
+									<div class="con clear">
+										<div class="leftbox">
+											
+										</div>
+										<div class="midbox">
+											<p class="num"></p>
+											<p class="numtext">数量</p>
+										</div>
+										<div class="rightbox">
+											<div class="btn lessbtn"><span>-</span><span>-</span></div>
+											<div class="numinputb">
+												<input type="text" class="numinput" value="" placeholder="0"/>
 											</div>
 											<div class="btn plusbtn"><span>+</span><span>+</span></div>
 										</div>
 									</div>
 								</li>
 							</ul>
+							<p class="dxggfb_tiptext">广告发布后将扣除相应德星广告数量，无法进行撤销，请谨慎操作。</p>
+							<a class="dxggfb_publishbtn  graybtn" href="javascript:;">确认并发布</a>
 						</div>
 					</div>
 				</div>
@@ -68,6 +196,145 @@
 	<script src="js/jquery.js"></script>
 	<script src="js/public.js"></script>
 	<script>
-		
+		$(".dxggfb_publishbtn").on("click",function(){
+			if(!dxggfbObj.colorclick){
+				return false;
+			}
+			console.log(dxggfbObj.anum)
+		})
+		$(function(){
+			dxggfbObj.init({
+				maxnum:{
+					"0":0,
+					"1":100,
+					"2":500,
+					"3":1000,
+					"4":2000,
+					"5":4000,
+					"6":6000,
+					"7":10000
+				}
+			})
+		})
+		var dxggfbObj = {
+			colorclick:false,
+			anum:{
+				"0":0,
+				"1":0,
+				"2":0,
+				"3":0,
+				"4":0,
+				"5":0,
+				"6":0,
+				"7":0
+			},
+			maxnum:{},
+			init:function(opt){
+				var _this = this;
+				$.extend(this,opt)
+				$(".dxggfb_conbox").bind('contextmenu', function(e) {
+					e.preventDefault();
+				});
+				var d;
+				var oindex=0;
+				for(var i in this.anum){
+					d = $(".dxggfb_list li").eq(oindex);
+					d.attr("itype",i)
+					d.find(".num").html(this.maxnum[i])
+					d.find(".numinput").val(this.anum[i])
+					_this.addsubfn({
+						jiaobj:d.find(".plusbtn"),
+						jianobj:d.find(".lessbtn"),
+						oinput:d.find(".numinput")
+					})
+					oindex++;
+				}
+				if ((/Android/gi).test(navigator.userAgent)) {
+					window.addEventListener('resize', function () {
+						if (document.activeElement.tagName == 'INPUT' || 
+							document.activeElement.tagName == 'TEXTAREA') {
+							window.setTimeout(function () {
+								document.activeElement.scrollIntoViewIfNeeded();
+							}, 0);
+						}
+					});
+				}
+			},
+			addsubfn:function(opt){
+				var _this = this;
+				var thisinit  = opt.jiaobj.parents("li");
+				_this.changenum(opt.jiaobj,thisinit.find(".lessbtn"),~~thisinit.find(".num").html(),0,thisinit.find(".numinput").val()*1,thisinit.attr("itype"));
+				opt.jiaobj.on("click",function(){
+					var thisd = $(this).parents("li");
+					_this.changenum($(this),thisd.find(".lessbtn"),~~thisd.find(".num").html(),0,calculationObj.add(thisd.find(".numinput").val()*1,1),thisd.attr("itype"));
+					thisd.find(".numinput").val(_this.anum[thisd.attr("itype")]);
+				});
+				opt.jiaobj.longPress(function(obj){
+					var thisd = obj.parents("li");
+					_this.changenum(obj,thisd.find(".lessbtn"),~~thisd.find(".num").html(),0,calculationObj.add(thisd.find(".numinput").val()*1,1),thisd.attr("itype"));
+					thisd.find(".numinput").val(_this.anum[thisd.attr("itype")]);
+				});
+				opt.jianobj.on("click",function(){
+					var thisd = $(this).parents("li");
+					_this.changenum(thisd.find(".plusbtn"),$(this),~~thisd.find(".num").html(),0,calculationObj.sub(thisd.find(".numinput").val()*1,1),thisd.attr("itype"));
+					thisd.find(".numinput").val(_this.anum[thisd.attr("itype")]);
+				});
+				opt.jianobj.longPress(function(obj){
+					var thisd = obj.parents("li");
+				   _this.changenum(thisd.find(".plusbtn"),obj,~~thisd.find(".num").html(),0,calculationObj.sub(thisd.find(".numinput").val()*1,1),thisd.attr("itype"));
+				   thisd.find(".numinput").val(_this.anum[thisd.attr("itype")]);
+				});
+				opt.oinput.on("focus",function(){
+					var thisd = $(this).parents("li");
+					if(_this.anum[thisd.attr("itype")]<1){
+						$(this).val("")
+					}
+				})
+				opt.oinput.on("blur",function(){
+					var thisd = $(this).parents("li");
+					if(_this.anum[thisd.attr("itype")]<1){
+						$(this).val("0")
+					}
+				})
+				opt.oinput.on("input propertychange",function(){
+					var thisd = $(this).parents("li");
+					if(!isNumber($(this).val()*1)||!decimalNumber($(this).val(),0)){
+						thisd.find(".numinput").val(_this.anum[thisd.attr("itype")]);
+						return;
+					}
+					_this.changenum(thisd.find(".plusbtn"),thisd.find(".lessbtn"),~~thisd.find(".num").html(),0,~~$(this).val(),thisd.attr("itype"));
+				})
+			},
+			changenum:function(jiabtn,jianbtn,maxnum,minnum,num,type){
+				if(num<=maxnum&&num>=minnum){
+					jianbtn.removeClass("disable");
+					jiabtn.removeClass("disable");
+					this.anum[type] = num*1;
+				}
+				if(num>=maxnum){
+					this.anum[type] = maxnum;
+					jiabtn.addClass("disable");
+				}
+				if(num<=minnum){
+					this.anum[type] = minnum;
+					jianbtn.addClass("disable");
+				}
+				this.readchoicenum()
+			},
+			readchoicenum:function(){
+				var num = 0
+				for(var i in this.anum){
+					num = calculationObj.add(num,this.anum[i])
+				}
+				$(".havechosennum").html(num);
+				if(num<=0){
+					$(".dxggfb_publishbtn").addClass("graybtn").removeClass("yellowbtn");
+					this.colorclick = false;
+				}else{
+					$(".dxggfb_publishbtn").addClass("yellowbtn").removeClass("graybtn");
+					this.colorclick = true;
+				}
+			}
+		}
 	</script>
 </html>

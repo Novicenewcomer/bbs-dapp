@@ -509,6 +509,52 @@
 	border:1px solid #ebedf1;
 	border-radius: 0.2rem;
 	padding: 0.16rem 0.32rem;
+	background: -webkit-linear-gradient(left, #fefbeb , #fff 50%); /* Safari 5.1 - 6.0 */
+	background: -o-linear-gradient(right, #fefbeb, #fff 50%); /* Opera 11.1 - 12.0 */
+	background: -moz-linear-gradient(right, #fefbeb, #fff 50%); /* Firefox 3.6 - 15 */
+	background: linear-gradient(to right, #fefbeb , #fff 50%); /* 标准的语法 */
+}
+.dxggfb_list li:nth-of-type(2) .con{
+	background: -webkit-linear-gradient(left, #fff4f8 , #fff 50%); /* Safari 5.1 - 6.0 */
+	background: -o-linear-gradient(right, #fff4f8, #fff 50%); /* Opera 11.1 - 12.0 */
+	background: -moz-linear-gradient(right, #fff4f8, #fff 50%); /* Firefox 3.6 - 15 */
+	background: linear-gradient(to right, #fff4f8 , #fff 50%); /* 标准的语法 */
+}
+.dxggfb_list li:nth-of-type(3) .con{
+	background: -webkit-linear-gradient(left, #fdf2f0 , #fff 50%); /* Safari 5.1 - 6.0 */
+	background: -o-linear-gradient(right, #fdf2f0, #fff 50%); /* Opera 11.1 - 12.0 */
+	background: -moz-linear-gradient(right, #fdf2f0, #fff 50%); /* Firefox 3.6 - 15 */
+	background: linear-gradient(to right, #fdf2f0 , #fff 50%); /* 标准的语法 */
+}
+.dxggfb_list li:nth-of-type(4) .con{
+	background: -webkit-linear-gradient(left, #fdf2f0 , #fff 50%); /* Safari 5.1 - 6.0 */
+	background: -o-linear-gradient(right, #fdf2f0, #fff 50%); /* Opera 11.1 - 12.0 */
+	background: -moz-linear-gradient(right, #fdf2f0, #fff 50%); /* Firefox 3.6 - 15 */
+	background: linear-gradient(to right, #fdf2f0 , #fff 50%); /* 标准的语法 */
+}
+.dxggfb_list li:nth-of-type(5) .con{
+	background: -webkit-linear-gradient(left, #f3f8fd , #fff 50%); /* Safari 5.1 - 6.0 */
+	background: -o-linear-gradient(right, #f3f8fd, #fff 50%); /* Opera 11.1 - 12.0 */
+	background: -moz-linear-gradient(right, #f3f8fd, #fff 50%); /* Firefox 3.6 - 15 */
+	background: linear-gradient(to right, #f3f8fd , #fff 50%); /* 标准的语法 */
+}
+.dxggfb_list li:nth-of-type(6) .con{
+	background: -webkit-linear-gradient(left, #fff7ed , #fff 50%); /* Safari 5.1 - 6.0 */
+	background: -o-linear-gradient(right, #fff7ed , #fff 50%); /* Opera 11.1 - 12.0 */
+	background: -moz-linear-gradient(right, #fff7ed , #fff 50%); /* Firefox 3.6 - 15 */
+	background: linear-gradient(to right, #fff7ed , #fff 50%); /* 标准的语法 */
+}
+.dxggfb_list li:nth-of-type(7) .con{
+	background: -webkit-linear-gradient(left, #f2f5ff , #fff 50%); /* Safari 5.1 - 6.0 */
+	background: -o-linear-gradient(right, #f2f5ff, #fff 50%); /* Opera 11.1 - 12.0 */
+	background: -moz-linear-gradient(right, #f2f5ff, #fff 50%); /* Firefox 3.6 - 15 */
+	background: linear-gradient(to right, #f2f5ff , #fff 50%); /* 标准的语法 */
+}
+.dxggfb_list li:nth-of-type(8) .con{
+	background: -webkit-linear-gradient(left, #effff1 , #fff 50%); /* Safari 5.1 - 6.0 */
+	background: -o-linear-gradient(right, #effff1, #fff 50%); /* Opera 11.1 - 12.0 */
+	background: -moz-linear-gradient(right, #effff1, #fff 50%); /* Firefox 3.6 - 15 */
+	background: linear-gradient(to right, #effff1 , #fff 50%); /* 标准的语法 */
 }
 .dxggfb_list .leftbox{
 	float: left;
@@ -527,4 +573,149 @@
 	font-size: 15px;
 	color: #303030;
 	
+}
+.dxggfb_list .rightbox{
+	float: right;
+	margin-top: 0.2rem;
+	padding: 2px;
+	border:1px solid #e3e5e8;
+	border-radius: 0.12rem;
+}
+.dxggfb_list .rightbox .btn {
+	float: left;
+	height: 0.76rem;
+	line-height: 0.76rem;
+	width: 0.76rem;
+	border-radius: 0.08rem;
+	background: #f7f7f7;
+	text-align: center;
+	cursor: pointer;
+}
+.dxggfb_list .rightbox .btn span{
+	width: 100%;
+	height: 100%;
+	display: block;
+	color: #303030;
+	font-size: 30px;
+}
+.dxggfb_list .rightbox .btn span:nth-child(2){
+	color: #ccc;
+	display: none;
+}
+.dxggfb_list .rightbox .disable span:nth-child(2){
+	display: block;
+}
+.dxggfb_list .rightbox .disable span:nth-child(1){
+	display: none;
+}
+.dxggfb_list .numinputb{
+	float: left;
+	width: 1.84rem;
+	padding: 0 0.04rem;
+	height: 100%;
+}
+.dxggfb_list .numinputb input{
+	display:block;
+	width: 100%;
+	font-size: 15px;
+	text-align: center;
+	line-height: 0.76rem;
+	height: 0.76rem;
+	color: #303030;
+	font-weight: bold;
+}
+.dxggfb_tiptext{
+	font-size: 12px;
+	color: #949494;
+	line-height: 0.44rem;
+	padding-bottom: 0.68rem;
+}
+.dxggfb_publishbtn{
+	font-size: 18px;
+}
+/* ggscpublish */
+.ggscfb_wbox{
+	padding: 0 0.48rem;
+}
+.ggscfb_topbox{
+	position: relative;
+	padding: 1.32rem 0 1.12rem;
+}
+.ggscfb_turnpagebtn{
+	position:absolute;
+	right: 0;
+	top: 0.32rem;
+	width: 0.96rem;
+	height: 0.76rem;
+	line-height: 0.76rem;
+	text-align: center;
+	color: #595d73;
+	opacity: 0.85;
+	border: 1px solid #ececec;
+	border-radius: 5rem;
+	font-size: 0.48rem;
+	margin-top: 0.2rem;
+}
+.ggscfb_topbox p{
+	height: 1.2rem;
+	border-bottom: 1px solid #e7e7e7;
+}
+.ggscfb_topbox p input{
+	font-weight: bold;
+	line-height: 1.2rem;
+	height: 1.2rem;
+	display: block;
+	width: 100%;
+	color: #303030;
+	font-size: 15px;
+}
+.ggscfb_wbox .tit{
+	height: 0.48rem;
+	line-height: 0.48rem;
+	color: #474747;
+	font-size: 12px;
+}
+.uppicturesbox{
+	padding: 0.44rem 0 1.16rem 0 ;
+}
+.uppicturescon{
+	cursor: pointer;
+	width: 1.92rem;
+	height: 1.92rem;
+	border:1px solid #e1e1e1;
+	border-radius: 0.24rem;
+	position: relative;
+	text-align: center;
+}
+.uppicturescon span{
+	color: #ccc;
+	font-size: 0.68rem;
+	line-height: 1.92rem;
+}
+.ggscfb_linkbox{
+	padding-top: 0.08rem;
+}
+.ggscfb_linkp{
+	height: 1.12rem;
+	border-bottom: 1px solid #e7e7e7;
+}
+.ggscfb_linkp input{
+	line-height: 1.12rem;
+	height: 1.12rem;
+	display: block;
+	width: 100%;
+	color: #303030;
+	font-size: 15px;
+}
+.ggscfb_linktip{
+	font-size: 12px;
+	color: #4fa6ff;
+	line-height: 0.68rem;
+}
+.ggscfb_bottombox{
+	position: absolute;
+	width: 9.04rem;
+	bottom: 0.68rem;
+	left: 0.48rem;
+	z-index: 10;
 }
