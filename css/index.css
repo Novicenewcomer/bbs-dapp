@@ -1,0 +1,397 @@
+.index_topbox{
+	padding: 0.52rem 0 0.32rem;
+}
+.index_topbox li{
+	float: left;
+	text-align: left;
+	padding-left: 0.7rem;
+	box-sizing: border-box;
+	-webkit-box-sizing: border-box;
+	width: 33.33%;
+}
+.index_topbox li p{
+	color: #949494;
+	font-size: 12px;
+	line-height: 0.48rem;
+}
+.index_topbox li p strong{
+	color: #303030;
+	font-size: 20px;
+	line-height: 0.68rem;
+}
+.index_topmdbox{
+	text-align: center;
+	padding-bottom: 0.52rem;
+}
+.index_topmdbox span{
+	display:inline-block ;
+	vertical-align: top;
+	width: 0.08rem;
+	height: 0.08rem;
+	background: #c0c0c0;
+	border-radius: 0.08rem;
+	margin: 0 0.04rem;
+	transition:width 0.5s;
+	-webkit-transition:width 0.5s;
+}
+.index_topmdbox span.active{
+	width: 0.44rem;
+	background: #fdd329;
+}
+.index_treebox{
+	padding: 0 0.4rem 0.4rem;
+}
+.index_treebox>ul>li{
+	position: relative;
+	height: 4.16rem;
+}
+.index_treebox>ul>li:after{
+	content:"";
+	position: absolute;
+	width: 8.52rem;
+	height: 4.16rem;
+	background: #fef0b5;
+	left: 50%;
+	top: 0;
+	margin-left: -4.26rem;
+	border-radius: 0.44rem;
+}
+.index_treebox .con{
+	width:8.96rem;
+	margin: 0 auto;
+	/* padding: 0 0.52rem; */
+	position: relative;
+	z-index: 2;
+	height: 3.96rem;
+	background: url(../img/indextreebg.png) no-repeat;
+	background-size: 100% 100%;
+	display: block;
+}
+.index_treeboxno .tit{
+	font-weight: bold;
+	color: #303030;
+	font-size: 0.64rem;
+	padding: 0.92rem 0.72rem 0.28rem;
+	line-height: 0.8rem;
+}
+.index_treeboxno .text{
+	float: left;
+	color: #303030;
+	font-size: 0.32rem;
+	padding-left:0.72rem ;
+	width: 3.88rem;
+	line-height: 0.48rem;
+}
+.index_treeboxno .treefreecollectionbtn{
+	float: left;
+	margin-left: 0.44rem;
+	width: 3.4rem;
+	height: 1.24rem;
+	line-height: 1.24rem;
+	text-align: center;
+	color: #fff;
+	font-weight: bold;
+	font-size: 21px;
+	border-radius: 5rem;
+	background: -webkit-linear-gradient(left, #ffb059 , #ff8a63); /* Safari 5.1 - 6.0 */
+	background: -o-linear-gradient(right, #ffb059, #ff8a63); /* Opera 11.1 - 12.0 */
+	background: -moz-linear-gradient(right, #ffb059, #ff8a63); /* Firefox 3.6 - 15 */
+	background: linear-gradient(to right, #ffb059 , #ff8a63); /* 标准的语法 */
+	box-shadow: rgba(255,142,98,.5) 0 0.2rem 0.28rem;
+}
+.index_treebox .index_treeboxhas .con{
+	background-image: url(../img/indextreebg1.png);
+}
+.index_treenameb{
+	height: 1.12rem;
+	line-height: 1.12rem;
+	padding: 0.52rem 0.44rem 0.68rem 0.6rem;
+	display: flex;
+	display: -webkit-flex;
+}
+.index_treenameb .ico{
+	width: 1.12rem;
+	height: 1.12rem;
+	background: rgba(255,255,255,.3);
+	border-radius: 0.32rem;
+	text-align: center;
+	margin-right: 0.4rem;
+	color: #e99503;
+	font-size: 0.6rem;
+}
+.index_treenameb .code{
+	font-weight: bold;
+	color: #303030;
+	font-size: 0.64rem;
+	padding-right: 0.16rem;
+}
+.index_treenameb .mjico{
+	width: 1.08rem;
+	position: relative;
+	height: 0.56rem;
+	margin-top: 0.24rem;
+}
+.index_treenameb .mjico span{
+	display: block;
+	width: 1.08rem;
+	background: #303030;
+	font-size: 0.32rem;
+	text-align: center;
+	height: 0.56rem;
+	line-height: 0.56rem;
+	color: #fdd32a;
+	border-radius: 0.12rem;
+	position: relative;
+	z-index: 1;
+}
+.index_treenameb .mjico:after{
+	content: "";
+	position: absolute;
+	width: 1.04rem;
+	height: 0.52rem;
+	border:1px solid #303030;
+	border-radius: 0.12rem;
+	top: 0.08rem;
+	left: 0.08rem;
+}
+.index_treenameb .rightjt{
+	text-align: right;
+	flex: 1;
+	-webkit-flex: 1;
+	font-size: ;
+	color: #000;
+	font-size: 0.44rem;
+}
+.mytreemsgbox{
+	height: 0.92rem;
+	overflow: hidden;
+}
+.mytreemsgbox .lic{
+	float: left;
+	width: 33.33%;
+	padding-left: 0.72rem;
+	box-sizing: border-box;
+	-webkit-box-sizing: border-box;
+}
+.mytreemsgbox .lic p{
+	line-height: 0.4rem;
+	font-size: 0.2666rem;
+	color: #303030;
+}
+.mytreemsgbox .lic strong{
+	line-height: 0.52rem;
+	font-size: 0.36rem;
+	color: #303030;
+}
+.index_treebox .index_treeboxcj .con{
+	background-image: url(../img/indextreebg2.png);
+}
+.index_treeboxcj .titbox{
+	height: 1.12rem;
+	line-height: 1.12rem;
+	padding: 0.52rem 0.44rem 0.68rem 0.6rem;
+	display: flex;
+	display: -webkit-flex;
+}
+.index_treeboxcj .titbox .ico{
+	width: 1.12rem;
+	height: 1.12rem;
+	background: rgba(255,255,255,.3);
+	border-radius: 0.32rem;
+	text-align: center;
+	margin-right: 0.4rem;
+	color: #e99503;
+	font-size: 0.6rem;
+}
+.index_treeboxcj .titbox .tit{
+	font-weight: bold;
+	font-size: 0.64rem;
+	color: #fff;
+	line-height: 0.72rem;
+}
+.index_treeboxcj .titbox .text1{
+	font-size: 0.32rem;
+	color:rgba(255,255,255,.75);
+	line-height: 0.6rem;
+}
+.index_treeboxcj .text2{
+	padding-left: 0.6rem;
+	color: #fee101;
+	font-size: 0.36rem;
+	line-height: 1.3rem;
+}
+.index_treeboxcj .text2 strong{
+	font-size:1.08rem;
+}
+.index_taskbox{
+	padding: 0 0.52rem 0.4rem;
+	width: 8.96rem;
+}
+.index_taskbox .conbox{
+	height: 3.12rem;
+	border:1px solid #ededed;
+	border-radius: 0.44rem;
+	padding: 0 0.44rem;
+}
+.index_taskbox .leftbox{
+	float: left;
+	width: 1.44rem;
+	height: 1.44rem;
+	background: #f89c53;
+	border-radius: 0.32rem;
+	text-align: center;
+	line-height:1.44rem;
+	font-size: 0.84rem;
+	color: #fff;
+	margin-top: 0.8rem;
+	margin-right: 0.32rem;
+}
+.index_taskbox .midbox{
+	float: left;
+}
+.index_taskbox .midbox .text1{
+	padding-top: 0.76rem;
+	height: 0.92rem;
+	line-height:0.92rem;
+	font-size: 0.64rem;
+	font-weight: bold;
+	color: #303030;
+}
+.index_taskbox .midbox .text2{
+	height: 0.64rem;
+	line-height:0.64rem;
+	font-size: 0.32rem;
+	color: #949494;
+}
+.index_taskbox .rightbox{
+	float: right;
+	margin-top: 0.4rem;
+}
+.index_taskbox .rightbox a{
+	display: block;
+	width: 3.08rem;
+	height: 1.04rem;
+	line-height: 1.04rem;
+	background: #fff2de;
+	border-radius: 0.2rem;
+	margin-bottom: 0.24rem;
+	color: #f89c53;
+	padding-left:0.36rem;
+}
+.index_taskbox .rightbox a span{
+	padding-right: 0.24rem;
+}
+.index_invitefidsbox{
+	padding: 0 0.52rem 0.4rem;
+	width: 8.96rem;
+}
+.index_invitefidsbox .conbox{
+	display: block;
+	height: 3.16rem;
+	background: url(../img/indexyqhybg.png) no-repeat;
+	background-size: 100% 100%;
+}
+.index_invitefidsbox .tit{
+	font-weight: bold;
+	color: #303030;
+	font-size: 0.64rem;
+	line-height: 0.96rem;
+	padding-top: 0.84rem;
+	padding-left: 0.56rem;
+}
+.index_invitefidsbox .text{
+	color: #949494;
+	font-size: 0.32rem;
+	line-height:0.64rem;
+	padding-left: 0.56rem;
+}
+.index_adlistbox{
+	background: #f6f6f4;
+	padding: 0.52rem 0.52rem;
+	border-radius: 0.6rem;
+	position: relative;
+}
+
+.index_adlist li{
+	margin-bottom: 0.32rem;
+	height: 2.44rem;
+	overflow: hidden;
+	border-radius: 0.32rem;
+	position: relative;
+}
+.index_adlist li:last-child{
+	margin-bottom: 0;
+}
+.index_adlist li a{
+	display: block;
+	width: 100%;
+	height: 100%;
+}
+.index_adlist li a img{
+	width: 100%;
+	height: 100%;
+}
+.index_adlist li:after {
+    content: "广告";
+    position: absolute;
+    font-size: 12px;
+    color: rgb(255, 255, 255);
+    right: 0.266rem;
+    top: 0.266rem;
+    transform: scale(0.9);
+    transform-origin: right top 0px;
+    padding: 0.1rem 0.3rem;
+    border-radius: 1rem;
+    background: rgba(0, 0, 0, 0.25);
+    z-index: 10;
+}
+.index_adlist li i {
+    width: 20px;
+    height: 20px;
+    border-radius: 20px;
+    position: absolute;
+    border: 2px solid #6feb95;
+    z-index: 0;
+    left: 50%;
+    top: 50%;
+    margin-top: -11px;
+    margin-left: -11px;
+    animation: allrotate 1s infinite;
+    -webkit-animation: allrotate 1s infinite;
+}
+.index_adlist li i:before {
+    position: absolute;
+    width: 5px;
+    height: 5px;
+    border-radius: 4px;
+    content: '';
+    box-shadow: 0 0 10px #666;
+    -webkit-box-shadow: 0 0 10px #666;
+    background: #fff;
+    border: 1px solid #fff;
+    top: -3px;
+    left: 50%;
+    margin-left: -3px;
+}
+.index_adrighttit{
+	position: absolute;
+	right: 0.52rem;
+	bottom: 2.5rem;
+	z-index: 5;
+}
+.index_adrighttit p{
+	width: 4.4rem;
+	height: 1.08rem;
+	background: url(../img/index_adlisttitbg.png) no-repeat;
+	background-size: 100% 100%;
+	color: #fff;
+	line-height: 1.2rem;
+	text-align: center;
+	text-indent: 0.25rem;
+	font-size: 0.32rem;
+	font-weight: bold;
+	font-style: italic;
+	transform: rotate(-2deg);
+	z-index: 1;
+	position: relative;
+}
