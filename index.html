@@ -37,10 +37,10 @@
 						<div class="index_topmdbox">
 							<span class="active"></span><span></span>
 						</div>
-						<div class="index_treebox swiper-container1">
-							<ul class="clear swiper-wrapper">
+						<div class="index_treebox">
+							<ul class="clear">
 								<!-- 无树 -->
-								<li class="swiper-slide index_treeboxno">
+								<li class="oneli index_treeboxno">
 									<div class="con">
 										<p class="tit">领八宝树</p>
 										<div class="clear">
@@ -50,7 +50,7 @@
 									</div>
 								</li>
 								<!-- 有树 -->
-								<li class="swiper-slide index_treeboxhas">
+								<li class="oneli index_treeboxhas">
 									<a href="#" class="con">
 										<div class="index_treenameb">
 											<span class="ico"><svg class="icon" aria-hidden="true"><use xlink:href="#iconyinliang"></use></svg></span>
@@ -95,7 +95,7 @@
 									</a>
 								</li>
 								<!-- 抽奖 -->
-								<li class="swiper-slide index_treeboxcj">
+								<li class="oneli index_treeboxcj">
 									<a href="#" class="con">
 										<div class="titbox">
 											<span class="ico"><svg class="icon" aria-hidden="true"><use xlink:href="#iconwanwu"></use></svg></span>
@@ -199,6 +199,9 @@
 				</div>
 			</div>
 			<div class="index_adrighttit">
+				<span><svg class="icon" aria-hidden="true"><use xlink:href="#iconstar"></use></svg></span>
+				<span><svg class="icon" aria-hidden="true"><use xlink:href="#iconstar"></use></svg></span>
+				<span><svg class="icon" aria-hidden="true"><use xlink:href="#iconstar"></use></svg></span>
 				<p>看广告 收德星</p>
 			</div>
 		</div>
@@ -232,22 +235,32 @@
 		$(function(){
 			var swiper = new Swiper('.swiper-container', {
 				slidesPerView: 3,
-				spaceBetween: 30,
+				spaceBetween: 0,
+				grabCursor : true,
 				on: {
 					slideChangeTransitionEnd: function(){
 						$(".index_topmdbox span").eq(this.activeIndex).addClass("active").siblings().removeClass("active")
 					},
 				},
 			});
-			var swiperB = new Swiper('.swiper-container1');
+			// var swiperB = new Swiper('.swiper-container1',{
+			// 	autoplay: {
+			// 		delay: 6000,//1秒切换一次
+			// 		disableOnInteraction: false,
+			// 	},
+			// 	grabCursor : true,
+			// 	loop : true,
+			// });
 			var swiperV = new Swiper('.swiper-container-v', {
 			  autoplay: {
 				delay: 3000,//1秒切换一次
 				disableOnInteraction: false,
 			  },
 			  direction: 'vertical',
-			  spaceBetween: 50
+			  spaceBetween: 0
 			});
+			
+			aroundslide.init();
 		})
 		
 		var aLi = $(".index_adlist li");
@@ -264,7 +277,6 @@
 		        obj.find("i").hide();
 		    }
 		}
-
 		/* 计算节点到文档顶部的距离 */
 		function getTop(obj){
 		    var h = 0;
@@ -274,9 +286,6 @@
 		    }
 		    return h;
 		}
-
-
-
 		/* 页面加载完便执行一次滚动函数 */
 		window.onload = function(){
 		    readimglozy()
@@ -293,6 +302,83 @@
 		            setTimeout('createImg(aLi.eq('+i+'))',500)
 		        }
 		    }
+		}
+		
+		var aroundslide = {
+			thisw:$(".index_treebox ul"),
+			ac:0,
+			init:function(){
+				var _this = this;
+				_this.readli();
+				if(IsPC()){
+					this.pcevent();
+				}else{
+					this.ydevent();
+				}
+				_this.autofn();
+			},
+			pcevent:function(){
+				
+			},
+			ydevent:function(){
+				var _this = this;
+				this.thisw.on("touchstart", function(e) {
+					// 判断默认行为是否可以被禁用
+					if (e.cancelable) {
+						// 判断默认行为是否已经被禁用
+						if (!e.defaultPrevented) {
+							e.preventDefault();
+						}
+					}	
+					startX = e.originalEvent.changedTouches[0].pageX,
+					startY = e.originalEvent.changedTouches[0].pageY;
+					clearInterval(_this.timer)
+				});
+				$("body").on("touchend", function(e) {			
+					// 判断默认行为是否可以被禁用
+					if (e.cancelable) {
+						// 判断默认行为是否已经被禁用
+						if (!e.defaultPrevented) {
+							e.preventDefault();
+						}
+					}			    
+					moveEndX = e.originalEvent.changedTouches[0].pageX,
+					moveEndY = e.originalEvent.changedTouches[0].pageY,
+					X = moveEndX - startX,
+					Y = moveEndY - startY;
+					//左滑
+					if (Math.abs(-X)>Math.abs(-Y)&&X > 0 ) {
+						_this.ac--;
+						if(_this.ac<0){
+							_this.ac = _this.thisw.children(".oneli").length-1
+						}
+						_this.readli();
+					}
+					//右滑
+					else if (Math.abs(-X)>Math.abs(-Y)&& X < 0 ) {
+						_this.ac++;
+						if(_this.ac>_this.thisw.children(".oneli").length-1){
+							_this.ac = 0
+						}
+						_this.readli();
+					}
+					_this.autofn();
+				});
+			},
+			readli:function(){
+				this.thisw.children(".oneli").eq(this.ac).addClass("active").siblings().removeClass("active");
+			},
+			autofn:function(){
+				var _this = this;
+				clearInterval(_this.timer)
+				_this.timer = setInterval(function(){
+					_this.ac++;
+					if(_this.ac>_this.thisw.children(".oneli").length-1){
+						_this.ac = 0
+					}
+					_this.readli();
+				},6500)
+			}
 		}
 
 	</script>
