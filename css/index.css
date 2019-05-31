@@ -18,9 +18,37 @@
 	font-size: 20px;
 	line-height: 0.68rem;
 }
+.index_noticebox{
+	position: relative;
+	padding: 0.32rem 0.52rem;
+	height: 0.56rem;
+	line-height: 0.56rem;
+}
+.index_noticeico{
+	padding-left: 0.24rem;
+	width: 0.72rem;
+	font-size:0.52rem;
+}
+.index_noticetextbox{
+	position: absolute;
+	left: 1.52rem;
+	top: 0.38rem;
+	width: 7.92rem;
+	height: 0.44rem;
+	line-height: 0.44rem;
+	overflow-y: auto;
+	-webkit-overflow-scrolling: touch;
+	padding-right: 100px;
+}
+.index_noticetextbox p{
+	font-size: 12px;
+	color: #303030;
+}
 .index_topmdbox{
 	text-align: center;
 	padding-bottom: 0.52rem;
+	height: 0.08rem;
+	overflow: hidden;
 }
 .index_topmdbox span{
 	display:inline-block ;
@@ -38,7 +66,7 @@
 	background: #fdd329;
 }
 .index_treebox{
-	padding: 0 0.52rem 0.4rem;
+	padding: 0 0.52rem;
 }
 .index_treebox>ul{
 	position: relative;
@@ -48,7 +76,8 @@
 	position: absolute;
 	width: 100%;
 	left: 0;
-	top: 0.2rem;
+	/* top: 0.2rem; */
+	top: 0;
 	/* height: 4.16rem; */
 	height: 3.96rem;
 	transform: scale(0.9);
@@ -56,7 +85,24 @@
 	transform-origin: center bottom;
 	-webkit-transform-origin: center bottom;
 	transition: 0.5s;
-	opacity: 0.6;
+	opacity: 0.35;
+}
+.index_treebox>ul>li.active:before{
+	content: "";
+	position: absolute;
+	width: 100%;
+	height: 100%;
+	background: #fef0b5;
+	transform: scale(0.9);
+	-webkit-transform: scale(0.9);
+	transform-origin: center bottom;
+	-webkit-transform-origin: center bottom;
+	top: 0.25rem;
+	left: 0;
+	border-radius: 0.48rem;
+}
+.index_treebox>ul>.index_treeboxcj.active:before{
+	background: #ece1f9;
 }
 .index_treebox>ul>li.active{
 	top: 0;
@@ -84,6 +130,8 @@
 	background: url(../img/indextreebg.png) no-repeat;
 	background-size: 100% 100%;
 	display: block;
+	z-index: 5;
+	position: relative;
 }
 .index_treeboxno .tit{
 	font-weight: bold;
@@ -246,29 +294,35 @@
 	width: 8.96rem;
 }
 .index_taskbox .conbox{
-	height: 3.12rem;
-	border:1px solid #ededed;
 	border-radius: 0.44rem;
-	padding: 0 0.44rem;
+	padding: 0.2rem;
+	background: #f6f6f4;
+}
+.index_taskbox .leftw{
+	float: left;
+	background: #fff;
+	padding:0.64rem 0.52rem 0.68rem 0.28rem;
+	height: 1.44rem;
+	border-radius: 0.28rem;
+	margin-right: 0.12rem;
 }
 .index_taskbox .leftbox{
 	float: left;
 	width: 1.44rem;
 	height: 1.44rem;
-	background: #f89c53;
+	background: #fdd32a;
 	border-radius: 0.32rem;
 	text-align: center;
 	line-height:1.44rem;
 	font-size: 0.84rem;
-	color: #fff;
-	margin-top: 0.8rem;
+	color: #303030;
 	margin-right: 0.32rem;
 }
 .index_taskbox .midbox{
 	float: left;
+	width: 2.68rem;
 }
 .index_taskbox .midbox .text1{
-	padding-top: 0.76rem;
 	height: 0.92rem;
 	line-height:0.92rem;
 	font-size: 0.64rem;
@@ -283,18 +337,21 @@
 }
 .index_taskbox .rightbox{
 	float: right;
-	margin-top: 0.4rem;
 }
 .index_taskbox .rightbox a{
 	display: block;
-	width: 3.08rem;
-	height: 1.04rem;
-	line-height: 1.04rem;
-	background: #fff2de;
+	width: 2.8rem;
+	height: 1.32rem;
+	line-height: 1.32rem;
+	background: #fff;
 	border-radius: 0.2rem;
-	margin-bottom: 0.24rem;
-	color: #f89c53;
-	padding-left:0.36rem;
+	margin-bottom: 0.12rem;
+	color: #303030;
+	padding-left:0.386rem;
+	font-size: 0.36rem;
+}
+.index_taskbox .rightbox a:last-child{
+	margin-bottom: 0;
 }
 .index_taskbox .rightbox a span{
 	padding-right: 0.24rem;
@@ -393,23 +450,15 @@
 }
 .index_adrighttit{
 	position: absolute;
-	right: 0.52rem;
-	bottom: 2.5rem;
+	right: 0.4rem;
+	bottom: 2rem;
 	z-index: 5;
 }
 .index_adrighttit p{
-	width: 4.4rem;
-	height: 1.08rem;
+	width: 2.626rem;
+	height: 2.1733rem;
 	background: url(../img/index_adlisttitbg.png) no-repeat;
 	background-size: 100% 100%;
-	color: #fff;
-	line-height: 1.2rem;
-	text-align: center;
-	text-indent: 0.25rem;
-	font-size: 0.32rem;
-	font-weight: bold;
-	font-style: italic;
-	transform: rotate(-2deg);
 	z-index: 1;
 	position: relative;
 }
@@ -418,8 +467,8 @@
 	z-index: 10;
 }
 .index_adrighttit span:nth-of-type(1){
-	top: 0.1rem;
-    left: 0.6rem;
+	top: 0.3rem;
+    right: 0.8rem;
     -webkit-animation: sleepy-icons 1s linear 0s infinite alternate;
     animation: sleepy-icons 1s linear 0s infinite alternate;
 	font-size: 12px;
@@ -429,7 +478,7 @@
 }
 .index_adrighttit span:nth-of-type(2){
 	top: -0.1rem;
-	left: 0.2rem;
+	right: 0.2rem;
     -webkit-animation: sleepy-icons 1s linear 0.5s infinite alternate;
     animation: sleepy-icons 1s linear 0.5s infinite alternate;
 	font-size: 12px;
@@ -438,7 +487,7 @@
 }
 .index_adrighttit span:nth-child(3) {
    top: 0.6rem;
-   left: 0.6rem;
+   right: 0.6rem;
     font-size: 12px;
     -webkit-animation: sleepy-icons 1s linear 1s infinite alternate;
     animation: sleepy-icons 1s linear 1s infinite alternate;
