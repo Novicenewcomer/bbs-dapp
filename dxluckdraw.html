@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html>
+	<head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0">
+        <meta name="format-detection" content="telephone=no">
+        <title>德星抽奖</title>
+        <link rel="stylesheet" type="text/css" href="css/public.css"/>
+		<link rel="stylesheet" type="text/css" href="css/dxluckdraw.css"/>
+    </head>
+	<body>
+		<div class="mbdivbg">
+			<div class="mbdivcon">
+				<div class="scrollw_box">
+					<div class="scrollw_con">
+						<div class="dxluckdrawbg">
+							<div class="dxluckdrawtit">
+								<span></span>
+								<span></span>
+								<span></span>
+							</div>
+							<div class="dxcj_trxnumlistbox">
+								<ul class="dxcj_trxnumlist">
+									<li class="dataStatistics">
+										<div class="digit_set set_last"></div>
+									</li>
+									<li class="dataStatistics">
+										<div class="digit_set set_last"></div>
+									</li>
+									<li class="dataStatistics">
+										<div class="digit_set set_last"></div>
+									</li>
+									<li class="dataStatistics">
+										<div class="digit_set set_last"></div>
+									</li>
+									<li class="dataStatistics">
+										<div class="digit_set set_last"></div>
+									</li>
+									<li class="dataStatistics">
+										<div class="digit_set set_last"></div>
+									</li>
+									<li class="dataStatistics">
+										<div class="digit_set set_last"></div>
+									</li>
+									<li class="dataStatistics">
+										<div class="digit_set set_last"></div>
+									</li>
+								</ul>
+								<p class="unittext">TRX</p>
+							</div>
+							<div class="dxcj_zhnumbox">
+								<p>折合奖金：<strong></strong> CNY</p>
+							</div>
+							<div class="dxcj_abtnbox">
+								<a href="javascritpt:;">抽奖规则</a><a href="javascritpt:;">抽奖历史</a>
+							</div>
+							<div class="dxcj_conwbox">
+								<div class="dxcj_conbox">
+									<div class="topb">
+										<span></span>
+										<span></span>
+										<span></span>
+										<span></span>
+										<span></span>
+										<span></span>
+										<span></span>
+									</div>
+									<div class="rightb">
+										<span></span>
+										<span></span>
+										<span></span>
+										<span></span>
+										<span></span>
+										<span></span>
+										<span></span>
+									</div>
+									<div class="bottomb">
+										<span></span>
+										<span></span>
+										<span></span>
+										<span></span>
+										<span></span>
+										<span></span>
+										<span></span>
+									</div>
+									<div class="leftb">
+										<span></span>
+										<span></span>
+										<span></span>
+										<span></span>
+										<span></span>
+										<span></span>
+										<span></span>
+									</div>
+									<div class="jiaob">
+										<span></span>
+										<span></span>
+										<span></span>
+										<span></span>
+									</div>
+									<div class="dxcj_conbg">
+										<ul class="dxcj_conlist">
+											<li class="dxli dxliac">
+												<div class="pushcon">
+													<svg class="icon" aria-hidden="true"><use xlink:href="#iconfanhui-h"></use></svg>
+												</div>
+											</li>
+											<li class="dxli">
+												<div class="pushcon">
+													<svg class="icon" aria-hidden="true"><use xlink:href="#iconfanhui-h"></use></svg>
+												</div>
+											</li>
+											<li class="dxli">
+												<div class="pushcon">
+													<svg class="icon" aria-hidden="true"><use xlink:href="#iconfanhui-h"></use></svg>
+												</div>
+											</li>
+											<li class="dxli">
+												<div class="pushcon">
+													<svg class="icon" aria-hidden="true"><use xlink:href="#iconfanhui-h"></use></svg>
+												</div>
+											</li>
+											<li class="dxcj_cjbtn "><!-- dxcj_cjbtnac -->
+												<div class="dxcj_cjcon">
+													<p></p>
+												</div>
+											</li>
+											<li class="dxli">
+												<div class="pushcon">
+													<svg class="icon" aria-hidden="true"><use xlink:href="#iconfanhui-h"></use></svg>
+												</div>
+											</li>
+											<li class="dxli">
+												<div class="pushcon">
+													<svg class="icon" aria-hidden="true"><use xlink:href="#iconfanhui-h"></use></svg>
+												</div>
+											</li>
+											<li class="dxli">
+												<div class="pushcon">
+													<svg class="icon" aria-hidden="true"><use xlink:href="#iconfanhui-h"></use></svg>
+												</div>
+											</li>
+											<li class="dxli">
+												<div class="pushcon">
+													<svg class="icon" aria-hidden="true"><use xlink:href="#iconfanhui-h"></use></svg>
+												</div>
+											</li>
+										</ul>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</body>
+	<script src="js/jquery.js"></script>
+	<script src="js/jquery.dataStatistics.js"></script>
+	<script src="js/public.js"></script>
+	<script>
+		//底部导航
+		linkOpenpage.pagebottomnav=function(othis){
+			othis.loadHtmlobj({
+				csslink:["css/pages/pagebottomnav.css"],
+				jssrc:["js/pages/pagebottomnav.js"],
+				callbackfn:function(thisobj){
+					pagebottomnav.init({container:othis,type:"cj"});
+					pagebottomnav.thisdom.load("pagebottomnav.html",function(){
+						pagebottomnav.showbox();
+						$(".mulu").css("padding-bottom",parseFloat(pagebottomnav.thisdom.css("height")))
+						thisobj.endfn();
+						linkOpenpage.readpage();
+					})
+				}
+			})
+		};
+		$(function(){
+			dxluckdrawfn.init({
+				numdata:156356,
+				rmbnum:402765.18
+			})
+		})
+		linkOpenpage.readpage({
+			pagearr:["pagebottomnav"],
+			othis:$(".mbdivcon")
+		});
+		var dxluckdrawfn = {
+			initnum:[0,0,0,0,0,0,0,0],
+			thisnum:[],
+			rmbnum:0,
+			numdata:0,
+			addnum:0,
+			init:function(opt){
+				var _this = this;
+				$.extend(this,opt);
+				this.readnum();
+				this.addnum = (this.rmbnum/30).toFixed(2);
+				this.readrmbnum(0);
+			},
+			readnum:function(){
+				this.thisnum = this.numdata.toString().split("");
+				for(var i=0;i<=this.initnum.length-this.thisnum.length;i++){
+					this.thisnum.unshift("0")
+				}
+				for(var i=$(".dxcj_trxnumlist li").length-1;i>=0;i--){
+					$(".dxcj_trxnumlist li").eq(i).dataStatistics({min:this.initnum[i],max:this.thisnum[i],time:3000,len:1});
+				}
+			},
+			readrmbnum:function(num){
+				var _this = this;
+				
+				if(num<this.rmbnum){
+					$(".dxcj_zhnumbox strong").html(num);
+					num = calculationObj.add(num,this.addnum);
+					setTimeout(function(){
+						_this.readrmbnum(num);
+					},100)
+				}else{
+					$(".dxcj_zhnumbox strong").html(this.rmbnum);
+				}
+			}
+		}
+		// 
+	</script>
+</html>

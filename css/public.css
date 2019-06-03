@@ -367,3 +367,13 @@ input:-ms-input-placeholder {
         -webkit-transform:rotateZ(360deg);
     }
 }
+@-webkit-keyframes scalestart{
+	from{scale:(0.5); opacity:0}
+	50%{scale:(1); opacity:1}
+	to{scale:(0.5); opacity:0}
+}
+@keyframes scalestart{
+	from{scale:(0.5); opacity:0}
+	50%{scale:(1); opacity:1}
+	to{scale:(0.5); opacity:0}
+}
