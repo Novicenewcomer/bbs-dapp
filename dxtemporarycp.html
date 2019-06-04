@@ -115,7 +115,7 @@
 			pushcl:function(obj){
 				var _thisdom = $(['<li itype="',
 						obj.attr("itype")
-					,'"><div class="con fdx170bg"><div class="fdxname"><svg class="icon" aria-hidden="true"><use xlink:href="#iconfanhui-h"></use></svg></div></div></li>'].join(""));
+					,'"><div class="con fdx300bg"><div class="fdxname"><svg class="icon" aria-hidden="true"><use xlink:href="#iconfanhui-h"></use></svg></div></div></li>'].join(""));
 				$(".dxcp_tsul").append(_thisdom);
 				this.num.push(obj.attr("itype"));
 				
@@ -129,7 +129,7 @@
 				for(var i in this.hasstars){
 					var _thisdom = $(['<li itype="',
 						i
-					,'"><div class="con fdx170bg"><div class="fdxname"><svg class="icon" aria-hidden="true"><use xlink:href="#iconfanhui-h"></use></svg></div><span class="star_num">',
+					,'"><div class="con fdx300bg"><div class="fdxname"><svg class="icon" aria-hidden="true"><use xlink:href="#iconfanhui-h"></use></svg></div><span class="star_num">',
 						this.hasstars[i]
 					,'</span></div></li>'].join(""));
 					$(".dxcp_hasul").append(_thisdom);

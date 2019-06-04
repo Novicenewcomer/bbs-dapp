@@ -17,17 +17,17 @@ $.fn.loadHtmlobj =function(opt){
 	$.extend(this,opt);
 	var _this = this;
 	if(this.loadstyle=="outer"){
-		if($(".yy_loadouterbox").length<1){
-			var html = '<div class="yy_loadouterbox"></div>';
-			$("body").append(html)
-		}
-		$(".yy_loadouterbox").show();
+		// if($(".yy_loadouterbox").length<1){
+		// 	var html = '<div class="yy_loadouterbox"></div>';
+		// 	$("body").append(html)
+		// }
+		// $(".yy_loadouterbox").show();
 	}else if(this.insidedom&&this.loadstyle=="inside"){
-		if($(".yy_loadinsidebox").length<1){
-			var html = '<div class="yy_loadinsidebox"></div>';
-			this.insidedom.append(html)
-		}
-		$(".yy_loadinsidebox").fadeIn();
+		// if($(".yy_loadinsidebox").length<1){
+		// 	var html = '<div class="yy_loadinsidebox"></div>';
+		// 	this.insidedom.append(html)
+		// }
+		// $(".yy_loadinsidebox").fadeIn();
 	}
 	this.readcssfn=function(i){
 		var _this = this;
