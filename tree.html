@@ -22,7 +22,7 @@
 						<div class="topnav_box">
 							<div class="left">
 								<em><svg class="icon" aria-hidden="true">
-									<use xlink:href="#iconjinbi"></use>
+									<use xlink:href="#iconstar"></use>
 								</svg></em><span>56789</span>
 							</div>
 							<a href="#" class="right">
@@ -31,10 +31,10 @@
 								</svg>
 							</a>
 						</div>
-						<div class="topnav_box">
+						<div class="topnav_box topnav_ffbox">
 							<div class="left">
 								<em><svg class="icon" aria-hidden="true">
-									<use xlink:href="#iconjinbi"></use>
+									<use xlink:href="#iconstar"></use>
 								</svg></em><span>56789</span>
 							</div>
 							<a href="#" class="right">
@@ -47,29 +47,29 @@
 					<ul class="tree_rightnavbox">
 						<li>
 							<a href="#"><svg class="icon" aria-hidden="true">
-									<use xlink:href="#iconjinbi"></use>
+									<use xlink:href="#iconstar"></use>
 								</svg></a>
 						</li>
 						<li>
 							<a href="#"><svg class="icon" aria-hidden="true">
-									<use xlink:href="#iconjinbi"></use>
+									<use xlink:href="#iconstar"></use>
 								</svg></a>
 						</li>
 					</ul>
 					<ul class="tree_bottomnavbox">
 						<li>
 							<a href="#"><svg class="icon" aria-hidden="true">
-									<use xlink:href="#iconjinbi"></use>
+									<use xlink:href="#iconstar"></use>
 								</svg></a>
 						</li>
 						<li>
 							<a href="#"><svg class="icon" aria-hidden="true">
-									<use xlink:href="#iconjinbi"></use>
+									<use xlink:href="#iconstar"></use>
 								</svg></a>
 						</li>
 						<li>
 							<a href="#"><svg class="icon" aria-hidden="true">
-									<use xlink:href="#iconjinbi"></use>
+									<use xlink:href="#iconstar"></use>
 								</svg></a>
 						</li>
 					</ul>
@@ -84,7 +84,7 @@
 						<li class="treem_power">
 							<a href="#">
 								<span><svg class="icon" aria-hidden="true">
-									<use xlink:href="#iconjinbi"></use>
+									<use xlink:href="#iconstar"></use>
 								</svg></span><p>208.0280注</p>
 							</a>
 						</li>
@@ -94,13 +94,31 @@
 				</div>
 			</div>
 		</div>
+		<audio class="musicaudio_hb" src="img/saqian.mp3"></audio>
+		<div class="dexingadflo">
+			<div class="dexingadflocon">
+				<div class="ggbox">
+					<a href="#">
+						<img src="" >
+					</a>
+				</div>
+				<p class="ggtit"><strong>20S</strong> 后收取德星</p>
+				<a class="closedexingadflobtn" href="javascript:;">
+					<svg class="icon" aria-hidden="true">
+						<use xlink:href="#iconfanhui-h"></use>
+					</svg>
+				</a>
+			</div>
+		</div>
 	</body>
 	<script src="js/jquery.js"></script>
+	<script src="js/m.Tween.js"></script>
 	<script src="js/public.js"></script>
 	<script>
 		var Usermsg = {
 			treeb:{
-				tree_ff:[{id:"005",type:"fufen",money:"123"},{id:"008",type:"fufen",money:"0.2456"},{id:"001",type:"fufen",money:"0.3"},{id:"002",type:"fufen",money:"0.4"},{id:"003",type:"fufen",money:"0.5"}]
+				fufen:[{id:"005",type:"fufen",money:"123"},{id:"008",type:"fufen",money:"0.2456"}],
+				dx:[{id:"105",type:"dx"},{id:"108",type:"dx"},{id:"101",type:"dx"},{id:"102",type:"dx"},{id:"103",type:"dx"}]
 			}
 		}
 
@@ -129,11 +147,17 @@
 						for(var i in newtreeb){
 							thisdom = $(['<li iid="',
 								newtreeb[i]["id"]
-							,'" class="',
+							,'"  itype="',
 								newtreeb[i].type
-							,'" itype="',
-								newtreeb[i].type
-							,'"><div class="conbox"><svg class="icon" aria-hidden="true"><use xlink:href="#iconjinbi"></use></svg></div></li>'].join(''))
+							,'"><div class="conbox"><svg class="icon" aria-hidden="true"><use xlink:href="',
+								function(){
+									if(newtreeb[i].type=="fufen"){
+										return "#iconbaozi"
+									}else if(newtreeb[i].type=="dx"){
+										return "#iconstar"
+									}
+								}()
+							,'"></use></svg></div><audio class="musicaudio" src="'+$(".musicaudio_hb").attr("src")+'"></audio></li>'].join(''))
 							$(".treefdfruitbox ul").append(thisdom)
 							thisdom.find(".conbox").addClass("y_starbgmove"+Math.round(Math.random()*3+1));
 							thisdom.css({
@@ -147,6 +171,111 @@
 				}
 			})
 		};
+		var getdxggtime = new Countdown();
+		var dxgg_iid;
+		function getdxggfn(){//获取德星广告
+			console.log(dxgg_iid)
+			//失败
+			// operationFailedobj.init("失败原因")
+			//成功
+			var data ={
+				"imgsrc":"lsimg/gg3.jpg",
+				"href":"https://www.baidu.com/",
+				"t":"20"
+			}
+			$(".dexingadflo img").attr("src",data.imgsrc);
+			$(".dexingadflo .ggbox a").attr("href",data.href)
+			$(".dexingadflo .ggtit strong").html(data.t+"S");
+			$(".dexingadflo").fadeIn();
+			
+			getdxggtime.init({
+				s:20,
+				fn:function(data){
+					$(".dexingadflo .ggtit strong").html(data.s+"S");
+					// $(".buyadp_adtimebox_end p").html('距下期竞拍：<strong>'+data.d+'</strong>天<strong>'+data.h+'</strong>时<strong>'+data.m+'</strong>分<strong>'+data.s+'</strong>秒')
+				},
+				endfn:function(){
+					$(".dexingadflo").fadeOut()
+				}
+			});
+			
+		}
+		$(".treefdfruitbox").on("click","li",function(){//采摘
+			var othis = $(this);
+			// if(Usermsg.userverified!=1){
+			// 	Popupboxfn.init(function(){
+			//  		window.location.href = Usermsg.userverifiedurl;
+			//  		Popupboxfn.thisdom.fadeOut();
+			//  	},function(){
+			//  		Popupboxfn.thisdom.fadeOut();
+			//  	},"<span>您还未完成实名认证，不能<br/>进行本操作</span>","立即认证")
+			// 	return;
+			// }
+			if($(this).attr("wait")=="true"){
+				return false;
+			}
+			$(this).attr("wait","true")
+			dxgg_iid = $(this).attr("iid");
+			if($(this).attr("itype")=="fufen"){
+				
+				
+				// $(this).attr("wait","")
+				//成功 
+// 				$('.musicaudio').remove();
+// 				$(".musicaudio_hb").before('')
+				// var musicao = othis.find(".musicaudio")[0];
+// 				//背景音乐 
+			    // musicao.play();
+// 				var thismoved =othis;
+				// var movex = ($(".topnav_ffbox").offset().top+$(".topnav_ffbox").outerHeight()/2)-othis.offset().top-othis.outerHeight()/2;
+				// var movey = ($("topnav_ffbox").offset().left+$(".topnav_ffbox").outerWidth()/2)-othis.offset().left-othis.outerWidth()/2;
+// 				$(".fdsgame_treebox").css("overflow","initial");
+// 				resettopnavnumObj.resethtml($(".ffshownum"));
+// 				MTween({
+// 					el : othis[0],
+// 					target : {
+// 						translateX : movey,
+// 						translateY : movex,
+// 					},
+// 					time : 400,
+// 					type : "easeIn",
+// 					callBack : function(){
+// 						MTween({
+// 							el : othis[0],
+// 							target : {
+// 								scale : 0,
+// 							},
+// 							time : 300,
+// 							type : "easeIn",
+// 							callBack : function(){
+// //								swtresetnumsc(calculationObj.add($(".ffshownum").html(),othis.find("p").html()));
+// 								clearTimeout(resettopnavnumObj.t)
+// 								resettopnavnumObj.resetnum($(".ffshownum"),calculationObj.add($(".ffshownum").attr("num"),othis.find("p").html()),$(".fdstopnav_ffbox"))
+// 								othis.remove();
+// //								$(".fdsgame_treebox").css("overflow","hidden");
+// 								if($(".treefdfruitbox li").length<1){
+// 									var thisdom = $(['<li class="produceing"><div class="conbox"></div><p>正在生长中</p></li>'].join(''))
+// 									$(".treefdfruitbox ul").append(thisdom)
+// 									thisdom.find(".conbox").addClass("y_starbgmove"+Math.round(Math.random()*3+1));
+// 									//1016
+// 									thisdom.css({
+// 										"left":Math.round(Math.random()*($('.fdsgame_treebox').outerWidth()-thisdom.outerWidth()-$(".yy_rightopenicobox").outerWidth())+0),
+// 										"top":Math.round(Math.random()*($('.treefdfruitbox').outerHeight()-thisdom.outerHeight())+0)
+// 									})
+// 								}
+// 							}
+// 						});
+// 					}
+// 				});
+			}else if($(this).attr("itype")=="dx"){
+				getdxggfn()
+			}
+		})
+		$(".closedexingadflobtn").on("click",function(){
+			clearInterval(getdxggtime.timer)
+			$(".dexingadflo").fadeOut();
+			$(".treefdfruitbox li[iid='"+dxgg_iid+"']").removeAttr("wait")
+		})
 		linkOpenpage.readpage({
 			pagearr:["pagetree"],
 			othis:$("body")

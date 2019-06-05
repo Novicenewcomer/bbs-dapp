@@ -1,0 +1,62 @@
+<div class="buydxggposfloc">
+	<a class="closebuydxggposflocbtn" href="javascript:;">
+		<svg class="icon" aria-hidden="true">
+			<use xlink:href="#iconfanhui-h"></use>
+		</svg>
+	</a>
+	<p class="tit">购买孝德星广告位</p>
+	<ul class="buydxggposfloul">
+		<li>
+			<p class="left">广告单价</p>
+			<div class="right unitprice">
+				<span></span> TRX
+			</div>
+		</li>
+		<li>
+			<p class="left">购买数量</p>
+			<div class="right buynuminbox">
+				<div class="btn lessbtn disable"><span>-</span><span>-</span></div>
+				<div class="numinputb">
+					<input type="text" class="numinput" value="" placeholder="0">
+				</div>
+				<div class="btn plusbtn disable"><span>+</span><span>+</span></div>
+			</div>
+		</li>
+	</ul>
+	<ul class="buydxggposflomsg">
+		<li>
+			<p class="left">合计</p>
+			<div class="right hjnum">
+				<span></span> TRX
+			</div>
+		</li>
+		<li>
+			<p class="left">当前余额</p>
+			<div class="right mynum">
+				<span></span> TRX
+			</div>
+		</li>
+	</ul>
+	<div class="buydxggposflobtnbox">
+		<a href="javascript:;" class="buydxggposflobtn  graybtn">确认并支付</a>
+	</div>
+</div>
+<script type="text/javascript">
+	pagebuydxggpos.myhas = "202880.00800280";//当前余额
+	pagebuydxggpos.unitprice = "20714.0281";//广告单价
+	pagebuydxggpos.ggnum = "18";//广告数量
+	pagebuydxggpos.thisdom.find(".buydxggposflobtn").on("click",function(){
+		if(!pagebuydxggpos.colorclick){
+			return;
+		}
+		console.log(pagebuydxggpos.cnum)//个数
+		//成功
+		pagebuydxggpos.thisdom.fadeOut(function(){
+			pagebuydxggpos.thisdom.html("");
+		});
+		pagebuydxggpos.buyendfn();
+		//失败
+		// operationFailedobj.init("失败原因")
+
+	})
+</script>

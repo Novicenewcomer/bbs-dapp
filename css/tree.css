@@ -158,8 +158,65 @@
     transform: translateX(0px) translateY(0px);
     -webkit-transform: translateX(0px) translateY(0px);
 }
-.treefdfruitbox li.fufen .conbox {
+.treefdfruitbox li .conbox {
     font-size: 1rem;
 	line-height: 1rem;
 	height: 1rem;
+}
+.dexingadflo{
+	position: absolute;
+	width: 100%;
+	height: 100%;
+	background: rgba(0,0,0,.5);
+	left: 0;
+	top: 0;
+	z-index: 10;
+	display: none;
+}
+.dexingadflocon{
+	margin: 1.6rem 0.64rem 0;
+	padding: 0.4rem 0.4rem 0.44rem;
+	width: 7.92rem;
+	background: rgba(255,255,255,.85);
+	border-radius: 0.68rem;
+	position: relative;
+}
+.dexingadflocon .ggbox{
+	width: 7.92rem;
+	height: 7.92rem;
+	overflow: hidden;
+	border-radius: 0.2rem;
+}
+.dexingadflocon .ggbox a{
+	display: block;
+	width: 100%;
+	height: 100%;
+}
+.dexingadflocon .ggbox img{
+	width: 100%;
+}
+.dexingadflocon .ggtit{
+	padding-top: 0.44rem;
+	text-align: center;
+	font-size: 14px;
+	color: #303030;
+	line-height: 0.56rem;
+}
+.dexingadflocon .ggtit strong{
+	color: #f36347;
+	font-size: 18px;
+}
+.closedexingadflobtn{
+	position: absolute;
+    width: 0.84rem;
+    height: 0.84rem;
+    line-height: 0.84rem;
+    text-align: center;
+    color: #fff;
+    font-size: 0.84rem;
+    left:50%;
+	margin-left: -0.42rem;
+    bottom: -1.48rem;
+    opacity: 0.75;
+    padding: 0.2rem;
 }

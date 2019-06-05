@@ -131,6 +131,30 @@
 				}
 			})
 		};
+		//购买广告位
+		linkOpenpage.pagebuydxggpos=function(othis,opt){
+			console.log(opt.iid)//购买id
+			othis.loadHtmlobj({
+				csslink:["css/pages/pagebuydxggpos.css"],
+				jssrc:["js/pages/pagebuydxggpos.js"],
+				callbackfn:function(thisobj){
+					pagebuydxggpos.init({container:othis,type:"jy"});
+					pagebuydxggpos.buyendfn = function(){
+						$(".scrollw_box").scrollTop(0)
+						$(".dxggjy_listbox ul").html("")
+						dxggtransactionObj.pagenum = 1;
+						dxggtransactionObj.listmove=false;
+						dxggtransactionObj.readlist();
+					}
+					pagebuydxggpos.thisdom.load("pagebuydxggpos.html",function(){
+						pagebuydxggpos.showbox();
+						thisobj.endfn();
+						linkOpenpage.readpage();
+					})
+				}
+			})
+		};
+		
 		$(function(){
 			dxggtransactionObj.readlist = function (){
 				var _this = this;
@@ -144,6 +168,7 @@
 			pagearr:["pagebottomnav"],
 			othis:$(".mbdivcon")
 		});
+		
 		var dxggtransactionObj = {
 			pagenum:1,
 			listmove:true,
@@ -158,6 +183,16 @@
 						};
 					}
 				});
+				$(".dxggjy_listbox").on("click",".okbtn",function(){
+					var iid = $(this).parents("li").attr("iid")
+					linkOpenpage.readpage({
+						pagearr:["pagebuydxggpos"],
+						othis:$(".mbdivcon"),
+						opts:{
+							iid:iid
+						}
+					});
+				})
 			}
 		}
 	</script>

@@ -1,0 +1,125 @@
+.lotteryhistoryflobox{
+	position: absolute;
+	top:0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	z-index: 101;
+	background: #f4f4f4;
+	display: none;
+}
+.lhflo_scrollwbox{
+	width: 100%;
+	height: 100%;
+	overflow-x: hidden;
+    overflow-y: auto;
+    -webkit-overflow-scrolling: touch;
+    position: relative;
+}
+.lhflo_scrollwcon{
+	width: 10rem;
+}
+.lhflo_topbox{
+	height: 4.72rem;
+	background: url(../../img/lotteryhistorybg.png) no-repeat;
+	background-size: 100% 100%;
+	text-align: center;
+}
+.lhflo_turnpagebtn{
+	position: absolute;
+    width: 0.64rem;
+    height: 0.64rem;
+    line-height: 0.64rem;
+    text-align: center;
+    color: #fff;
+    font-size: 0.64rem;
+    right: 0.32rem;
+    top: 0.24rem;
+	opacity: 0.75;
+	padding: 0.2rem;
+}
+.lhflo_topbox .tit1{
+	font-size: 14px;
+	color: #fff;
+	padding: 0.6rem 0 0.64rem;
+	line-height: 0.52rem;
+}
+.lhflo_topbox .tit2{
+	font-size: 14px;
+	color: #fff;
+	line-height: 0.68rem;
+}
+.lhflo_topbox .tit2 strong{
+	font-size: 40px;
+}
+.lhflo_topbox .tit3{
+	font-size: 12px;
+	color: #fff;
+	line-height: 0.64rem;
+}
+.lhflo_conbox{
+	position: relative;
+	margin: -1.04rem 0.32rem 0;
+}
+.lhflo_conbox .ulwbox{
+	background: #fff;
+	border-radius: 0.2rem;
+	margin-bottom: 0.1333rem;
+	box-shadow: rgba(230,230,230,.54) 0 0.16rem 0.2rem;
+	padding: 0 0.32rem;
+}
+.lhflo_conbox .ulwbox .titbox{
+	height: 1.16rem;
+	line-height: 1.16rem;
+}
+.lhflo_conbox .titbox .left{
+	float: left;
+	font-weight: bold;
+	font-size: 15px;
+	color: #303030;
+}
+.lhflo_conbox .titbox .right{
+	float: right;
+	font-size: 12px;
+	color: #303030;
+}
+.lhflo_conbox .titbox .right span{
+	color: #f46156;
+}
+.lhflo_conul{
+	border-top:#f2f2f2 dashed 1px;
+	padding: 0.24rem 0 0.2rem;
+	display: none;
+}
+.ulwboxac .lhflo_conul{
+	display: block;
+}
+.lhflo_conul li{
+	display: flex;
+	display: -webkit-flex;
+	line-height: 0.84rem;
+}
+.lhflo_conul li .tit{
+	width: 1.64rem;
+	color: #303030;
+	font-size: 15px;
+	overflow: hidden;
+}
+.lhflo_conul li .time{
+	width: 3.36rem;
+	color: #949494;
+	font-size: 12px;
+	overflow: hidden;
+}
+.lhflo_conul li .num{
+	flex: 1;
+	-webkit-flex: 1;
+	color: #303030;
+	font-size: 15px;
+	font-weight: bold;
+	overflow: hidden;
+	text-align: right;
+}
+.lhflo_conul li .up{
+	color: #f46156;
+}

@@ -148,10 +148,59 @@
 				}
 			})
 		};
-		
+		//抽奖历史
+		linkOpenpage.lotteryhistory = function(othis){
+		    othis.loadHtmlobj({
+		        csslink:["css/pages/pagelotteryhistory.css"],
+		        jssrc:["js/pages/pagelotteryhistory.js"],
+		        callbackfn:function(thisobj){
+		            lotteryhistoryfn.init({container:othis});
+					lotteryhistoryfn.thisdom.load("pagelotteryhistory.html",function(){
+						lotteryhistoryfn.showbox();
+						thisobj.endfn();
+						linkOpenpage.readpage();
+					})
+			
+		        }
+		    })
+		};
+		//购买广告位
+		linkOpenpage.pagebuydxggpos=function(othis,opt){
+			console.log(opt.iid)//购买id
+			othis.loadHtmlobj({
+				csslink:["css/pages/pagebuydxggpos.css"],
+				jssrc:["js/pages/pagebuydxggpos.js"],
+				callbackfn:function(thisobj){
+					pagebuydxggpos.init({container:othis,type:"jy"});
+					// pagebuydxggpos.buyendfn = function(){
+					// 	$(".scrollw_box").scrollTop(0)
+					// 	$(".dxggjy_listbox ul").html("")
+					// 	dxggtransactionObj.pagenum = 1;
+					// 	dxggtransactionObj.listmove=false;
+					// 	dxggtransactionObj.readlist();
+					// }
+					pagebuydxggpos.thisdom.load("pagebuydxggpos.html",function(){
+						pagebuydxggpos.showbox();
+						thisobj.endfn();
+						linkOpenpage.readpage();
+					})
+				}
+			})
+		};
 		linkOpenpage.readpage({
 			pagearr:["pagebottomnav"],
 			othis:$(".mbdivcon")
 		});
+		// linkOpenpage.readpage({
+		// 	pagearr:["lotteryhistory"],
+		// 	othis:$(".mbdivcon")
+		// });
+		// linkOpenpage.readpage({
+		// 	pagearr:["pagebuydxggpos"],
+		// 	othis:$(".mbdivcon"),
+		// 	opts:{
+		// 		iid:111
+		// 	}
+		// });
 	</script>
 </html>
