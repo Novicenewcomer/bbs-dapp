@@ -1,0 +1,89 @@
+.taskzx_topbox{
+	height: 4.36rem;
+	background: url(../img/taskzx_topbg.png) no-repeat;
+	background-size: 100% 100%;
+	position:relative;
+}
+.taskzx_textbox{
+	padding: 0.36rem 0.48rem 0.76rem;
+	height: 0.64rem;
+	line-height: 0.64rem;
+	color: #fff;
+}
+.taskzx_textbox .text1{
+	float: left;
+	font-weight: bold;
+	font-size: 20px;
+}
+.taskzx_textbox .text2{
+	float: right;
+	font-size: 12px;
+	line-height: 0.6rem;
+}
+.taskzx_qdbox{
+	padding: 0 0.64rem;
+}
+.taskzx_qdbox li{
+	padding: 0 0.12rem;
+	float: left;
+}
+.taskzx_qdbox .liicobox{
+	width: 1rem;
+	height: 1rem;
+	background: -webkit-linear-gradient(left, #d4d3cf , #bfbebc); /* Safari 5.1 - 6.0 */
+	background: -o-linear-gradient(right, #d4d3cf, #bfbebc); /* Opera 11.1 - 12.0 */
+	background: -moz-linear-gradient(right, #d4d3cf, #bfbebc); /* Firefox 3.6 - 15 */
+	background: linear-gradient(to right, #d4d3cf , #bfbebc); /* 标准的语法 */
+    border-radius: 50%;
+	color: #fff;
+}
+.taskzx_qdbox .litext{
+	text-align: center;
+	line-height: 0.68rem;
+	height: 0.68rem;
+	color: #9a8b7c;
+	font-size: 12px;
+}
+.taskzx_qdbox .liicobox .ff{
+	text-align: center;
+	font-size: 0.16rem;
+	line-height: 1rem;
+}
+.taskzx_qdbox .liicobox .ff strong{
+	font-size: 0.4rem;
+}
+.taskzx_qdbox .liicobox .xl{
+	text-align: center;
+	font-size: 0.56rem;
+	line-height: 1rem;
+}
+.taskzx_qdbox .active .liicobox{
+	color: #d15909;
+	background: -webkit-linear-gradient(left, #ffe050 , #ffcf00); /* Safari 5.1 - 6.0 */
+	background: -o-linear-gradient(right, #ffe050, #ffcf00); /* Opera 11.1 - 12.0 */
+	background: -moz-linear-gradient(right, #ffe050, #ffcf00); /* Firefox 3.6 - 15 */
+	background: linear-gradient(to right, #ffe050 , #ffcf00); /* 标准的语法 */
+}
+.taskzx_qdbox .active .litext{
+	color: #303030;
+}
+.taskzx_qdbtn{
+	position: absolute;
+	width: 4.92rem;
+	height: 1.12rem;
+	line-height: 1.12rem;
+	text-align: center;
+	border-radius: 5rem;
+	left: 50%;
+	margin-left: -2.46rem;
+	bottom: -0.56rem;
+	font-size: 16px;
+}
+.taskzx_topbox .yellowbtn{
+	color: #303030;
+	box-shadow: #fcf0c1 0 0.1066rem 0.1333rem;
+}
+.taskzx_topbox .graybtn{
+	color: #fff;
+	box-shadow: #e8e8e8 0 0.1066rem 0.1333rem;
+}

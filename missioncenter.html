@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html>
+	<head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0">
+        <meta name="format-detection" content="telephone=no">
+        <title>任务中心</title>
+        <link rel="stylesheet" type="text/css" href="css/public.css"/>
+		<link rel="stylesheet" type="text/css" href="css/missioncenter.css"/>
+        
+    </head>
+	<body>
+		<div class="mbdivbg">
+			<div class="mbdivcon">
+				<div class="scrollw_box">
+					<div class="scrollw_con">
+						<div class="taskzx_topbox">
+							<div class="taskzx_textbox clear">
+								<p class="text1">签到领FF</p>
+								<p class="text2">本周累计签到 0 天，连续签到 0 天</p>
+							</div>
+							<ul class="taskzx_qdbox clear">
+								<li class="active">
+									<div class="liicobox">
+										<p class="ff"><strong>5</strong>ff</p>
+									</div>
+									<p class="litext">周一</p>
+								</li>
+								<li class="active">
+									<div class="liicobox">
+										<p class="xl">
+											<svg class="icon" aria-hidden="true"><use xlink:href="#iconxiaolian"></use></svg>
+										</p>
+									</div>
+									<p class="litext">周二</p>
+								</li>
+								<li class="active">
+									<div class="liicobox">
+										<p class="ff"><strong>20</strong>ff</p>
+									</div>
+									<p class="litext">周三</p>
+								</li>
+								<li>
+									<div class="liicobox">
+										<p class="xl">
+											<svg class="icon" aria-hidden="true"><use xlink:href="#iconxiaolian"></use></svg>
+										</p>
+									</div>
+									<p class="litext">周四</p>
+								</li>
+								<li>
+									<div class="liicobox">
+										<p class="ff"><strong>30</strong>ff</p>
+									</div>
+									<p class="litext">周五</p>
+								</li>
+								<li>
+									<div class="liicobox">
+										<p class="xl">
+											<svg class="icon" aria-hidden="true"><use xlink:href="#iconxiaolian"></use></svg>
+										</p>
+									</div>
+									<p class="litext">周六</p>
+								</li>
+								<li>
+									<div class="liicobox">
+										<p class="ff"><strong>50</strong>ff</p>
+									</div>
+									<p class="litext">周天</p>
+								</li>
+							</ul>
+							<a class="taskzx_qdbtn graybtn" href="javascript:;">今日已签到</a>
+							<a class="taskzx_qdbtn yellowbtn" href="javascript:;">立即签到</a>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</body>
+	<script src="js/jquery.js"></script>
+	<script src="js/public.js"></script>
+	<script>
+		//底部导航
+		linkOpenpage.pagebottomnav=function(othis){
+			othis.loadHtmlobj({
+				csslink:["css/pages/pagebottomnav.css"],
+				jssrc:["js/pages/pagebottomnav.js"],
+				callbackfn:function(thisobj){
+					pagebottomnav.init({container:othis,type:""});
+					pagebottomnav.thisdom.load("pagebottomnav.html",function(){
+						pagebottomnav.showbox();
+						$(".mulu").css("padding-bottom",parseFloat(pagebottomnav.thisdom.css("height")))
+						thisobj.endfn();
+						linkOpenpage.readpage();
+					})
+				}
+			})
+		};
+		$(function(){
+			
+		})
+		linkOpenpage.readpage({
+			pagearr:["pagebottomnav"],
+			othis:$(".mbdivcon")
+		});
+	</script>
+</html>
