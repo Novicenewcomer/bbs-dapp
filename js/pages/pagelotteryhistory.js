@@ -21,7 +21,7 @@ var lotteryhistoryfn= {
 	},
 	seteventfn:function(){
 		var _this = this;
-		this.thisdom.find(".lhflo_turnpagebtn").on("touchend",function(){
+		this.thisdom.find(".lhflo_turnpagebtn").on("click",function(){
 			_this.thisdom.fadeOut(function(){
 				_this.thisdom.html("");
 			});

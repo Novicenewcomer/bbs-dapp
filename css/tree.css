@@ -174,7 +174,7 @@
 	display: none;
 }
 .dexingadflocon{
-	margin: 1.6rem 0.64rem 0;
+	margin: 1.6rem auto 0;
 	padding: 0.4rem 0.4rem 0.44rem;
 	width: 7.92rem;
 	background: rgba(255,255,255,.85);
@@ -219,4 +219,135 @@
     bottom: -1.48rem;
     opacity: 0.75;
     padding: 0.2rem;
+}
+.getfdfruitflobox{
+	width: 100%;
+	height: 100%;
+	position: absolute;
+	left:0;
+	top:0;
+	background: rgba(0,0,0,.5);
+	z-index: 10;
+	overflow-y: auto;
+	-webkit-overflow-scrolling: touch;
+	display: none;
+}
+.getfdfruitflow{
+	margin: 3.2rem auto;
+    width: 7.68rem;
+    padding: 0.16rem;
+    border-radius: 0.64rem;
+    background: -webkit-linear-gradient(top, #ff6e72 , #ff9067);
+    background: -o-linear-gradient(bottom, #ff6e72, #ff9067);
+    background: -moz-linear-gradient(bottom, #ff6e72, #ff9067);
+    background: linear-gradient(to bottom, #ff6e72 , #ff9067);
+    position: relative;
+}
+.getfdfruitfloc{
+	background: #fff;
+	border-radius: 0.52rem;
+	position: relative;
+}
+.getfdx_typeb{
+	position: absolute;
+	top: -2.68rem;
+	width:6.2rem;
+	height: 6.12rem;
+	left: 50%;
+	margin-left: -3.1rem;
+	background: url(../img/guang.png) no-repeat;
+	background-size: 100% 100%;
+}
+.getfdx_typebc{
+	display: block;
+	width: 2.76rem;
+	height: 2.76rem;
+	margin: 0 auto;
+	padding-top: 1.36rem;
+	background-size: 2.76rem auto;
+	background-repeat: no-repeat;
+	background-position: center bottom;
+}
+.getfdx_typeb .shan{
+	position: absolute;
+	background: url(../img/shan.png) no-repeat;
+	background-size: 100% 100%;
+}
+.getfdx_typeb .shan:nth-of-type(1){
+	width:0.64rem ;
+	height: 0.72rem;
+	top:1.2rem;
+	left:1.36rem;
+	-webkit-animation: 1.8s scalestart ease-out infinite;
+    animation: 1.8s scalestart ease-out infinite;
+}
+.getfdx_typeb .shan:nth-of-type(2){
+	width:0.44rem ;
+	height: 0.48rem;
+	top:3.52rem;
+	left:1.4rem;
+	-webkit-animation: 0.8s scalestart ease-out infinite;
+    animation: 0.8s scalestart ease-out infinite;
+}
+.getfdx_typeb .shan:nth-of-type(3){
+	width:0.52rem ;
+	height: 0.56rem;
+	top:3.12rem;
+	left:4.6rem;
+	-webkit-animation: 1.2s scalestart ease-out infinite;
+    animation: 1.2s scalestart ease-out infinite;
+}
+.getfdx_typeconb{
+	position: relative;
+	padding-top: 2.28rem;
+	text-align: center;
+}
+.immediatechargedxbtn{
+	height: 1rem;
+	display: block;
+	margin: 0 auto;
+	background: #fdd32a;
+	width: 3.52rem;
+	border-radius: 0.16rem;
+	border:0.04rem solid #ff9964;
+	line-height: 1rem;
+	text-align: center;
+	font-size: 18px;
+	color: #303030;
+}
+.getfdx_typeconb .text1{
+	color: #303030;
+	font-size: 24px;
+	font-weight: bold;
+	line-height: 0.76rem;
+	height: 0.76rem;
+	padding-bottom: 0.2rem;
+}
+.getfdx_typeconb .text2{
+	color: #f5614e;
+	font-size: 18px;
+	line-height: 0.6rem;
+	height: 0.6rem;
+	padding-bottom: 0.8rem;
+}
+.getfdx_typeconb .text3{
+	color: #949495;
+	font-size: 12px;
+	line-height: 0.44rem;
+	height: 0.44rem;
+	padding:0.24rem 0 0.72rem;
+}
+.closegetfdfruitfloboxbtn{
+	position: absolute;
+	width: 0.84rem;
+	height: 0.84rem;
+	line-height: 0.84rem;
+	text-align: center;
+	color: #fff;
+	font-size: 0.84rem;
+	left:50%;
+	margin-left: -0.42rem;
+	bottom: -1.48rem;
+	opacity: 0.75;
+	padding: 0.2rem;
 }

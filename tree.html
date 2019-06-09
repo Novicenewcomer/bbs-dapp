@@ -110,6 +110,29 @@
 				</a>
 			</div>
 		</div>
+		<div class="getfdfruitflobox">
+			<div class="getfdfruitflow">
+				<div class="getfdfruitfloc">
+					<div class="getfdx_typeb">
+						<span class="shan"></span>
+						<span class="shan"></span>
+						<span class="shan"></span>
+						<span class="getfdx_typebc"></span>
+					</div>
+					<div class="getfdx_typeconb">
+						<p class="text1">恭喜你收获一颗</p>
+						<p class="text2"></p>
+						<a class="immediatechargedxbtn" href="javascript:;">立即收取</a>
+						<p class="text3">收取的德星可进入可进入资产列表查看</p>
+					</div>
+				</div>
+				<a class="closegetfdfruitfloboxbtn" href="javascript:;">
+					<svg class="icon" aria-hidden="true">
+						<use xlink:href="#iconfanhui-h"></use>
+					</svg>
+				</a>
+			</div>
+		</div>
 	</body>
 	<script src="js/jquery.js"></script>
 	<script src="js/m.Tween.js"></script>
@@ -194,12 +217,50 @@
 					$(".dexingadflo .ggtit strong").html(data.s+"S");
 					// $(".buyadp_adtimebox_end p").html('距下期竞拍：<strong>'+data.d+'</strong>天<strong>'+data.h+'</strong>时<strong>'+data.m+'</strong>分<strong>'+data.s+'</strong>秒')
 				},
-				endfn:function(){
+				endfn:function(){//获取德星类型
 					$(".dexingadflo").fadeOut()
+					//成功
+					var data = {
+						"get":"5"
+					}
+					switch(data.get){
+						case "0":
+							$(".getfdfruitflobox .text2").html("孝德星")
+						case "1":
+							$(".getfdfruitflobox .text2").html("悌德星")
+						case "2":
+							$(".getfdfruitflobox .text2").html("忠德星")
+						case "3":
+							$(".getfdfruitflobox .text2").html("信德星")
+						case "4":
+							$(".getfdfruitflobox .text2").html("礼德星")
+						case "5":
+							$(".getfdfruitflobox .text2").html("义德星")
+						case "6":
+							$(".getfdfruitflobox .text2").html("廉德星")
+						default:
+							$(".getfdfruitflobox .text2").html("耻德星")
+					}
+					$(".getfdfruitflobox .getfdx_typebc").attr("class","getfdx_typebc fdx_astar_"+data.get)
+					
+					
+					$(".getfdfruitflobox").show();
+					//失败
+					// operationFailedobj.init("失败原因")
 				}
 			});
+		}
+		function getfdxfruitfn(){//采摘德星
+			console.log(dxgg_iid)
+			//成功
+			$(".treefdfruitbox li[iid='"+dxgg_iid+"']").remove();
+			$(".getfdfruitflobox").fadeOut();
+			//失败
+			// operationFailedobj.init("失败原因")
 			
 		}
+		// =========================================
+		
 		$(".treefdfruitbox").on("click","li",function(){//采摘
 			var othis = $(this);
 			// if(Usermsg.userverified!=1){
@@ -275,6 +336,14 @@
 			clearInterval(getdxggtime.timer)
 			$(".dexingadflo").fadeOut();
 			$(".treefdfruitbox li[iid='"+dxgg_iid+"']").removeAttr("wait")
+		})
+		$(".closegetfdfruitfloboxbtn").on("click",function(){
+			$(".getfdfruitflobox").fadeOut();
+			$(".treefdfruitbox li[iid='"+dxgg_iid+"']").removeAttr("wait")
+		})
+		
+		$(".immediatechargedxbtn").on("click",function(){
+			getfdxfruitfn();
 		})
 		linkOpenpage.readpage({
 			pagearr:["pagetree"],
