@@ -17,7 +17,7 @@
 						<div class="taskzx_topbox">
 							<div class="taskzx_textbox clear">
 								<p class="text1">签到领FF</p>
-								<p class="text2">本周累计签到 0 天，连续签到 0 天</p>
+								<p class="text2">本周累计签到 <span class="weekqd">3</span> 天，连续签到 <span class="dayqd">3</span> 天</p>
 							</div>
 							<ul class="taskzx_qdbox clear">
 								<li class="active">
@@ -25,6 +25,9 @@
 										<p class="ff"><strong>5</strong>ff</p>
 									</div>
 									<p class="litext">周一</p>
+									<span class="activeico">
+										
+									</span>
 								</li>
 								<li class="active">
 									<div class="liicobox">
@@ -33,12 +36,18 @@
 										</p>
 									</div>
 									<p class="litext">周二</p>
+									<span class="activeico">
+										
+									</span>
 								</li>
 								<li class="active">
 									<div class="liicobox">
 										<p class="ff"><strong>20</strong>ff</p>
 									</div>
 									<p class="litext">周三</p>
+									<span class="activeico">
+										
+									</span>
 								</li>
 								<li>
 									<div class="liicobox">
@@ -47,12 +56,18 @@
 										</p>
 									</div>
 									<p class="litext">周四</p>
+									<span class="activeico">
+										
+									</span>
 								</li>
 								<li>
 									<div class="liicobox">
 										<p class="ff"><strong>30</strong>ff</p>
 									</div>
 									<p class="litext">周五</p>
+									<span class="activeico">
+										
+									</span>
 								</li>
 								<li>
 									<div class="liicobox">
@@ -61,16 +76,77 @@
 										</p>
 									</div>
 									<p class="litext">周六</p>
+									<span class="activeico">
+										
+									</span>
 								</li>
 								<li>
 									<div class="liicobox">
 										<p class="ff"><strong>50</strong>ff</p>
 									</div>
 									<p class="litext">周天</p>
+									<span class="activeico">
+										
+									</span>
 								</li>
 							</ul>
-							<a class="taskzx_qdbtn graybtn" href="javascript:;">今日已签到</a>
+							<!-- <a class="taskzx_qdbtn graybtn" href="javascript:;">今日已签到</a> -->
 							<a class="taskzx_qdbtn yellowbtn" href="javascript:;">立即签到</a>
+						</div>
+						<div class="taskzx_listtitbox">
+							<p class="tit">新手任务领FF</p>
+							<div class="textb">
+								<span class="ico">
+									<svg class="icon" aria-hidden="true"><use xlink:href="#iconxiaolian"></use></svg>
+								</span>
+								<p class="p1">新人2000FF奖励</p>
+							</div>
+						</div>
+						<ul class="taskzx_list">
+							<li>
+								<p class="tasktext">绑定手机号</p>
+								<span class="taskjlnum taskjlnum100">100FF</span>
+								<a href="#" class="tasksbtn">去完成</a>
+							</li>
+							<li>
+								<p class="tasktext">绑定Email邮箱</p>
+								<span class="taskjlnum taskjlnum100">100FF</span>
+								<a href="#" class="tasksbtn">去完成</a>
+							</li>
+							<li>
+								<p class="tasktext">完成实名认证</p>
+								<span class="taskjlnum taskjlnum300">300FF</span>
+								<a href="#" class="tasksbtn">去完成</a>
+							</li>
+							<li>
+								<p class="tasktext">领取八宝树</p>
+								<span class="taskjlnum taskjlnum100">100FF</span>
+								<a href="javascript:;" class="tasksokbtn">已完成</a>
+							</li>
+							<li>
+								<p class="tasktext">绑定谷歌验证器</p>
+								<span class="taskjlnum taskjlnum200">200FF</span>
+								<a href="javascript:;" class="tasksokbtn">已完成</a>
+							</li>
+							<li>
+								<p class="tasktext">完成1次临时算力加注</p>
+								<span class="taskjlnum taskjlnum100">100FF</span>
+								<a href="javascript:;" class="tasksokbtn">已完成</a>
+							</li>
+							<li>
+								<p class="tasktext">完成1次永久算力加注</p>
+								<span class="taskjlnum taskjlnum1000">1000FF</span>
+								<a href="javascript:;" class="tasksokbtn">已完成</a>
+							</li>
+							<li>
+								<p class="tasktext">完成1次德星抽奖</p>
+								<span class="taskjlnum taskjlnum500">500FF</span>
+								<a href="javascript:;" class="tasksokbtn">已完成</a>
+							</li>
+						</ul>
+						<div class="taskzx_bottombox">
+							<p class="taskzx_bwxtext">添加微信号：280180177</p>
+							<p class="taskzx_btext">加入八宝树新手训练营，和各位达人朋友交换游戏经验、拉人技巧，马上入群领<strong>200FF红包</strong>。</p>
 						</div>
 					</div>
 				</div>
@@ -89,7 +165,7 @@
 					pagebottomnav.init({container:othis,type:""});
 					pagebottomnav.thisdom.load("pagebottomnav.html",function(){
 						pagebottomnav.showbox();
-						$(".mulu").css("padding-bottom",parseFloat(pagebottomnav.thisdom.css("height")))
+						$(".scrollw_con").css("padding-bottom",calculationObj.add(parseFloat(pagebottomnav.thisdom.css("height")),44))
 						thisobj.endfn();
 						linkOpenpage.readpage();
 					})
@@ -97,7 +173,17 @@
 			})
 		};
 		$(function(){
-			
+			$(".taskzx_qdbtn").on("click",function(){
+				if($(this).hasClass("yellowbtn")){//签到
+					//成功
+					$(this).removeClass("yellowbtn").addClass("graybtn");
+					$(".taskzx_qdbox li.active").next().addClass("active");
+					$(".taskzx_textbox .weekqd").html(calculationObj.add($(".taskzx_textbox .weekqd").html(),1))
+					$(".taskzx_textbox .dayqd").html(calculationObj.add($(".taskzx_textbox .dayqd").html(),1))
+					//失败
+					// operationFailedobj.init("失败原因")
+				}
+			})
 		})
 		linkOpenpage.readpage({
 			pagearr:["pagebottomnav"],

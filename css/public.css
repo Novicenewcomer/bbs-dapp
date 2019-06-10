@@ -6,7 +6,7 @@ body,html{position: relative;font-size:15px;height:100%;width:100%;overflow: hid
 html{-webkit-text-size-adjust:none;} 
 body, div, ol, ul, h1, h2, h3, h4, h5, h6, p, th, td, dl, dd, form, iframe, input, textarea, select, label, article, aside, footer, header, menu, nav, section, time, audio, video {margin:0; padding:0;}
 article, aside, footer, header, hgroup, nav, section, audio, canvas, video {display:block;}
-body,input{font-family: Microsoft YaHei, 微软雅黑,MicrosoftJhengHei, 华文细黑, STHeiti,MingLiu, Helvetica Neue, Helvetica, STHeiTi, sans-serif,Tahoma,Arial,Roboto,"Droid Sans","Helvetica Neue","Droid Sans Fallback","Heiti SC",sans-self;}
+body,input{font-family: "lucida grande", "lucida sans unicode", lucida, helvetica, "Hiragino Sans GB", "Microsoft YaHei", "WenQuanYi Micro Hei", sans-serif, "Microsoft YaHei", "微软雅黑";}
 textarea {resize:none;}
 iframe, img {border:0 none;}
 img{vertical-align: top;overflow:hidden}

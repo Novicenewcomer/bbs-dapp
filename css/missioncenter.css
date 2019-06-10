@@ -26,6 +26,7 @@
 .taskzx_qdbox li{
 	padding: 0 0.12rem;
 	float: left;
+	position: relative;
 }
 .taskzx_qdbox .liicobox{
 	width: 1rem;
@@ -67,6 +68,28 @@
 .taskzx_qdbox .active .litext{
 	color: #303030;
 }
+.taskzx_qdbox .activeico{
+	position: absolute;
+	left: 50%;
+	margin-left: -0.26rem;
+	top: -0.24rem;
+	margin-top: -0.02rem;
+	height: 0.48rem;
+	line-height: 0.48rem;
+	width: 0.48rem;
+	border-radius: 50%;
+	background: -webkit-linear-gradient(left, #59e497 , #2cd4ad); /* Safari 5.1 - 6.0 */
+	background: -o-linear-gradient(right, #59e497, #2cd4ad); /* Opera 11.1 - 12.0 */
+	background: -moz-linear-gradient(right, #59e497, #2cd4ad); /* Firefox 3.6 - 15 */
+	background: linear-gradient(to right, #59e497 , #2cd4ad); /* 标准的语法 */
+	border:0.04rem solid #f9e8d7;
+	display: none;
+	font-size: 12px;
+	color: #fff;
+}
+.taskzx_qdbox .active .activeico{
+	display: block;
+}
 .taskzx_qdbtn{
 	position: absolute;
 	width: 4.92rem;
@@ -86,4 +109,135 @@
 .taskzx_topbox .graybtn{
 	color: #fff;
 	box-shadow: #e8e8e8 0 0.1066rem 0.1333rem;
+	cursor: default;
+}
+.taskzx_listtitbox{
+	padding: 0.92rem 0.48rem 0;
+	height: 1.44rem;
+}
+.taskzx_listtitbox .tit{
+	float: left;
+	line-height: 1.44rem;
+	color: #303030;
+	font-size: 20px;
+	font-weight: bold;
+}
+.taskzx_listtitbox .textb{
+	float: left;
+	padding-left: 0.36rem;
+}
+.taskzx_listtitbox .textb .ico{
+	float: left;
+	margin-top: 0.48rem;
+	font-size: 0.56rem;
+	padding-right: 0.08rem;
+}
+.taskzx_listtitbox .textb .p1{
+	margin: 0.52rem 0 0 ;
+	float: left;
+	height: 0.48rem;
+	line-height: 0.48rem;
+	background: #ff8b63;
+	border-radius: 5rem;
+	color: #fff;
+	padding: 0 0.24rem;
+}
+.taskzx_list{
+	padding: 0 0.48rem 0.44rem;
+}
+.taskzx_list li{
+	padding: 0.4rem 0;
+	border-bottom: 1px solid #f4f4f4;
+	height: 0.84rem;
+	line-height: 0.84rem;
+}
+.taskzx_list .tasktext{
+	float: left;
+	font-weight: bold;
+	font-size: 15px;
+	color: #303030;
+	padding-right: 0.2rem;
+}
+.taskzx_list .taskjlnum{
+	float: left;
+	margin-top: 0.24rem;
+	height: 0.48rem;
+	line-height: 0.48rem;
+	padding: 0 0.24rem;
+	border-radius:5rem ;
+	font-size: 12px;
+}
+.taskzx_list .taskjlnum100{
+	color: #fc9605;
+	background: #fff7d9;
+}
+.taskzx_list .taskjlnum300{
+	color: #d878fd;
+	background: #feecfc;
+}
+.taskzx_list .taskjlnum200{
+	color: #3bbcff;
+	background: #d9f9ff;
+}
+.taskzx_list .taskjlnum1000{
+	color: #fe4b4b;
+	background: #ffeae3;
+}
+.taskzx_list .taskjlnum500{
+	color: #2dd4ad;
+	background: #e1faec;
+}
+.taskzx_list .tasksbtn{
+	width: 2rem;
+	float: right;
+	height: 0.84rem;
+	background: -webkit-linear-gradient(left, #ffae59 , #ff8a63); /* Safari 5.1 - 6.0 */
+	background: -o-linear-gradient(right, #ffae59, #ff8a63); /* Opera 11.1 - 12.0 */
+	background: -moz-linear-gradient(right, #ffae59, #ff8a63); /* Firefox 3.6 - 15 */
+	background: linear-gradient(to right, #ffae59 , #ff8a63); /* 标准的语法 */
+	border-radius: 5rem;
+	text-align: center;
+	color: #fff;
+	font-weight: bold;
+	box-shadow: rgba(255,167,91,.38) 0 0.08rem 0.2rem;
+}
+.taskzx_list .tasksokbtn{
+	width: 2rem;
+	float: right;
+	height: 0.84rem;
+	background: #e6e5e3;
+	border-radius: 5rem;
+	text-align: center;
+	color: #fff;
+	font-weight: bold;
+	box-shadow: rgba(230,229,227,.38) 0 0.08rem 0.2rem;
+}
+.taskzx_bottombox{
+	width: 9.04rem;
+	margin: 0 auto;
+	box-shadow: rgba(230,230,230,.2) 0 1px 0.2rem;
+	border-radius: 0.32rem;
+	padding: 0.44rem 0;
+	border:1px solid #f7f7f7;
+}
+.taskzx_bwxtext{
+	color: #303030;
+	font-size: 15px;
+	font-weight: bold;
+	border:#fdd32a 0.08rem solid;
+	border-radius: 5rem;
+	height: 0.8rem;
+	line-height: 0.8rem;
+	background: #fff8dd;
+	padding: 0 0.92rem 0 0.68rem;
+	margin: 0 0.4rem;
+}
+.taskzx_btext{
+	color: #949494;
+	font-size: 12px;
+	line-height: 0.48rem;
+	padding: 0.4rem 0.4rem 0;
+}
+.taskzx_btext strong{
+	color: #f26c3e;
 }
