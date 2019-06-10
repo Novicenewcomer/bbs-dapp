@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html>
+	<head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0">
+        <meta name="format-detection" content="telephone=no">
+        <title>邀请好友</title>
+        <link rel="stylesheet" type="text/css" href="css/public.css"/>
+		<link rel="stylesheet" type="text/css" href="css/invitation.css"/>
+    </head>
+	<body>
+		<div class="mbdivbg">
+			<div class="mbdivcon invitationbg">
+				<div class="scrollw_box">
+					<div class="scrollw_con">
+						<div class="invhy_topbox">
+							<p class="tit">邀请好友</p>
+							<p class="text1">立享好友八宝树挖矿及分红收益额的 5%奖励</p>
+							<div class="invhy_topbtnbox">
+								<a href="#">邀请记录</a><a href="javascript:;">规则说明</a>
+							</div>
+						</div>
+						<div class="invhy_bdbox">
+							<div class="invhy_bdlist clear">
+								<div class="ileft">
+									<p class="ico">
+										<svg class="icon" aria-hidden="true"><use xlink:href="#iconhuangguan"></use></svg>
+									</p>
+									<p class="num">NO.1</p>
+									<p class="codenum">0xa9d0...s0aa87</p>
+									<p class="ffnum"><strong>302.8万</strong><span>FF</span></p>
+								</div>
+								<div class="imid">
+									<p class="ico">
+										<svg class="icon" aria-hidden="true"><use xlink:href="#iconhuangguan"></use></svg>
+									</p>
+									<p class="num">NO.1</p>
+									<p class="codenum">0xa9d0...s0aa87</p>
+									<p class="ffnum"><strong>302.8万</strong>FF</p>
+								</div>
+								<div class="iright">
+									<p class="ico">
+										<svg class="icon" aria-hidden="true"><use xlink:href="#iconhuangguan"></use></svg>
+									</p>
+									<p class="num">NO.1</p>
+									<p class="codenum">0xa9d0...s0aa87</p>
+									<p class="ffnum"><strong>302.8万</strong><span>FF</span></p>
+								</div>
+							</div>
+							<div class="invhy_bdtext">
+								<a href="#">
+									<span><svg class="icon" aria-hidden="true"><use xlink:href="#iconbangdan"></use></svg></span>查看完整榜单
+								</a>
+							</div>
+						</div>
+						<div class="invhy_box1">
+							<div class="invhy_conboxtit"><span><svg class="icon" aria-hidden="true"><use xlink:href="#iconyanhua"></use></svg></span><p>加入八宝树玩家群</p><span><svg class="icon" aria-hidden="true"><use xlink:href="#iconyanhua"></use></svg></span></div>
+							<p class="text">想和各位达人朋友交换游戏经验、拉人技巧，马上入群</p>
+							<div class="textwx">
+								<p>添加微信号：<span>280180177</span></p>
+							</div>
+						</div>
+						<div class="invhy_box2">
+							<div class="invhy_conboxtit"><span><svg class="icon" aria-hidden="true"><use xlink:href="#iconyanhua"></use></svg></span><p>我的邀请码</p><span><svg class="icon" aria-hidden="true"><use xlink:href="#iconyanhua"></use></svg></span></div>
+							<div class="textbumbox">
+								<div class="textbumbg"><p id="copybtntext" class="copybtntext">3NP82</p><button class="copybtn" id="copybtn" data-clipboard-action="copy" data-clipboard-target="#copybtntext">复制</button></div>
+							</div>
+						</div>
+						<div class="invhy_box3 clear">
+							<a href="#" class="yellowbtn">马上邀请好友</a>
+							<a href="#" class="greenbtn">你的专属海报</a>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</body>
+	<script src="js/jquery.js"></script>
+	<script src="js/clipboard.min.js"></script>
+	<script src="js/public.js"></script>
+	<script>
+		//底部导航
+		linkOpenpage.pagebottomnav=function(othis){
+			othis.loadHtmlobj({
+				csslink:["css/pages/pagebottomnav.css"],
+				jssrc:["js/pages/pagebottomnav.js"],
+				callbackfn:function(thisobj){
+					pagebottomnav.init({container:othis,type:""});
+					pagebottomnav.thisdom.load("pagebottomnav.html",function(){
+						pagebottomnav.showbox();
+						$(".scrollw_con").css("padding-bottom",parseFloat(pagebottomnav.thisdom.css("height")))
+						thisobj.endfn();
+						linkOpenpage.readpage();
+					})
+				}
+			})
+		};
+		linkOpenpage.readpage({
+			pagearr:["pagebottomnav"],
+			othis:$(".mbdivcon")
+		});
+		$(function(){
+			var targetText=$("#copybtntext").text();
+	        var clipboard = new Clipboard('#copybtn');
+	        clipboard.on('success', function(e) {
+	            console.log(targetText)
+	            console.info
+	            ('Action:', e.action);
+	            console.info
+	
+	            ('Text:', e.text);
+	            console.info
+	
+	            ('Trigger:', e.trigger);
+	            operationSucedobj.init("复制成功");
+	            e.clearSelection();
+	        });
+		})
+	</script>
+</html>

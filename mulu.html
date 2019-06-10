@@ -126,6 +126,10 @@
 								<a href="missioncenter.html">任务中心</a>
 							</li>
 							=====================================================
+							<li>
+								<a href="invitation.html">邀请好友</a>
+							</li>
+							=====================================================
 							<svg class="icon" aria-hidden="true"><use xlink:href="#iconfanhui-h"></use></svg>
 						</ul>
 					</div>
@@ -145,7 +149,7 @@
 					pagebottomnav.init({container:othis,type:"index"});
 					pagebottomnav.thisdom.load("pagebottomnav.html",function(){
 						pagebottomnav.showbox();
-						$(".mulu").css("padding-bottom",parseFloat(pagebottomnav.thisdom.css("height")))
+						$(".scrollw_con").css("padding-bottom",parseFloat(pagebottomnav.thisdom.css("height")))
 						thisobj.endfn();
 						linkOpenpage.readpage();
 					})

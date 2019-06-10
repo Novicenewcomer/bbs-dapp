@@ -1,0 +1,297 @@
+.invitationbg{
+	background: #f4f4f4;
+}
+.invhy_topbox{
+	height: 5.2rem;
+	background: url(../img/invitationtopbg.png) no-repeat;
+	background-size: 100% 100%;
+	text-align: center;
+}
+.invhy_topbox .tit{
+	font-weight: bold;
+	color: #fff;
+	font-size: 0.5333rem;
+	padding-top: 0.44rem;
+	line-height: 0.8rem;
+}
+.invhy_topbox .text1{
+	line-height: 0.56rem;
+	color: #fff;
+	font-size: 0.32rem;
+	padding-bottom: 0.32rem;
+}
+.invhy_topbtnbox{
+	text-align: center;
+}
+.invhy_topbtnbox a{
+	display: inline-block;
+	vertical-align: top;
+	color: #fff;
+	font-size: 0.32rem;
+	margin: 0 0.2rem;
+	width: 2.08rem;
+	height: 0.64rem;
+	line-height: 0.64rem;
+	background:rgba(12,162,134,.5);
+	border-radius: 5rem;
+}
+.invhy_bdbox,
+.invhy_box1,
+.invhy_box2
+{
+	position: relative;
+	margin:0 0.48rem 0.2rem;
+	background: #fff;
+	border-radius: 0.32rem;
+	box-shadow: rgba(230,230,230,.2) 0 1px 0.2rem;
+}
+.invhy_box3{
+	margin:0 0.48rem;
+}
+.invhy_bdbox{
+	margin-top: 0.28rem;
+	
+}
+.invhy_bdlist{
+	height:4.4rem ;
+	width: 9.44rem;
+	position: absolute;
+	left: 50%;
+	margin-left: -4.72rem;
+	top: -2.4rem;
+	background: url(../img/invbd_bdlistbg.png) no-repeat;
+	background-size: 100% 100%;
+}
+.invhy_bdlist .ileft,
+.invhy_bdlist .iright{
+	position: absolute;
+	left: 0;
+	top: 0;
+	width: 3.32rem;
+	text-align: center;
+	padding-top: 0.96rem;
+}
+.invhy_bdlist .iright{
+	right:0;
+	left: auto;
+}
+.invhy_bdlist .imid{
+	position: absolute;
+	left: 50%;
+	top: 0;
+	margin-left: -1.8rem;
+	width: 3.6rem;
+	text-align: center;
+	padding-top: 0.5866rem;
+}
+.invhy_bdlist .imid .ico{
+	font-size: 0.76rem;
+	line-height: 0.76rem;
+}
+.invhy_bdlist .ileft .ico,
+.invhy_bdlist .iright .ico{
+	font-size: 0.6133rem;
+	line-height: 0.6133rem;
+}
+.invhy_bdlist .imid .num{
+	font-size: 0.5333rem;
+	color: #ffc501;
+	font-weight: bold;
+	font-style: italic;
+	line-height: 0.76rem;
+}
+.invhy_bdlist .ileft .num,
+.invhy_bdlist .iright .num{
+	font-size: 0.4266rem;
+	color: #bfd0e2;
+	font-weight: bold;
+	font-style: italic;
+	line-height: 0.64rem;
+}
+.invhy_bdlist .iright .num{
+	color: #d9c5aa;
+}
+.invhy_bdlist .imid .codenum{
+	font-size: 0.3733rem;
+	color: #303030;
+	line-height: 0.8rem;
+	padding-bottom: 0.16rem;
+}
+.invhy_bdlist .ileft .codenum,
+.invhy_bdlist .iright .codenum{
+	font-size: 0.32rem;
+	color: #303030;
+	line-height: 0.6133rem;
+	padding-bottom: 0.16rem;
+	transform: scale(0.9);
+	-webkit-transform: scale(0.9);
+	transform-origin: center center;
+	-webkit-transform-origin: center center;
+}
+.invhy_bdlist .imid .ffnum{
+	width: 2.8rem;
+	margin: 0 auto;
+	height: 0.92rem;
+	line-height: 0.92rem;
+	color: #fff;
+	font-size: 0.32rem;
+	border-radius: 5rem;
+	background: -webkit-linear-gradient(left, #ffda02 , #ffaf01); /* Safari 5.1 - 6.0 */
+	background: -o-linear-gradient(right, #ffda02, #ffaf01); /* Opera 11.1 - 12.0 */
+	background: -moz-linear-gradient(right, #ffda02, #ffaf01); /* Firefox 3.6 - 15 */
+	background: linear-gradient(to right, #ffda02 , #ffaf01); /* 标准的语法 */
+	
+}
+.invhy_bdlist .ileft .ffnum,
+.invhy_bdlist .iright .ffnum{
+	width: 2.2666rem;
+	margin: 0 auto;
+	height: 0.7333rem;
+	line-height: 0.7333rem;
+	color: #fff;
+	font-size: 0.32rem;
+	border-radius: 5rem;
+	background: -webkit-linear-gradient(left, #c0d1e3 , #b7c8db); /* Safari 5.1 - 6.0 */
+	background: -o-linear-gradient(right, #c0d1e3, #b7c8db); /* Opera 11.1 - 12.0 */
+	background: -moz-linear-gradient(right, #c0d1e3, #b7c8db); /* Firefox 3.6 - 15 */
+	background: linear-gradient(to right, #c0d1e3 , #b7c8db); /* 标准的语法 */
+}
+.invhy_bdlist .iright .ffnum{
+	background: -webkit-linear-gradient(left, #dbc7af , #d7c2a5); /* Safari 5.1 - 6.0 */
+	background: -o-linear-gradient(right, #dbc7af, #d7c2a5); /* Opera 11.1 - 12.0 */
+	background: -moz-linear-gradient(right, #dbc7af, #d7c2a5); /* Firefox 3.6 - 15 */
+	background: linear-gradient(to right, #dbc7af , #d7c2a5); /* 标准的语法 */
+}
+.invhy_bdlist .ileft .ffnum span,
+.invhy_bdlist .iright .ffnum span{
+	transform: scale(0.9);
+	-webkit-transform: scale(0.9);
+	transform-origin: center bottom;
+	-webkit-transform-origin: center bottom;
+}
+.invhy_bdlist .imid .ffnum strong{
+	font-size: 0.48rem;
+}
+.invhy_bdlist .ileft .ffnum strong,
+.invhy_bdlist .iright .ffnum strong{
+	font-size: 0.3866rem;
+}
+.invhy_bdtext{
+	padding-top: 2rem;
+	text-align: center;
+	padding-bottom: 0.52rem;
+	font-size: 0.32rem;
+}
+.invhy_bdtext a{
+	color: #4fa6ff;
+	display: inline-block;
+	vertical-align: top;
+	line-height: 0.6rem;
+	height: 0.6rem;
+}
+.invhy_bdtext a span{
+	font-size: 0.3733rem;
+	padding-right: 0.16rem;
+}
+.invhy_box1,
+.invhy_box2{
+	padding: 0.6rem 0 0.8rem;
+}
+.invhy_conboxtit{
+	line-height: 0.76rem;
+	height: 0.76rem;
+	text-align: center;
+	color: #303030;
+	font-size: 0.5333rem;
+}
+.invhy_conboxtit p{
+	padding:0 0.28rem;
+	display: inline-block;
+	vertical-align: top;
+}
+.invhy_conboxtit span{
+	display: inline-block;
+	vertical-align: top;
+	font-size: 0.7066rem;
+}
+.invhy_box1 .text{
+	color: #949494;
+	line-height: 0.48rem;
+	padding: 0.16rem 0 0.3733rem;
+	text-align: center;
+	font-size: 0.32rem;
+}
+.invhy_box1 .textwx,
+.invhy_box2 .textbumbox{
+	text-align: center;
+}
+.invhy_box1 .textwx p{
+	font-weight: bold;
+	color: #303030;
+	background: #fff8dd;
+	border-radius: 5rem;
+	line-height: 0.84rem;
+	display: inline-block;
+	vertical-align: top;
+	padding: 0 0.92rem 0 0.64rem;
+	border:0.0666rem solid #fdd32a
+}
+.invhy_box2 .textbumbg{
+	margin-top: 0.4rem;
+	background: #e3fae5;
+	border-radius: 5rem;
+	line-height: 0.84rem;
+	height: 0.84rem;
+	display: inline-block;
+	vertical-align: top;
+	padding-left: 0.6666rem;
+	padding-right: 0.24rem;
+	border:0.0666rem solid #2dd4ad
+}
+.invhy_box2 .textbumbg .copybtntext{
+	display: inline-block;
+	vertical-align: top;
+	font-weight: bold;
+	color: #303030;
+	min-width: 3.4266rem;
+	text-align: left;
+	font-size: 0.4rem;
+	height: 0.84rem;
+	position: relative;
+}
+.invhy_box2 .textbumbg .copybtntext:after{
+	content: "";
+	position: absolute;
+	width: 1px;
+	height: 0.36rem;
+	top: 50%;
+	margin-top: -0.18rem;
+	right: 0;
+	background: #2dd4ad;
+}
+.invhy_box2 .textbumbg .copybtn{
+	display: inline-block;
+	vertical-align: top;
+	color: #303030;
+	width: 1.7066rem;
+	font-size: 0.3733rem;
+	height: 0.84rem;
+	cursor: pointer;
+}
+.invhy_box3{
+	padding: 0.3333rem 0 1.2rem;
+}
+.invhy_box3 a{
+	float: left;
+	height: 1.2rem;
+	width: 4.44rem;
+	border-radius: 5rem;
+	font-size: 0.48rem;
+	color: #fff;
+	font-weight: bold;
+	text-align: center;
+	line-height: 1.2rem;
+}
+.invhy_box3 a:last-child{
+	float: right;
+}
