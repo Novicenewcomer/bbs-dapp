@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html>
+	<head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0">
+        <meta name="format-detection" content="telephone=no">
+        <title>邀请奖励排行</title>
+        <link rel="stylesheet" type="text/css" href="css/public.css"/>
+		<link rel="stylesheet" type="text/css" href="css/invitation.css"/>
+    </head>
+	<body>
+		<div class="mbdivbg">
+			<div class="mbdivcon">
+				<div class="invrank_topbox">
+					<a class="invrank_turnpagebtn" href="javascript:history.back(-1)">
+						<svg class="icon" aria-hidden="true">
+							<use xlink:href="#iconfanhui-h"></use>
+						</svg>
+					</a>
+					<div class="invrank_cdateshowbtn">
+						<p class="ctext">2019/04</p>
+					</div>
+				</div>
+				<div class="invhy_bdbox invhy_kbdbox">
+					<div class="invhy_bdlist clear">
+						<div class="ileft">
+							<p class="ico">
+								<svg class="icon" aria-hidden="true"><use xlink:href="#iconhuangguan"></use></svg>
+							</p>
+							<p class="num">NO.2</p>
+							<p class="codenum"></p>
+							<p class="ffnum"><strong></strong><span>FF</span></p>
+						</div>
+						<div class="imid">
+							<p class="ico">
+								<svg class="icon" aria-hidden="true"><use xlink:href="#iconhuangguan"></use></svg>
+							</p>
+							<p class="num">NO.1</p>
+							<p class="codenum"></p>
+							<p class="ffnum"><strong></strong>FF</p>
+						</div>
+						<div class="iright">
+							<p class="ico">
+								<svg class="icon" aria-hidden="true"><use xlink:href="#iconhuangguan"></use></svg>
+							</p>
+							<p class="num">NO.3</p>
+							<p class="codenum"></p>
+							<p class="ffnum"><strong></strong><span>FF</span></p>
+						</div>
+					</div>
+				</div>
+				<div class="scrollw_box">
+					<div class="scrollw_con">
+						<ul class="invrank_list"></ul>
+					</div>
+				</div>
+				<ul class="inv_cdateflo clear">
+					<li idate="2019/01">
+						<div class="con">2019/<strong>01</strong></div>
+					</li>
+					<li idate="2019/02">
+						<div class="con">2019/<strong>02</strong></div>
+					</li>
+					<li idate="2019/03">
+						<div class="con">2019/<strong>03</strong></div>
+					</li>
+					<li idate="2019/04">
+						<div class="con">2019/<strong>04</strong></div>
+					</li>
+					<li idate="2019/05">
+						<div class="con">2019/<strong>05</strong></div>
+					</li>
+					<li idate="2019/06">
+						<div class="con">2019/<strong>06</strong></div>
+					</li>
+					<li idate="2019/07">
+						<div class="con">2019/<strong>07</strong></div>
+					</li>
+					<li idate="2019/08">
+						<div class="con">2019/<strong>08</strong></div>
+					</li>
+					<li idate="2019/09">
+						<div class="con">2019/<strong>09</strong></div>
+					</li>
+					<li idate="2019/10">
+						<div class="con">2019/<strong>10</strong></div>
+					</li>
+					<li idate="2019/11">
+						<div class="con">2019/<strong>11</strong></div>
+					</li>
+					<li idate="2019/12">
+						<div class="con">2019/<strong>12</strong></div>
+					</li>
+				</ul>
+			</div>
+		</div>
+	</body>
+	<script src="js/jquery.js"></script>
+	<script src="js/public.js"></script>
+	<script>
+		var thisdate = "2019/04";
+		$(function(){
+			invrankObj.readlist = function (){//加载
+				var _this = this;
+				console.log(_this.date)
+				console.log(_this.pagenum);
+				$.ajax({
+					url:"invitationranking.json",
+					async:false,
+					success:function(data){
+						var html = '';
+						for (var i in data) {
+							
+							if(data[i].no=="1"){
+								$(".invhy_bdlist .imid .codenum").html(data[i].code)
+								$(".invhy_bdlist .imid .ffnum strong").html(data[i].ffnum)
+							}else if(data[i].no=="2"){
+								$(".invhy_bdlist .ileft .codenum").html(data[i].code)
+								$(".invhy_bdlist .ileft .ffnum strong").html(data[i].ffnum)
+							}else if(data[i].no=="3"){
+								$(".invhy_bdlist .iright .codenum").html(data[i].code)
+								$(".invhy_bdlist .iright .ffnum strong").html(data[i].ffnum)
+							}else{
+								html = $(['<li><div class="conbox"><p class="tit">NO.',
+									data[i].no
+								,'</p><p class="code">',
+									data[i].code
+								,'</p><p class="pnum">',
+									data[i].pnum
+								,'人</p><p class="ffnum">',
+									data[i].ffnum
+								,' FF</p></div></li>'].join(''));
+								$(".invrank_list").append(html);
+							}
+							_this.listmove=true;		
+						}
+					}
+				}) 
+			}
+			invrankObj.init(thisdate);
+		})
+		var invrankObj = {
+			pagenum:1,
+			listmove:true,
+			init:function(date){
+				var _this = this;
+				this.date = date;
+				$(".scrollw_box").css("height",$(".mbdivcon").outerHeight()-$(".invrank_topbox").outerHeight(true)-$(".invhy_kbdbox").outerHeight(true))
+				this.readlist()
+				$('.scrollw_box').scroll(function(){
+					_this.readscroll();
+				});
+				$(".invrank_cdateshowbtn").on("click",function(ev){
+					ev.stopPropagation()
+					if($(".inv_cdateflo").is(":hidden")){
+						$(this).addClass("invrank_cdateshowbtnac");
+						$(".inv_cdateflo li[idate='"+_this.date+"']").addClass("active").siblings().removeClass("active")
+						$(".inv_cdateflo").slideDown()
+					}else{
+						$(this).removeClass("invrank_cdateshowbtnac")
+						$(".inv_cdateflo").slideUp()
+					}
+				})
+				$(".inv_cdateflo").on("click",function(ev){
+					ev.stopPropagation()
+				})
+				$(".inv_cdateflo li").on("click",function(){
+					_this.date = $(this).attr("idate")
+					$(this).addClass("active").siblings().removeClass("active")
+					$(".invrank_cdateshowbtn .ctext").html(_this.date);
+					$(this).removeClass("invrank_cdateshowbtnac")
+					$('.scrollw_box').scrollTop(0)
+					$(".invrank_list").html("");
+					_this.listmove = true;
+					_this.pagenum = 1;
+					_this.readlist();
+					$(".inv_cdateflo").slideUp()
+				})
+				$("body").on("click",function(){
+					$(this).removeClass("invrank_cdateshowbtnac")
+					$(".inv_cdateflo").slideUp()
+				})
+			},
+			readscroll:function(){
+				if($('.scrollw_con').outerHeight()>$('.scrollw_box').height()&&$('.scrollw_con').outerHeight()-$('.scrollw_box').height()-5<=$('.scrollw_box').scrollTop()){
+					if(this.listmove==true){
+						this.pagenum++;
+						this.listmove=false;
+						this.readlist();
+					};
+				}
+			}
+		}
+	</script>
+</html>

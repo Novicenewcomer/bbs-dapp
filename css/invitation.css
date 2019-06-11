@@ -295,3 +295,210 @@
 .invhy_box3 a:last-child{
 	float: right;
 }
+
+.invrank_topbox{
+	height: 4.28rem;
+	background: url(../img/invitationtopbg1.png) no-repeat;
+	background-size: 100% 100%;
+}
+.invrank_topbox span{
+	display: block;
+	width: 0.32rem;
+}
+.invrank_turnpagebtn{
+	position: absolute;
+    width: 0.96rem;
+    height: 0.76rem;
+    line-height: 0.76rem;
+    text-align: center;
+    color: #fff;
+    background: rgba(12,162,134,.5);
+    border-radius: 5rem;
+    font-size: 0.48rem;
+    left: 0.48rem;
+    top: 0.3333rem;
+}
+.invrank_cdateshowbtn{
+	position: absolute;
+    height: 0.76rem;
+    line-height: 0.76rem;
+    color: #fff;
+    background: rgba(12,162,134,.5);
+    border-radius: 5rem;
+    font-size: 0.3733rem;
+    right: 0.48rem;
+    top: 0.3333rem;
+	padding: 0 0.5066rem 0 0.4rem;
+	width: 1.84rem;
+	cursor: pointer;
+}
+.invrank_cdateshowbtn:after{
+	content: "";
+	position: absolute;
+	top: 50%;
+	margin-top: -3px;
+	right: 0.3066rem;
+	width: 0;
+	height: 0;
+	border:6px solid #fff;
+	border-right: 4px solid rgba(0,0,0,0);
+	border-left: 4px solid rgba(0,0,0,0);
+	border-bottom-color: rgba(0,0,0,0);
+	transition: 0.3s;
+	-webkit-transition: 0.3s;
+	transform-origin: center 2px;
+	-webkit-transform-origin: center 2px;
+}
+.invrank_cdateshowbtnac:after{
+	transform: rotate(180deg);
+	-webkit-transform: rotate(180deg);
+}
+.inv_cdateflo{
+	position: absolute;
+	top:1.3733rem;
+	right: 0.48rem;
+	width: 5.44rem;
+	padding: 0.48rem;
+	background: #fff;
+	border-radius: 0.3333rem;
+	z-index: 11;
+	box-shadow: rgba(207,207,207,.46) 0 0.12rem 0.44rem;
+	display: none;
+}
+.inv_cdateflo li{
+	float: left;
+	padding:0 0.16rem 0.2rem 0;
+}
+.inv_cdateflo li:nth-of-type(2n){
+	padding-right: 0;
+}
+.inv_cdateflo .con{
+	width: 2.64rem;
+	height: 1.2rem;
+	line-height: 1.2rem;
+	text-align: center;
+	cursor: pointer;
+	color: #303030;
+	font-size: 0.4rem;
+	background: #f7f7f7;
+	border-radius: 0.08rem;
+}
+.inv_cdateflo li.active .con{
+	background: #ebebeb;
+}
+.invhy_kbdbox{
+	box-shadow: none;
+	height: 1.4rem;
+}
+.invhy_kbdbox .invhy_bdlist{
+	top: -3.2rem;
+}
+.invrank_list{
+	padding: 0 0.48rem;
+}
+.invrank_list li{
+	padding-bottom: 0.2rem;
+}
+.invrank_list li .conbox{
+	height: 1.2rem;
+	line-height: 1.2rem;
+	border-radius: 0.08rem;
+	background: #f3fdf4;
+	display: flex;
+	display: -webkit-flex;
+}
+.invrank_list li:nth-of-type(odd) .conbox{
+	background: #f1fafb;
+}
+.invrank_list .tit{
+	padding-left: 0.2933rem;
+	font-weight: bold;
+	color: #303030;
+	font-size: 14px;
+	width: 1.52rem;
+}
+.invrank_list .code{
+	color: #949494;
+	font-size: 14px;
+	width: 118px;
+}
+.invrank_list .pnum{
+	color: #949494;
+	font-size: 14px;
+	width: 1.24rem;
+	text-align: right;
+}
+.invrank_list .ffnum{
+	color: #303030;
+	font-size: 14px;
+	flex: 1;
+	-webkit-flex: 1;
+	padding-right: 0.2933rem;
+	text-align: right;
+}
+.invrecord_listbox{
+	margin: -2.68rem 0.48rem 0;
+	background: #fff;
+	border-radius: 0.36rem;
+	padding: 0 0 0 0.36rem ;
+	height: 100%;
+	overflow: hidden;
+}
+.invrecord_listtopbox{
+	padding-top:0.12rem;
+	line-height: 1.08rem;
+	height: 1.08rem;
+	display: flex;
+	-webkit-display: flex;
+	border-bottom: 1px solid #f4f4f4;
+	color: #cccccc;
+	font-size: 0.32rem;
+	width: 8.32rem;
+}
+.invrecord_listbox .leftb{
+	flex: 1;
+	-webkit-flex: 1;
+}
+.invrecord_listbox .midb{
+	width: 2.56rem;
+}
+.invrecord_listbox .rightb{
+	width: 1.76rem;
+	text-align: right;
+}
+.invrecord_list{
+	width: 8.32rem;
+	overflow: hidden;
+	padding-bottom: 1.2rem;
+}
+.invrecord_list li{
+	display: flex;
+	-webkit-display: flex;
+	border-bottom: 1px solid #f4f4f4;
+	padding: 0.24rem 0;
+	width: 100%;
+}
+.invrecord_list .codenum,
+.invrecord_list .telnum{
+	color: #303030;
+	font-size: 0.3733rem;
+	line-height: 0.56rem;
+}
+.invrecord_list .telnum{
+	font-weight: bold;
+}
+.invrecord_list .datetext,
+.invrecord_list .timetext{
+	color: #949494;
+	font-size: 0.32rem;
+	line-height: 0.56rem;
+}
+.invrecord_list .realname,
+.invrecord_list .unrealname{
+	color: #949494;
+	font-size: 0.3733rem;
+	line-height: 1.12rem;
+}
+.invrecord_list .realname{
+	color: #2cd4ad;
+}
