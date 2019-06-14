@@ -1,4 +1,4 @@
-document.write('<script src="//at.alicdn.com/t/font_1170216_znnjmv1s92h.js" type="text/javascript" charset="utf-8"></script>');
+document.write('<script src="//at.alicdn.com/t/font_1170216_6x99y24619u.js" type="text/javascript" charset="utf-8"></script>');
 function resizefn(){
 	var iWidth=$(".mbdivcon").outerWidth();iWidth=iWidth>1000?1000:iWidth;//document.documentElement.getBoundingClientRect().width
 	document.getElementsByTagName("html")[0].style.fontSize=iWidth/10+"px";
@@ -226,10 +226,10 @@ var Popupboxfn = {
 			_this.thisdom.find(".text").html(_this.otext);
 		};
 		_this.thisdom.fadeIn();
-		_this.thisdom.find(".del_cancelbtn").unbind("touchend").on("touchend",function(){
+		_this.thisdom.find(".del_cancelbtn").unbind("click").on("click",function(){
 			_this.cancelfn();
 		});
-		_this.thisdom.find(".del_okbtn").unbind("touchend").on("touchend",function(){
+		_this.thisdom.find(".del_okbtn").unbind("click").on("click",function(){
 			_this.okfn();
 		});
 	},

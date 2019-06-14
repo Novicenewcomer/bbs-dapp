@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html>
+	<head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0">
+        <meta name="format-detection" content="telephone=no">
+        <title>高级实名认证</title>
+        <link rel="stylesheet" type="text/css" href="css/public.css"/>
+		<link rel="stylesheet" type="text/css" href="css/entrance.css"/>
+    </head>
+	<body>
+		<div class="mbdivbg">
+			<div class="mbdivcon entrance_bg">
+				<div class="scrollw_box">
+					<div class="scrollw_con">
+						<div class="entrance_topbox">
+							<p>高级认证</p>
+						</div>
+						<div class="verificationgh_box verificationtx_box">
+							<div class="comimg"></div>
+							<p class="text1">查看 <span class="pzinstructionsbtn">拍摄须知</span></p>
+							<p class="text2">大陆公民持有的本人有效 <span>二代身份证</span></p>
+							<div class="shootingbtn">拍摄 <span>身份证人像面</span>
+								<form method="post" action="" enctype="multipart/form-data" class="formBtnIco" >
+									<input type="button" name="file" class="file_upPhotoBtnOne"  id="img_1">
+									<!--<input type="file" name="file" class="file_upPhotoBtnOne" id="img_1" accept="image/*" capture="camera">-->
+									<input type="hidden" name="targetid" value="hidden_iframe">
+								</form>
+							</div>
+							<p class="text3"><a class="dropout" href="javascript:;" ihref="mulu.html">退出验证</a></p>
+							<p class="text4">请在 3G/4G/WiFi 环境下使用</p>
+						</div>
+
+					</div>
+				</div>
+				<div class="sm_noticebox"></div>
+				<!--拍摄面不符提示-->
+				<div class="photographictipsflo">
+					<div class="photographictipsCont">
+						<div class="photographictippadd">
+							<h4 class="photographictiTit">拍摄面不符</h4>
+							<div class="errorBoxShow"></div>
+							<p class="errorTips">请拍摄身份证人像面</p>
+							<a href="verificationtx.html" class="sm_quitbtn">确定</a>
+						</div>
+					</div>
+				</div>
+
+			</div>
+		</div>
+	</body>
+	<script src="js/jquery.js"></script>
+	<script src="js/jweixin-1.0.0.js"></script>
+	<script src="js/public.js"></script>
+	<script type="text/javascript">
+	// var imgsrc;
+	// var wx_isready = false;
+	// wx.config({
+ //        debug: false,
+ //        appId: "",
+ //        timestamp: "",
+ //        nonceStr: "",
+ //        signature: "",
+	//     jsApiList: [
+	//         'checkJsApi',
+	//         'hideOptionMenu',
+	//         'chooseImage',
+	//         'previewImage',
+	//         'uploadImage',
+	//         'downloadImage',
+	//     ]
+	// });
+	// wx.ready(function () {
+	//     //自动执行的
+	//     wx.checkJsApi({
+	//         jsApiList: [
+	//             'hideOptionMenu',
+	//             'uploadImage',
+	//             'chooseImage',
+	//         ],
+	//         success: function (res) {
+	//             wx.hideOptionMenu();
+	//             wx_isready = true;
+	//         }
+	//     });
+	// });
+	function set_page_img() {
+// 	    if (wx_isready) {
+// 
+// 	        wx.chooseImage(
+// 	                {
+// 	                    count: 1, // 默认9
+// 	                    sizeType: ['original', 'compressed'], // 可以指定是原图还是压缩图，默认二者都有
+// 	                    sourceType: ['camera'], // 可以指定来源是相册还是相机，默认二者都有
+// 	                    success: function (res) {
+// 
+// 	                        var Ids = res.localIds; // 返回选定照片的本地ID列表，localId可以作为img标签的src属性显示图片
+
+	                        // up_img_res(Ids);
+							up_img_res();//临时
+	    //                 }
+	    //             }
+	    //     );
+	    // }
+	}
+	function up_img_res(Ids) {
+// 	    wx.uploadImage({
+// 	        localId: Ids[0], // 需要上传的图片的本地ID，由chooseImage接口获得
+// 	        isShowProgressTips:1, // 默认为1，显示进度提示
+// 	        success: function (res) {
+// 	            var serverId = res.serverId; // 返回图片的服务器端ID
+// 	            $.post("/image/image/walreal", {MediaId: serverId}, function (data) {
+// 
+// 	                imgsrc = data;
+// 
+// 	                $.ajax({
+// 			            type: "post",
+// 			            url: "/user/user/seniorcardfront",
+// 			            data: {
+// 			                imgsrc: imgsrc
+// 			            },
+// 			            cache: false,
+// 			            async: false,
+// 			            dataType: 'json',
+// 			            success: function (data) {
+// 			                if (data.status == 1) {
+			                    // location.href = '/user/user/portraitshotqiantx?imgsrc='+imgsrc+'&backurl='+"https://www.fudeshu.com/user/setinfo/index"; //跳到下一个拍摄国徽页
+			                	location.href = 'portraitshotqiantx.html'
+// 							} else {
+// 
+//                                 if(data.status == -2){
+// 
+//                                     $(".photographictipsflo").show();
+//                                     $("#img_1").hide();
+//                                 }else{
+//                                     errorprompt.show(data.message);
+//                                 }
+// 			                }
+// 			            }
+// 			        });
+// 	           })
+// 	        },
+// 	        fail: function (res) {
+// 
+// 				return false;
+// 	        },
+// 	        cancel: function (res) {
+// 
+// 				return false;
+// 	        }
+// 	    });
+	    
+	}
+	</script>
+	<script>
+		
+		$('#img_1').click('changge', function () {
+
+	      set_page_img();
+	   });
+		$(".pzinstructionsbtn").on("click",function(){
+			$(".sm_noticebox").fadeIn();
+		})
+		$(".sm_noticebox").load("pagesmnotice.html",function(){
+			$(".sm_noticecon").css("max-height",$(".mbdivcon").height()-$(".sm_noticecon").offset().top*2);
+			$(".sm_noticecon .list").css("max-height",$(".mbdivcon").height()-$(".sm_noticecon").offset().top-parseFloat($(".sm_noticecon .list").css("padding-top"))-$(".sm_noticecon .list").offset().top-parseFloat($(".sm_noticecon .con").css("padding-bottom"))-$(".closesm_noticebox").outerHeight());
+			$(".closesm_noticebox").unbind("click").on("click",function(){
+				$(".sm_noticebox").fadeOut();
+			})
+		})
+		
+		$(".dropout").on("click",function(){
+			var ithis = $(this);
+			Popupboxfn.init(function () {
+				 Popupboxfn.thisdom.fadeOut();
+	        }, function () {
+	        	location.href = ithis.attr("ihref")
+	        }, "您确定要退出“高级实名认证”吗?","继续认证","退出认证")
+		})
+
+
+	</script>
+
+</html>

@@ -129,7 +129,7 @@ h1, h2, h3, h4, h5, h6{font-size: 16px;font-weight:400}
 .del_msgdiv p{text-align: center;font-size: 16px;color: #282828;height:106px;line-height: 106px;}
 .del_msgdiv p span{line-height: 24px;display: block;padding-top: 32px;}
 .del_msgbtndiv{height:44px;line-height: 44px;}
-.del_msgbtndiv span{float: left;width:50%;background: #e5e5e5;height:44px;text-align: center;font-size:14px;color:#666;border-radius: 0 0 0 5px;}
+.del_msgbtndiv span{cursor: pointer;float: left;width:50%;background: #e5e5e5;height:44px;text-align: center;font-size:14px;color:#666;border-radius: 0 0 0 5px;}
 .del_msgbtndiv .del_okbtn{border-radius: 0 0 5px 0;background: #58c8d3;color:#fff;}
 
 /*load*/

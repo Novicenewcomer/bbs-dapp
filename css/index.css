@@ -27,7 +27,7 @@
 .index_noticeico{
 	padding-left: 0.24rem;
 	width: 0.72rem;
-	font-size:0.52rem;
+	font-size:0.5866rem;
 }
 .index_noticetextbox{
 	position: absolute;
@@ -355,6 +355,7 @@
 }
 .index_taskbox .rightbox a span{
 	padding-right: 0.24rem;
+	font-size: 0.4266rem;
 }
 .index_invitefidsbox{
 	padding: 0 0.52rem 0.4rem;

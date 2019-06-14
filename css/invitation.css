@@ -85,13 +85,13 @@
 	padding-top: 0.5866rem;
 }
 .invhy_bdlist .imid .ico{
-	font-size: 0.76rem;
-	line-height: 0.76rem;
+	font-size: 0.7733rem;
+	line-height: 0.7733rem;
 }
 .invhy_bdlist .ileft .ico,
 .invhy_bdlist .iright .ico{
-	font-size: 0.6133rem;
-	line-height: 0.6133rem;
+	font-size: 0.64rem;
+	line-height: 0.64rem;
 }
 .invhy_bdlist .imid .num{
 	font-size: 0.5333rem;
@@ -212,7 +212,13 @@
 .invhy_conboxtit span{
 	display: inline-block;
 	vertical-align: top;
-	font-size: 0.7066rem;
+	height: 100%;
+	width: 0.72rem;
+	background: url(../img/jbleftico.png) no-repeat left center;
+	background-size: 0.72rem auto;
+}
+.invhy_conboxtit span.hhrightico{
+	background-image: url(../img/jbrightico.png);
 }
 .invhy_box1 .text{
 	color: #949494;

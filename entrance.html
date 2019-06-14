@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+	<head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0">
+        <meta name="format-detection" content="telephone=no">
+		<title>高级实名认证</title>
+		<link rel="stylesheet" type="text/css" href="css/public.css"/>
+		<link rel="stylesheet" type="text/css" href="css/entrance.css"/>
+	</head>
+	<body>
+		<div class="mbdivbg">
+			<div class="mbdivcon entrance_bg">
+				<div class="scrollw_box">
+					<div class="scrollw_con">
+						<div class="entrance_topbox">
+							<p>实名认证</p>
+						</div>
+						<div class="sm_iconImgBoxmar">
+							<span class="sm_iconImgBox"></span>
+						</div>
+						<a href="verificationtx.html" class="sm_linkBtn">开始验证</a>
+						<a href="javascript:;" ihref="mulu.html" class="sm_quitBtn">退出验证</a>
+						<p class="sm_realtips">请在 3G/4G/WiFi 环境下使用</p>
+					</div>
+				</div>
+			</div>
+		</div>
+	</body>
+<script type="text/javascript" src="js/jquery.js"></script>
+<script type="text/javascript" src="js/public.js"></script>
+<script>
+	$(".sm_quitBtn").on("click",function(){
+		var ithis = $(this);
+		Popupboxfn.init(function () {
+			Popupboxfn.thisdom.fadeOut();
+        }, function () {
+        	location.href = ithis.attr("ihref")
+        }, "您确定要退出“实名认证”吗?","继续认证","退出认证")
+	})
+</script>
+</html>
