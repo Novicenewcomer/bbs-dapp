@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+	<head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0">
+        <meta name="format-detection" content="telephone=no">
+        <title>高级实名认证</title>
+        <link rel="stylesheet" type="text/css" href="css/public.css"/>
+		<link rel="stylesheet" type="text/css" href="css/entrance.css"/>
+    </head>
+	<body>
+		<div class="mbdivbg">
+			<div class="mbdivcon entrance_bg">
+				<div class="scrollw_box">
+					<div class="scrollw_con">
+						<div class="entrance_topbox yzfailed_topbox">
+							<p>高级实名认证</p>
+						</div>
+						<div class="yzfailed_box">
+							<div class="yzfailed_textbox">
+								<span class="jiao"></span>
+								<span class="jiao"></span>
+								<span class="jiao"></span>
+								<span class="jiao"></span>
+								<div class="yzfailed_textbg">
+									<p class="texttit">失败原因</p>
+									<p class="text1">大飒飒交大解大飒飒交大解散几点开始看鸡蛋壳十九大倒计时的就撒就的撒就的撒 待机时间短 就大三焦点科技的就撒大飒飒交大解散几点开始看鸡蛋壳十九大倒计时的就撒就的撒就的撒 待机时间短 就大三焦点科技的就撒散几点开始看鸡蛋壳十九大倒计时的就撒就的撒就的撒 待机时间短 就大三焦点科技的就撒</p>
+								</div>
+							</div>
+							<p class="yzfailed_btn">再次视频验证</p>
+							<p class="text3"><a class="dropout" href="javascript:;" ihref="mulu.html">退出验证</a></p>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</body>
+	<script src="js/jquery.js"></script>
+	<script src="js/public.js"></script>
+	<script type="text/javascript">
+	var three = true;//true 已达验证上限
+	$(function(){
+		if(three){
+			$(".yzfailed_btn").addClass("yzfailed_btnactive")
+		}
+	})
+	
+	$(".yzfailed_btn").on("click",function(){
+		if($(this).hasClass("yzfailed_btnactive")){
+			errorprompt.show("今日已达验证上限，请明日再试")
+		}else{
+			location.href = ""//跳转视频验证
+		}
+		//验证上线
+		
+	})
+	
+	$(".dropout").on("click",function(){
+		var ithis = $(this);
+		Popupboxfn.init(function () {
+			 Popupboxfn.thisdom.fadeOut();
+        }, function () {
+        	location.href = ithis.attr("ihref")
+        }, "您确定要退出“高级实名认证”吗?","继续认证","退出认证")
+	})
+	</script>
+
+</html>

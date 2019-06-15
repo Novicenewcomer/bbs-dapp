@@ -25,10 +25,19 @@
 	
 }
 .pub_bottomul li p{
-	font-size: 24px;
+	font-size: 20px;
 	padding-top: 0.2rem;
 	line-height:26px;
 }
 .pub_bottomul li.active a{
 	color: #303030;
+}
+.pub_bottomul li p:nth-of-type(2){
+	display: none;
+}
+.pub_bottomul li.active p:nth-of-type(1){
+	display: none;
+}
+.pub_bottomul li.active p:nth-of-type(2){
+	display: block;
 }
