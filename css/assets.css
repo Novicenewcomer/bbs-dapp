@@ -49,47 +49,44 @@
 	color: #303030;
 	line-height: 1.24rem;
 	float: left;
-	/* padding-left: 0.76rem;
-	background-size: 0.68rem auto;
+	padding-left: 32px;
+	background-size: 24px auto;
 	background-position: left center;
-	background-repeat: no-repeat; */
+	background-repeat: no-repeat;
 }
-/* .assetslistbox li:nth-child(1) .name{
-	background-image: url(../img/assetsico_yl.png);
+.assetslistbox li:nth-child(1) .name{
+	background-image: url(../img/yico_bc.png);
 }
 .assetslistbox li:nth-child(2) .name{
-	background-image: url(../img/assetsico_ff.png);
+	background-image: url(../img/yico_yl.png.png);
 }
 .assetslistbox li:nth-child(3) .name{
-	background-image: url(../img/assetsico_ad.png);
+	background-image: url(../img/yico_ff.png.png);
 }
 .assetslistbox li:nth-child(4) .name{
-	background-image: url(../img/assetsico_adb.png);
+	background-image: url(../img/yico_dxa.png.png);
 }
 .assetslistbox li:nth-child(5) .name{
-	background-image: url(../img/assetsico_dxa.png);
+	background-image: url(../img/yico_dti.png);
 }
 .assetslistbox li:nth-child(6) .name{
-	background-image: url(../img/assetsico_dti.png);
+	background-image: url(../img/yico_dzg.png);
 }
 .assetslistbox li:nth-child(7) .name{
-	background-image: url(../img/assetsico_dzg.png);
+	background-image: url(../img/yico_dxn.png);
 }
 .assetslistbox li:nth-child(8) .name{
-	background-image: url(../img/assetsico_dxn.png);
+	background-image: url(../img/yico_dli.png);
 }
 .assetslistbox li:nth-child(9) .name{
-	background-image: url(../img/assetsico_dli.png);
+	background-image: url(../img/yico_dyi.png);
 }
 .assetslistbox li:nth-child(10) .name{
-	background-image: url(../img/assetsico_dyi.png);
+	background-image: url(../img/yico_dln.png.png);
 }
 .assetslistbox li:nth-child(11) .name{
-	background-image: url(../img/assetsico_dln.png);
+	background-image: url(../img/yico_dci.png);
 }
-.assetslistbox li:nth-child(12) .name{
-	background-image: url(../img/assetsico_dci.png);
-} */
 .assetslicon{
 	display: flex;
 	display: -webkit-flex;
