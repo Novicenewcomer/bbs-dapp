@@ -453,3 +453,34 @@ input:-ms-input-placeholder {
 	50%{scale:(1); opacity:1}
 	to{scale:(0.5); opacity:0}
 }
+.landpubflo{
+	position: absolute;
+	left: 0;
+	top: 0;
+	z-index: 101;
+	width: 100%;
+	height: 100%;
+	background: rgba(0,0,0,.75);
+	overflow-y: auto;
+	-webkit-overflow-scrolling:touch;
+	display: none;
+}
+.landpubflo .tit{
+	color: #fff;
+	text-align: center;
+	line-height: 0.64rem;
+	height: 0.64rem;
+	padding: 2.36rem 0 1.08rem;
+	font-weight: bold;
+	font-size: 20px;
+}
+.landpubflo .textcon{
+	color: #fff;
+	text-align: center;
+	line-height: 0.8rem;
+	font-size: 14px;
+}
+.landpubflo .textcon a{
+	font-size: 18px;
+	color: #4fa6ff;
+}

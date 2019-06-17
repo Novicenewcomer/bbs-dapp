@@ -1,4 +1,4 @@
-document.write('<script src="//at.alicdn.com/t/font_1170216_wn1u514pmd.js" type="text/javascript" charset="utf-8"></script>');
+document.write('<script src="//at.alicdn.com/t/font_1170216_5luhyn7fw7.js" type="text/javascript" charset="utf-8"></script>');
 function resizefn(){
 	var iWidth=$(".mbdivcon").outerWidth();iWidth=iWidth>1000?1000:iWidth;//document.documentElement.getBoundingClientRect().width
 	document.getElementsByTagName("html")[0].style.fontSize=iWidth/10+"px";
@@ -551,3 +551,15 @@ jmz.GetLength = function(str) {
   }
   return realLength;
 };
+var landpubfloObj ={
+	state:"0",
+	init:function(state){
+		var _this = this;
+		this.state = state;
+		this.thisdom =$('<div class="landpubflo"><p class="tit">请登录您的Tron钱包</p><div class="textcon"><p>如果您还没有安装Tron钱包，请访问：</p><p><a href="http://u6.gg/gmc5D">http:<p>并下载安装chrome浏览器扩展程序Tronlink。</p></div></div>')
+		$(".mbdivcon").append(this.thisdom)
+		if(this.state!="1"){
+			this.thisdom.show()
+		}
+	}
+}

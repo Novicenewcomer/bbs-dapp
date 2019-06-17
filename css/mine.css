@@ -1,63 +1,18 @@
 .mine_bgbox{
-	background: #f4f4f4;
-}
-.minetopbox{
-	height: 3.64rem;
-	background: url(../img/minetopbg.jpg) no-repeat;
-	background-size: 100% 100%;
-	padding: 0 0.32rem;
-	position: relative;
-}
-.gobackupkeypage{
-	position: absolute;
-	right: 0;
-	top: 0.36rem;
-	padding: 0 0.52rem 0 0.4rem;
-	height: 0.76rem;
-	line-height: 0.76rem;
-	color: #fff;
-	background: #5033d0;
-	box-shadow: rgba(85,54,213,0.25) 0 0.08rem 0.12rem;
-	border-radius:5rem 0 0 5rem ;
-	font-size: 12px;
-}
-.minetopbox .tit{
-	font-weight: bold;
-	font-size: 18px;
-	color: #fff;
-	line-height: 0.8rem;
-	padding: 1.08rem 0.2rem 0;
-}
-.minetopbox .addresscode{
-	font-size: 14px;
-	color: #fff;
-	line-height: 0.76rem;
-	padding: 0 0.2rem;
-}
-.minetopbox .addresscode span{
-	display: inline-block;
-	vertical-align: top;
-}
-.minetopbox .addresscode button{
-	display: inline-block;
-	vertical-align: top;
-	line-height: 0.76rem;
-	padding: 0 0.4rem;
-	font-size: 20px;
-	color: #fff;
+	background:#fff url(../img/minepagebg.jpg) no-repeat;
+	background-size: 100% auto;
 }
 .mine_conbox{
-	margin: 0 0.32rem;
+	margin: 0.6rem 0.32rem;
 	background: #fff;
-	border-radius: 0.16rem;
+	border-radius: 0.32rem;
 	padding: 0.2rem 0.48rem;
-	margin-top: -0.72rem;
 	position: relative;
 	z-index: 1;
 }
 .mine_conbox li{
-	height: 1.24rem;
-	line-height: 1.24rem;
+	height: 1.52rem;
+	line-height: 1.52rem;
 	border-bottom: 1px solid #f4f4f4;
 }
 .mine_conbox li:last-child{
@@ -66,29 +21,251 @@
 .mine_conbox li a{
 	display: block;
 	color: #303030;
-	font-size: 14px;
+	font-size: 0.4rem;
 	display: flex;
 	display: -webkit-flex;
 }
-.mine_conbox li p:nth-child(1){
+.mine_conbox li p.ico{
 	padding-right: 0.3733rem;
-	color: #474747;
+	font-size: 0.5733rem;
 }
-.mine_dropoutbtn{
+.mine_conbox li p.name{
+	flex: 1;
+	-webkit-flex: 1;
+}
+.mine_conbox li p.jt{
+	color:#d0d0d0 ;
+	font-size: 0.3733rem;
+	padding-left: 0.28rem;
+}
+.mine_conbox li p.statet{
+	color:#949494 ;
+	font-size: 0.3733rem;
+}
+.tjryqcodeflo,
+.contactusflo{
 	position: absolute;
-	width: 9.36rem;
-	left: 50%;
-	bottom: 2.2rem;
-	margin-left: -4.68rem;
-	color: #4fa6ff;
-	font-size: 14px;
+	left: 0;
+	top: 0;
+	width: 100%;
+	height: 100%;
+	background: rgba(0,0,0,.5);
+	z-index: 101;
+	overflow-y: auto;
+	-webkit-overflow-scrolling:touch ;
+	display: none;
+}
+.tjryqcodeflocon{
+	position: relative;
+	margin: 1.32rem auto 0;
+	border-radius: 0.64rem;
+	padding:0.8rem 0.72rem 1.12rem;
+	width: 7.64rem;
+	background: -webkit-linear-gradient(top, #aa71cc %, #fff 73%); /* Safari 5.1 - 6.0 */
+	background: -o-linear-gradient(bottom, #aa71cc, #fff 73%); /* Opera 11.1 - 12.0 */
+	background: -moz-linear-gradient(bottom, #aa71cc, #fff 73%); /* Firefox 3.6 - 15 */
+	background: linear-gradient(to bottom, #aa71cc , #fff 73%); /* 标准的语法 */
+}
+.tjryqcodeflocon .tit,
+.contactusflocon .tit{
+	color: #fff;
+	font-weight: bold;
+	text-align: center;
+	line-height: 0.68rem;
+	font-size: 0.5333rem;
+	padding-bottom: 0.7466rem;
+}
+.tjryqcodeflocon .textcon{
+	text-align: center;
+	color: #fff;
+	font-size: 0.3733rem;
+	line-height: 0.5333rem;
+	padding-bottom: 0.8533rem;
+}
+.tjryqcodeflocon .textcon strong{
+	color: #ffeb68;
+	font-size: 0.4266rem;
+}
+.tjryqcodeflocon .inbox{
+	width: 6.08rem;
+	height: 1.2rem;
+	background: #fff;
+	border-radius: 0.08rem;
+	margin: 0 auto;
+	line-height: 1.2rem;
+	padding: 0 0.48rem;
+	box-shadow: rgba(217,217,217,.38) 0 1px 0.36rem;
+}
+.tjryqcodeflocon .inbox input{
+	display: block;
+	height: 1.2rem;
+	width: 100%;
+	font-size: 0.4rem;
+	color: #303030;
+}
+.tjryqcodeflobtnbox{
+	padding: 1.12rem 0 0 ;
+}
+.tjryqcodeflobtn{
+	font-size: 0.48rem;
+}
+.closetjryqcodeflo,
+.closecontactusflo{
+	position: absolute;
+	color: #fff;
+	font-size: 0.84rem;
+	text-align: center;
+	line-height: 1.56rem;
+	height: 1.56rem;
+	width: 1.56rem;
+	top: 0.08rem;
+	right:0.12rem;
+	opacity: 0.75;
+}
+.contactusflocon{
+	position: relative;
+	margin: 1.32rem auto 0;
+	border-radius: 0.64rem;
+	padding:0.8rem 0.72rem 1.12rem;
+	width: 7.64rem;
+	background: -webkit-linear-gradient(top, #55acee %, #fff 58%); /* Safari 5.1 - 6.0 */
+	background: -o-linear-gradient(bottom, #55acee, #fff 58%); /* Opera 11.1 - 12.0 */
+	background: -moz-linear-gradient(bottom, #55acee, #fff 58%); /* Firefox 3.6 - 15 */
+	background: linear-gradient(to bottom, #55acee , #fff 58%); /* 标准的语法 */
+}
+.contactusflolist li{
 	height: 1.2rem;
 	line-height: 1.2rem;
-	text-align: center;
 	background: #fff;
-	border-radius: 10rem;
-	box-shadow: #eee 0 0.24rem 0.24rem;
-	z-index: 2;
+	border-radius: 0.08rem;
+	margin-bottom: 0.2rem;
+	box-shadow: rgba(217,217,217,.38) 0 1px 0.36rem;
+	display: flex;
+	display: -webkit-flex;
+}
+.contactusflolist li .ico{
+	padding: 0 0.28rem 0 0.3733rem;
+	width: 0.6533rem;
+	font-size: 0.6533rem;
+}
+.contactusflolist li .text{
+	flex: 1;
+	-webkit-flex: 1;
+	font-size: 0.32rem;
+	color: #303030;
+}
+.contactusflolist li .copybtn{
+	width: 1.72rem;
+	text-align: center;
+	color: #4fa6ff;
+	padding: 0;
+	font-size: 0.32rem;
+}
+/* 绑定手机 */
+.bindtel_bg{
+	background: url(../img/entrance_bg.jpg) no-repeat;
+    background-size: 100% 100%;
+}
+.bindtelbox{
+	padding: 0.8rem 0.8rem 1.24rem;
+}
+.bindtelboxcon li{
+	border-bottom: 1px solid #f4f4f4;
+	line-height: 1rem;
+	height: 1rem;
+	display: flex;
+    display: -webkit-flex;
+}
+.bindtellabel {
+    padding-right: 0.4rem;
+    position: relative;
+}
+.bindtellabel span {
+    padding: 0 0.08rem;
+    color: #303030;
+    font-weight: bold;
+    font-size: 15px;
+}
+.bindtellabel:after {
+    content: "";
+    position: absolute;
+    right: 0;
+    top: 50%;
+    margin-top: -3px;
+    height: 0;
+    width: 0;
+    border: 6px solid #e2e2e2;
+    border-left: 4px solid rgba(0,0,0,0);
+    border-right: 4px solid rgba(0,0,0,0);
+    border-bottom-color: rgba(0,0,0,0);
+}
+.btel_telvalue {
+    flex: 1;
+    -webkit-flex: 1;
+    color: #303030;
+    margin-left: 0.52rem;
+    font-size: 15px;
+    height: 100%;
+	font-weight: bold;
+}
+.btel_yzmvalue{
+    flex: 1;
+    -webkit-flex: 1;
+	font-size: 15px;
+}
+.btel_yzmbtn {
+    padding-left: 0.32rem;
+    color: #4fa6ff;
+    cursor: pointer;
+}
+.btel_bindingbottombox{
+	padding: 0 0.8rem ;
+}
+.btel_unbindingbtn{
+	border-radius: 2rem;
+    display: block;
+    width: 100%;
+    height: 1.2rem;
+    line-height: 1.2rem;
+    color: #303030;
+    font-size: 15px;
+    text-align: center;
+	margin-top: 0.44rem;
+}
+.bedtel_text{
+	text-align: center;
+	padding: 1.28rem 0 0;
+	line-height: 0.88rem;
+	height: 0.88rem;
+	color: #949494;
+	font-size: 0.3733rem;
+}
+.bedtel_teltext{
+	text-align: center;
+	line-height: 0.88rem;
+	height: 0.88rem;
+	color: #949494;
+	font-size: 0.3733rem;
+}
+.bedtel_teltext p{
+	display: inline-block;
+	color: #303030;
+	line-height: 0.92rem;
+	height: 0.92rem;
+	font-weight: bold;
+}
+.bedtel_teltext p:nth-of-type(1){
+	font-size: 0.4rem;
+	padding-right: 0.4rem;
+}
+.bedtel_teltext p:nth-of-type(2){
+	font-size: 0.48rem;
+}
+.bedtel_bottombox{
+	padding: 1.28rem 0.8rem 0;
+}
+.bedtel_bindingbtn{
+	font-size: 16px;
 }
 /* 注册 登陆 忘记密码*/
 .registerednavbox,

@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+	<head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0">
+        <meta name="format-detection" content="telephone=no">
+        <title>绑定手机号</title>
+        <link rel="stylesheet" type="text/css" href="css/public.css"/>
+		<link rel="stylesheet" type="text/css" href="css/mpicker.css"/>
+		<link rel="stylesheet" type="text/css" href="css/mine.css"/>
+    </head>
+	<body>
+		<div class="mbdivbg">
+			<div class="mbdivcon bindtel_bg">
+				<div class="scrollw_box">
+					<div class="scrollw_con">
+						<p class="bedtel_text">已绑定手机号</p>
+						<div class="bedtel_teltext">
+							<p>+86</p><p>*******2414</p>
+						</div>
+					</div>
+					<div class="bedtel_bottombox">
+						<a class="bedtel_bindingbtn yellowbtn" href="bindingphone.html">修改绑定手机号</a>
+						<a href="javascript:history.back(-1)" class="btel_unbindingbtn">返回</a>
+					</div>
+				</div>
+			</div>
+		</div>
+	</body>
+	<script src="js/jquery.js"></script>
+	<script src="js/public.js"></script>
+	
+	<script>
+	landpubfloObj.init("1");////登陆1  未登录0
+	//底部导航
+	linkOpenpage.pagebottomnav=function(othis){
+		othis.loadHtmlobj({
+			csslink:["css/pages/pagebottomnav.css"],
+			jssrc:["js/pages/pagebottomnav.js"],
+			callbackfn:function(thisobj){
+				pagebottomnav.init({container:othis,type:"mine"});
+				pagebottomnav.thisdom.load("pagebottomnav.html",function(){
+					pagebottomnav.showbox();
+					$(".bedtel_bottombox").css("padding-bottom",parseFloat(pagebottomnav.thisdom.css("height")))
+					thisobj.endfn();
+					linkOpenpage.readpage();
+				})
+			}
+		})
+	};
+	linkOpenpage.readpage({
+		pagearr:["pagebottomnav"],
+		othis:$(".mbdivcon")
+	});
+	
+</script>
+</html>

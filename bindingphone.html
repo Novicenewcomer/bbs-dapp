@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html>
+	<head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0">
+        <meta name="format-detection" content="telephone=no">
+        <title>绑定手机号</title>
+        <link rel="stylesheet" type="text/css" href="css/public.css"/>
+		<link rel="stylesheet" type="text/css" href="css/mpicker.css"/>
+		<link rel="stylesheet" type="text/css" href="css/mine.css"/>
+    </head>
+	<body>
+		<div class="mbdivbg">
+			<div class="mbdivcon bindtel_bg">
+				<div class="scrollw_box">
+					<div class="bindtelbox">
+						<div class="conw bindtelboxcon">
+							<ul>
+								<li>
+									<label class="bindtellabel" for="bindtelvalue"><span></span><input id="bindtelvalue" class="bindtelvalue" type="text" value="" hidden="" readonly="readonly"/></label>
+									<input class="btel_telvalue" type="text" placeholder="手机号码"/>
+								</li>
+								<li>
+									<input class="btel_yzmvalue" type="text" placeholder="请输入验证码"/>
+									<div class="btel_yzmbtn"><p>发送验证码</p></div>
+								</li>
+							</ul>
+						</div>
+					</div>
+					<div class="btel_bindingbottombox">
+						<a class="btel_bindingbtn graybtn" href="javascript:;">确认绑定</a>
+						<a href="javascript:history.back(-1)" class="btel_unbindingbtn">返回</a>
+					</div>
+				</div>
+			</div>
+		</div>
+	</body>
+	<script src="js/jquery.js"></script>
+	<script src="js/public.js"></script>
+	<script src="js/mPicker.min.js"></script>
+	<script src="js/bindtel.js"></script>
+	<script src="js/gt.js"></script>
+	
+	<script>
+		landpubfloObj.init("1");////登陆1  未登录0
+		$(".btel_bindingbtn").on("click",function(){//绑定
+			if(!registeredfn.btnd){
+				return false;
+			}
+			console.log(registeredfn.thisdata)//绑定用户信息
+			//失败
+			// operationFailedobj.init("失败原因")
+			// onemorelotteryclick = true;
+		})
+	
+	var handler = function (captchaObj) {
+        captchaObj.onReady(function () {
+        }).onSuccess(function () {
+            var result = captchaObj.getValidate();
+            if (!result) {
+                return alert('请完成验证');
+            }
+			phone_sendtelyzm(result,function(){
+				phone_yzm.init();
+			})
+        });
+		registeredfn.thisdom.find(".btel_yzmbtn").on("click",function(ev){
+			ev.stopPropagation();
+			if(!$.trim(registeredfn.thisdata.telnum)){
+				operationFailedobj.init("请输入手机号码，不能为空");
+				registeredfn.thisdata.telnum = "";
+				registeredfn.thisdom.find(".btel_telvalue").val("");
+				registeredfn.readbindingbtn();
+				return false;
+			}
+			if($(this).attr("disabled")!="disabled"){
+				captchaObj.verify();
+			}
+		})
+    };
+	$.ajax({
+        url: "http://www.geetest.com/demo/gt/register-slide?t=" + (new Date()).getTime(), // 加随机数防止缓存
+        type: "get",
+        dataType: "json",
+        success: function (data) {
+
+            // 调用 initGeetest 进行初始化
+            // 参数1：配置参数
+            // 参数2：回调，回调的第一个参数验证码对象，之后可以使用它调用相应的接口
+            initGeetest({
+                // 以下 4 个配置参数为必须，不能缺少
+                gt: data.gt,
+                challenge: data.challenge,
+                offline: !data.success, // 表示用户后台检测极验服务器是否宕机
+                new_captcha: data.new_captcha, // 用于宕机时表示是新验证码的宕机
+
+                product: "bind", // 产品形式，包括：float，popup
+                width: "300px"
+                // 更多配置参数说明请参见：http://docs.geetest.com/install/client/web-front/
+            }, handler);
+        }
+    });
+	function phone_sendtelyzm(result,fn){//手机绑定发送验证码
+		console.log(registeredfn.thisdata.telad)
+		console.log(registeredfn.thisdata.telnum);
+		console.log(result.geetest_challenge,result.geetest_seccode,result.geetest_validate)
+		fn();
+	}
+	//底部导航
+	linkOpenpage.pagebottomnav=function(othis){
+		othis.loadHtmlobj({
+			csslink:["css/pages/pagebottomnav.css"],
+			jssrc:["js/pages/pagebottomnav.js"],
+			callbackfn:function(thisobj){
+				pagebottomnav.init({container:othis,type:"mine"});
+				pagebottomnav.thisdom.load("pagebottomnav.html",function(){
+					pagebottomnav.showbox();
+					$(".btel_bindingbottombox").css("padding-bottom",parseFloat(pagebottomnav.thisdom.css("height")))
+					thisobj.endfn();
+					linkOpenpage.readpage();
+				})
+			}
+		})
+	};
+	$(function(){
+		registeredfn.init();
+	})
+	linkOpenpage.readpage({
+		pagearr:["pagebottomnav"],
+		othis:$(".mbdivcon")
+	});
+	var phone_yzm = new yzmTime(registeredfn.thisdom.find(".btel_yzmbtn"),registeredfn.thisdom.find(".btel_yzmbtn p"));
+</script>
+</html>

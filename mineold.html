@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html>
+	<head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0">
+        <meta name="format-detection" content="telephone=no">
+        <title>我的</title>
+        <link rel="stylesheet" type="text/css" href="css/public.css"/>
+		<style type="text/css">
+			.mine_bgbox{
+				background: #f4f4f4;
+			}
+			.minetopbox{
+				height: 3.64rem;
+				background: url(img/minetopbg.jpg) no-repeat;
+				background-size: 100% 100%;
+				padding: 0 0.32rem;
+				position: relative;
+			}
+			.gobackupkeypage{
+				position: absolute;
+				right: 0;
+				top: 0.36rem;
+				padding: 0 0.52rem 0 0.4rem;
+				height: 0.76rem;
+				line-height: 0.76rem;
+				color: #fff;
+				background: #5033d0;
+				box-shadow: rgba(85,54,213,0.25) 0 0.08rem 0.12rem;
+				border-radius:5rem 0 0 5rem ;
+				font-size: 12px;
+			}
+			.minetopbox .tit{
+				font-weight: bold;
+				font-size: 18px;
+				color: #fff;
+				line-height: 0.8rem;
+				padding: 1.08rem 0.2rem 0;
+			}
+			.minetopbox .addresscode{
+				font-size: 14px;
+				color: #fff;
+				line-height: 0.76rem;
+				padding: 0 0.2rem;
+			}
+			.minetopbox .addresscode span{
+				display: inline-block;
+				vertical-align: top;
+			}
+			.minetopbox .addresscode button{
+				display: inline-block;
+				vertical-align: top;
+				line-height: 0.76rem;
+				padding: 0 0.4rem;
+				font-size: 20px;
+				color: #fff;
+			}
+			.mine_conbox{
+				margin: 0 0.32rem;
+				background: #fff;
+				border-radius: 0.16rem;
+				padding: 0.2rem 0.48rem;
+				margin-top: -0.72rem;
+				position: relative;
+				z-index: 1;
+			}
+			.mine_conbox li{
+				height: 1.24rem;
+				line-height: 1.24rem;
+				border-bottom: 1px solid #f4f4f4;
+			}
+			.mine_conbox li:last-child{
+				border-bottom: none;
+			}
+			.mine_conbox li a{
+				display: block;
+				color: #303030;
+				font-size: 14px;
+				display: flex;
+				display: -webkit-flex;
+			}
+			.mine_conbox li p:nth-child(1){
+				padding-right: 0.3733rem;
+				color: #474747;
+			}
+			.mine_dropoutbtn{
+				position: absolute;
+				width: 9.36rem;
+				left: 50%;
+				bottom: 2.2rem;
+				margin-left: -4.68rem;
+				color: #4fa6ff;
+				font-size: 14px;
+				height: 1.2rem;
+				line-height: 1.2rem;
+				text-align: center;
+				background: #fff;
+				border-radius: 10rem;
+				box-shadow: #eee 0 0.24rem 0.24rem;
+				z-index: 2;
+			}
+		</style>
+    </head>
+	<body>
+		<div class="mbdivbg">
+			<div class="mbdivcon mine_bgbox">
+				<div class="scrollw_box">
+					<div class="minetopbox">
+						<a href="#" class="gobackupkeypage">备份私钥</a>
+						<p class="tit">游戏钱包地址</p>
+						<div class="addresscode">
+							<span id="copybtntext">0xa9d0s8agdhsh97s07dd07s0aa87</span><button class="copybtn" id="copybtn" data-clipboard-action="copy" data-clipboard-target="#copybtntext"><svg class="icon" aria-hidden="true"><use xlink:href="#iconfuzhi"></use></svg></button>
+						</div>
+					</div>
+					<div class="mine_conbox">
+						<ul>
+							<li>
+								<a href="#">
+									<p><svg class="icon" aria-hidden="true"><use xlink:href="#iconshimingrenzheng"></use></svg></p><p>实名认证</p>
+								</a>
+							</li>
+							<li>
+								<a href="#">
+									<p><svg class="icon" aria-hidden="true"><use xlink:href="#iconanquan"></use></svg></p><p>安全中心</p>
+								</a>
+							</li>
+							<li>
+								<a href="#">
+									<p><svg class="icon" aria-hidden="true"><use xlink:href="#iconyaoqing"></use></svg></p><p>邀请好友</p>
+								</a>
+							</li>
+						</ul>
+					</div>
+				</div>
+				<a class="mine_dropoutbtn" href="#">退出当前账号</a>
+			</div>
+		</div>
+	</body>
+	<script src="js/jquery.js"></script>
+	<script src="js/public.js"></script>
+	<script src="js/clipboard.min.js" type="text/javascript" charset="utf-8"></script>
+
+	<script>
+		//底部导航
+		linkOpenpage.pagebottomnav=function(othis){
+			othis.loadHtmlobj({
+				csslink:["css/pages/pagebottomnav.css"],
+				jssrc:["js/pages/pagebottomnav.js"],
+				callbackfn:function(thisobj){
+					pagebottomnav.init({container:othis,type:"mine"});
+					pagebottomnav.thisdom.load("pagebottomnav.html",function(){
+						pagebottomnav.showbox();
+						$(".assetslistbox").css("padding-bottom",parseFloat(pagebottomnav.thisdom.css("height")))
+						thisobj.endfn();
+						linkOpenpage.readpage();
+					})
+				}
+			})
+		};
+		
+		linkOpenpage.readpage({
+			pagearr:["pagebottomnav"],
+			othis:$(".mbdivcon")
+		});
+		
+		$(function(){
+			var targetText=$("#copybtntext").text();
+			var clipboard = new Clipboard('#copybtn');
+	        clipboard.on('success', function(e) {
+	            console.log(targetText)
+	            console.info
+	            ('Action:', e.action);
+	            console.info
+	
+	            ('Text:', e.text);
+	            console.info
+	
+	            ('Trigger:', e.trigger);
+	            operationSucedobj.init("复制成功");
+	            e.clearSelection();
+	        });
+
+		})
+	</script>
+</html>

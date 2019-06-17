@@ -52,6 +52,7 @@
 	<script src="js/jquery.js"></script>
 	<script src="js/public.js"></script>
 	<script>
+		landpubfloObj.init("1");////登陆1  未登录0
 		$(".rechargeyl_tsbtn").on("click",function(){//支付
 			if(rechargeylfn.btnd){
 				console.log($("#rechargeylnum").val()+"支付方式"+rechargeylfn.paytype)
