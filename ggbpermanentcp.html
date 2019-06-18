@@ -27,21 +27,21 @@
 						</div>
 						<div class="ggcp_conbox">
 							<ul class="ggcp_conul clear">
-								<!-- 已选择已加注 -->
-								<li class="active activejz"> 
+								<!-- 已选择已加注满 -->
+								<li class="active activejz" znum="100"> 
 									<div class="leftb">
 										<svg class="icon" aria-hidden="true">
-											<use xlink:href="#iconbaozi"></use>
+											<use xlink:href="#iconjiazhubaozhu100"></use>
 										</svg>
 									</div>
 									<p class="text">BB#254875-121001</p>
 									<a class="ggcp_jzbtnend" href="javascript:;">已加注</a>
 								</li>
-								<!-- 已选择未加注 -->
-								<li class="active">
+								<!-- 已选择未加注满 -->
+								<li class="active" znum="0">
 									<div class="leftb">
 										<svg class=" icon" aria-hidden="true">
-											<use xlink:href="#iconstar"></use>
+											<use xlink:href="#iconjiazhubao"></use>
 										</svg>
 									</div>
 									<p class="text">121001</p>
@@ -131,22 +131,38 @@
 					code:"121001"
 				}
 				//成功
-				obj.addClass("active")
-				obj.html($(['<div class="leftb"><svg class=" icon"aria-hidden="true"><use xlink:href="#iconstar"></use></svg></div><p class="text">',
+				obj.addClass("active").attr("znum","0")
+				obj.html($(['<div class="leftb"><svg class=" icon"aria-hidden="true"><use xlink:href="#iconjiazhubao"></use></svg></div><p class="text">',
 					data.code
 				,'</p><a class="ggcp_jzbtn"href="javascript:;">加注</a>'].join("")))
 				//失败
 				// operationFailedobj.init("失败原因")
 			}
 			ggpermanentcpfn.pushjz = function(obj){//加注
+				//临时
+				var lsnum = calculationObj.add(obj.attr("znum"),10)>=100?100: calculationObj.add(obj.attr("znum"),10)
 				var data = {
-					code:"BB#254875-121000"
+					code:"BB#254875-121000",
+					znum:lsnum
 				}
 				//成功
-				obj.addClass("activejz")
-				obj.html($(['<div class="leftb"><svg class="icon"aria-hidden="true"><use xlink:href="#iconbaozi"></use></svg></div><p class="text">',
+				obj.attr("znum",data.znum)
+				
+				obj.html($(['<div class="leftb"><svg class="icon"aria-hidden="true"><use xlink:href="#iconjiazhubaozhu',
+					data.znum
+				,'"></use></svg></div><p class="text">',
 					data.code
-				,'</p><a class="ggcp_jzbtnend"href="javascript:;">已加注</a>'].join("")))
+				,'</p>',
+					function(){
+						if(data.znum>=100){
+							obj.addClass("activejz");
+							return '<a class="ggcp_jzbtnend"href="javascript:;">已加注</a>'
+						}else{
+							obj.removeClass("activejz")
+							return '<a class="ggcp_jzbtn"href="javascript:;">加注</a>'
+						}
+					}()
+				].join("")))
 				//失败
 				// operationFailedobj.init("失败原因")
 			}

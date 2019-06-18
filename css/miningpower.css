@@ -213,6 +213,10 @@
     height: 0.56rem;
     cursor: pointer;
 }
+.miningp_msgmore span{
+	font-size: 12px;
+	padding-right: 4px;
+}
 /* tspub */
 .tspcp_titbox {
 	margin: -1.08rem 0.48rem 0.2666rem;
@@ -332,8 +336,9 @@
     font-size: 12px;
 }
 .dxcp_hasul .fdxname{
-	font-size:1.72rem;
-	line-height: 1.72rem;
+	background-repeat: no-repeat;
+	background-size: 100% 100%;
+	height: 1.72rem;
 }
 .dxcp_tsbox{
 	background: #f7f7f7;
@@ -353,8 +358,9 @@
     position: relative;
 }
 .dxcp_tsul .fdxname{
-	font-size:1.56rem;
-	line-height: 1.56rem;
+	background-repeat: no-repeat;
+	background-size: 100% 100%;
+	height: 1.56rem;
 }
 .dxcp_tstext{
 	text-align: center;

@@ -58,34 +58,34 @@
 	background-image: url(../img/yico_bc.png);
 }
 .assetslistbox li:nth-child(2) .name{
-	background-image: url(../img/yico_yl.png.png);
+	background-image: url(../img/YL.png);
 }
 .assetslistbox li:nth-child(3) .name{
-	background-image: url(../img/yico_ff.png.png);
+	background-image: url(../img/FF.png);
 }
 .assetslistbox li:nth-child(4) .name{
-	background-image: url(../img/yico_dxa.png.png);
+	background-image: url(../img/DXA.png);
 }
 .assetslistbox li:nth-child(5) .name{
-	background-image: url(../img/yico_dti.png);
+	background-image: url(../img/DTI.png);
 }
 .assetslistbox li:nth-child(6) .name{
-	background-image: url(../img/yico_dzg.png);
+	background-image: url(../img/DZG.png);
 }
 .assetslistbox li:nth-child(7) .name{
-	background-image: url(../img/yico_dxn.png);
+	background-image: url(../img/DXN.png);
 }
 .assetslistbox li:nth-child(8) .name{
-	background-image: url(../img/yico_dli.png);
+	background-image: url(../img/DLI.png);
 }
 .assetslistbox li:nth-child(9) .name{
-	background-image: url(../img/yico_dyi.png);
+	background-image: url(../img/DYI.png);
 }
 .assetslistbox li:nth-child(10) .name{
-	background-image: url(../img/yico_dln.png.png);
+	background-image: url(../img/DLN.png);
 }
 .assetslistbox li:nth-child(11) .name{
-	background-image: url(../img/yico_dci.png);
+	background-image: url(../img/DCI.png);
 }
 .assetslicon{
 	display: flex;
@@ -129,6 +129,9 @@
     font-size: 27px;
     color: #303030;
     float: left;
+	padding-left: 44px;
+	background: url(../img/FF.png) no-repeat left center;
+	background-size: 32px auto;
 }
 .returnpagebtn{
 	float: right;
@@ -167,6 +170,9 @@
 }
 .assetsxqlistbox{
 	padding: 0 0.32rem;
+}
+.assetsxqlistbox .assetslitop .name{
+	padding-left: 0;
 }
 .assetsxqlistbox .tit{
 	color: #474747;
@@ -229,7 +235,7 @@
 	background: #fff;
 }
 .assetsxqbottom p{
-	font-size: 28px;
+	font-size: 29px;
 	height: 0.4rem;
 	min-height: 30px;
 	padding-top:0.28rem;
