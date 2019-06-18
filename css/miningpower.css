@@ -382,10 +382,10 @@
 }
 /* gg */
 .ggbcp_topbox{
-	background-image: url(../img/dxcp_topbg.png);
+	background-image: url(../img/ggbcp_topbg.png);
 	background-position: left bottom;
-	height: 3.2666rem;
-	background-size:  auto 3.2666rem;
+	height: 5.4533rem;
+	background-size:  auto 5.4533rem;
 }
 .ggbcp_topbox .text1{
 	font-size: 30px;
@@ -396,16 +396,26 @@
 	padding-top: 1.04rem;
 	font-style: italic;
 }
+.ggbcp_topbox .text2{
+	font-size: 12px;
+	color: #fff;
+	line-height: 0.48rem;
+	text-align: center;
+	padding: 0.36rem 0.48rem 0;
+}
+.ggbcp_topbox .text2 span{
+	color: #55f6f9;
+}
+.ggbcp_topbox .text2 span strong{
+	font-size: 18px;
+	font-weight: normal;
+}
 .ggcp_titbox {
 	margin-top: -0.72rem ;
 }
 .ggcp_conbox{
-	margin: 0 0.48rem;
+	margin: -1.36rem 0.48rem 0;
     position: relative;
-    background: #fff;
-    padding:0.52rem 0.44rem 0.44rem;
-    border-radius: 0.12rem;
-    box-shadow: rgba(230,230,230,.54) 0 0.1733rem 0.2133rem;
 }
 .ggcp_conbox .tit{
 	font-size: 15px;
@@ -415,24 +425,59 @@
 	padding-bottom: 0.6rem;
 }
 .ggcp_conul{
-	padding-bottom: 0.52rem;
+	padding-bottom: 2.36rem;
+	
 }
 .ggcp_conul li{
-	float: left;
-	padding:0 0.28rem 0.2666rem 0;
-	line-height: 1.4rem;
+	margin-bottom: 0.28rem;
+	padding:0 0.32rem 0 0.4rem;
+	line-height: 1.76rem;
+	height: 1.76rem;
 	text-align: center;
-}
-.ggcp_conul li:nth-child(5n){
-	padding-right:0
-}
-.ggcp_conul .con{
-	width: 1.4rem;
-	height: 1.4rem;
 	background: #f7f7f7;
 	border-radius: 0.2rem;
+	display: flex;
+	display: -webkit-flex;
+}
+.ggcp_conul li.active{
+	box-shadow: rgba(230,230,230,.42) 0 0 0.28rem;
+	background: #fff;
+}
+.ggcp_conul li .pushbtn{
+	display: block;
+	width: 100%;
+	text-align: center;
+	font-size: 0.52rem;
 	color: #ccc;
-	font-size: 0.5rem;
+}
+.ggcp_conul .leftb{
+	font-size: 0.7733rem;
+	width: 0.7733rem;
+	padding-right: 0.4rem;
+}
+.ggcp_conul .text{
+	font-weight: bold;
+	font-size: 18px;
+	color: #474747;
+	flex: 1;
+	-webkit-flex: 1;
+	text-align: left;
+}
+.ggcp_jzbtn,
+.ggcp_jzbtnend{
+	color: #23cea6;
+	font-weight: bold;
+	background: #f7f7f7;
+	width: 2rem;
+	height: 0.84rem;
+	line-height: 0.84rem;
+	margin-top: 0.48rem;
+	text-align: center;
+	border-radius: 5rem;
+	font-size: 14px;
+}
+.ggcp_jzbtnend{
+	color: #cccccc;
 }
 .ggcp_conul .conac{
 	width: 1.4rem;
@@ -446,13 +491,16 @@
 .ggcp_conul li.active .conac{
 	display: block;
 }
-.ggcp_conbox .bottomtext{
-	font-size: 12px;
-	color: #949494;
-	line-height: 0.52rem;
-}
-.ggcp_conbox .bottomtext strong{
-	color: #23cea6;
+.ggcp_bottom{
+	position: absolute;
+	bottom: 0;
+	width: 100%;
+	height: 2.36rem;
+	background: -webkit-linear-gradient(top, rgba(255,255,255,0) , rgba(255,255,255,1) 50%); /* Safari 5.1 - 6.0 */
+	background: -o-linear-gradient(bottom,rgba(255,255,255,0), rgba(255,255,255,1) 50%); /* Opera 11.1 - 12.0 */
+	background: -moz-linear-gradient(bottom,rgba(255,255,255,0), rgba(255,255,255,1) 50%); /* Firefox 3.6 - 15 */
+	background: linear-gradient(to bottom, rgba(255,255,255,0) , rgba(255,255,255,1) 50%); /* 标准的语法 */
+	z-index: 10;
 }
 /* ff */
 .ffcp_conbox{
