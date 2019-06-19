@@ -102,7 +102,7 @@
 										<ul class="dxcj_conlist">
 											<li class="dxli">
 												<div class="pushcon">
-													<svg class="icon" aria-hidden="true"><use xlink:href="#iconfanhui-h"></use></svg>
+													<svg class="icon" aria-hidden="true"><use xlink:href="#icontianjia"></use></svg>
 												</div>
 												<div class="dxcon fdx300bg">
 													<div class="fdx_ostar"></div>
@@ -110,7 +110,7 @@
 											</li>
 											<li class="dxli">
 												<div class="pushcon">
-													<svg class="icon" aria-hidden="true"><use xlink:href="#iconfanhui-h"></use></svg>
+													<svg class="icon" aria-hidden="true"><use xlink:href="#icontianjia"></use></svg>
 												</div>
 												<div class="dxcon fdx300bg">
 													<div class="fdx_ostar"></div>
@@ -118,7 +118,7 @@
 											</li>
 											<li class="dxli">
 												<div class="pushcon">
-													<svg class="icon" aria-hidden="true"><use xlink:href="#iconfanhui-h"></use></svg>
+													<svg class="icon" aria-hidden="true"><use xlink:href="#icontianjia"></use></svg>
 												</div>
 												<div class="dxcon fdx300bg">
 													<div class="fdx_ostar"></div>
@@ -126,7 +126,7 @@
 											</li>
 											<li class="dxli">
 												<div class="pushcon">
-													<svg class="icon" aria-hidden="true"><use xlink:href="#iconfanhui-h"></use></svg>
+													<svg class="icon" aria-hidden="true"><use xlink:href="#icontianjia"></use></svg>
 												</div>
 												<div class="dxcon fdx300bg">
 													<div class="fdx_ostar"></div>
@@ -139,7 +139,7 @@
 											</li>
 											<li class="dxli">
 												<div class="pushcon">
-													<svg class="icon" aria-hidden="true"><use xlink:href="#iconfanhui-h"></use></svg>
+													<svg class="icon" aria-hidden="true"><use xlink:href="#icontianjia"></use></svg>
 												</div>
 												<div class="dxcon fdx300bg">
 													<div class="fdx_ostar"></div>
@@ -147,7 +147,7 @@
 											</li>
 											<li class="dxli">
 												<div class="pushcon">
-													<svg class="icon" aria-hidden="true"><use xlink:href="#iconfanhui-h"></use></svg>
+													<svg class="icon" aria-hidden="true"><use xlink:href="#icontianjia"></use></svg>
 												</div>
 												<div class="dxcon fdx300bg">
 													<div class="fdx_ostar"></div>
@@ -155,7 +155,7 @@
 											</li>
 											<li class="dxli">
 												<div class="pushcon">
-													<svg class="icon" aria-hidden="true"><use xlink:href="#iconfanhui-h"></use></svg>
+													<svg class="icon" aria-hidden="true"><use xlink:href="#icontianjia"></use></svg>
 												</div>
 												<div class="dxcon fdx300bg">
 													<div class="fdx_ostar"></div>
@@ -163,7 +163,7 @@
 											</li>
 											<li class="dxli">
 												<div class="pushcon">
-													<svg class="icon" aria-hidden="true"><use xlink:href="#iconfanhui-h"></use></svg>
+													<svg class="icon" aria-hidden="true"><use xlink:href="#icontianjia"></use></svg>
 												</div>
 												<div class="dxcon fdx300bg">
 													<div class="fdx_ostar"></div>
@@ -179,7 +179,7 @@
 				<div class="choicedxflobox">
 					<div class="choicedxflo">
 						<div class="choicedxflocon">
-							<a href="javascript:;" class="closechoicedxflobox"><svg class="icon" aria-hidden="true"><use xlink:href="#iconfanhui-h"></use></svg></a>
+							<a href="javascript:;" class="closechoicedxflobox"><svg class="icon" aria-hidden="true"><use xlink:href="#iconicon_close"></use></svg></a>
 							<p class="tit">选择用于抽奖的德星</p>
 							<ul class="cjchoice_mydx clear">
 								<li itype="0">
@@ -232,7 +232,7 @@
 								</li>
 							</ul>
 							<div class="cjchoice_mydxico">
-								<svg class="icon" aria-hidden="true"><use xlink:href="#iconfanhui-h"></use></svg>
+								<svg class="icon" aria-hidden="true"><use xlink:href="#icontuya_huabanfuben"></use></svg>
 							</div>
 							<div class="cjchoice_selecteddxbox">
 								<ul class="clear">
@@ -288,7 +288,7 @@
 								<p class="c_numtext"><strong>6</strong> / 8</p>
 							</div>
 							<p class="cjchoice_lucknum">预计最高抽奖额：<span></span></p>
-							<a href="javascript:;" class="redbtn cjchoice_btn">确认并提交</a>
+							<a href="javascript:;" class="graybtn1 cjchoice_btn">确认并提交</a>
 						</div>
 					</div>
 				</div>
@@ -318,7 +318,7 @@
 							<div class="textconbox">
 								<div class="textcon">
 									<div class="ptitbox">
-										<div class="leftimgb"></div><strong></strong></div>
+										<div class="leftimgb p_trxico"></div><strong></strong></div>
 									<p>奖金折合：<strong class="cnynum"></strong></p>
 								</div>
 							</div>
@@ -503,6 +503,9 @@
 					}
 				})
 				$(".cjchoice_btn").on("click",function(){
+					if(_this.c_xzdxnum<1){
+						return;
+					}
 					$(".choicedxflobox").fadeOut();
 					var linum = 0;
 					$(".dxcj_conlist .dxli").removeClass("dxliac").removeAttr("itype").find(".fdx_ostar").attr("class","fdx_ostar")
@@ -606,7 +609,13 @@
 						}
 					}
 				}
-				$(".c_numtext strong").html(this.c_xzdxnum)
+				$(".c_numtext strong").html(this.c_xzdxnum);
+				if(this.c_xzdxnum<1){
+					$(".cjchoice_btn").attr("class","cjchoice_btn graybtn1")
+				}else{
+					$(".cjchoice_btn").attr("class","cjchoice_btn redbtn")
+				}
+				
 			},
 			instantlotteryfn:function(){},
 			onemorelotteryfn:function(){}

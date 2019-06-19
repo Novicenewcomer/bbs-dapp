@@ -54,39 +54,7 @@
 	background-position: left center;
 	background-repeat: no-repeat;
 }
-.assetslistbox li:nth-child(1) .name{
-	background-image: url(../img/yico_bc.png);
-}
-.assetslistbox li:nth-child(2) .name{
-	background-image: url(../img/YL.png);
-}
-.assetslistbox li:nth-child(3) .name{
-	background-image: url(../img/FF.png);
-}
-.assetslistbox li:nth-child(4) .name{
-	background-image: url(../img/DXA.png);
-}
-.assetslistbox li:nth-child(5) .name{
-	background-image: url(../img/DTI.png);
-}
-.assetslistbox li:nth-child(6) .name{
-	background-image: url(../img/DZG.png);
-}
-.assetslistbox li:nth-child(7) .name{
-	background-image: url(../img/DXN.png);
-}
-.assetslistbox li:nth-child(8) .name{
-	background-image: url(../img/DLI.png);
-}
-.assetslistbox li:nth-child(9) .name{
-	background-image: url(../img/DYI.png);
-}
-.assetslistbox li:nth-child(10) .name{
-	background-image: url(../img/DLN.png);
-}
-.assetslistbox li:nth-child(11) .name{
-	background-image: url(../img/DCI.png);
-}
+
 .assetslicon{
 	display: flex;
 	display: -webkit-flex;
@@ -130,7 +98,8 @@
     color: #303030;
     float: left;
 	padding-left: 44px;
-	background: url(../img/FF.png) no-repeat left center;
+	background-repeat: no-repeat;
+	background-position:left center;
 	background-size: 32px auto;
 }
 .returnpagebtn{

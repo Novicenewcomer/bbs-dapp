@@ -170,6 +170,7 @@ height: 100%;width: 100%;position: absolute;left: 0;top: 0; }
 	padding-bottom: 0.52rem;
 }
 .dxcj_abtnbox a{
+	position: relative;
 	display: inline-block;
 	vertical-align: top;
 	height: 0.92rem;
@@ -182,7 +183,25 @@ height: 100%;width: 100%;position: absolute;left: 0;top: 0; }
 	font-weight: bold;
     box-shadow: 0 0.08rem 0.08rem #fff5b5 inset, 0 0.0933rem 0 #dc9217;
 	background: #ffdc4e;
+	background-size:  auto;
 	margin: 0 0.24rem;
+}
+.dxcj_abtnbox a:after{
+	content: "";
+	width: 0.7333rem;
+	height: 100%;
+	position: absolute;
+	background:url(../img/cjbtnico.png) no-repeat;
+	background-size:100%  auto;
+	left:0.08rem;
+	top:0.44rem;
+}
+.dxcj_abtnbox a.openlotteryhistorybtn:after{
+	left: auto;
+	right:0.08rem;
+	top:0.44rem;
+	transform: rotateY(180deg);
+	-webkit-transform: rotateY(180deg);
 }
 .dxcj_conwbox{
 	border: 0.12rem solid rgba(238,64,61,.59);
@@ -343,14 +362,20 @@ height: 100%;width: 100%;position: absolute;left: 0;top: 0; }
 	border-radius: 0.32rem;
 }
 .dxcj_conlist li.dxli{
-	background: #fefae4;
+	background: #ede3d2;
 	line-height: 2.1333rem;
 	text-align: center;
 	color: #ffe44e;
 	font-size: 0.84rem;
-	padding: 0.0666rem;
+	
 	box-sizing: border-box;
 	-webkit-box-sizing: border-box;
+	border-radius: 0.52rem;
+}
+.dxcj_conlist li.dxli .pushcon{
+	height: 1.9333rem;
+	line-height:1.9333rem;;
+	background: #fefae4;
 	border-radius: 0.52rem;
 }
 .dxcj_conlist li .dxcon{
@@ -382,7 +407,19 @@ height: 100%;width: 100%;position: absolute;left: 0;top: 0; }
 	background: #cb2f15;
 }
 .dxcj_cjbtnac .dxcj_cjcon{
-	background: #ee5319;
+	background:#ee5319
+}
+.dxcj_conlist .dxliac{
+	box-sizing: border-box;
+	-webkit-box-sizing: border-box;
+	padding: 0.0666rem;
+}
+.dxcj_cjbtnac .dxcj_cjcon p{
+	width: 100%;
+	height: 100%;
+	background:url(../img/dxcj_cjconbg.png) no-repeat;
+	background-size: 100% 100%;
+	opacity: .3;
 }
 .dxcj_conlist li.dxliac{
 	background: #db562d;
@@ -695,9 +732,10 @@ height: 100%;width: 100%;position: absolute;left: 0;top: 0; }
 	vertical-align: top;
 	width: 0.8rem;
 	height: 0.8rem;
-	background: #fff;
+	background-color: #fff;
 	border-radius: 50%;
-	border:2px solid #2d2d3b;
+	background-size: 100% auto;
+	background-repeat: no-repeat;
 }
 .cjresultssucflo .ptitbox strong{
 	display: inline-block;

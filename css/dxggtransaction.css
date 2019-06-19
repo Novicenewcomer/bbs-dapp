@@ -48,23 +48,39 @@
 .dxggjy_listbox .left{
 	width: 1.28rem;
 	height: 1.28rem;
-	border-radius: 50%;
 	overflow: hidden;
-	background: #f9dd5f;
-	margin-right: 0.8rem;
+	background-size:auto 100% ;
+	background-repeat: no-repeat;
+	margin-right: 0.44rem;
 }
 .dxggjy_listbox .mid{
 	padding-top: 0.05rem;
+	padding-left: 0.32rem;
 	color: #474747;
 	font-size: 14px;
 	line-height: 0.64rem;
 	flex: 1;
 	-webkit-flex: 1;
+	position: relative;
+}
+.dxggjy_listbox .mid:after{
+	content: "";
+	position: absolute;
+	width: 1px;
+	height: 100%;
+	background: #f4f4f4;
+	left: 0;
+	top: 0;
 }
 .dxggjy_listbox .mid span{
 	color: #303030;
 	font-size: 15px;
 	font-weight: bold;
+}
+.dxggjy_listbox .mid em{
+	font-style: normal;
+	font-size: 0.4rem;
+	padding-right: 0.16rem;
 }
 .dxggjy_listbox .right{
 	padding-top: 0.2133rem;
@@ -382,6 +398,11 @@
 	color: #949494;
 	font-size: 12px;
 	line-height: 0.52rem;
+}
+.dxggtj_lisbox .rightb .textbox span{
+	color: #ffd502;
+	font-size: 14px;
+	padding-right:4px;
 }
 .dxggtj_lisbox .msgbox{
 	background: #f7f7f7;

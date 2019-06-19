@@ -86,6 +86,7 @@
 	display: none;
 	font-size: 12px;
 	color: #fff;
+	text-align: center;
 }
 .taskzx_qdbox .active .activeico{
 	display: block;
