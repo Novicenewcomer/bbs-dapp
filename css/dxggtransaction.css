@@ -232,8 +232,8 @@
 	margin: 0.16rem 0 0 0.24rem;
 	width: 1.28rem;
 	height: 1.28rem;
-	background: #f9dd5f;
-	border-radius: 50%;
+	background-size: 100% auto;
+	background-repeat: no-repeat;
 }
 .dxggad_dxlist .right{
 	text-align: center;

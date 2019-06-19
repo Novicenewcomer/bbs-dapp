@@ -438,13 +438,22 @@
 			move:function(){
 				var _this = this;
 				this.timer = setInterval(function(){
+					if(_this.numtop==0||_this.numtop%_this.thisd.outerHeight()==0){
+						clearInterval(_this.timer)
+						clearInterval(_this.timer1)
+						_this.timer1 = setTimeout(function(){
+							_this.numtop++;
+							_this.thisd.scrollTop(_this.numtop) ;
+							_this.move()
+						},3000)
+					}
 					if(_this.numtop==_this.this_p.outerHeight()) {
 						_this.numtop = 0;
 					}else{
 						_this.numtop++;
 						_this.thisd.scrollTop(_this.numtop) ;
 					}
-				},100)
+				},50)
 			}
 		}
 	</script>
