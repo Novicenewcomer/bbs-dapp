@@ -131,7 +131,11 @@
 	float: left;
 	margin-top: 0.48rem;
 	font-size: 0.56rem;
-	padding-right: 0.08rem;
+	padding-right: 4px;
+	width: 23px;
+	height: 23px;
+	background-repeat: no-repeat;
+	background-size: 23px auto;
 }
 .taskzx_listtitbox .textb .p1{
 	margin: 0.52rem 0 0 ;
