@@ -1,4 +1,4 @@
-document.write('<script src="//at.alicdn.com/t/font_1170216_uetz9hof07l.js" type="text/javascript" charset="utf-8"></script>');
+document.write('<script src="//at.alicdn.com/t/font_1170216_6ay2d6dm8qh.js" type="text/javascript" charset="utf-8"></script>');
 function resizefn(){
 	var iWidth=$(".mbdivcon").outerWidth();iWidth=iWidth>1000?1000:iWidth;//document.documentElement.getBoundingClientRect().width
 	document.getElementsByTagName("html")[0].style.fontSize=iWidth/10+"px";

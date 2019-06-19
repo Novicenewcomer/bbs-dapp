@@ -24,6 +24,12 @@
 	font-size: 15px;
 	color: #f46156;
 }
+.zcjy_topnavs em{
+	font-style: normal;
+	padding-right: 7px;
+	font-size: 18px;
+	color: #303030;
+}
 .zcjy_topnavconbox{
 	position: absolute;
 	z-index: 10;
