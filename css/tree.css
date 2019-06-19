@@ -156,11 +156,11 @@
 	display: inline-block;
 	height: 0.5866rem;
 	line-height: 0.5866rem;
-	border:0.0533rem solid #884b1a;
+	border:0.04rem solid #bd5204;
 	border-radius: 5rem;
 	background: #ffd400;
 	font-size: 12px;
-	color: #b75716;
+	color: #bd5204;
 	
 }
 .tree_leftnavbox .treem_power a p{
@@ -169,10 +169,11 @@
 	padding: 0 0.16rem 0 0.12rem;
 }
 .tree_leftnavbox .treem_power a span{
-	font-size: 16px;
+	font-size: 14px;
 	display: inline-block;
 	vertical-align: top;
 	padding-left: 0.1466rem;
+	color: #bd5204;
 }
 .treefdfruitbox {
     position: absolute;
@@ -188,9 +189,16 @@
     -webkit-transform: translateX(0px) translateY(0px);
 }
 .treefdfruitbox li .conbox {
-    font-size: 1rem;
-	line-height: 1rem;
-	height: 1rem;
+	width: 1.16rem;
+	height: 1.16rem;
+	background-size: 100% auto;
+	background-repeat: no-repeat;
+}
+.treefdfruitbox li .conbox_ff{
+	background-image: url(../img/treeft_ff.png);
+}
+.treefdfruitbox li .conbox_dx{
+	background-image: url(../img/treeft_dx.png);
 }
 .dexingadflo{
 	position: absolute;

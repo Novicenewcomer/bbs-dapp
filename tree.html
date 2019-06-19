@@ -70,7 +70,7 @@
 						<li class="treem_power">
 							<a href="#">
 								<span><svg class="icon" aria-hidden="true">
-									<use xlink:href="#iconstar"></use>
+									<use xlink:href="#iconjisuan"></use>
 								</svg></span><p>208.0280注</p>
 							</a>
 						</li>
@@ -161,15 +161,15 @@
 								newtreeb[i]["id"]
 							,'"  itype="',
 								newtreeb[i].type
-							,'"><div class="conbox"><svg class="icon" aria-hidden="true"><use xlink:href="',
+							,'"><div class="conbox ',
 								function(){
 									if(newtreeb[i].type=="fufen"){
-										return "#iconbaozi"
+										return "conbox_ff"
 									}else if(newtreeb[i].type=="dx"){
-										return "#iconstar"
+										return "conbox_dx"
 									}
 								}()
-							,'"></use></svg></div><audio class="musicaudio" src="'+$(".musicaudio_hb").attr("src")+'"></audio></li>'].join(''))
+							,'"></div><audio class="musicaudio" src="'+$(".musicaudio_hb").attr("src")+'"></audio></li>'].join(''))
 							$(".treefdfruitbox ul").append(thisdom)
 							thisdom.find(".conbox").addClass("y_starbgmove"+Math.round(Math.random()*3+1));
 							thisdom.css({
