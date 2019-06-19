@@ -503,7 +503,7 @@
 					}
 				})
 				$(".cjchoice_btn").on("click",function(){
-					if(_this.c_xzdxnum<1){
+					if(_this.c_xzdxnum<8){
 						return;
 					}
 					$(".choicedxflobox").fadeOut();
@@ -592,9 +592,11 @@
 				for(var i in this.c_mydx){
 					xs = calculationObj.sub(this.c_mydx[i],this.c_xzdx[i])
 					if(xs>0){
-						$(".cjchoice_mydx li[itype='"+i+"']").addClass("hasdx").find(".num").html("x"+xs)
+						$(".cjchoice_mydx li[itype='"+i+"']").addClass("hasdx").find(".num").html("x"+xs);
+						$(".cjchoice_mydx li[itype='"+i+"']").find(".fdx_ostar").attr("class","fdx_ostar fdx_ostar_"+i)
 					}else{
-						$(".cjchoice_mydx li[itype='"+i+"']").removeClass("hasdx").find(".num").html("x")
+						$(".cjchoice_mydx li[itype='"+i+"']").removeClass("hasdx").find(".num").html("x");
+						$(".cjchoice_mydx li[itype='"+i+"']").find(".fdx_ostar").attr("class","fdx_ostar fdx_kstar_"+i)
 					}
 				}
 				this.c_xzdxnum = 0;
@@ -604,13 +606,13 @@
 						this.c_xzdxnum = this.c_xzdxnum + this.c_xzdx[i];
 						for(var n=0;n<this.c_xzdx[i];n++){
 							$(".cjchoice_selecteddxbox li").eq(linum).addClass("active").attr("itype",i)
-							.find(".fdxnobg").attr("class",$(".cjchoice_mydx li[itype='"+i+"']").find(".fdx_ostar").attr("class"))
+							.find(".fdxnobg").attr("class","fdx_ostar fdx_ostar_"+i)
 							linum++
 						}
 					}
 				}
 				$(".c_numtext strong").html(this.c_xzdxnum);
-				if(this.c_xzdxnum<1){
+				if(this.c_xzdxnum<8){
 					$(".cjchoice_btn").attr("class","cjchoice_btn graybtn1")
 				}else{
 					$(".cjchoice_btn").attr("class","cjchoice_btn redbtn")
