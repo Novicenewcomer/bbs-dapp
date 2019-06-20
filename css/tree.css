@@ -57,9 +57,22 @@
 	background-repeat: no-repeat;
 	background-size: 100% auto;
 }
-.topnav_box .left span{
-	padding: 0 0.24rem 0 0.1066rem;
+.topnav_box .left .topnav_ffboxnum,
+.topnav_box .left .topnav_ylboxnum{
+	display: inline-block;
+	margin: 0 0.24rem 0 0.1066rem;
 	vertical-align: top;
+	overflow: hidden;
+	height: 0.76rem;
+}
+.topnav_ffboxnum .uldiv{
+	float: left;
+	height: 100%;
+	overflow: hidden;
+	position: relative;
+}
+.topnav_ffboxnum span{
+	float: left;
 }
 .topnav_box .right{
 	float: left;
@@ -199,6 +212,21 @@
 }
 .treefdfruitbox li .conbox_dx{
 	background-image: url(../img/treeft_dx.png);
+}
+.treefdfruitbox li p{
+	margin-top: 0.08rem;
+	color: #fff;
+	line-height: 0.4rem;
+	text-align: center;
+	font-size: 12px;
+	width: 1.5rem;
+	padding: 0.05rem 0;
+	margin-left: -0.195rem;
+	transform:scale(0.9);
+	-webkit-transform: scale(0.9);
+	background: rgba(0,0,0,.2);
+	border-radius: 5rem;
+
 }
 .dexingadflo{
 	position: absolute;

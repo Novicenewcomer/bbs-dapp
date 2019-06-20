@@ -563,3 +563,161 @@ var landpubfloObj ={
 		}
 	}
 }
+var resettopnavnumObj = {
+	ulh:'<div class="uldiv"><div class="s"><ul><li>0</li><li>1</li><li>2</li><li>3</li><li>4</li><li>5</li><li>6</li><li>7</li><li>8</li><li>9</li></ul><div><div>',
+	resethtml:function(obj){
+		if(obj.find('ul').length>0){
+			return false;
+		}
+		// obj.attr("num",obj.html())
+		obj.html(obj.attr("num"))
+		var tval = obj.html();
+		var thishtml;;
+		obj.html("");
+		var h = parseFloat(obj.outerHeight());
+		obj.css("height",h)
+		for(var i=0; i<tval.length;i++){
+			if(tval[i]=="."){
+				obj.append('<span>.</span>')
+			}else{
+				thishtml = $(this.ulh)
+				obj.append(thishtml);
+				thishtml.find('li').css("height",h)
+				mvcss(thishtml.find('.s')[0],"translateY",-tval[i]*h)
+			}
+			
+		}
+	},
+	resetnum:function(obj,num,wobj){
+		if(!wobj.attr("style")){
+			wobj.css({
+				"position":"absolute",
+				"left":wobj.offset().left-$(".mbdivcon").offset().left,
+				"top":wobj.offset().top-$(".mbdivcon").offset().top-wobj.css("margin-top"),
+			})
+		}
+		obj.find("*").show()
+		var _this = this;
+		var h = parseFloat(obj.outerHeight());
+		
+		var oldnum = obj.attr("num");
+		console.log(oldnum)
+		var newnum = num+"";
+		obj.attr("num",num);
+		MTween({
+			el : wobj[0],
+			target : {
+				scale : 140,
+			},
+			time : 100,
+			type : "easeIn",
+			callBack : function(){
+			}
+		});
+		var maxnum = newnum.length>oldnum.length?newnum.length:oldnum.length;
+		for(var i=0;i<maxnum;i++){
+			if(oldnum[i]=="."&&newnum[i]=="."){
+			}else if(newnum[i]==undefined){
+				if(oldnum[i]=="."){
+					obj.children().eq(i).hide().addClass("hide")
+				}else{
+					obj.children().eq(i).show()
+					MTween({
+						el : obj.children().eq(i).find(".s")[0],
+						target : {
+							translateY :h,
+						},
+						time : 600,
+						type : "easeIn",
+						callBack : function(){
+							$(this).parent().hide().addClass("hide")
+						}
+					});
+				}
+			}else if(oldnum[i]==undefined){
+				if(newnum[i]=="."){
+					if(obj.children().eq(i).length>0){
+						obj.children().eq(i).replaceWith('<span>.</span>')
+					}else{
+						obj.append('<span>.</span>')
+					}
+				}else{
+					if(obj.children().eq(i).length>0){
+						obj.children().eq(i).replaceWith(thishtml)
+						var thishtml = obj.children().eq(i);
+					}else{
+						var thishtml = $(this.ulh)
+						obj.append(thishtml)
+					}
+					thishtml.find('li').css("height",h)
+					mvcss(thishtml.find('.s')[0],"translateY",0);
+					thishtml.show()
+					MTween({
+						el : thishtml.find(".s")[0],
+						target : {
+							translateY : (-newnum[i]*h),
+						},
+						time : 600,
+						type : "easeIn",
+						callBack : function(){
+						}
+					});
+				}
+			}else{
+				var o;
+				if(oldnum[i]=="."){
+					var thishtml = $(this.ulh)
+					obj.children().eq(i).replaceWith(thishtml)
+					thishtml.find('li').css("height",h)
+					mvcss(thishtml.find('.s')[0],"translateY",0);
+					y = -newnum[i]*h
+				}else if(newnum[i]=="."){
+					y = h;
+				}else{
+					y = -newnum[i]*h
+				}
+				obj.children().eq(i).show()
+				MTween({
+					el : obj.children().eq(i).find(".s")[0],
+					target : {
+						translateY : y,
+					},
+					time : 600,
+					type : "easeIn",
+					callBack : function(){
+						if(mvcss($(this)[0],"translateY")==h){
+							$(this).replaceWith('<span>.</span>')
+						}
+					}
+				});
+			}
+		}
+		this.t =setTimeout(function(){
+			MTween({
+				el : wobj[0],
+				target : {
+					scale : 100,
+				},
+				time : 100,
+				type : "easeIn",
+				callBack : function(){
+					wobj.attr({
+						"style":""
+					})
+					var thisd = false;
+					for(var j in newnum){
+						if(newnum[j]=="."){
+							thisd = true
+						}
+						if(thisd){
+							obj.children().eq(j).hide()
+						}
+					}
+				}
+			});
+		},1000);
+	},
+	sethtml:function(obj,num){
+		obj.html(num).attr("num",num)
+	}
+}

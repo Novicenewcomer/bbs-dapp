@@ -21,7 +21,7 @@
 						</a>
 						<div class="topnav_box">
 							<div class="left">
-								<em class="p_ylico"></em><span>56789</span>
+								<em class="p_ylico"></em><span class="topnav_ylboxnum">56789</span>
 							</div>
 							<a href="#" class="right">
 								<svg class="icon" aria-hidden="true">
@@ -31,7 +31,7 @@
 						</div>
 						<div class="topnav_box topnav_ffbox">
 							<div class="left">
-								<em class="p_ffico"></em><span>56789</span>
+								<em class="p_ffico"></em><span class="topnav_ffboxnum clear" num="56789">56789</span>
 							</div>
 							<a href="#" class="right">
 								<svg class="icon" aria-hidden="true">
@@ -129,7 +129,7 @@
 		landpubfloObj.init("1");////登陆1  未登录0
 		var Usermsg = {
 			treeb:{
-				fufen:[{id:"005",type:"fufen",money:"123"},{id:"008",type:"fufen",money:"0.2456"}],
+				fufen:[{id:"005",type:"fufen",money:"23"},{id:"008",type:"fufen",money:"245.06"},{id:"009",type:"fufen",money:"123.88"}],
 				dx:[{id:"105",type:"dx"},{id:"108",type:"dx"},{id:"101",type:"dx"},{id:"102",type:"dx"},{id:"103",type:"dx"}]
 			}
 		}
@@ -150,8 +150,7 @@
 							"height":h,
 							"margin-top":-h/2-h/6
 						})
-//						$(".scrollw_box").css("height",$(".mbdivcon").outerHeight()-$(".fdstopnavbox").outerHeight()-$(".fdsgamemidnav").outerHeight())
-						// var thisdom = null;
+//						
 						var newtreeb = []
 						for(var i in Usermsg.treeb){
 							newtreeb = newtreeb.concat(Usermsg.treeb[i])
@@ -169,7 +168,13 @@
 										return "conbox_dx"
 									}
 								}()
-							,'"></div><audio class="musicaudio" src="'+$(".musicaudio_hb").attr("src")+'"></audio></li>'].join(''))
+							,'"></div>',
+								function(){
+									if(newtreeb[i].type=="fufen"){
+										return '<p>'+newtreeb[i].money+'</p>'
+									}
+								}()
+							,'<audio class="musicaudio" src="'+$(".musicaudio_hb").attr("src")+'"></audio></li>'].join(''))
 							$(".treefdfruitbox ul").append(thisdom)
 							thisdom.find(".conbox").addClass("y_starbgmove"+Math.round(Math.random()*3+1));
 							thisdom.css({
@@ -240,13 +245,27 @@
 			});
 		}
 		function getfdxfruitfn(){//采摘德星
+			var othis = $(".treefdfruitbox li[iid='"+dxgg_iid+"']");
 			console.log(dxgg_iid)
 			//成功
 			$(".treefdfruitbox li[iid='"+dxgg_iid+"']").remove();
 			$(".getfdfruitflobox").fadeOut();
 			//失败
 			// operationFailedobj.init("失败原因")
+			// othis.attr("wait","")
 			
+		}
+		function getfffruitfn(){//采摘ff
+			var othis = $(".treefdfruitbox li[iid='"+dxgg_iid+"']");
+			console.log(dxgg_iid)
+			var data = {
+				ffnum:calculationObj.add($(".topnav_ffboxnum").attr("num"),othis.find("p").html())
+			}
+			//成功
+			ffanimation(data.ffnum);
+			//失败
+			// operationFailedobj.init("失败原因")
+			// othis.attr("wait","")
 		}
 		// =========================================
 		
@@ -261,66 +280,59 @@
 			//  	},"<span>您还未完成实名认证，不能<br/>进行本操作</span>","立即认证")
 			// 	return;
 			// }
-			if($(this).attr("wait")=="true"){
+			if(othis.attr("wait")=="true"){
 				return false;
 			}
-			$(this).attr("wait","true")
-			dxgg_iid = $(this).attr("iid");
-			if($(this).attr("itype")=="fufen"){
+			othis.attr("wait","true")
+			dxgg_iid = othis.attr("iid");
+			if(othis.attr("itype")=="fufen"){
+				if(othis.find("p").html()<100){
+					othis.attr("wait","")
+					errorprompt.show("不足100FF不能收取")
+					return false;
+				}
+				 
+				getfffruitfn();
 				
-				
-				// $(this).attr("wait","")
-				//成功 
-// 				$('.musicaudio').remove();
-// 				$(".musicaudio_hb").before('')
-				// var musicao = othis.find(".musicaudio")[0];
-// 				//背景音乐 
-			    // musicao.play();
-// 				var thismoved =othis;
-				// var movex = ($(".topnav_ffbox").offset().top+$(".topnav_ffbox").outerHeight()/2)-othis.offset().top-othis.outerHeight()/2;
-				// var movey = ($("topnav_ffbox").offset().left+$(".topnav_ffbox").outerWidth()/2)-othis.offset().left-othis.outerWidth()/2;
-// 				$(".fdsgame_treebox").css("overflow","initial");
-// 				resettopnavnumObj.resethtml($(".ffshownum"));
-// 				MTween({
-// 					el : othis[0],
-// 					target : {
-// 						translateX : movey,
-// 						translateY : movex,
-// 					},
-// 					time : 400,
-// 					type : "easeIn",
-// 					callBack : function(){
-// 						MTween({
-// 							el : othis[0],
-// 							target : {
-// 								scale : 0,
-// 							},
-// 							time : 300,
-// 							type : "easeIn",
-// 							callBack : function(){
-// //								swtresetnumsc(calculationObj.add($(".ffshownum").html(),othis.find("p").html()));
-// 								clearTimeout(resettopnavnumObj.t)
-// 								resettopnavnumObj.resetnum($(".ffshownum"),calculationObj.add($(".ffshownum").attr("num"),othis.find("p").html()),$(".fdstopnav_ffbox"))
-// 								othis.remove();
-// //								$(".fdsgame_treebox").css("overflow","hidden");
-// 								if($(".treefdfruitbox li").length<1){
-// 									var thisdom = $(['<li class="produceing"><div class="conbox"></div><p>正在生长中</p></li>'].join(''))
-// 									$(".treefdfruitbox ul").append(thisdom)
-// 									thisdom.find(".conbox").addClass("y_starbgmove"+Math.round(Math.random()*3+1));
-// 									//1016
-// 									thisdom.css({
-// 										"left":Math.round(Math.random()*($('.fdsgame_treebox').outerWidth()-thisdom.outerWidth()-$(".yy_rightopenicobox").outerWidth())+0),
-// 										"top":Math.round(Math.random()*($('.treefdfruitbox').outerHeight()-thisdom.outerHeight())+0)
-// 									})
-// 								}
-// 							}
-// 						});
-// 					}
-// 				});
-			}else if($(this).attr("itype")=="dx"){
+			}else if(othis.attr("itype")=="dx"){
 				getdxggfn()
 			}
 		})
+		function ffanimation(num){
+			var othis = $(".treefdfruitbox li[iid='"+dxgg_iid+"']");
+			var musicao = othis.find(".musicaudio")[0];
+			//背景音乐 
+			musicao.play();
+			var thismoved =othis;
+			var movex = ($(".topnav_ffbox").offset().top+$(".topnav_ffbox").outerHeight()/2)-othis.offset().top-othis.outerHeight()/2;
+			var movey = ($(".topnav_ffbox").offset().left+$(".topnav_ffbox").outerWidth()/2)-othis.offset().left-othis.outerWidth()/2;
+			$(".fdsgame_treebox").css("overflow","initial");
+			resettopnavnumObj.resethtml($(".topnav_ffboxnum"));
+			MTween({
+				el : othis[0],
+				target : {
+					translateX : movey,
+					translateY : movex,
+				},
+				time : 400,
+				type : "easeIn",
+				callBack : function(){
+					MTween({
+						el : othis[0],
+						target : {
+							scale : 0,
+						},
+						time : 300,
+						type : "easeIn",
+						callBack : function(){
+							clearTimeout(resettopnavnumObj.t)
+							resettopnavnumObj.resetnum($(".topnav_ffboxnum"),num,$(".topnav_ffbox"))
+							othis.remove();
+						}
+					});
+				}
+			});
+		}
 		$(".closedexingadflobtn").on("click",function(){
 			clearInterval(getdxggtime.timer)
 			$(".dexingadflo").fadeOut();
