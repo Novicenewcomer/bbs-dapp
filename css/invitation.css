@@ -508,3 +508,265 @@
 .invrecord_list .realname{
 	color: #2cd4ad;
 }
+.invitefriendsflo,
+.inviteimagesflo{
+	position: absolute;
+	left: 0;
+	top: 0;
+	width: 100%;
+	height: 100%;
+	background: rgba(0,0,0,.5);
+	z-index: 101;
+	overflow-y: auto;
+	-webkit-overflow-scrolling: touch;
+	display: none;
+}
+.invitefriendsflo:before,
+.inviteimagesflo:before{
+	content: "";
+	position: absolute;
+	right: 0;
+	top: 0.4rem;
+	background: url(../img/sahuagdbg.png) no-repeat;
+	background-size: 100% 100%;
+	width: 9.76rem;
+	height: 14.44rem;
+	z-index: 1;
+}
+.infdsflo_conbox{
+	position: relative;
+	width: 9.0666rem;
+	margin: 0.68rem auto 0;
+	background: #7084ff;
+	border-radius: 0.64rem;
+	padding-bottom: 0.48rem;
+}
+.infdsflo_conbox .tit{
+	text-align: center;
+	padding: 0.5733rem 0 0.68rem;
+}
+.infdsflo_conbox .tit p{
+	display: inline-block;
+	color: #fff;
+	font-size: 25px;
+	line-height: 0.7733rem;
+	height: 0.7733rem;
+	padding: 0 2.16rem;
+	position: relative;
+	font-weight: bold;
+}
+.infdsflo_conbox .tit p:before,
+.infdsflo_conbox .tit p:after{
+	content: "";
+	position: absolute;
+	left: 0;
+	top: 50%;
+	margin-top: -1px;
+	height: 2px;
+	background: #fff;
+	width: 1.6933rem;
+}
+.infdsflo_conbox .tit p:after{
+	left: auto;
+	right: 0;
+}
+.infdsflo_conbox .icobox{
+	font-size: 2.3466rem;
+	text-align: center;
+	padding-bottom: 0.44rem;
+	position: relative;
+	line-height: 2.3466rem;
+	height: 2.3466rem;
+}
+.infdsflo_conbox .icobox p{
+	position: relative;
+	z-index: 1;
+}
+.infdsflo_conbox .icobox:after{
+	content: "";
+	position: absolute;
+	width: 2.6133rem;
+	height: 0.52rem;
+	border-radius: 50%;
+	background: rgba(90,110,233,.28);
+	bottom: 0.2rem;
+	left: 50%;
+	margin-left: -1.30665rem;
+}
+.infdsflo_conbox .textcon1{
+	font-size: 12px;
+	line-height: 0.56rem;
+	color: #fff;
+	text-align: center;
+	padding-bottom: 0.3466rem;
+}
+.infdsflo_conbox .textcon1 strong{
+	color: #fffb97;
+}
+.infdsflo_conbox .textlinkcon{
+	background: #fff8d7;
+	border-radius: 0.16rem;
+	width: 8.44rem;
+	margin: 0 auto;
+	box-shadow: rgba(249,210,104,.71) 0 0.24rem 0.9333rem inset,#5a6ff2 0 0.1333rem 0.08rem;
+	text-align: center;
+	padding: 0.3866rem 0 0.52rem;
+	position: relative;
+	z-index: 5;
+}
+.infdsflo_conbox .linktit{
+	font-weight: bold;
+	font-size: 14px;
+	color: #7084ff;
+	line-height: 0.52rem;
+	padding-bottom: 0.3866rem;
+}
+.infdsflo_conbox .linktit p{
+	display: inline-block;
+	position: relative;
+	padding: 0 1.8rem;
+}
+.infdsflo_conbox .linktit p:after,
+.infdsflo_conbox .linktit p:before{
+	content: "";
+	position: absolute;
+	left: 0;
+	top: 50%;
+	margin-top: -1px;
+	height: 0;
+	width: 1.12rem;
+	border-bottom: 1px dashed #7084ff;
+}
+.infdsflo_conbox .linktit p:before{
+	left: auto;
+	right: 0;
+}
+.infdsflo_linktext{
+	width: 0;
+	height: 0;
+	opacity: 0;
+}
+.infdsflo_conbox .linktext{
+	font-size: 14px;
+	color: #3128a7;
+	line-height: 0.56rem;
+	padding-bottom: 0.48rem;
+}
+.infdsflo_linkcopybtn{
+	display: block;
+	margin: 0 auto;
+	width: 2.2933rem;
+	height: 0.7733rem;
+	line-height: 0.7733rem;
+	text-align: center;
+	background: #4145e6;
+	color: #fff;
+	font-size: 12px;
+	border-radius: 0.12rem;
+}
+.closeinvitefriendsflo,
+.closeinviteimagesflo{
+	display: block;
+	margin: 0.5066rem auto 0;
+    width: 0.84rem;
+    height: 0.84rem;
+    line-height: 0.84rem;
+    text-align: center;
+    color: #fff;
+    font-size: 0.84rem;
+    opacity: 0.75;
+    padding: 0.2rem;
+	position: relative;
+	z-index: 5;
+}
+.invimgsflo_conbox{
+	position: relative;
+	width: 9.0666rem;
+	margin: 1.08rem auto 0;
+	background: #7084ff;
+	border-radius: 0.64rem;
+	padding-bottom: 0.48rem;
+}
+.invimgsflo_conbox .tit{
+	text-align: center;
+	padding: 0.5733rem 0 0.68rem;
+}
+.invimgsflo_conbox .tit p{
+	display: inline-block;
+	color: #fff;
+	font-size: 25px;
+	line-height: 0.7733rem;
+	height: 0.7733rem;
+	padding: 0 2.16rem;
+	position: relative;
+	font-weight: bold;
+}
+.invimgsflo_conbox .tit p:before,
+.invimgsflo_conbox .tit p:after{
+	content: "";
+	position: absolute;
+	left: 0;
+	top: 50%;
+	margin-top: -1px;
+	height: 2px;
+	background: #fff;
+	width: 1.6933rem;
+}
+.invimgsflo_conbox .tit p:after{
+	left: auto;
+	right: 0;
+}
+.invimgsflo_listbox{
+	width: 100%;
+	overflow: hidden;
+	position: relative;
+	z-index: 5;
+	height: 8.4rem;
+}
+.invimgsflo_listc{
+	width: 17.52rem;
+	position: absolute;
+	left: 50%;
+	top: 0;
+	margin-left: -8.76rem;
+	text-align: center;
+}
+.nvimgsflo_swiperc .swiper-slide .con{
+	width: 5.28rem;
+	height: 7.8rem;
+	padding: 0.12rem;
+	border:0.16rem solid rgba(255,255,255,0);
+	opacity: 0.5;
+}
+.nvimgsflo_swiperc .swiper-slide img{
+	width: 100%;
+	height: 100%;
+}
+.nvimgsflo_swiperc .swiper-slide-active .con{
+	border-color: #fff001;
+	opacity: 1;
+}
+
+{
+	width: 5.88rem;
+}
+
+
+.invimgsflo_btmbox{
+	padding: 0.52rem 0 0.44rem;
+}
+.invimgsflo_btmbox a{
+	display: block;
+	margin: 0 auto;
+	width: 5.6rem;
+	text-align: center;
+	font-size: 14px;
+	color: #fff;
+	height: 0.88rem;
+	line-height: 0.88rem;
+	border:dashed 1px #566beb
+}
+.inviteimagesflo:before{
+	right: 0.3066rem;
+	top: 0.44rem;
+}

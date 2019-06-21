@@ -120,7 +120,7 @@
 			</div>
 		</div>
 		<audio class="musicaudio_hb" src="img/saqian.mp3"></audio>
-		
+		<audio class="musicaudio_bg" id="musicaudio_bg" src="img/videoplayback.mp3"></audio>
 	</body>
 	<script src="js/jquery.js"></script>
 	<script src="js/m.Tween.js"></script>
@@ -301,7 +301,6 @@
 		function ffanimation(num){
 			var othis = $(".treefdfruitbox li[iid='"+dxgg_iid+"']");
 			var musicao = othis.find(".musicaudio")[0];
-			//背景音乐 
 			musicao.play();
 			var thismoved =othis;
 			var movex = ($(".topnav_ffbox").offset().top+$(".topnav_ffbox").outerHeight()/2)-othis.offset().top-othis.outerHeight()/2;
@@ -350,6 +349,8 @@
 			pagearr:["pagetree"],
 			othis:$("body")
 		});
-
+		
+		// var bgmusicao = $(".musicaudio_bg")[0];
+		// bgmusicao.play();
 	</script>
 </html>

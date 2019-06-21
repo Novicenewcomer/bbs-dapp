@@ -578,3 +578,35 @@ input:-ms-input-placeholder {
 .p_dciico{
 	background-image: url(../img/DCI.png);
 }
+.sahua4{width:12px; height:10px; background: #30bf6d; position: absolute; left: 0.9rem; top: -1rem;-webkit-animation:6s 2s sahua linear infinite;animation:6s 2s sahua linear infinite; z-index: 10;}
+.sahua5{width:14px; height:8px; background: #5df5ff;position: absolute; left: 1.5rem; top: -1rem;-webkit-animation:5s 0.7s sahua linear infinite;animation:5s 0.7s sahua linear infinite; z-index: 10; }
+.sahua6{width:12px; height:10px; background: #30bf6d; position: absolute; left: 8rem; top: -1rem;-webkit-animation:5s 2.3s sahua linear infinite;animation:5s 2.3s sahua linear infinite; z-index: 10; }
+.sahua7{width:10px; height:6px; background: #ff785d; position: absolute; left: 2.35rem; top: -1rem; -webkit-animation:5s 3s sahua linear infinite;animation:5s 3s sahua linear infinite; z-index: 10;}
+.sahua8{width:8px; height:7px; background: #5df5ff; position: absolute; left: 7.4rem; top: -1rem;-webkit-animation:4s 5s sahua linear infinite;animation:4s 5s sahua linear infinite; z-index: 10; }
+.sahua9{width:12px; height:6px; background: #ff5d78; position: absolute; left: 8rem;top: -1rem; -webkit-animation:3s 7s sahua linear infinite;animation:3s 7s sahua linear infinite; z-index: 10;}
+.sahua10{width:4px; height:5px; background: #ffd52f; position: absolute; left: 9rem; top: -1rem; -webkit-animation:6s 1.5s sahua linear infinite;animation:6s 1.5s sahua linear infinite; z-index: 10;}
+.sahua11{width:10px; height:5px; background: #ffd52f; position: absolute; left:3.7rem;top: -1rem;-webkit-animation:3s 1.4s sahua linear infinite;animation:3s 1.4s sahua linear infinite; z-index: 10;}
+.sahua12{width:7px; height:5px; background: #9e5dff; position: absolute; left: 6.8rem;top: -1rem;-webkit-animation:3s 3s sahua linear infinite;animation:3s 3s sahua linear infinite; z-index: 10; }
+.sahua13{width:3px; height:6px; background: #ff705d; position: absolute; left: 5.4rem;top: -1rem; -webkit-animation:5.2s .2s sahua linear infinite;animation:5.2s 0.2s sahua linear infinite; z-index: 10;}
+.sahua14{width:8px; height:6px; background: #9e5dff; position: absolute; left: 3.8rem; top: -1rem;-webkit-animation:5s  sahua linear infinite;animation:5s  sahua linear infinite; z-index: 10; }
+.sahua15{width:5px; height:3px; background: #ff705d; position: absolute; left: 7.5rem; top: -1rem;-webkit-animation:5s sahua linear infinite;animation:5s sahua linear infinite; z-index: 10; }
+.sahua16{width:7px; height:6px; background: #9e5dff;position: absolute; left: 1.5rem; top: -1rem; -webkit-animation:4s  sahua linear infinite;animation:4s  sahua linear infinite; z-index: 10;}
+.sahua17{width:12px; height:6px; background: #5df5ff; position: absolute; left: 4.3rem;top: -1rem;-webkit-animation:5s 0.8s sahua linear infinite;animation:5s 0.8s sahua linear infinite; z-index: 10; }
+.sahua18{width:8px; height:6px; background: #ff705d; position: absolute; left: 6.2rem; top: -1rem; -webkit-animation:6s 1.8s sahua linear infinite;animation:6s 1.8s sahua linear infinite; z-index: 10;}
+.sahua19{width:3px; height:2px; background: #5df5ff; position: absolute; left:8.2rem; top: -1rem; -webkit-animation:6s 2s sahua linear infinite;animation:6s 2s sahua linear infinite; z-index: 10;}
+.sahua20{width:5px; height:7px; background: #ff705d; position: absolute; left: 8.1rem;top: -1rem; -webkit-animation:6s 4s sahua linear infinite;animation:6s 4s sahua linear infinite; z-index: 10;}
+.sahua21{width:10px; height:7px; background: #ff705d; position: absolute; left: 7.5rem; top: -1rem;-webkit-animation:5s sahua linear infinite;animation:5s sahua linear infinite; z-index: 10; }
+.sahua22{width:4px; height:8px; background: #9e5dff;position: absolute; left: 1.5rem; top: -1rem; -webkit-animation:4s  sahua linear infinite;animation:4s  sahua linear infinite; z-index: 10;}
+.sahua23{width:12px; height:9px; background: #5df5ff; position: absolute; left: 4.3rem;top: -1rem;-webkit-animation:5s 0.8s sahua linear infinite;animation:5s 0.8s sahua linear infinite; z-index: 10; }
+.sahua24{width:8px; height:6px; background: #ff705d; position: absolute; left: 6.2rem; top: -1rem; -webkit-animation:5s 3.8s sahua linear infinite;animation:5s 3.8s sahua linear infinite; z-index: 10;}
+.sahua25{width:3px; height:2px; background: #5df5ff; position: absolute; left:8.2rem; top: -1rem; -webkit-animation:4s 2s sahua linear infinite;animation:4s 2s sahua linear infinite; z-index: 10;}
+@-webkit-keyframes sahua{
+	0%{-webkit-transform: translateY(0) rotate(0deg) skew(20deg,0deg);opacity: 1;}
+	90%{opacity: 1;}
+	100%{-webkit-transform: translateY(800px) rotate(1080deg)  skew(20deg,0deg);opacity: 0;}
+}
+@keyframes sahua{
+	0%{transform: translateY(0)  rotate(0deg)  skew(20deg,0deg);opacity: 1;}
+	90%{opacity: 1;}
+	100%{transform: translateY(800px)  rotate(1080deg)  skew(20deg,0deg);opacity: 0;}
+}
