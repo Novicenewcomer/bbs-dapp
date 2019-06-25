@@ -20,7 +20,7 @@
 							<a href="dxggadmaterial.html">广告素材</a>
 						</li>
 						<li>
-							<a href="dxggadstatisticaldata.html">统计数据</a>
+							<a href="javascript:;" ihref="dxggadstatisticaldata.html" class="godxggadstatisticaldata">统计数据</a>
 						</li>
 					</ul>
 					<a class="dxgg_turnpagebtn" href="dxggtransaction.html">
@@ -42,7 +42,7 @@
 										<p>科颜氏高保湿霜睡眠晚霜滋润</p>
 										<div class="btnbox clear">
 											<a class="deletebtn" href="javascript:;">删除</a>
-											<a class="publishadbtn publishadokbtn" href="dxggpublish.html">发布广告</a>
+											<a class="publishadbtn publishadokbtn" href="javascript:;">发布广告</a>
 										</div>
 									</div>
 								</li>
@@ -93,7 +93,7 @@
 						</div>
 					</div>
 				</div>
-				<a href="#" class="gotoaddggmaterial">添加广告素材</a>
+				<a href="javascript:;" class="gotoaddggmaterial">添加广告素材</a>
 			</div>
 		</div>
 	</body>
@@ -101,6 +101,9 @@
 	<script src="js/public.js"></script>
 	<script>
 		landpubfloObj.init("1");////登陆1  未登录0
+		var Usermsg = {
+			realname:"0"//实名
+		}
 		$(function(){
 			$(".dxggsc_lisbox").on("click",".deletebtn",function(){
 				console.log($(this).parents("li").attr("iid"))
@@ -110,11 +113,46 @@
 			dxggscObj.readlist = function (){
 				var _this = this;
 				console.log(_this.pagenum);
-				$(".dxggsc_lisbox ul").append('<li iid="00"><div class="leftb"><img src="lsimg/img1.jpg"></div><div class="rightb"><p>科颜氏高保湿霜睡眠晚霜滋润</p><div class="btnbox clear"><a class="deletebtn"href="javascript:;">删除</a><a class="publishadbtn publishadokbtn"href="#">发布广告</a></div></div></li><li iid="01"><div class="leftb"><img src="lsimg/img1.jpg"><span>审核中</span></div><div class="rightb"><p>科颜氏高保湿霜睡眠晚霜滋润</p><div class="btnbox clear"><a class="deletebtn"href="javascript:;">删除</a><a class="publishadbtn"href="javascript:;">发布广告</a></div></div></li>');
+				$(".dxggsc_lisbox ul").append('<li iid="00"><div class="leftb"><img src="lsimg/img1.jpg"></div><div class="rightb"><p>科颜氏高保湿霜睡眠晚霜滋润</p><div class="btnbox clear"><a class="deletebtn"href="javascript:;">删除</a><a class="publishadbtn publishadokbtn"href="javascript:;">发布广告</a></div></div></li><li iid="01"><div class="leftb"><img src="lsimg/img1.jpg"><span>审核中</span></div><div class="rightb"><p>科颜氏高保湿霜睡眠晚霜滋润</p><div class="btnbox clear"><a class="deletebtn"href="javascript:;">删除</a><a class="publishadbtn"href="javascript:;">发布广告</a></div></div></li>');
 				_this.readimg()
 				_this.listmove=true;
 			}
+			$(".gotoaddggmaterial").on("click",function(){
+				if(Usermsg.realname!="1"){
+					confirmmsgflo.init({
+						"wobj":$(".mbdivcon"),
+						"con":'您还未完成实名认证，不能进行本操作',
+						"oktext":"立即认证",
+						"okfn":function(){
+							window.location = "entrance.html"
+						},
+						"cancelfn":function(){
+							this.thisdom.fadeOut()
+						}
+					})
+				}else{
+					window.location = "ggscpublish.html"
+				}
+			})
+			$(".dxggsc_lisbox").on("click",".publishadokbtn",function(){
+				if(Usermsg.realname!="1"){
+					confirmmsgflo.init({
+						"wobj":$(".mbdivcon"),
+						"con":'您还未完成实名认证，不能进行本操作',
+						"oktext":"立即认证",
+						"okfn":function(){
+							window.location = "entrance.html"
+						},
+						"cancelfn":function(){
+							this.thisdom.fadeOut()
+						}
+					})
+				}else{
+					window.location = "dxggpublish.html"
+				}
+			})
 			dxggscObj.init();
+			
 		})
 		var dxggscObj = {
 			pagenum:1,
@@ -145,5 +183,22 @@
 				}
 			}
 		}
+		$(".godxggadstatisticaldata").on("click",function(){
+			if(Usermsg.realname!="1"){
+				confirmmsgflo.init({
+					"wobj":$(".mbdivcon"),
+					"con":'您还未完成实名认证，不能进行本操作',
+					"oktext":"立即认证",
+					"okfn":function(){
+						window.location = "entrance.html"
+					},
+					"cancelfn":function(){
+						this.thisdom.fadeOut()
+					}
+				})
+			}else{
+				window.location = $(this).attr("ihref")
+			}
+		})
 	</script>
 </html>

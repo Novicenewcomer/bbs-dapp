@@ -45,7 +45,7 @@
 										<p class="tit">领八宝树</p>
 										<div class="clear">
 											<p class="text">每日挖矿收FF，集德星抽奖限量60万株</p>
-											<a class="treefreecollectionbtn" href="#">免费领取</a>
+											<a class="treefreecollectionbtn" href="javascritpt:;">免费领取</a>
 										</div>
 									</div>
 								</li>
@@ -219,6 +219,27 @@
 	<script src="js/swiper.min.js" type="text/javascript" charset="utf-8"></script>
 	<script>
 		landpubfloObj.init("1");////登陆1  未登录0
+		var Usermsg = {
+			realname:"0"//实名
+		}
+		
+		$(".treefreecollectionbtn").on("click",function(){
+			if(Usermsg.realname!="1"){
+				confirmmsgflo.init({
+					"wobj":$(".mbdivcon"),
+					"con":'您还未完成实名认证，不能进行本操作',
+					"oktext":"立即认证",
+					"okfn":function(){
+						window.location = "entrance.html"
+					},
+					"cancelfn":function(){
+						this.thisdom.fadeOut()
+					}
+				})
+			}else{//领树
+				window.location = "tree.html"
+			}
+		})
 		//底部导航
 		linkOpenpage.pagebottomnav=function(othis){
 			othis.loadHtmlobj({
@@ -389,7 +410,7 @@
 						X = moveEndX - startX,
 						Y = moveEndY - startY;
 						//左滑
-						if (Math.abs(-X)>Math.abs(-Y)&&X > 0 ) {
+						if (Math.abs(-X)>Math.abs(-Y)&&X > 10 ) {
 							_this.ac--;
 							if(_this.ac<0){
 								_this.ac = _this.thisw.children(".oneli").length-1
@@ -397,7 +418,7 @@
 							_this.readli();
 						}
 						//右滑
-						else if (Math.abs(-X)>Math.abs(-Y)&& X < 0 ) {
+						else if (Math.abs(-X)>Math.abs(-Y)&& X < -10 ) {
 							_this.ac++;
 							if(_this.ac>_this.thisw.children(".oneli").length-1){
 								_this.ac = 0

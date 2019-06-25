@@ -339,6 +339,9 @@
 	<script src="js/public.js"></script>
 	<script>
 		landpubfloObj.init("1");////登陆1  未登录0
+		var Usermsg = {
+			realname:"0"//实名
+		}
 		//底部导航
 		linkOpenpage.pagebottomnav=function(othis){
 			othis.loadHtmlobj({
@@ -483,7 +486,22 @@
 				this.readrmbnum(0);
 				
 				$(".dxcj_conbg .dxli").on("click",function(){
-					_this.choicedxfloshow();
+					if(Usermsg.realname!="1"){
+						confirmmsgflo.init({
+							"wobj":$(".mbdivcon"),
+							"con":'您还未完成实名认证，不能进行本操作',
+							"oktext":"立即认证",
+							"okfn":function(){
+								window.location = "entrance.html"
+							},
+							"cancelfn":function(){
+								this.thisdom.fadeOut()
+							}
+						})
+					}else{
+						_this.choicedxfloshow();
+					}
+					
 				})
 				$(".closechoicedxflobox").on("click",function(){
 					$(".choicedxflobox").fadeOut();

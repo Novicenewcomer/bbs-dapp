@@ -62,6 +62,12 @@
 	<script src="js/mPicker.min.js" type="text/javascript" charset="utf-8"></script>
 	<script>
 		landpubfloObj.init("1");////登陆1  未登录0
+		var Usermsg = {
+			realname:"0"//实名
+		}
+		var Usermsg = {
+			realname:"0"//实名
+		}
 		var scdata = {//初始数据
 			"ifrom":"八宝树游戏钱包账户",//name
 			"ireach":"FDB钱包账户",//name
@@ -97,7 +103,22 @@
 		$(function(){
 			$(".turnoutbtn").on("click",function(){//转账
 				if(hztransferfn.btnd){
-					console.log("从:"+scdata.ifrom+",到:"+scdata.ireach+",币种:"+scdata.currency+",数量:"+$("#tnum").val())
+					if(Usermsg.realname!="1"){
+						confirmmsgflo.init({
+							"wobj":$(".mbdivcon"),
+							"con":'您还未完成实名认证，不能进行本操作',
+							"oktext":"立即认证",
+							"okfn":function(){
+								window.location = "entrance.html"
+							},
+							"cancelfn":function(){
+								this.thisdom.fadeOut()
+							}
+						})
+					}else{
+						console.log("从:"+scdata.ifrom+",到:"+scdata.ireach+",币种:"+scdata.currency+",数量:"+$("#tnum").val())
+					}
+					
 				}
 			})
 			hztransferfn.init();

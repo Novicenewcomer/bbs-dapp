@@ -20,7 +20,7 @@
 							<a href="dxggadmaterial.html">广告素材</a>
 						</li>
 						<li>
-							<a href="dxggadstatisticaldata.html">统计数据</a>
+							<a href="javascript:;" ihref="dxggadstatisticaldata.html" class="godxggadstatisticaldata">统计数据</a>
 						</li>
 					</ul>
 					<a class="dxgg_turnpagebtn" href="dxggtransaction.html">
@@ -101,5 +101,25 @@
 	<script src="js/public.js"></script>
 	<script>
 		landpubfloObj.init("1");////登陆1  未登录0
+		var Usermsg = {
+			realname:"0"//实名
+		}
+		$(".godxggadstatisticaldata").on("click",function(){
+			if(Usermsg.realname!="1"){
+				confirmmsgflo.init({
+					"wobj":$(".mbdivcon"),
+					"con":'您还未完成实名认证，不能进行本操作',
+					"oktext":"立即认证",
+					"okfn":function(){
+						window.location = "entrance.html"
+					},
+					"cancelfn":function(){
+						this.thisdom.fadeOut()
+					}
+				})
+			}else{
+				window.location = $(this).attr("ihref")
+			}
+		})
 	</script>
 </html>

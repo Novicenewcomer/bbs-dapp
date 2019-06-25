@@ -139,6 +139,9 @@
 	<script src="js/assettransaction.js"></script>
 	<script>
 		landpubfloObj.init("1");////登陆1  未登录0
+		var Usermsg = {
+			realname:"0"//实名
+		}
 		buyObj.completefn = function(){//买入 
 			var _this = this;
 			console.log("type："+assettransactionfn.thistype+"数字1："+_this.atarget+"数字2："+_this.btarget)

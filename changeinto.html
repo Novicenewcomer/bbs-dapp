@@ -51,8 +51,24 @@
 	<script src="js/mPicker.min.js" type="text/javascript" charset="utf-8"></script>
 	<script>
 		landpubfloObj.init("1");////登陆1  未登录0
+		var Usermsg = {
+			realname:"0"//实名
+		}
 		var scdata = {//初始数据
 			"zctype":"FF"
+		}
+		if(Usermsg.realname!="1"){
+			confirmmsgflo.init({
+				"wobj":$(".mbdivcon"),
+				"con":'您还未完成实名认证，不能进行本操作',
+				"oktext":"立即认证",
+				"okfn":function(){
+					window.location = "entrance.html"
+				},
+				"cancelfn":function(){
+					window.history.back(-1); 
+				}
+			})
 		}
 		var navselectdata = [
 			{	

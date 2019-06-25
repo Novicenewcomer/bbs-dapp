@@ -116,6 +116,9 @@
 	<script src="js/public.js"></script>
 	<script>
 		landpubfloObj.init("1");////登陆1  未登录0
+		var Usermsg = {
+			realname:"0"//实名
+		}
 		function increaseproductionsend(fn){//提升产量
 			console.log(ggpermanentcpfn.num);//提升产量使用广告包数量
 			// $(".fakeloaderbox").fadeIn();
@@ -177,7 +180,21 @@
 			init:function(){
 				var _this = this;
 				$(".ggcp_conul").on("click",".pushbtn",function(){
-					_this.pushcl($(this).parents("li"));
+					if(Usermsg.realname!="1"){
+						confirmmsgflo.init({
+							"wobj":$(".mbdivcon"),
+							"con":'您还未完成实名认证，不能进行本操作',
+							"oktext":"立即认证",
+							"okfn":function(){
+								window.location = "entrance.html"
+							},
+							"cancelfn":function(){
+								this.thisdom.fadeOut()
+							}
+						})
+					}else{
+						_this.pushcl($(this).parents("li"));
+					}
 				})
 				$(".ggcp_conul").on("click",".ggcp_jzbtn",function(){
 					_this.pushjz($(this).parents("li"));

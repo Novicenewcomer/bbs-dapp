@@ -234,7 +234,22 @@ var buyObj = {
 				operationFailedobj.init("您的"+$(".target2").html()+"不足")
 				return false;
 			}
-			_this.completefn();
+			if(Usermsg.realname!="1"){
+				confirmmsgflo.init({
+					"wobj":$(".mbdivcon"),
+					"con":'您还未完成实名认证，不能进行本操作',
+					"oktext":"立即认证",
+					"okfn":function(){
+						window.location = "entrance.html"
+					},
+					"cancelfn":function(){
+						this.thisdom.fadeOut()
+					}
+				})
+			}else{
+				_this.completefn();
+			}
+			
 		})
 	},
 	toplistcfn:function(num,num1){
@@ -385,7 +400,21 @@ var sellObj = {
 				operationFailedobj.init("您的"+$(".target2").html()+"不足")
 				return false;
 			}
-			_this.completefn();
+			if(Usermsg.realname!="1"){
+				confirmmsgflo.init({
+					"wobj":$(".mbdivcon"),
+					"con":'您还未完成实名认证，不能进行本操作',
+					"oktext":"立即认证",
+					"okfn":function(){
+						window.location = "entrance.html"
+					},
+					"cancelfn":function(){
+						this.thisdom.fadeOut()
+					}
+				})
+			}else{
+				_this.completefn();
+			}
 		})
 	},
 	toplistcfn:function(num,num1){
@@ -448,17 +477,37 @@ var entrustobj = {
 		this.thisdom.on("click",".undobtn",function(){
 			var _thisli = $(this).parents(".delegateli");
 			var thisid = _thisli.attr("iid")
-			Popupboxfn.init(function(){
-				$(".del_msgbox").fadeOut()
-				_this.delegatesend(thisid,function(data){
-					_thisli.remove();
-					assettransactionfn.getdata();
-					assettransactionfn.sett();
-					_this.srollli($('.scrollw_box'))
-				});
-			},function(){
-				$(".del_msgbox").fadeOut()
-			},"是否确认撤销交易?")
+			if(Usermsg.realname!="1"){
+				confirmmsgflo.init({
+					"wobj":$(".mbdivcon"),
+					"con":'您还未完成实名认证，不能进行本操作',
+					"oktext":"立即认证",
+					"okfn":function(){
+						window.location = "entrance.html"
+					},
+					"cancelfn":function(){
+						this.thisdom.fadeOut()
+					}
+				})
+			}else{
+				confirmmsgflo.init({
+					"wobj":$(".mbdivcon"),
+					"con":'是否确认撤销交易?',
+					"okfn":function(){
+						this.thisdom.fadeOut()
+						_this.delegatesend(thisid,function(data){
+							_thisli.remove();
+							assettransactionfn.getdata();
+							assettransactionfn.sett();
+							_this.srollli($('.scrollw_box'))
+						});
+					},
+					"cancelfn":function(){
+						this.thisdom.fadeOut()
+					}
+				})
+			}
+			
 		})
 	},
 	show:function(){

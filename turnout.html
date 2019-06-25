@@ -64,6 +64,9 @@
 	<script src="js/mPicker.min.js" type="text/javascript" charset="utf-8"></script>
 	<script>
 		landpubfloObj.init("1");////登陆1  未登录0
+		var Usermsg = {
+			realname:"0"//实名
+		}
 		var scdata = {//初始数据
 			"zctype":"FF"//name
 		}
@@ -132,7 +135,21 @@
 		$(function(){
 			$(".turnoutbtn").on("click",function(){//转账
 				if(turnoutfn.btnd){
-					console.log("资产类型:"+scdata.zctype+",资产链类型:"+scdata.chain+",地址:"+$("#taddress").val()+",数量:"+$("#tnum").val()+",手续费:"+$(".feenum").html())//数据
+					if(Usermsg.realname!="1"){
+						confirmmsgflo.init({
+							"wobj":$(".mbdivcon"),
+							"con":'您还未完成实名认证，不能进行本操作',
+							"oktext":"立即认证",
+							"okfn":function(){
+								window.location = "entrance.html"
+							},
+							"cancelfn":function(){
+								this.thisdom.fadeOut()
+							}
+						})
+					}else{
+						console.log("资产类型:"+scdata.zctype+",资产链类型:"+scdata.chain+",地址:"+$("#taddress").val()+",数量:"+$("#tnum").val()+",手续费:"+$(".feenum").html())//数据
+					}
 				}
 			})
 			turnoutfn.init();
