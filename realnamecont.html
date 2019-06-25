@@ -143,11 +143,18 @@
 		})
 		$(".dropout").on("click",function(){
 			var ithis = $(this);
-			Popupboxfn.init(function () {
-				 Popupboxfn.thisdom.fadeOut();
-	        }, function () {
-	        	location.href = ithis.attr("ihref")
-	        }, "您确定要退出“高级实名认证”吗?","继续认证","退出认证")
+			confirmmsgflo.init({
+				"wobj":$(".mbdivcon"),
+				"con":'您确定要退出“实名认证”吗?',
+				"oktext":"继续认证",
+				"cctext":"退出认证",
+				"okfn":function(){
+					this.thisdom.fadeOut()
+				},
+				"cancelfn":function(){
+					location.href = ithis.attr("ihref")
+				}
+			})
 		})
 	</script>
 

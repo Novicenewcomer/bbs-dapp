@@ -42,9 +42,7 @@
 							<ul class="dxggfb_list">
 								<li>
 									<div class="con clear">
-										<div class="leftbox">
-											
-										</div>
+										<div class="leftbox fdx_gstar_0"></div>
 										<div class="midbox">
 											<p class="num"></p>
 											<p class="numtext">数量</p>
@@ -60,9 +58,7 @@
 								</li>
 								<li>
 									<div class="con clear">
-										<div class="leftbox">
-											
-										</div>
+										<div class="leftbox fdx_gstar_1"></div>
 										<div class="midbox">
 											<p class="num"></p>
 											<p class="numtext">数量</p>
@@ -78,9 +74,7 @@
 								</li>
 								<li>
 									<div class="con clear">
-										<div class="leftbox">
-											
-										</div>
+										<div class="leftbox fdx_gstar_2"></div>
 										<div class="midbox">
 											<p class="num"></p>
 											<p class="numtext">数量</p>
@@ -96,9 +90,7 @@
 								</li>
 								<li>
 									<div class="con clear">
-										<div class="leftbox">
-											
-										</div>
+										<div class="leftbox fdx_gstar_3"></div>
 										<div class="midbox">
 											<p class="num"></p>
 											<p class="numtext">数量</p>
@@ -114,9 +106,7 @@
 								</li>
 								<li>
 									<div class="con clear">
-										<div class="leftbox">
-											
-										</div>
+										<div class="leftbox fdx_gstar_4"></div>
 										<div class="midbox">
 											<p class="num"></p>
 											<p class="numtext">数量</p>
@@ -132,9 +122,7 @@
 								</li>
 								<li>
 									<div class="con clear">
-										<div class="leftbox">
-											
-										</div>
+										<div class="leftbox fdx_gstar_5"></div>
 										<div class="midbox">
 											<p class="num"></p>
 											<p class="numtext">数量</p>
@@ -150,9 +138,7 @@
 								</li>
 								<li>
 									<div class="con clear">
-										<div class="leftbox">
-											
-										</div>
+										<div class="leftbox fdx_gstar_6"></div>
 										<div class="midbox">
 											<p class="num"></p>
 											<p class="numtext">数量</p>
@@ -168,9 +154,7 @@
 								</li>
 								<li>
 									<div class="con clear">
-										<div class="leftbox">
-											
-										</div>
+										<div class="leftbox fdx_gstar_7"></div>
 										<div class="midbox">
 											<p class="num"></p>
 											<p class="numtext">数量</p>
@@ -190,19 +174,32 @@
 						</div>
 					</div>
 				</div>
+				<!-- <div class="pub_reconfirmationflo">
+					<div class="pubreconflo_box">
+						<span class="yico"></span><span class="yico"></span><span class="yico"></span>
+						<div class="pubreconflo_c">
+							<a href="javascript:;" class="closepub_reconfirmationflo"><svg class="icon" aria-hidden="true"><use xlink:href="#iconclose"></use></svg></a>
+							<p class="tit">核对发布信息</p>
+							<ul class="pubreconflo_boxul">
+								<li>
+									<p class="leftb">孝德星</p>
+									<p class="rightb"><strong>5</strong> 颗</p>
+								</li>
+							</ul>
+							<div class="pubreconflo_btnbox">
+								<a class="pubreconflo_cbtn" href="javascript:;">取消</a><a class="pubreconflo_obtn" href="javascript:;">确认</a>
+							</div>
+						</div>
+					</div>
+				</div> -->
 			</div>
 		</div>
+		<div class="blockingclicksflo"></div>
 	</body>
 	<script src="js/jquery.js"></script>
 	<script src="js/public.js"></script>
 	<script>
 		landpubfloObj.init("1");////登陆1  未登录0
-		$(".dxggfb_publishbtn").on("click",function(){
-			if(!dxggfbObj.colorclick){
-				return false;
-			}
-			console.log(dxggfbObj.anum)
-		})
 		$(function(){
 			dxggfbObj.init({
 				maxnum:{
@@ -217,6 +214,27 @@
 				}
 			})
 		})
+		//确认发布
+		var nofbclick = true;
+		function releasedxggfn(fn){
+			if(!nofbclick){
+				return false;
+			}
+			nofbclick = false;
+			$(".blockingclicksflo").show();
+			console.log(dxggfbObj.anum);
+			
+			
+			//失败
+			// operationFailedobj.init("失败原因")
+			// nofbclick = true;
+			// $(".blockingclicksflo").hide();
+			// fn();
+			//成功
+			operationSucedobj.init("发布成功",function(){
+				window.location = "mulu.html"
+			})
+		}
 		var dxggfbObj = {
 			colorclick:false,
 			anum:{
@@ -260,6 +278,32 @@
 						}
 					});
 				}
+				$(".dxggfb_publishbtn").on("click",function(){
+					if(!_this.colorclick){
+						return false;
+					}
+					var stard = [];
+					for(var i in _this.anum){
+						if(_this.anum[i]>0){
+							stard.push(
+								{
+									"lcon":starstypetextfn(i)+'德星',
+									"rcon":'<strong>'+_this.anum[i]+'</strong> 颗'
+								}
+							)
+						}
+					}
+					confirmmsgflo.init({
+						"wobj":$(".mbdivcon"),
+						"con":stard,
+						"tit":"核对发布信息",
+						okfn:function(){
+							releasedxggfn(function(){
+								confirmmsgflo.thisdom.fadeOut()
+							})
+						}
+					})
+				})
 			},
 			addsubfn:function(opt){
 				var _this = this;

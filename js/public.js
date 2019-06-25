@@ -201,45 +201,108 @@ var operationSucedobj = {
 		$("body").append(thishtml);
 	}
 };
-//弹出确认取消提示框
-var Popupboxfn = {
+// //弹出确认取消提示框
+// var Popupboxfn = {
+// 	thisdom:null,
+// 	otext:"确定要删除？",
+// 	init:function(okfn,cancelfn,otext,ontext){
+// 		var _this = this;
+// 		_this.okfn = okfn;
+// 		if(!_this.thisdom){
+// 			this.readhtml();
+// 		}
+// 		if(ontext){
+// 			_this.thisdom.find(".del_okbtn").html(ontext);
+// 		}else{
+// 			_this.thisdom.find(".del_okbtn").html("确定");
+// 		}
+// 		if(cancelfn){
+// 			_this.cancelfn = cancelfn;
+// 		};
+// 		if(otext){
+// 			_this.thisdom.find(".text").html(otext);
+// 		}else{
+// 			_this.thisdom.find(".text").html(_this.otext);
+// 		};
+// 		_this.thisdom.fadeIn();
+// 		_this.thisdom.find(".del_cancelbtn").unbind("click").on("click",function(){
+// 			_this.cancelfn();
+// 		});
+// 		_this.thisdom.find(".del_okbtn").unbind("click").on("click",function(){
+// 			_this.okfn();
+// 		});
+// 	},
+// 	okfn:function(){},
+// 	cancelfn:function(){},
+// 	readhtml:function(){
+// 		this.thisdom = $('<div class="del_msgbox"><div class="del_msgdiv"><p class="text"></p><div class="del_msgbtndiv"><span class="del_cancelbtn">取消</span><span class="del_okbtn">确定</span></div></div></div>')
+// 		$("body").append(this.thisdom)
+// 	}
+// };
+//确认信息
+var confirmmsgflo= {
 	thisdom:null,
-	otext:"确定要删除？",
-	init:function(okfn,cancelfn,otext,ontext){
+	init:function(opt){
 		var _this = this;
-		_this.okfn = okfn;
-		if(!_this.thisdom){
+		this.wobj=$("body");
+		this.con="";
+		this.tit=null;
+		this.oktext="确定";
+		this.cctext="取消";
+		this.cancelfn = function(){
+			this.thisdom.fadeOut()
+		};
+		this.closefn = function(){
+			this.thisdom.fadeOut()
+		};
+		this.colsebtn=false;
+		
+		$.extend(this,opt)
+		if(!this.thisdom){
 			this.readhtml();
 		}
-		if(ontext){
-			_this.thisdom.find(".del_okbtn").html(ontext);
+		if(this.tit){
+			this.thisdom.find(".tit").show().html(this.tit)
 		}else{
-			_this.thisdom.find(".del_okbtn").html("确定");
+			this.thisdom.find(".tit").hide()
 		}
-		
-		if(cancelfn){
-			_this.cancelfn = cancelfn;
-		};
-		if(otext){
-			_this.thisdom.find(".text").html(otext);
+		if(this.colsebtn){
+			this.thisdom.find(".tit").before('<a href="javascript:;"class="closepub_reconfirmationflo"><svg class="icon"aria-hidden="true"><use xlink:href="#iconclose"></use></svg></a>')
 		}else{
-			_this.thisdom.find(".text").html(_this.otext);
-		};
-		_this.thisdom.fadeIn();
-		_this.thisdom.find(".del_cancelbtn").unbind("click").on("click",function(){
+			this.thisdom.find(".closepub_reconfirmationflo").remove()
+		}
+		if(isString(this.con)){
+			this.thisdom.find(".pubreconflo_boxc").html('<div class="pubreconflo_boxtext">'+this.con+'</div>');	
+		}else if($.isArray(this.con)){
+			this.thisdom.find(".pubreconflo_boxc").html('<ul class="pubreconflo_boxul"></ul>');
+			for(var i=0;i<this.con.length;i++){
+				this.thisdom.find(".pubreconflo_boxul").append(['<li><p class="leftb">',
+					this.con[i].lcon
+				,'</p><p class="rightb">',
+					this.con[i].rcon
+				,'</p></li>'].join(""))
+			}
+		}
+		this.thisdom.find(".pubreconflo_obtn").html(this.oktext)
+		this.thisdom.find(".pubreconflo_cbtn").html(this.cctext)
+		this.thisdom.fadeIn();
+		_this.thisdom.find(".pubreconflo_cbtn").unbind("click").on("click",function(){
 			_this.cancelfn();
 		});
-		_this.thisdom.find(".del_okbtn").unbind("click").on("click",function(){
+		_this.thisdom.find(".closepub_reconfirmationflo").unbind("click").on("click",function(){
+			_this.thisdom.fadeOut()
+		});
+		_this.thisdom.find(".pubreconflo_obtn").unbind("click").on("click",function(){
 			_this.okfn();
 		});
 	},
 	okfn:function(){},
-	cancelfn:function(){},
 	readhtml:function(){
-		this.thisdom = $('<div class="del_msgbox"><div class="del_msgdiv"><p class="text"></p><div class="del_msgbtndiv"><span class="del_cancelbtn">取消</span><span class="del_okbtn">确定</span></div></div></div>')
-		$("body").append(this.thisdom)
+		this.thisdom = $('<div class="pub_reconfirmationflo"><div class="pubreconflo_box"><span class="yico"></span><span class="yico"></span><span class="yico"></span><div class="pubreconflo_c"><p class="tit"></p><div class="pubreconflo_boxc"></div><div class="pubreconflo_btnbox"><a class="pubreconflo_cbtn"href="javascript:;"></a><a class="pubreconflo_obtn"href="javascript:;"></a></div></div></div></div>')
+		this.wobj.append(this.thisdom)
 	}
-};
+}
+//判断数字
 function isNumber(val){
 	var regPos = /^\d+(\.\d+)?$/; //非负浮点数
 	var regNeg = /^((([0-9]+\.[0-9]*[1-9][0-9]*)|([0-9]*[1-9][0-9]*\.[0-9]+)|([0-9]*[1-9][0-9]*)))$/; //浮点数
@@ -249,6 +312,7 @@ function isNumber(val){
 		return false;
 	}
 }
+//判断小数位
 function decimalNumber(e, num) {
 	if (e.indexOf('.') > -1&&e.split('.')[1].length > num) {
 		return false;
@@ -256,11 +320,15 @@ function decimalNumber(e, num) {
 		return true;
 	}
 }
+//截取保留小数位
 function flooldecimal(num,n){
 	var w = Math.pow(10,n)
 	return calculationObj.div(Math.floor(calculationObj.mul(num,w)),w);
 }
-
+//判断对象是否是字符串
+function isString(obj){
+  return Object.prototype.toString.call(obj) === "[object String]";
+}
 var calculationObj ={
 	add:function(a, b) {
 	    var c, d, e;
@@ -314,7 +382,6 @@ var calculationObj ={
 	    return c = Number(a.toString().replace(".", "")), d = Number(b.toString().replace(".", "")), this.mul(c / d, Math.pow(10, f - e));
 	}
 }
-
 function yzmTime(obj,con,opt){
 	this.obj;
 	this.con;
@@ -358,8 +425,6 @@ function Countdown(){
 		fn:function(){},
 		endfn:function(){}
 	}
-	
-	
 }
 Countdown.prototype.init = function(opt){
 	var _this = this;
@@ -720,4 +785,31 @@ var resettopnavnumObj = {
 	sethtml:function(obj,num){
 		obj.html(num).attr("num",num)
 	}
+}
+function starstypetextfn(type){
+	switch(type) {
+    case "0":
+       return "孝"
+       break;
+	case "1":
+	   return "悌"
+	   break;
+	case "2":
+	   return "忠"
+	   break;
+	case "3":
+	   return "信"
+	   break;
+	case "4":
+	   return "礼"
+	   break;
+	case "5":
+	   return "义"
+	   break;
+	case "6":
+	   return "廉"
+	   break;
+    default:
+       return "耻"
+} 
 }
