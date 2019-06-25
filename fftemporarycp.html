@@ -28,7 +28,9 @@
 								<p class="p2"></p>
 							</div>
 							<div class="midbox">
-								<p></p>
+								<p><svg class="icon" aria-hidden="true">
+									<use xlink:href="#iconjiantou_qiehuanyou"></use>
+								</svg></p>
 							</div>
 							<div class="rightbox">
 								<p class="p1">提升后临时算力</p>
@@ -75,11 +77,12 @@
 		})
 
 		$(function(){
+			fftemporarycpfn.mzhu = "0.01";
 			fftemporarycpfn.mr0_s="1";//默认最小提升
 			fftemporarycpfn.mr0_b="10";//默认最大提升
 			fftemporarycpfn.mr0_m = "5"//默认提升注数
 			fftemporarycpfn.cff = function(){
-				$(".successratenum").html(calculationObj.mul(this.mr0_m,300)+"注")
+				$(".successratenum").html(calculationObj.mul(this.mr0_m,300)+"FF")
 			}
 			fftemporarycpfn.init();
 		})
@@ -92,8 +95,10 @@
 			thisdom:$(".ffcp_conbox"),
 			init:function(data){
 				var _this = this;
+				$(".ffcp_titbox .leftbox .p2").html(_this.mzhu+"注")
 				this.thisdom.find(".ffcp_choiceqj span").eq(0).html(this.mr0_s+"注");
 				this.thisdom.find(".ffcp_choiceqj span").eq(1).html(this.mr0_b+"注");
+				$(".ffcp_titbox .rightbox .p2").html(calculationObj.add(this.mzhu,this.mr0_m).toFixed(4)+"注");
 				this.thisdom.find(".tsnum").html(this.mr0_m+"注");
 				this.cff();
 				if(IsPC()){
@@ -118,6 +123,7 @@
 				}
 				this.mr0_m =(calculationObj.add(calculationObj.mul(calculationObj.div(calculationObj.sub(ww,sw),ww),calculationObj.sub(this.mr0_b,this.mr0_s)),this.mr0_s)).toFixed(thisdn);
 				this.thisdom.find(".tsnum").html(this.mr0_m+"注")
+				$(".ffcp_titbox .rightbox .p2").html(calculationObj.add(this.mzhu,this.mr0_m).toFixed(4)+"注");
 				this.cff();
 			}
 		}

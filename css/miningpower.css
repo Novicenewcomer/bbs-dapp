@@ -240,6 +240,13 @@
 	background: #f7f7f7;
 	border-radius: 5rem;
 }
+.tspcp_titbox .midbox p{
+	text-align: center;
+	font-size: 0.65rem;
+	line-height: 0.65rem;
+	margin-top: -0.125rem;
+	color: #23cea6;
+}
 .tspcp_titbox .p1{
 	font-size: 12px;
 	color: #949494;

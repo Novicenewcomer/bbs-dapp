@@ -1,4 +1,4 @@
-document.write('<script src="//at.alicdn.com/t/font_1170216_yhskatuz7dd.js" type="text/javascript" charset="utf-8"></script>');
+document.write('<script src="//at.alicdn.com/t/font_1170216_a4fo353rj4v.js" type="text/javascript" charset="utf-8"></script>');
 function resizefn(){
 	var iWidth=$(".mbdivcon").outerWidth();iWidth=iWidth>1000?1000:iWidth;//document.documentElement.getBoundingClientRect().width
 	document.getElementsByTagName("html")[0].style.fontSize=iWidth/10+"px";
@@ -201,44 +201,7 @@ var operationSucedobj = {
 		$("body").append(thishtml);
 	}
 };
-// //弹出确认取消提示框
-// var Popupboxfn = {
-// 	thisdom:null,
-// 	otext:"确定要删除？",
-// 	init:function(okfn,cancelfn,otext,ontext){
-// 		var _this = this;
-// 		_this.okfn = okfn;
-// 		if(!_this.thisdom){
-// 			this.readhtml();
-// 		}
-// 		if(ontext){
-// 			_this.thisdom.find(".del_okbtn").html(ontext);
-// 		}else{
-// 			_this.thisdom.find(".del_okbtn").html("确定");
-// 		}
-// 		if(cancelfn){
-// 			_this.cancelfn = cancelfn;
-// 		};
-// 		if(otext){
-// 			_this.thisdom.find(".text").html(otext);
-// 		}else{
-// 			_this.thisdom.find(".text").html(_this.otext);
-// 		};
-// 		_this.thisdom.fadeIn();
-// 		_this.thisdom.find(".del_cancelbtn").unbind("click").on("click",function(){
-// 			_this.cancelfn();
-// 		});
-// 		_this.thisdom.find(".del_okbtn").unbind("click").on("click",function(){
-// 			_this.okfn();
-// 		});
-// 	},
-// 	okfn:function(){},
-// 	cancelfn:function(){},
-// 	readhtml:function(){
-// 		this.thisdom = $('<div class="del_msgbox"><div class="del_msgdiv"><p class="text"></p><div class="del_msgbtndiv"><span class="del_cancelbtn">取消</span><span class="del_okbtn">确定</span></div></div></div>')
-// 		$("body").append(this.thisdom)
-// 	}
-// };
+
 //确认信息
 var confirmmsgflo= {
 	thisdom:null,
