@@ -90,22 +90,40 @@ h1, h2, h3, h4, h5, h6{font-size: 16px;font-weight:400}
 	display: none;position: absolute;padding:12px 18px;height:40px;left:50%;top:50%;margin-top: -20px;margin-left:-1000px;
 	background: rgba(0,0,0,.75);border-radius: 3px;z-index: 9999;
 }
+.y_operationfailtipbox .ico{
+	width: 48px;
+	font-size: 40px;
+	color:  #f46e55;
+}
 .y_operationfailtipcon{
-	line-height: 40px;padding-left: 48px;height: 41px;
-	background: url(../img/y_tipico.png) no-repeat left -66px;
-	background-size: 41px auto;
+	line-height: 40px;height: 40px;
 	color: #fff;font-size: 15px;
+	display: flex;
+	display: -webkit-flex;
+}
+.y_operationfailtipcon .con{
+	flex: 1;
+	-webkit-flex: 1;
 }
 /*操作成功*/
 .y_operationsuctipbox{
 	display: none;position: absolute;padding:12px 18px;height:40px;left:50%;top:50%;margin-top: -20px;margin-left:-1000px;
 	background: rgba(0,0,0,.75);border-radius: 3px;z-index: 9999;
 }
+.y_operationsuctipbox .ico{
+	width: 48px;
+	font-size: 40px;
+	color:  #46d8b1;
+}
 .y_operationsuctipcon{
-	line-height: 40px;padding-left: 48px;height: 41px;
-	background: url(../img/y_tipico.png) no-repeat left 0px;
-	background-size: 41px auto;
+	line-height: 40px;height: 40px;
 	color: #fff;font-size: 15px;
+	display: flex;
+	display: -webkit-flex;
+}
+.y_operationsuctipcon .con{
+	flex: 1;
+	-webkit-flex: 1;
 }
 /* 提示 */
 .errorpromptbox {

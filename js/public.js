@@ -1,4 +1,4 @@
-document.write('<script src="//at.alicdn.com/t/font_1170216_a4fo353rj4v.js" type="text/javascript" charset="utf-8"></script>');
+document.write('<script src="//at.alicdn.com/t/font_1170216_pfc9od0xw3h.js" type="text/javascript" charset="utf-8"></script>');
 function resizefn(){
 	var iWidth=$(".mbdivcon").outerWidth();iWidth=iWidth>1000?1000:iWidth;//document.documentElement.getBoundingClientRect().width
 	document.getElementsByTagName("html")[0].style.fontSize=iWidth/10+"px";
@@ -162,7 +162,7 @@ var operationFailedobj = {
 		if(!this.thisdom){
 			this.readthisdomhtml(text);
 		}
-		this.thisdom.find(".y_operationfailtipcon p").html(text);
+		this.thisdom.find(".y_operationfailtipcon .con").html(text);
 		this.thisdom.fadeIn().css({"margin-left":-this.thisdom.outerWidth()/2});
 		clearTimeout(this.timeout);
 		this.timeout = setTimeout(function(){
@@ -171,7 +171,7 @@ var operationFailedobj = {
 	},
 	readthisdomhtml:function(){
 		var _this = this;
-		var thishtml = $(['<div class="y_operationfailtipbox"><div class="y_operationfailtipcon"><p></p></div></div>'].join(""));
+		var thishtml = $(['<div class="y_operationfailtipbox"><div class="y_operationfailtipcon"><span class="ico"><svg class="icon" aria-hidden="true"><use xlink:href="#iconcuowu"></use></svg></span><div class="con"></div></div></div>'].join(""));
 		this.thisdom = thishtml;
 		$("body").append(thishtml);
 	}
@@ -183,7 +183,7 @@ var operationSucedobj = {
 		if(!this.thisdom){
 			this.readthisdomhtml(text);
 		}
-		this.thisdom.find(".y_operationsuctipcon p").html(text);
+		this.thisdom.find(".y_operationsuctipcon .con").html(text);
 		this.thisdom.fadeIn().css({"margin-left":-this.thisdom.outerWidth()/2});
 		clearTimeout(this.timeout);
 		this.timeout = setTimeout(function(){
@@ -196,7 +196,7 @@ var operationSucedobj = {
 	},
 	readthisdomhtml:function(){
 		var _this = this;
-		var thishtml = $(['<div class="y_operationsuctipbox"><div class="y_operationsuctipcon"><p></p></div></div>'].join(""));
+		var thishtml = $(['<div class="y_operationsuctipbox"><div class="y_operationsuctipcon"><span class="ico"><svg class="icon" aria-hidden="true"><use xlink:href="#iconzhengque"></use></svg></span><div class="con"></div></div></div>'].join(""));
 		this.thisdom = thishtml;
 		$("body").append(thishtml);
 	}
