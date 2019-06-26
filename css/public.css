@@ -223,6 +223,13 @@ h1, h2, h3, h4, h5, h6{font-size: 16px;font-weight:400}
 	padding:1.2rem 0.5rem 0.28rem;
 	text-align: center;
 }
+.pubreconflo_boxtip{
+	font-size: 13px;
+	color: #7e7d7d;
+	line-height: 0.56rem;
+	padding:0.28rem 1rem 0;
+	text-align: left;
+}
 .pubreconflo_boxul{
 	padding: 0 1rem;
 }
@@ -260,7 +267,7 @@ h1, h2, h3, h4, h5, h6{font-size: 16px;font-weight:400}
 }
 .pubreconflo_btnbox a.pubreconflo_cbtn{
 	background: #e6e5e3;
-	color: #fff;
+	color: #7e7d7d;
 }
 /*load*/
 .yy_loadouterbox{

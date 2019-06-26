@@ -32,14 +32,33 @@ var assettransactionfn = {
 			$(".zcjy_topnavconbox").fadeOut();
 		})
 		$(".zcjy_setconnav li").on("click",function(){
-			$(this).addClass("active").siblings().removeClass("active");
-			_this.buysellt = $(this).attr("itype")
-			if(_this.buysellt=="buy"){
+			if($(this).attr("itype")=="buy"){
+				$(this).addClass("active").siblings().removeClass("active");
+				_this.buysellt = $(this).attr("itype")
 				buyObj.show()
-			}else if(_this.buysellt=="sell"){
+			}else if($(this).attr("itype")=="sell"){
+				$(this).addClass("active").siblings().removeClass("active");
+				_this.buysellt = $(this).attr("itype")
 				sellObj.show()
 			}else{
-				entrustobj.show()
+				if(Usermsg.realname!="1"){
+					confirmmsgflo.init({
+						"wobj":$(".mbdivcon"),
+						"con":'您还未完成实名认证，不能进行本操作',
+						"oktext":"立即认证",
+						"okfn":function(){
+							window.location = "entrance.html"
+						},
+						"cancelfn":function(){
+							this.thisdom.fadeOut()
+						}
+					})
+				}else{
+					$(this).addClass("active").siblings().removeClass("active");
+					_this.buysellt = $(this).attr("itype")
+					entrustobj.show()
+				}
+				
 			}
 		})
 		$(".yy_marketconrightul").on("click","li>div",function(){
@@ -247,7 +266,16 @@ var buyObj = {
 					}
 				})
 			}else{
-				_this.completefn();
+				confirmmsgflo.init({
+					"wobj":$(".mbdivcon"),
+					"con":'是否确认支付'+_this.thisdom.find(".totalmsgnum").html()+' '+$(".target2").html(),
+					"oktext":"确认支付",
+					"okfn":function(){
+						_this.completefn();
+						this.thisdom.fadeOut()
+					}
+				})
+				
 			}
 			
 		})
@@ -413,7 +441,15 @@ var sellObj = {
 					}
 				})
 			}else{
-				_this.completefn();
+				confirmmsgflo.init({
+					"wobj":$(".mbdivcon"),
+					"con":'是否确认卖出'+_this.btarget+' '+$(".zcjy_setconbox .target1").html(),
+					"oktext":"确认卖出",
+					"okfn":function(){
+						_this.completefn();
+						this.thisdom.fadeOut()
+					}
+				})
 			}
 		})
 	},
@@ -477,37 +513,22 @@ var entrustobj = {
 		this.thisdom.on("click",".undobtn",function(){
 			var _thisli = $(this).parents(".delegateli");
 			var thisid = _thisli.attr("iid")
-			if(Usermsg.realname!="1"){
-				confirmmsgflo.init({
-					"wobj":$(".mbdivcon"),
-					"con":'您还未完成实名认证，不能进行本操作',
-					"oktext":"立即认证",
-					"okfn":function(){
-						window.location = "entrance.html"
-					},
-					"cancelfn":function(){
-						this.thisdom.fadeOut()
-					}
-				})
-			}else{
-				confirmmsgflo.init({
-					"wobj":$(".mbdivcon"),
-					"con":'是否确认撤销交易?',
-					"okfn":function(){
-						this.thisdom.fadeOut()
-						_this.delegatesend(thisid,function(data){
-							_thisli.remove();
-							assettransactionfn.getdata();
-							assettransactionfn.sett();
-							_this.srollli($('.scrollw_box'))
-						});
-					},
-					"cancelfn":function(){
-						this.thisdom.fadeOut()
-					}
-				})
-			}
-			
+			confirmmsgflo.init({
+				"wobj":$(".mbdivcon"),
+				"con":'是否确认撤销交易?',
+				"okfn":function(){
+					this.thisdom.fadeOut()
+					_this.delegatesend(thisid,function(data){
+						_thisli.remove();
+						assettransactionfn.getdata();
+						assettransactionfn.sett();
+						_this.srollli($('.scrollw_box'))
+					});
+				},
+				"cancelfn":function(){
+					this.thisdom.fadeOut()
+				}
+			})
 		})
 	},
 	show:function(){

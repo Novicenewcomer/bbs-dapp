@@ -48,7 +48,7 @@
 							<p>FF和FDB划转将按照10:1比例自动结算。</p>
 						</div>
 						<div class="c_turnoutbottombox">
-							<a class="turnoutbtn" href="javascript:;">划转</a><!-- yellowbtn -->
+							<a class="turnoutbtn" href="javascript:;">划转</a>
 							<a href="javascript:history.back(-1)">返回</a>
 						</div>
 					</div>
@@ -63,10 +63,7 @@
 	<script>
 		landpubfloObj.init("1");////登陆1  未登录0
 		var Usermsg = {
-			realname:"0"//实名
-		}
-		var Usermsg = {
-			realname:"0"//实名
+			realname:"1"//实名
 		}
 		var scdata = {//初始数据
 			"ifrom":"八宝树游戏钱包账户",//name
@@ -100,27 +97,42 @@
 				"has":"28018.44444444",//用户拥有
 			}
 		]
-		$(function(){
-			$(".turnoutbtn").on("click",function(){//转账
-				if(hztransferfn.btnd){
-					if(Usermsg.realname!="1"){
-						confirmmsgflo.init({
-							"wobj":$(".mbdivcon"),
-							"con":'您还未完成实名认证，不能进行本操作',
-							"oktext":"立即认证",
-							"okfn":function(){
-								window.location = "entrance.html"
-							},
-							"cancelfn":function(){
-								this.thisdom.fadeOut()
-							}
-						})
-					}else{
-						console.log("从:"+scdata.ifrom+",到:"+scdata.ireach+",币种:"+scdata.currency+",数量:"+$("#tnum").val())
-					}
+		var transferbtnclick = true;
+		function transferbtnfn(){
+			if(!transferbtnclick){
+				return false;
+			}
+			transferbtnclick = false;
+			console.log("从:"+scdata.ifrom+",到:"+scdata.ireach+",币种:"+scdata.currency+",数量:"+$("#tnum").val())
+			//成功
+			operationSucedobj.init("划转成功")
+			mmselectdata = [
+				{
+					"name":"FF",
+					"has":"10000",//用户拥有
+				},
+				{
+					"name":"YL",
+					"has":"10000",//用户拥有
+				},
+				{
+					"name":"BTC",
+					"has":"10000",//用户拥有
 					
+				},
+				{
+					"name":"ETH",
+					"has":"10000",//用户拥有
 				}
-			})
+			]
+			hztransferfn.readcurrency();
+			transferbtnclick = true;
+			//失败
+			// operationFailedobj.init("失败原因")
+			// transferbtnclick = true;
+		}
+		$(function(){
+			
 			hztransferfn.init();
 		})
 		var hztransferfn = {
@@ -156,6 +168,35 @@
 					$("#tnum").val(_this.hbdata.has)
 					_this.tokv = _this.hbdata.has;
 					_this.readbtn();
+				})
+				$(".turnoutbtn").on("click",function(){//转账
+					if(hztransferfn.btnd){
+						if(Usermsg.realname!="1"){
+							confirmmsgflo.init({
+								"wobj":$(".mbdivcon"),
+								"con":'您还未完成实名认证，不能进行本操作',
+								"oktext":"立即认证",
+								"okfn":function(){
+									window.location = "entrance.html"
+								},
+								"cancelfn":function(){
+									this.thisdom.fadeOut()
+								}
+							})
+						}else{
+							confirmmsgflo.init({
+								"wobj":$(".mbdivcon"),
+								"con":'是否确认划转'+$("#tnum").val()+' '+_this.hbdata.name,
+								"oktext":"确认划转",
+								"okfn":function(){
+									transferbtnfn()
+									this.thisdom.fadeOut()
+								}
+							})
+							
+						}
+						
+					}
 				})
 			},
 			readsc:function(){

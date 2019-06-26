@@ -340,7 +340,7 @@
 	<script>
 		landpubfloObj.init("1");////登陆1  未登录0
 		var Usermsg = {
-			realname:"0"//实名
+			realname:"1"//实名
 		}
 		//底部导航
 		linkOpenpage.pagebottomnav=function(othis){
@@ -377,6 +377,8 @@
 		$(function(){
 			var instantlotteryclick = true;
 			dxluckdrawfn.instantlotteryfn = function(){//立即抽奖
+				var _this = this;
+				console.log(_this.c_xzdxarr)
 				if(!instantlotteryclick){
 					return;
 				}
@@ -472,7 +474,7 @@
 			numdata:0,
 			htrxnnum:0,
 			addnum:0,
-			
+			c_xzdxarr:[],
 			c_mydx:{},
 			oldc_xzdx:{},
 			oldc_xzdxnum:0,
@@ -486,22 +488,7 @@
 				this.readrmbnum(0);
 				
 				$(".dxcj_conbg .dxli").on("click",function(){
-					if(Usermsg.realname!="1"){
-						confirmmsgflo.init({
-							"wobj":$(".mbdivcon"),
-							"con":'您还未完成实名认证，不能进行本操作',
-							"oktext":"立即认证",
-							"okfn":function(){
-								window.location = "entrance.html"
-							},
-							"cancelfn":function(){
-								this.thisdom.fadeOut()
-							}
-						})
-					}else{
-						_this.choicedxfloshow();
-					}
-					
+					_this.choicedxfloshow();	
 				})
 				$(".closechoicedxflobox").on("click",function(){
 					$(".choicedxflobox").fadeOut();
@@ -543,7 +530,37 @@
 				})
 				$(".dxcj_cjbtn").on("click",function(){
 					if($(this).hasClass("dxcj_cjbtnac")){
-						_this.instantlotteryfn()
+						if(Usermsg.realname!="1"){
+							confirmmsgflo.init({
+								"wobj":$(".mbdivcon"),
+								"con":'您还未完成实名认证，不能进行本操作',
+								"oktext":"立即认证",
+								"okfn":function(){
+									window.location = "entrance.html"
+								},
+								"cancelfn":function(){
+									this.thisdom.fadeOut()
+								}
+							})
+						}else{
+							_this.c_xzdxarr = [];
+							for(var i in _this.c_xzdx){
+								for(var n=0;n<_this.c_xzdx[i];n++ ){
+									_this.c_xzdxarr.push(i)
+								}
+							}
+							confirmmsgflo.init({
+								"wobj":$(".mbdivcon"),
+								"con":'准备好了吗？确认使用这八颗德星试试你的好手气吗？',
+								"oktext":"立即抽奖",
+								"okfn":function(){
+									this.thisdom.fadeOut()
+									_this.instantlotteryfn()
+								}
+							})
+							
+						}
+						
 					}
 				})
 				$(".cjresultsfailflo .closecjresultsflo").on("click",function(){
@@ -553,7 +570,16 @@
 					$(".cjresultsfailflo").fadeOut()
 				})
 				$(".cjonemorebtn").on("click",function(){
-					_this.onemorelotteryfn()
+					confirmmsgflo.init({
+						"wobj":$(".mbdivcon"),
+						"con":'确认支付5000FF免消耗德星再试试你的好手气吗？',
+						"oktext":"立即抽奖",
+						"okfn":function(){
+							this.thisdom.fadeOut()
+							_this.onemorelotteryfn()
+						}
+					})
+					
 				})
 				
 				$('.closecjresultssucflobtn').on("click",function(){

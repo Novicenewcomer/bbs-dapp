@@ -65,7 +65,7 @@
 	<script>
 		landpubfloObj.init("1");////登陆1  未登录0
 		var Usermsg = {
-			realname:"0"//实名
+			realname:"1"//实名
 		}
 		var scdata = {//初始数据
 			"zctype":"FF"//name
@@ -132,26 +132,84 @@
 				]
 			}
 		]
-		$(function(){
-			$(".turnoutbtn").on("click",function(){//转账
-				if(turnoutfn.btnd){
-					if(Usermsg.realname!="1"){
-						confirmmsgflo.init({
-							"wobj":$(".mbdivcon"),
-							"con":'您还未完成实名认证，不能进行本操作',
-							"oktext":"立即认证",
-							"okfn":function(){
-								window.location = "entrance.html"
-							},
-							"cancelfn":function(){
-								this.thisdom.fadeOut()
-							}
-						})
-					}else{
-						console.log("资产类型:"+scdata.zctype+",资产链类型:"+scdata.chain+",地址:"+$("#taddress").val()+",数量:"+$("#tnum").val()+",手续费:"+$(".feenum").html())//数据
-					}
+		var turnoutbtnclick = true;
+		function turnoutbtnfn(){
+			if(!turnoutbtnclick){
+				return false;
+			}
+			turnoutbtnclick = false;
+			console.log("资产类型:"+scdata.zctype+",资产链类型:"+scdata.chain+",地址:"+$("#taddress").val()+",数量:"+$("#tnum").val()+",手续费:"+$(".feenum").html())//数据
+			//成功
+			operationSucedobj.init("转出成功")
+			turnoutbtnclick = true;
+			navselectdata = [
+				{	
+					"name":'FF',//资产类型
+					"min":"1000",//最小转账数
+					"has":"5004.4444",//用户拥有
+					"feeb":"0.002",//手续费比
+					"unittype":"FF",//手续费单位
+					"chain":[
+						{
+							"name":"ERC20"
+						},
+						{
+							"name":"ERC21"
+						}
+					]
+				},
+				{	
+					"name":'YL', 
+					"min":"1001",
+					"has":"10000.8",
+					"feeb":"0.003",
+					"unittype":"FF",
+					"chain":[
+						{
+							"name":"ERC22"
+						},
+						{
+							"name":"ERC23"
+						}
+					]
+				},
+				{	
+					"name":'GHHH', 
+					"min":"1002",
+					"has":"324324",
+					"feeb":"0.004",
+					"unittype":"GHHH",
+					"chain":[
+						{
+							"name":"ERC24"
+						},
+						{
+							"name":"ERC25"
+						}
+					]
+				},
+				{	
+					"name":'SDFDSF',
+					"min":"1003",
+					"has":"2343",
+					"feeb":"0.005",
+					"unittype":"SDFDSF",
+					"chain":[
+						{
+							"name":"ERC26"
+						},
+						{
+							"name":"ERC27"
+						}
+					]
 				}
-			})
+			]
+			turnoutfn.readsc();
+			//失败
+			// operationFailedobj.init("失败原因")
+			// turnoutbtnclick = true;
+		}
+		$(function(){
 			turnoutfn.init();
 		})
 		var turnoutfn = {
@@ -196,6 +254,34 @@
 					$(".turnoutdznum").html(_this.thistypedata.has);
 					_this.tokv = _this.thistypedata.has;
 					_this.readbtn();
+				})
+				$(".turnoutbtn").on("click",function(){//转账
+					if(turnoutfn.btnd){
+						if(Usermsg.realname!="1"){
+							confirmmsgflo.init({
+								"wobj":$(".mbdivcon"),
+								"con":'您还未完成实名认证，不能进行本操作',
+								"oktext":"立即认证",
+								"okfn":function(){
+									window.location = "entrance.html"
+								},
+								"cancelfn":function(){
+									this.thisdom.fadeOut()
+								}
+							})
+						}else{
+							confirmmsgflo.init({
+								"wobj":$(".mbdivcon"),
+								"con":'是否确认转出'+$("#tnum").val()+' '+scdata.zctype,
+								"oktext":"确认转出",
+								"okfn":function(){
+									turnoutbtnfn()
+									this.thisdom.fadeOut()
+								}
+							})
+							
+						}
+					}
 				})
 			},
 			readsc:function(){

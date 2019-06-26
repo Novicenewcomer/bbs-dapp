@@ -140,23 +140,56 @@
 	<script>
 		landpubfloObj.init("1");////登陆1  未登录0
 		var Usermsg = {
-			realname:"0"//实名
+			realname:"1"//实名
 		}
+		var bcompletefnclick = true;
 		buyObj.completefn = function(){//买入 
 			var _this = this;
+			if(!bcompletefnclick){
+				return false;
+			}
+			bcompletefnclick = false;
+			//失败
+			// operationFailedobj.init("失败原因")
+			// bcompletefnclick = true;
+			//成功
 			console.log("type："+assettransactionfn.thistype+"数字1："+_this.atarget+"数字2："+_this.btarget)
-			assettransactionfn.sett()
+			assettransactionfn.getdata();
+			assettransactionfn.sett();
+			bcompletefnclick = true;
+			operationSucedobj.init("委托成功")
 		}
+		var scompletefnclick = true;
 		sellObj.completefn = function(){//卖出 
 			var _this = this;
+			if(!scompletefnclick){
+				return false;
+			}
+			scompletefnclick = false;
+			//失败
+			// operationFailedobj.init("失败原因")
+			// scompletefnclick = true;
+			//成功
 			console.log("type："+assettransactionfn.thistype+"数字1："+_this.atarget+"数字2："+_this.btarget)
+			assettransactionfn.getdata();
 			assettransactionfn.sett()
+			scompletefnclick = true;
+			operationSucedobj.init("委托成功")
 		}
+		// var delegatesendclick = true;
 		entrustobj.delegatesend = function(iid,fn){//撤销交易
+			if($(".delegateli[iid='"+iid+"']").attr("oclick")=="no"){
+				return false;
+			}
+			$(".delegateli[iid='"+iid+"']").attr("oclick","no")
 			console.log(iid)
-//			operationErroredobj.init("操作失败")
+			//失败
+			// operationErroredobj.init("操作失败")
+			// $(".delegateli[iid='"+iid+"']").removeAttr("oclick")
+			//成功
 			operationSucedobj.init("操作成功")
 			fn();
+			$(".delegateli[iid='"+iid+"']").removeAttr("oclick")
 		}
 		
 		entrustobj.readHtml = function(data,fn){

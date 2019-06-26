@@ -117,16 +117,23 @@
 	<script>
 		landpubfloObj.init("1");////登陆1  未登录0
 		var Usermsg = {
-			realname:"0"//实名
+			realname:"1"//实名
 		}
-		function increaseproductionsend(fn){//提升产量
-			console.log(ggpermanentcpfn.num);//提升产量使用广告包数量
-			// $(".fakeloaderbox").fadeIn();
-			//失败
-	//		$(".fakeloaderbox").fadeOut(function(){
-	//			operationFailedobj.init("操作失败原因");
-	//		});
-		}
+		
+		// function increaseproductionsend(fn){//提升产量
+		// 	
+		// 	
+		// 	console.log(ggpermanentcpfn.num);//提升产量使用广告包数量
+		// 	
+		// 	// operationSucedobj.init("提交成功",function(){
+		// 	// 	window.location = "dxtemporarycp.html"
+		// 	// 	// $(".blockingclicksflo").hide();
+		// 	// })
+		// 	//失败
+		// 	$(".fakeloaderbox").fadeOut(function(){
+		// 		operationFailedobj.init("操作失败原因");
+		// 	});
+		// }
 	
 		$(function(){
 			ggpermanentcpfn.pushcl = function(obj){//添加
@@ -141,7 +148,12 @@
 				//失败
 				// operationFailedobj.init("失败原因")
 			}
+			var ggjzlick =true;
 			ggpermanentcpfn.pushjz = function(obj){//加注
+				if(!ggjzlick){
+					return false;
+				}
+				ggjzlick = false;
 				//临时
 				var lsnum = calculationObj.add(obj.attr("znum"),10)>=100?100: calculationObj.add(obj.attr("znum"),10)
 				var data = {
@@ -166,8 +178,10 @@
 						}
 					}()
 				].join("")))
+				ggjzlick =true;
 				//失败
 				// operationFailedobj.init("失败原因")
+				// ggjzlick =true;
 			}
 			
 			ggpermanentcpfn.init();
@@ -180,6 +194,10 @@
 			init:function(){
 				var _this = this;
 				$(".ggcp_conul").on("click",".pushbtn",function(){
+					_this.pushcl($(this).parents("li"));
+				})
+				$(".ggcp_conul").on("click",".ggcp_jzbtn",function(){
+					var othis = $(this);
 					if(Usermsg.realname!="1"){
 						confirmmsgflo.init({
 							"wobj":$(".mbdivcon"),
@@ -193,19 +211,18 @@
 							}
 						})
 					}else{
-						_this.pushcl($(this).parents("li"));
+						confirmmsgflo.init({
+							"wobj":$(".mbdivcon"),
+							"con":'是否确认使用广告包XXXXXX加注10注永久算力？',
+							"oktext":"确认使用",
+							"okfn":function(){
+								_this.pushjz(othis.parents("li"))
+								this.thisdom.fadeOut()
+							}
+						})
 					}
+					
 				})
-				$(".ggcp_conul").on("click",".ggcp_jzbtn",function(){
-					_this.pushjz($(this).parents("li"));
-				})
-				$(".ggcp_tsbtn").on("click",function(fn){
-					if(!_this.btnd){
-						return false
-					}
-					increaseproductionsend();
-				})
-	
 			}
 		}
 	</script>

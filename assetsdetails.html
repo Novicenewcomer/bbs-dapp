@@ -51,27 +51,34 @@
 					</div>
 				</div>
 				<ul class="assetsxqbottom">
-					<li><a href="#">
+					<li><a href="javascript:;" class="assetsxqb_sl">
+					<p>
+						<svg class="icon" aria-hidden="true">
+							<use xlink:href="#iconshanglian"></use>
+						</svg>
+					</p>
+					<em>上链</em></a></li>
+					<li><a href="javascript:;" ihref="changeinto.html" class="assetsxqb_zr">
 					<p>
 						<svg class="icon" aria-hidden="true">
 							<use xlink:href="#iconzhuanru"></use>
 						</svg>
 					</p>
-					转入</a></li>
+					<em>转入</em></a></li>
 					<li><a href="#">
 					<p>
 						<svg class="icon" aria-hidden="true">
-							<use xlink:href="#iconzhuanchu"></use>
+							<use xlink:href="#iconzhuanzhang"></use>
 						</svg>
 					</p>
-					转出</a></li>
+					<em>转账</em></a></li>
 					<li><a href="#">
 					<p>
 						<svg class="icon" aria-hidden="true">
 							<use xlink:href="#iconhuazhuan"></use>
 						</svg>
 					</p>
-					划转</a></li>
+					<em>划转</em></a></li>
 					<li><a href="#">
 					<p>
 						<svg class="icon" aria-hidden="true">
@@ -80,6 +87,19 @@
 					</p>
 					交易</a></li>
 				</ul>
+				<div class="zcupperchainflo">
+					<div class="zcupperchainfbox">
+						<a href="javascript:;" class="closezcupperchainflo"><svg class="icon" aria-hidden="true"><use xlink:href="#iconclose"></use></svg></a>
+						<p class="tit">同步资产上链 </p>
+						<div class="zcupperchainflo_c">
+							<input type="text" value="" id="zcsl_secretnum" placeholder="请输入钱包密码">
+							<a href="javascript:;" class="zcsl_secreteyebtn">
+								<span><svg class="icon" aria-hidden="true"><use xlink:href="#iconyanjing-bi"></use></svg></span>
+								<span><svg class="icon" aria-hidden="true"><use xlink:href="#iconyanjing"></use></svg></span>
+							</a>
+						</div>
+					</div>
+				</div>
 			</div>
 		</div>
 		
@@ -88,6 +108,43 @@
 	<script src="js/public.js"></script>
 	<script>
 		landpubfloObj.init("1");////登陆1  未登录0
+		var Usermsg = {
+			realname:"1"//实名
+		}
+		$(".assetsxqb_sl").on("click",function(){
+			if(Usermsg.realname!="1"){
+				confirmmsgflo.init({
+					"wobj":$(".mbdivcon"),
+					"con":'您还未完成实名认证，不能进行本操作',
+					"oktext":"立即认证",
+					"okfn":function(){
+						window.location = "entrance.html"
+					},
+					"cancelfn":function(){
+						this.thisdom.fadeOut()
+					}
+				})
+			}else{
+				
+			}
+		})
+		$(".assetsxqb_zr").on("click",function(){
+			if(Usermsg.realname!="1"){
+				confirmmsgflo.init({
+					"wobj":$(".mbdivcon"),
+					"con":'您还未完成实名认证，不能进行本操作',
+					"oktext":"立即认证",
+					"okfn":function(){
+						window.location = "entrance.html"
+					},
+					"cancelfn":function(){
+						this.thisdom.fadeOut()
+					}
+				})
+			}else{
+				window.location = $(this).attr("ihref")
+			}
+		})
 		$(function(){
 			assetsdetailsObj.readlist = function(){
 				var _this = this;

@@ -1,4 +1,4 @@
-document.write('<script src="//at.alicdn.com/t/font_1170216_pfc9od0xw3h.js" type="text/javascript" charset="utf-8"></script>');
+document.write('<script src="//at.alicdn.com/t/font_1170216_fygip30s754.js" type="text/javascript" charset="utf-8"></script>');
 function resizefn(){
 	var iWidth=$(".mbdivcon").outerWidth();iWidth=iWidth>1000?1000:iWidth;//document.documentElement.getBoundingClientRect().width
 	document.getElementsByTagName("html")[0].style.fontSize=iWidth/10+"px";
@@ -212,6 +212,7 @@ var confirmmsgflo= {
 		this.tit=null;
 		this.oktext="确定";
 		this.cctext="取消";
+		this.text=null;
 		this.cancelfn = function(){
 			this.thisdom.fadeOut()
 		};
@@ -229,10 +230,13 @@ var confirmmsgflo= {
 		}else{
 			this.thisdom.find(".tit").hide()
 		}
+		this.thisdom.find(".pubreconflo_boxtip").remove()
+		if(this.text){
+			this.thisdom.find(".pubreconflo_btnbox").before('<div class="pubreconflo_boxtip">'+this.text+'</div>')
+		}
+		this.thisdom.find(".closepub_reconfirmationflo").remove()
 		if(this.colsebtn){
 			this.thisdom.find(".tit").before('<a href="javascript:;"class="closepub_reconfirmationflo"><svg class="icon"aria-hidden="true"><use xlink:href="#iconclose"></use></svg></a>')
-		}else{
-			this.thisdom.find(".closepub_reconfirmationflo").remove()
 		}
 		if(isString(this.con)){
 			this.thisdom.find(".pubreconflo_boxc").html('<div class="pubreconflo_boxtext">'+this.con+'</div>');	

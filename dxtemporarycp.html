@@ -53,18 +53,33 @@
 				</div>
 			</div>
 		</div>
+		<div class="blockingclicksflo"></div>
 	</body>
 	<script src="js/jquery.js"></script>
 	<script src="js/public.js"></script>
 	<script>
 		landpubfloObj.init("1");////登陆1  未登录0
+		var Usermsg = {
+			realname:"1"//实名
+		}
+		var dxtemporarycpclick = true;
 		function increaseproductionsend(fn){//提升产量
+			if(!dxtemporarycpclick){
+				return false;
+			}
+			dxtemporarycpclick = false;
+			$(".blockingclicksflo").show();
 			console.log(dxtemporarycpfn.num);//提升产量使用8颗星的类型
-			// $(".fakeloaderbox").fadeIn();
+			//成功
+			operationSucedobj.init("提交成功",function(){
+				window.location = "dxtemporarycp.html"
+				// $(".blockingclicksflo").hide();
+			})
+			dxtemporarycpclick = true;
 			//失败
-	//		$(".fakeloaderbox").fadeOut(function(){
-	//			operationFailedobj.init("操作失败原因");
-	//		});
+			// operationFailedobj.init("失败原因")
+			// dxtemporarycpclick = true;
+			//$(".blockingclicksflo").hide();
 		}
 
 		$(function(){
@@ -110,7 +125,30 @@
 					if(!_this.btnd){
 						return false
 					}
-					increaseproductionsend();
+					if(Usermsg.realname!="1"){
+						confirmmsgflo.init({
+							"wobj":$(".mbdivcon"),
+							"con":'您还未完成实名认证，不能进行本操作',
+							"oktext":"立即认证",
+							"okfn":function(){
+								window.location = "entrance.html"
+							},
+							"cancelfn":function(){
+								this.thisdom.fadeOut()
+							}
+						})
+					}else{
+						confirmmsgflo.init({
+							"wobj":$(".mbdivcon"),
+							"con":'是否确认使用德星提升临时算力？',
+							"oktext":"确认提升",
+							"okfn":function(){
+								increaseproductionsend();
+								this.thisdom.fadeOut()
+							}
+						})
+						
+					}
 				})
 
 			},
