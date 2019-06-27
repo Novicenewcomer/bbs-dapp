@@ -59,21 +59,21 @@
 						</div>
 						<div class="buyadp_myconbox">
 							<p class="buyadp_adtit">我的出价</p>
-							<ul>
+							<ul class="buyadp_myconlist">
 								<li>
 									<p class="time">2019/02/28 17:28:17</p>
 									<p class="m"><strong>12082</strong> YL</p>
-									<a class="xgbtn" href="javascript:;">修改出价</a>
+									<a class="xgbtn" href="javascript:;">加价</a>
 								</li>
 								<li>
 									<p class="time">2019/02/28 17:28:17</p>
 									<p class="m"><strong>12082</strong> YL</p>
-									<a class="xgbtn" href="javascript:;">修改出价</a>
+									<a class="xgbtn" href="javascript:;">加价</a>
 								</li>
 								<li>
 									<p class="time">2019/02/28 17:28:17</p>
 									<p class="m"><strong>12082</strong> YL</p>
-									<a class="xgbtn" href="javascript:;">修改出价</a>
+									<a class="xgbtn" href="javascript:;">加价</a>
 								</li>
 							</ul>
 						</div>
@@ -116,14 +116,14 @@
 								<li>
 									<div class="c">
 										<p class="p1">Step 2</p>
-										<p class="p2">支付保证金</p>
+										<p class="p2">出价竞拍</p>
 									</div>
 									<span class="rightjt"><svg class="icon" aria-hidden="true"><use xlink:href="#iconright"></use></svg></span>
 								</li>
 								<li>
 									<div class="c">
 										<p class="p1">Step 3</p>
-										<p class="p2">出价竞拍</p>
+										<p class="p2">修改竞价</p>
 									</div>
 									<span class="rightjt"><svg class="icon" aria-hidden="true"><use xlink:href="#iconright"></use></svg></span>
 								</li>
@@ -135,21 +135,70 @@
 								</li>
 							</ul>
 						</div>
-						<div class="buyadp_bottombox buyadp_bottombox_ing">
-							<a class="yellowbtn" href="javascritpt:;">我要出价</a>
+						
+					</div>
+				</div>
+				<div class="auctionofferflo">
+					<div class="auctionofferfw">
+						<a href="javascript:;" class="closeauctionofferflo"><svg class="icon" aria-hidden="true"><use xlink:href="#iconclose"></use></svg></a>
+						<p class="tit">最新出价</p>
+						<p class="latestbidsnum"><strong></strong> YL</p>
+						<p class="mylatestbidst">我的出价</p>
+						<div class="auctionofferflo_conb">
+							<div class="btn lessbtn disable"><span>-</span><span>-</span></div>
+							<div class="numinputb">
+								<input type="text" class="numinput" value="" placeholder="0">
+							</div>
+							<div class="btn plusbtn disable"><span>+</span><span>+</span></div>
+						</div>
+						<p class="auctionofferflotip">每次出价调整为10的倍数</p>
+						<div class="auctionofferflo_b">
+							<a href="javascript:;" class="auctionofferflo_btn graybtn">确定</a>
 						</div>
 					</div>
 				</div>
+				<div class="reauctionofferflo">
+					<div class="reauctionofferfw">
+						<a href="javascript:;" class="closereauctionofferflo"><svg class="icon" aria-hidden="true"><use xlink:href="#iconclose"></use></svg></a>
+						<p class="tit">我的出价</p>
+						<p class="latestbidsnum"><strong></strong> YL</p>
+						<p class="mylatestbidst">我要加价</p>
+						<div class="reauctionofferflo_conb">
+							<div class="btn lessbtn disable"><span>-</span><span>-</span></div>
+							<div class="numinputb">
+								<input type="text" class="numinput" value="" placeholder="0">
+							</div>
+							<div class="btn plusbtn disable"><span>+</span><span>+</span></div>
+						</div>
+						<p class="reauctionofferflotip">每次出价调整为10的倍数</p>
+						<div class="reauctionofferflo_b">
+							<a href="javascript:;" class="reauctionofferflo_btn graybtn">确定</a>
+						</div>
+					</div>
+				</div>
+				<div class="buyadp_bottombox buyadp_bottombox_ing">
+					<a class="yellowbtn" href="javascritpt:;">我要出价</a>
+				</div>
 			</div>
 		</div>
+		<div class="blockingclicksflo"></div>
 	</body>
 	<script src="js/jquery.js"></script>
 	<script src="js/public.js"></script>
 	<script>
 		landpubfloObj.init("1");////登陆1  未登录0
 		var Usermsg = {
-			realname:"0"//实名
+			realname:"1",//实名
+			cjnum:6//已出价个数
 		}
+		//获取最新价
+		function getnewdata(){
+			var data ={
+				newnum:"13120"
+			}
+			auctionofferObj.show(data);
+		}
+		
 		$(".buyadp_bottombox_ing").on("click",function(){
 			if(Usermsg.realname!="1"){
 				confirmmsgflo.init({
@@ -163,8 +212,29 @@
 						this.thisdom.fadeOut()
 					}
 				})
-			}else{//领树
-				alert(1)
+			}else if(Usermsg.cjnum>=10){
+				errorprompt.show("最多出价10次")
+			}else{
+				getnewdata()
+			}
+		})
+		$(".buyadp_myconlist").on("click",".xgbtn",function(){
+			if(Usermsg.realname!="1"){
+				confirmmsgflo.init({
+					"wobj":$(".mbdivcon"),
+					"con":'您还未完成实名认证，不能进行本操作',
+					"oktext":"立即认证",
+					"okfn":function(){
+						window.location = "entrance.html"
+					},
+					"cancelfn":function(){
+						this.thisdom.fadeOut()
+					}
+				})
+			}else{
+				reauctionofferObj.show({
+					newnum:$(this).parents("li").find(".m strong").html()
+				});
 			}
 		})
 		//底部导航
@@ -176,7 +246,8 @@
 					pagebottomnav.init({container:othis,type:"jy"});
 					pagebottomnav.thisdom.load("pagebottomnav.html",function(){
 						pagebottomnav.showbox();
-						$(".scrollw_con").css("padding-bottom",parseFloat(pagebottomnav.thisdom.css("height")))
+						$(".scrollw_con").css("padding-bottom",parseFloat(pagebottomnav.thisdom.css("height"))+$(".buyadp_bottombox_ing").outerHeight())
+						$(".buyadp_bottombox_ing").css("bottom",parseFloat(pagebottomnav.thisdom.css("height")))
 						thisobj.endfn();
 						linkOpenpage.readpage();
 					})
@@ -184,7 +255,45 @@
 			})
 		};
 		$(function(){
-			resetImg.imgload($(".buyadp_adshowbox img"));
+			//出价
+			var auctionofferclick = true;
+			auctionofferObj.auctionofferfn = function(){
+				var _this = this;
+				if(!auctionofferclick){
+					return false;
+				}
+				auctionofferclick = false;
+				$(".blockingclicksflo").show();
+				console.log(_this.anum)
+				//成功
+				operationSucedobj.init("成功出价",function(){
+					window.location = "buyadpacksing.html"
+				})
+				
+				//失败
+				// operationFailedobj.init("失败原因")//您的出价价格低于当前竞拍最新出价
+				// auctionofferclick = true;
+				// $(".blockingclicksflo").hide();
+			}
+			//加价
+			var reauctionofferclick = true;
+			reauctionofferObj.auctionofferfn = function(){
+				var _this = this;
+				if(!reauctionofferclick){
+					return false;
+				}
+				reauctionofferclick = false;
+				$(".blockingclicksflo").show();
+				console.log(_this.anum)
+				//成功
+				operationSucedobj.init("成功加价",function(){
+					window.location = "buyadpacksing.html"
+				})
+				//失败
+				// operationFailedobj.init("失败原因")//您的出价价格低于当前竞拍最新出价
+				// reauctionofferclick = true;
+				// $(".blockingclicksflo").hide();
+			}
 			var ingtime = new Countdown();
 			ingtime.init({
 				s:153685,
@@ -195,10 +304,211 @@
 					window.location = "buyadpacksend.html"
 				}
 			});
+			
+			resetImg.imgload($(".buyadp_adshowbox img"));
+			auctionofferObj.init();
+			reauctionofferObj.init()
 		})
 		linkOpenpage.readpage({
 			pagearr:["pagebottomnav"],
 			othis:$(".mbdivcon")
 		});
+		var auctionofferObj = {
+			thisibox:$(".auctionofferflo_conb"),
+			btncolor:true,
+			max:100000000000000,
+			min:0,
+			anum:0,
+			init:function(){
+				var _this = this;
+				$(".auctionofferflo").bind('contextmenu', function(e) {
+					e.preventDefault();
+				});
+				
+				$(".closeauctionofferflo").on("click",function(){
+					$(".auctionofferflo").fadeOut()
+				})
+				_this.plusbtn = _this.thisibox.find(".plusbtn");
+				_this.lessbtn = _this.thisibox.find(".lessbtn");
+				_this.iiput= _this.thisibox.find(".numinput")
+				
+				var g_n = 0;
+				_this.plusbtn.on("click",function(){
+					g_n = calculationObj.mul(Math.floor(calculationObj.div(_this.iiput.val(),10)),10)
+					_this.changenum($(this),_this.lessbtn,_this.max,_this.min,calculationObj.add(g_n,10));
+					_this.iiput.val(_this.anum);
+				});
+				_this.plusbtn.longPress(function(){
+					g_n = calculationObj.mul(Math.floor(calculationObj.div(_this.iiput.val(),10)),10)
+					_this.changenum(_this.plusbtn,_this.lessbtn,_this.max,_this.min,calculationObj.add(g_n,10));
+					_this.iiput.val(_this.anum);
+				});
+				_this.lessbtn.on("click",function(){
+					g_n = calculationObj.mul(Math.ceil(calculationObj.div(_this.iiput.val(),10)),10)
+					_this.changenum($(this),_this.lessbtn,_this.max,_this.min,calculationObj.sub(g_n,10));
+					_this.iiput.val(_this.anum);
+				});
+				_this.lessbtn.longPress(function(){
+					g_n = calculationObj.mul(Math.ceil(calculationObj.div(_this.iiput.val(),10)),10)
+					_this.changenum(_this.plusbtn,_this.lessbtn,_this.max,_this.min,calculationObj.sub(g_n,10));
+					_this.iiput.val(_this.anum);
+				});
+				_this.iiput.on("focus",function(){
+					if(_this.anum<10){
+						$(this).val("")
+					}
+				})
+				_this.iiput.on("blur",function(){
+					if(_this.anum<10){
+						$(this).val("0")
+					}
+				})
+				_this.iiput.on("input propertychange",function(){
+					if(!isNumber($(this).val()*1)||!decimalNumber($(this).val(),0)){
+						$(this).val(_this.anum);
+						return;
+					}
+					_this.changenum(_this.plusbtn,_this.lessbtn,_this.max,_this.min,~~$(this).val());
+				})
+				$(".auctionofferflo_btn").on("click",function(){
+					if(!_this.btncolor){
+						return false
+					}
+					_this.auctionofferfn();
+				})
+			},
+			show:function(data){
+				$(".auctionofferflo").fadeIn();
+				$(".auctionofferflo .latestbidsnum strong").html(data.newnum);
+				this.anum = data.newnum;
+				this.min = data.newnum;
+				this.iiput.val(this.anum);
+				this.changenum(this.plusbtn,this.lessbtn,this.max,this.min,this.iiput.val()*1);
+				
+			},
+			changenum:function(jiabtn,jianbtn,maxnum,minnum,num){
+				if(num<=maxnum&&num>=minnum){
+					jianbtn.removeClass("disable");
+					jiabtn.removeClass("disable");
+					this.anum = num*1;
+				}
+				if(num>=maxnum){
+					this.anum = maxnum;
+					jiabtn.addClass("disable");
+				}
+				if(num<=minnum){
+					this.anum = minnum;
+					jianbtn.addClass("disable");
+				}
+				this.readchoicenum()
+			},
+			readchoicenum:function(){
+				if(this.anum>=this.min&&this.anum % 10 == 0){
+					$(".auctionofferflo_btn").addClass("yellowbtn").removeClass("graybtn");
+					this.btncolor = true;
+				}else{
+					$(".auctionofferflo_btn").addClass("graybtn").removeClass("yellowbtn");
+					this.btncolor = false;
+				}
+			}
+		}
+		var reauctionofferObj = {
+			thisibox:$(".reauctionofferflo_conb"),
+			btncolor:true,
+			max:100000000000000,
+			min:0,
+			anum:0,
+			init:function(){
+				var _this = this;
+				$(".reauctionofferflo").bind('contextmenu', function(e) {
+					e.preventDefault();
+				});
+				
+				$(".closereauctionofferflo").on("click",function(){
+					$(".reauctionofferflo").fadeOut()
+				})
+				_this.plusbtn = _this.thisibox.find(".plusbtn");
+				_this.lessbtn = _this.thisibox.find(".lessbtn");
+				_this.iiput= _this.thisibox.find(".numinput")
+				
+				var g_n = 0;
+				_this.plusbtn.on("click",function(){
+					g_n = calculationObj.mul(Math.floor(calculationObj.div(_this.iiput.val(),10)),10)
+					_this.changenum($(this),_this.lessbtn,_this.max,_this.min,calculationObj.add(g_n,10));
+					_this.iiput.val(_this.anum);
+				});
+				_this.plusbtn.longPress(function(){
+					g_n = calculationObj.mul(Math.floor(calculationObj.div(_this.iiput.val(),10)),10)
+					_this.changenum(_this.plusbtn,_this.lessbtn,_this.max,_this.min,calculationObj.add(g_n,10));
+					_this.iiput.val(_this.anum);
+				});
+				_this.lessbtn.on("click",function(){
+					g_n = calculationObj.mul(Math.ceil(calculationObj.div(_this.iiput.val(),10)),10)
+					_this.changenum($(this),_this.lessbtn,_this.max,_this.min,calculationObj.sub(g_n,10));
+					_this.iiput.val(_this.anum);
+				});
+				_this.lessbtn.longPress(function(){
+					g_n = calculationObj.mul(Math.ceil(calculationObj.div(_this.iiput.val(),10)),10)
+					_this.changenum(_this.plusbtn,_this.lessbtn,_this.max,_this.min,calculationObj.sub(g_n,10));
+					_this.iiput.val(_this.anum);
+				});
+				_this.iiput.on("focus",function(){
+					if(_this.anum<10){
+						$(this).val("")
+					}
+				})
+				_this.iiput.on("blur",function(){
+					if(_this.anum<10){
+						$(this).val("0")
+					}
+				})
+				_this.iiput.on("input propertychange",function(){
+					if(!isNumber($(this).val()*1)||!decimalNumber($(this).val(),0)){
+						$(this).val(_this.anum);
+						return;
+					}
+					_this.changenum(_this.plusbtn,_this.lessbtn,_this.max,_this.min,~~$(this).val());
+				})
+				$(".reauctionofferflo_btn").on("click",function(){
+					if(!_this.btncolor){
+						return false
+					}
+					_this.auctionofferfn();
+				})
+			},
+			show:function(data){
+				$(".reauctionofferflo").fadeIn();
+				$(".reauctionofferflo .latestbidsnum strong").html(data.newnum);
+				this.anum = data.newnum;
+				this.iiput.val("10");
+				this.changenum(this.plusbtn,this.lessbtn,this.max,this.min,this.iiput.val()*1);
+			},
+			changenum:function(jiabtn,jianbtn,maxnum,minnum,num){
+				if(num<=maxnum&&num>=minnum){
+					jianbtn.removeClass("disable");
+					jiabtn.removeClass("disable");
+					this.anum = num*1;
+				}
+				if(num>=maxnum){
+					this.anum = maxnum;
+					jiabtn.addClass("disable");
+				}
+				if(num<=minnum){
+					this.anum = minnum;
+					jianbtn.addClass("disable");
+				}
+				this.readchoicenum()
+			},
+			readchoicenum:function(){
+				
+				if(this.anum>0&&this.anum % 10 == 0){
+					$(".reauctionofferflo_btn").addClass("yellowbtn").removeClass("graybtn");
+					this.btncolor = true;
+				}else{
+					$(".reauctionofferflo_btn").addClass("graybtn").removeClass("yellowbtn");
+					this.btncolor = false;
+				}
+			}
+		}
 	</script>
 </html>

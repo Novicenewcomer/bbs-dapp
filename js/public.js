@@ -296,6 +296,16 @@ function flooldecimal(num,n){
 function isString(obj){
   return Object.prototype.toString.call(obj) === "[object String]";
 }
+if ((/Android/gi).test(navigator.userAgent)) {
+	window.addEventListener('resize', function () {
+		if (document.activeElement.tagName == 'INPUT' || 
+			document.activeElement.tagName == 'TEXTAREA') {
+			window.setTimeout(function () {
+				document.activeElement.scrollIntoViewIfNeeded();
+			}, 0);
+		}
+	});
+}
 var calculationObj ={
 	add:function(a, b) {
 	    var c, d, e;

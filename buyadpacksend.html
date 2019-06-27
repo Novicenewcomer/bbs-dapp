@@ -78,10 +78,10 @@
 								</li>
 							</ul>
 						</div>
-						<div class="buyadp_adtimebox buyadp_adtimebox_paytime"><p></p></div>
+						<!-- <div class="buyadp_adtimebox buyadp_adtimebox_paytime"><p></p></div>
 						<div class="buyadp_bottombox buyadp_bottombox_end">
 							<a class="yellowbtn" href="javascritpt:;">支付尾款 26089YL</a>
-						</div>
+						</div> -->
 						<div class="buyadp_historyjlconbox">
 							<p class="buyadp_adtit">本期竞价历史记录</p>
 							<ul>
@@ -121,14 +121,14 @@
 								<li>
 									<div class="c">
 										<p class="p1">Step 2</p>
-										<p class="p2">支付保证金</p>
+										<p class="p2">出价竞拍</p>
 									</div>
 									<span class="rightjt"><svg class="icon" aria-hidden="true"><use xlink:href="#iconright"></use></svg></span>
 								</li>
 								<li>
 									<div class="c">
 										<p class="p1">Step 3</p>
-										<p class="p2">出价竞拍</p>
+										<p class="p2">修改竞价</p>
 									</div>
 									<span class="rightjt"><svg class="icon" aria-hidden="true"><use xlink:href="#iconright"></use></svg></span>
 								</li>
@@ -177,16 +177,16 @@
 					window.location = "buyadpacksing.html"
 				}
 			});
-			var paytime = new Countdown();
-			paytime.init({
-				s:12323,
-				fn:function(data){
-					$(".buyadp_adtimebox_paytime p").html('尾款支付剩余：<strong>'+data.d+'</strong>天<strong>'+data.h+'</strong>时<strong>'+data.m+'</strong>分<strong>'+data.s+'</strong>秒')
-				},
-				endfn:function(){
-					alert("未付尾款")
-				}
-			});
+			// var paytime = new Countdown();
+			// paytime.init({
+			// 	s:12323,
+			// 	fn:function(data){
+			// 		$(".buyadp_adtimebox_paytime p").html('尾款支付剩余：<strong>'+data.d+'</strong>天<strong>'+data.h+'</strong>时<strong>'+data.m+'</strong>分<strong>'+data.s+'</strong>秒')
+			// 	},
+			// 	endfn:function(){
+			// 		alert("未付尾款")
+			// 	}
+			// });
 			
 		})
 		linkOpenpage.readpage({

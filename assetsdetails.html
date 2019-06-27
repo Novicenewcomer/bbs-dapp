@@ -92,11 +92,15 @@
 						<a href="javascript:;" class="closezcupperchainflo"><svg class="icon" aria-hidden="true"><use xlink:href="#iconclose"></use></svg></a>
 						<p class="tit">同步资产上链 </p>
 						<div class="zcupperchainflo_c">
-							<input type="text" value="" id="zcsl_secretnum" placeholder="请输入钱包密码">
+							<input type="password" value="" id="zcsl_secretnum" placeholder="请输入钱包密码">
+							<input type="text" value="" id="zcsl_secretnumopen" placeholder="请输入钱包密码">
 							<a href="javascript:;" class="zcsl_secreteyebtn">
 								<span><svg class="icon" aria-hidden="true"><use xlink:href="#iconyanjing-bi"></use></svg></span>
 								<span><svg class="icon" aria-hidden="true"><use xlink:href="#iconyanjing"></use></svg></span>
 							</a>
+						</div>
+						<div class="zcupperchainflo_b">
+							<a class="graybtn zcupperchainflo_btn" href="javascript:;">确定</a>
 						</div>
 					</div>
 				</div>
@@ -125,7 +129,7 @@
 					}
 				})
 			}else{
-				
+				$(".zcupperchainflo").fadeIn()
 			}
 		})
 		$(".assetsxqb_zr").on("click",function(){
@@ -183,9 +187,28 @@
 					}
 				})
 			}
+			var cupperchainclick = true;
+			assetsdetailsObj.cupperchainfn = function(){//上链
+				var _this = this;
+				if(!cupperchainclick){
+					return false;
+				}
+				cupperchainclick = false;
+				console.log($("#zcsl_secretnum").val())
+				
+				//成功
+				operationSucedobj.init("上链成功")
+				cupperchainclick = true;
+				$(".zcupperchainflo").fadeOut()
+				_this.resetslflo();
+				//失败
+				// operationFailedobj.init("失败原因")
+				// cupperchainclick = true;
+			}
 			assetsdetailsObj.init();
 		})
 		var assetsdetailsObj = {
+			btnd:true,
 			listmove:true,
 			pagenum:1,
 			init:function(opt){
@@ -200,6 +223,45 @@
 		                };
 		            }
 		        });
+				$("#zcsl_secretnum").on("input propertychange",function(){
+					$("#zcsl_secretnumopen").val($(this).val())
+					_this.readbtn()
+				})
+				$("#zcsl_secretnumopen").on("input propertychange",function(){
+					$("#zcsl_secretnum").val($(this).val())
+					_this.readbtn()
+				})
+				$(".closezcupperchainflo").on("click",function(){
+					$(".zcupperchainflo").fadeOut()
+				})
+				$(".zcsl_secreteyebtn").on("click",function(){
+					if($(".zcupperchainflo_c").hasClass("zcupperchainflo_copen")){
+						$(".zcupperchainflo_c").removeClass("zcupperchainflo_copen")
+					}else{
+						$(".zcupperchainflo_c").addClass("zcupperchainflo_copen")
+					}
+				})
+				$(".zcupperchainflo_btn").on("click",function(){
+					if(!_this.btnd){
+						return false;
+					}
+					_this.cupperchainfn();
+				})
+			},
+			resetslflo:function(){
+				$("#zcsl_secretnum").val("");
+				$("#zcsl_secretnumopen").val("");
+				this.readbtn()
+			},
+			readbtn:function(){
+				var secretnum = $("#zcsl_secretnum").val().replace(/(^\s*)|(\s*$)/g, '');
+				this.btnd = false;
+				if (secretnum == '' || secretnum == undefined || secretnum == null) {
+					$(".zcupperchainflo_btn").addClass("graybtn").removeClass("yellowbtn");
+					return false;
+				}
+				this.btnd = true;
+				$(".zcupperchainflo_btn").addClass("yellowbtn").removeClass("graybtn");
 			}
 		}
 	</script>
